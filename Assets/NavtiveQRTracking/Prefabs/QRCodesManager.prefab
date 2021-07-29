@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2079062873306329133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab2f5e2f7e55e6c4db3da309ff799c5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6df9c4b87b9cce047bf0f885cf16e096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AutoStartQRTracking: 1
@@ -54,8 +54,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2079062873306329133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c011a6cf24698544bfd05b3bb6c96da, type: 3}
+  m_Script: {fileID: 11500000, guid: 621e9d235a26e3244a1dae8afcdce770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qrCodePrefab: {fileID: 1200717071578424, guid: c1ee661b6abcfb94a99177d12a3255ef,
-    type: 3}
+  qrCodePrefab: {fileID: 1200717071578424, guid: 7d9d8b3698dc72a4fb654f0f70102bb0, type: 3}
