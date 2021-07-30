@@ -11,12 +11,13 @@ public class QRAnchorPlacer : MonoBehaviour
 {
 
     private const int WhatIsAnchorEvent = 01;
-    private const int AnchorTagReply = 01;
+    private const int AnchorTagReply = 02;
     private const int AnchorTagTimeoutInSeconds = 1; //change to 30 in deploy
 
     private Timer _anchorTimeoutTimer;
 
     public QRCodesManager QrCodeManagerGameObject;
+    public GameObject InstructionsPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +39,14 @@ public class QRAnchorPlacer : MonoBehaviour
             throw new System.NotImplementedException();
         }
         Debug.Log("Starting QR Tracking");
-        QrCodeManagerGameObject.StartQRTracking();
+        //QrCodeManagerGameObject.StartQRTracking();
 
+        //Instantiate the local prefab with instructions to find the QR code
+        Instantiate(InstructionsPrefab);
         //Add the anchor placer on click script (hell I need better comments)
+        //TODO: Handle placing anchor once target is found and deleting the InstructionsPrefab
         gameObject.AddComponent<TapToSetAnchor>();
-        //TODO: Handle placing anchor once target is found
+        
     }
 
     public void OnEvent(EventData photonEvent)
