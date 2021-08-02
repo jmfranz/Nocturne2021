@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Nocture2021/Scenes/SyncedCube.unity
-    guid: d68463a34bfc9f74e9b4e93a92a25c39
+    path: Assets/Nocture2021/Scenes/ARAnchor.unity
+    guid: 45524280c2f0742469b6e3082ac89c9b
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: dba28c09b76bc6940a1da1745e473f35, type: 2}
