@@ -1,21 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
 using ExitGames.Client.Photon;
-using Newtonsoft.Json.Bson;
 using Photon.Pun;
 using Photon.Realtime;
 using QRTracking;
 using UnityEngine;
 
-public class QRAnchorPlacer : MonoBehaviour
+public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
 {
 
     private const int WhatIsAnchorEvent = 01;
     private const int AnchorTagReply = 02;
-    private const int AnchorTagTimeoutInSeconds = 10; //change to 10 in deploy
-    
+
+#if UNITY_EDITOR
+    //We don't need to wait forever in the editor do we?
+    private const int AnchorTagTimeoutInSeconds = 1;
+#else
+    private const int AnchorTagTimeoutInSeconds = 5;
+#endif
+
     private bool _hasReceivedAnchorReply = false;
+    private bool _tapToSetInstantiatedOnce = false;
     private float _timeSinceStart = 0;
 
     public QRCodesManager QrCodeManagerGameObject;
@@ -29,37 +32,26 @@ public class QRAnchorPlacer : MonoBehaviour
         {
             PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
         }
-
-        //TODO: DELETE THIS. IS HERE FOR REFERENCE.
-        //Start reply timer BUT unity doesn't not support MT... we have to implement our own
-        //_anchorTimeoutTimer = new Timer(AnchorTagTimeoutInSeconds * 1000);
-        //_anchorTimeoutTimer.Elapsed += NoAnchorTagReplyEvent;
-        //_anchorTimeoutTimer.AutoReset = false;
-        //_anchorTimeoutTimer.Start();
        
-        
     }
 
     public void FixedUpdate()
     {
         //If we already have a TAG from the network, there is nothing to do here.
-        //REFACTORING Option: Move this into an event based (non-MT) code to free the fixed update
-        if (_hasReceivedAnchorReply)
+        if (_hasReceivedAnchorReply || _tapToSetInstantiatedOnce)
         {
             return;
         }
         //Let our "timer" run up waiting for a response
+        //REFACTORING Option: Move this into an event based (non-MT) code to free the fixed update
+        //OR event better: create a timer script, destroy it once it elapses ;)
         if (_timeSinceStart < AnchorTagTimeoutInSeconds)
         {
             _timeSinceStart += Time.deltaTime;
             return;
         }
-        //Check if we have already added the TapToSetAnchor or not.
-        if (gameObject.GetComponent<TapToSetAnchor>() == null)
-        {
-            NoAnchorTagReplyEvent();
-           
-        }
+        
+        NoAnchorTagReplyEvent();
            
     }
 
@@ -75,9 +67,10 @@ public class QRAnchorPlacer : MonoBehaviour
         //Instantiate the local prefab with instructions to find the QR code
         Instantiate(InstructionsPrefab);
         //Add the anchor placer on click script (hell I need better comments)
-        //TODO: Handle placing anchor once target is found and deleting the InstructionsPrefab
+        //TODO: Handle placing anchor once target is found
         gameObject.AddComponent<TapToSetAnchor>();
-        
+        _tapToSetInstantiatedOnce = true;
+
     }
 
     public void OnEvent(EventData photonEvent)

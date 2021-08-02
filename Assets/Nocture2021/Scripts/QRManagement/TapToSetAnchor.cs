@@ -37,6 +37,13 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         //Do Nothing
     }
 
+    /// <summary>
+    /// Once the user clicks the reference object, which will anchor the play space, gets instantiated
+    /// on the location of the QR code.
+    ///
+    /// We don't care (at least for now) what is the QR code as we assume there will be only one in sight.
+    /// </summary>
+    /// <param name="eventData">Event data from the pointer interaction. Not used in this method</param>
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
         var QRCode = GameObject.Find("QRCode");
@@ -45,7 +52,21 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
             return;
         }
 
+        //TODO: for now we are instantiating a cube. It should be an empty game object to work as the ASA
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = QRCode.transform.position;
+        cube.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+        //TODO: call the ASA tag registry script @Shannon
+
+        //Remove the text on the screen
+        var text = GameObject.Find("No TAG Text(Clone)");
+        if (text != null)
+        {
+            Destroy(text);
+        }
+
+        //Get rid of this script (we already placed the anchor)
+        Destroy(this);
+
     }
 }
