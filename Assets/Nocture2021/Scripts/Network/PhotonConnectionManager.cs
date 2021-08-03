@@ -8,7 +8,6 @@ using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 {
-
     private string gameVersion = "0";
 
     //This will probably be 3 -> master + 2 HL
