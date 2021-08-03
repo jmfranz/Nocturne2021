@@ -62,7 +62,7 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
             throw new System.NotImplementedException();
         }
         Debug.Log("Starting QR Tracking");
-        //QrCodeManagerGameObject.StartQRTracking();
+        QrCodeManagerGameObject.StartQRTracking();
 
         //Instantiate the local prefab with instructions to find the QR code
         Instantiate(InstructionsPrefab);
