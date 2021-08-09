@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Input;
+using QRTracking;
 using UnityEngine;
 
 public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
@@ -46,7 +47,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
     /// <param name="eventData">Event data from the pointer interaction. Not used in this method</param>
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
-        var QRCode = GameObject.Find("QRCode");
+        var QRCode = GameObject.FindGameObjectWithTag("QRTag");
         if (QRCode == null)
         {
             return;
@@ -55,6 +56,10 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         //TODO: for now we are instantiating a cube. It should be an empty game object to work as the ASA
         var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        cube.transform.position = QRCode.transform.position;
+        //We might want to ignore one of the QR code axis (plane parallel to the ground)
+        //as we did with he museum stuff
+        cube.transform.rotation = QRCode.transform.rotation;
 
         //TODO: call the ASA tag registry script @Shannon
 
@@ -64,6 +69,13 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         {
             Destroy(text);
         }
+
+        //Destroy the QR Code
+        Destroy(QRCode);
+
+        //Disable the "scanner"
+        var qrManager = GameObject.Find("QRCodesManager").GetComponent<QRCodesManager>();
+        qrManager.StopQRTracking();
 
         //Get rid of this script (we already placed the anchor)
         Destroy(this);
