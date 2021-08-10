@@ -15,7 +15,7 @@ using Microsoft.Azure.SpatialAnchors.Unity;
 using Windows.Storage;
 #endif
 
-
+[RequireComponent(typeof(SpatialAnchorManager))]
 public class AnchorScriptManager : MonoBehaviour
 {
 
@@ -34,18 +34,10 @@ public class AnchorScriptManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        // Get a reference to the SpatialAnchorManager component (must be on the same gameobject)
+        // Get a reference to the SpatialAnchorManager component 
         spatialAnchorManager = GetComponent<SpatialAnchorManager>();
 
         anchorLocateCriteria = new AnchorLocateCriteria();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     /*
@@ -164,6 +156,11 @@ public class AnchorScriptManager : MonoBehaviour
             Debug.Log("Attempt to create watcher failed, no session exists");
             currentWatcher = null;
         }
+    }
+
+    public void GetSpatialAnchor()
+    {
+        //get the current spatial anchor
     }
 
     public string Get_ASA_SessionID()
