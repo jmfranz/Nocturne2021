@@ -5,11 +5,11 @@ using Photon.Realtime;
 using QRTracking;
 using UnityEngine;
 
-public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
+public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback
 {
 
-    private const int WhatIsAnchorEvent = 01;
-    private const int AnchorTagReply = 02;
+    public static byte WhatIsAnchorEvent = 01;
+    public static byte AnchorTagReply = 02;
 
 #if UNITY_EDITOR
     //We don't need to wait forever in the editor do we?
@@ -29,12 +29,12 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
     // Start is called before the first frame update
     void Start()
     {
-        
+
         ////Raise what is the Anchor tag event
-        //if (PhotonNetwork.IsConnectedAndReady)
-        //{
-        //    PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
-        //}
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
+        }
 
 
     }
@@ -92,8 +92,22 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
         if (photonEvent.Code == AnchorTagReply)
         {
             _hasReceivedAnchorReply = true;
-            //Set the tag and trigger the anchor recall from the Anchor Store on Azure
-            //TODO: comment above
+            var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
+            if (anchorModuleScript == null)
+            {
+                throw new System.NotSupportedException("could not find the anchor module script");
+            }
+            anchorModuleScript.StartAzureSession();
+
+            var tag = (string)photonEvent.CustomData;
+            if (string.IsNullOrEmpty(tag))
+            {
+                //throw new Exception("Oh no! anyway...");
+                throw new Exception("Received an invalid tag from the network, cannot query Azure");
+            }
+
+            anchorModuleScript.FindAzureAnchor(tag);
+
         }
         
     }

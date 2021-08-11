@@ -66,9 +66,17 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
 
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
         anchorModule.CreateAzureAnchor(ParentAnchor);
+        
+        //I really don't like searching objects by name....
+        //Maybe move the anchor store to the same GO and use require component instead
+        var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
+        if (anchorStore != null)
+        {
+            anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
+        }
 
-       
         //Remove the text on the screen
+        //TODO: move text creation to this script so we don't have to search for it... ugh...
         var text = GameObject.Find("No TAG Text(Clone)");
         if (text != null)
         {
