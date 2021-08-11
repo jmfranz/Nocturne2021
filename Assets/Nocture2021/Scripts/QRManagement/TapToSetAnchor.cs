@@ -65,15 +65,9 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         ParentAnchor.transform.rotation = QRCode.transform.rotation;
 
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
         anchorModule.CreateAzureAnchor(ParentAnchor);
-        
-        //I really don't like searching objects by name....
-        //Maybe move the anchor store to the same GO and use require component instead
-        var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
-        if (anchorStore != null)
-        {
-            anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
-        }
+
 
         //Remove the text on the screen
         //TODO: move text creation to this script so we don't have to search for it... ugh...
@@ -93,5 +87,18 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         //Get rid of this script (we already placed the anchor)
         Destroy(this);
 
+    }
+
+    private void AnchorCreatedOnAzure()
+    {
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        //I really don't like searching objects by name....
+        //Maybe move the anchor store to the same GO and use require component instead
+        var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
+        if (anchorStore != null)
+        {
+            Debug.Log("Storing new anchor ID into the local anchor store");
+            anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
+        }
     }
 }
