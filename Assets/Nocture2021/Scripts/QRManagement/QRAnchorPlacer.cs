@@ -1,3 +1,4 @@
+using System;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -23,16 +24,19 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
 
     public QRCodesManager QrCodeManagerGameObject;
     public GameObject InstructionsPrefab;
+    public GameObject ParentAnchor;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Raise what is the Anchor tag event
-        if (PhotonNetwork.IsConnectedAndReady)
-        {
-            PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
-        }
-       
+        
+        ////Raise what is the Anchor tag event
+        //if (PhotonNetwork.IsConnectedAndReady)
+        //{
+        //    PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
+        //}
+
+
     }
 
     public void FixedUpdate()
@@ -57,9 +61,17 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
 
     private void NoAnchorTagReplyEvent()
     {
+        //Connect to the azure cloud
+        var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
+        if (anchorModuleScript == null)
+        {
+            throw new System.NotSupportedException("could not find the anchor module script"); 
+        }
+        anchorModuleScript.StartAzureSession();
+
         if (QrCodeManagerGameObject == null)
         {
-            throw new System.NotImplementedException();
+            throw new System.NotSupportedException();
         }
         Debug.Log("Starting QR Tracking");
         QrCodeManagerGameObject.StartQRTracking();
@@ -68,7 +80,8 @@ public class QRAnchorPlacer : MonoBehaviour, IOnEventCallback
         Instantiate(InstructionsPrefab);
         //Add the anchor placer on click script (hell I need better comments)
         //TODO: Handle placing anchor once target is found
-        gameObject.AddComponent<TapToSetAnchor>();
+        var tapScript = gameObject.AddComponent<TapToSetAnchor>();
+        tapScript.ParentAnchor = ParentAnchor;
         _tapToSetInstantiatedOnce = true;
 
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
 {
-
+    public GameObject ParentAnchor;
     public void Start()
     {
         CoreServices.InputSystem?.RegisterHandler<IMixedRealityPointerHandler>(this);
@@ -47,22 +48,26 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
     /// <param name="eventData">Event data from the pointer interaction. Not used in this method</param>
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
+        if (ParentAnchor == null)
+        {
+            throw  new InvalidOperationException("We need the parent anchor to work with azure");
+        }
+
         var QRCode = GameObject.FindGameObjectWithTag("QRTag");
         if (QRCode == null)
         {
             return;
         }
 
-        //TODO: for now we are instantiating a cube. It should be an empty game object to work as the ASA
-        var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        cube.transform.position = QRCode.transform.position;
+        ParentAnchor.transform.position = QRCode.transform.position;
         //We might want to ignore one of the QR code axis (plane parallel to the ground)
         //as we did with he museum stuff
-        cube.transform.rotation = QRCode.transform.rotation;
+        ParentAnchor.transform.rotation = QRCode.transform.rotation;
 
-        //TODO: call the ASA tag registry script @Shannon
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        anchorModule.CreateAzureAnchor(ParentAnchor);
 
+       
         //Remove the text on the screen
         var text = GameObject.Find("No TAG Text(Clone)");
         if (text != null)

@@ -9,5 +9,6 @@ EditorBuildSettings:
     path: Assets/Nocture2021/Scenes/ARAnchor.unity
     guid: 45524280c2f0742469b6e3082ac89c9b
   m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b10e1441decdd7741a43435fe62f47bb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: dba28c09b76bc6940a1da1745e473f35, type: 2}
