@@ -172,12 +172,14 @@ public class AnchorModuleScript : MonoBehaviour
             {
                 Debug.Log($"Azure anchor with ID '{currentCloudAnchor.Identifier}' created successfully");
 
-                // Notify AnchorFeedbackScript
-                OnCreateAnchorSucceeded?.Invoke();
+
 
                 // Update the current Azure anchor ID
                 Debug.Log($"Current Azure anchor ID updated to '{currentCloudAnchor.Identifier}'");
                 currentAzureAnchorID = currentCloudAnchor.Identifier;
+
+                // Notify AnchorFeedbackScript
+                OnCreateAnchorSucceeded?.Invoke();
             }
             else
             {

@@ -13,12 +13,15 @@ using Photon.Realtime;
 /// </summary>
 public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
 {
+    [SerializeField]
     private string _currentAzureTag = string.Empty;
 
     public void OnEvent(EventData photonEvent)
     {
-        if(photonEvent.Code == QRAnchorPlacer.WhatIsAnchorEvent && _currentAzureTag != string.Empty)
+        Debug.Log("event on the store, code: " + photonEvent.Code);
+        if(photonEvent.Code == QRAnchorPlacer.WhatIsAnchorEvent)
         {
+            Debug.Log("Replying to anchor challenge with " + _currentAzureTag);
             //We can only receive events if we are connected. I don't think (oops?) that we need to check
             PhotonNetwork.RaiseEvent(QRAnchorPlacer.AnchorTagReply, _currentAzureTag, RaiseEventOptions.Default,
                 SendOptions.SendReliable);
