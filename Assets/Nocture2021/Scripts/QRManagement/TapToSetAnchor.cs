@@ -60,13 +60,15 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         }
 
         ParentAnchor.transform.position = QRCode.transform.position;
-        //We might want to ignore one of the QR code axis (plane parallel to the ground)
-        //as we did with he museum stuff
-        ParentAnchor.transform.rotation = QRCode.transform.rotation;
+        //Ignore the X and Z rotations to keep the building level :)
+        
+        ParentAnchor.transform.rotation = Quaternion.Euler(0, QRCode.transform.rotation.eulerAngles.y-90, 0);
 
+#if !UNITY_EDITOR
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
         anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
         anchorModule.CreateAzureAnchor(ParentAnchor);
+#endif
 
 
         //Remove the text on the screen
@@ -78,7 +80,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         }
 
         //Destroy the QR Code
-        Destroy(QRCode);
+        //Destroy(QRCode);
 
         //Disable the "scanner"
         var qrManager = GameObject.Find("QRCodesManager").GetComponent<QRCodesManager>();
