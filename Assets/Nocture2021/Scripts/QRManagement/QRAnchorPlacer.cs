@@ -64,14 +64,15 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             _timeSinceStart += Time.deltaTime;
             return;
         }
-#if !UNITY_EDITOR
+
         NoAnchorTagReplyEvent();
-#endif
+
            
     }
 
     private void NoAnchorTagReplyEvent()
     {
+#if !UNITY_EDITOR
         //Connect to the azure cloud
         var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
         if (anchorModuleScript == null)
@@ -79,7 +80,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             throw new System.NotSupportedException("could not find the anchor module script"); 
         }
         anchorModuleScript.StartAzureSession();
-
+#endif
         if (QrCodeManagerGameObject == null)
         {
             throw new System.NotSupportedException();
