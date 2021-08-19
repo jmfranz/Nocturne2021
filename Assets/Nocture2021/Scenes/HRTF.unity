@@ -224,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053986285137871049, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2053986285137871049, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: spatialAnchorsAccountId
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735529180825636083, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
@@ -1029,6 +1029,129 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1090266805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9168498083352123140, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_Name
+      value: TakeOwn
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083352123194, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: iconQuadTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: ea677436af9004848a7f20878e38257c, type: 3}
+    - target: {fileID: 9168498083457755819, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_Name
+      value: UpdateAnchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083457755822, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1505760464}
+    - target: {fileID: 9168498083457755822, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateAzureTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083457755822, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SharedAnchorStore, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674573, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_Name
+      value: SceneManagementHandMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084176979162, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_text
+      value: 'Update
+
+        Anchor'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084263589532, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_text
+      value: 'Remove
+
+        Anchor'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084329000329, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1505760464}
+    - target: {fileID: 9168498084329000329, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClearAzureTag
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084329000329, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SharedAnchorStore, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084329000340, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: iconQuadTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8d0274d8bc6a17844a08b493920d9491, type: 3}
+    - target: {fileID: 9168498084329000342, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_Name
+      value: RemoveAnchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498084734190799, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: m_text
+      value: "Take \nOwnership"
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9168498084734190798, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+    - {fileID: 9168498084774972059, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+    - {fileID: 9168498084263589523, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+    - {fileID: 9168498082983049830, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+    - {fileID: 9168498084176979161, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+    - {fileID: 9168498083579376090, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
 --- !u!1 &1335676608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d16bbec39400e45942bd01fc5a2fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentAnchor: {fileID: 308735550}
   _currentAzureTag: 
 --- !u!1 &1534734501
 GameObject:

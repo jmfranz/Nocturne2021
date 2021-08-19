@@ -13,6 +13,12 @@ using Photon.Realtime;
 /// </summary>
 public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
 {
+    public GameObject ParentAnchor;
+
+    public static byte ClearAnchorEvent = 3;
+    public static byte UpdateToNewAnchorEvent = 4;
+
+
     [SerializeField]
     private string _currentAzureTag = string.Empty;
 
@@ -26,11 +32,59 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
             PhotonNetwork.RaiseEvent(QRAnchorPlacer.AnchorTagReply, _currentAzureTag, RaiseEventOptions.Default,
                 SendOptions.SendReliable);
         }
+        else if (photonEvent.Code == ClearAnchorEvent)
+        {
+            _currentAzureTag = string.Empty;
+#if !UNITY_EDITOR
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        anchorModule.StartAzureSession();
+        anchorModule.RemoveLocalAnchor(ParentAnchor);
+        anchorModule.DeleteAzureAnchor();
+#endif
+        }
+        else if (photonEvent.Code == UpdateToNewAnchorEvent)
+        {
+            var tag = (string)photonEvent.CustomData;
+            if (string.IsNullOrEmpty(tag))
+            {
+                //throw new Exception("Oh no! anyway...");
+                throw new Exception("Received an invalid tag from the network, cannot query Azure");
+            }
+            StoreNewTag(tag);
+#if !UNITY_EDITOR
+            var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+            anchorModule.StartAzureSession();
+            anchorModule.RemoveLocalAnchor(ParentAnchor);
+            anchorModule.FindAzureAnchor(_currentAzureTag);
+#endif
+        }
     }
 
     public void ClearAzureTag()
     {
-        _currentAzureTag = string.Empty;
+        var options = RaiseEventOptions.Default;
+        options.Receivers = ReceiverGroup.All;
+        PhotonNetwork.RaiseEvent(ClearAnchorEvent, null, options , SendOptions.SendReliable);
+    }
+    
+    public void UpdateAzureTag()
+    {
+#if !UNITY_EDITOR
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        anchorModule.StartAzureSession();
+        anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
+        anchorModule.CreateAzureAnchor(ParentAnchor);
+#endif
+    }
+
+    private void AnchorCreatedOnAzure()
+    {
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        StoreNewTag(anchorModule.currentAzureAnchorID);
+        anchorModule.OnCreateAnchorSucceeded -= AnchorCreatedOnAzure;
+
+        PhotonNetwork.RaiseEvent(UpdateToNewAnchorEvent, _currentAzureTag, RaiseEventOptions.Default, SendOptions.SendReliable);
+        
     }
 
     public void StoreNewTag(string tagId)
@@ -47,4 +101,6 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
     {
         PhotonNetwork.RemoveCallbackTarget(this);
     }
+
+
 }
