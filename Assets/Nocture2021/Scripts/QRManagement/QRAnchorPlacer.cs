@@ -38,6 +38,17 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
         }
         Debug.Log("Joined Room starting Anchor Placer");
         networkReady = true;
+
+#if !UNITY_EDITOR
+        //Connect to the azure cloud
+        var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
+        if (anchorModuleScript == null)
+        {
+            throw new System.NotSupportedException("could not find the anchor module script"); 
+        }
+        anchorModuleScript.StartAzureSession();
+#endif
+
     }
 
 
@@ -72,15 +83,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
 
     private void NoAnchorTagReplyEvent()
     {
-#if !UNITY_EDITOR
-        //Connect to the azure cloud
-        var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
-        if (anchorModuleScript == null)
-        {
-            throw new System.NotSupportedException("could not find the anchor module script"); 
-        }
-        anchorModuleScript.StartAzureSession();
-#endif
+
         if (QrCodeManagerGameObject == null)
         {
             throw new System.NotSupportedException();
@@ -125,7 +128,6 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             {
                 throw new System.NotSupportedException("could not find the anchor module script");
             }
-            anchorModuleScript.StartAzureSession();
             anchorModuleScript.FindAzureAnchor(tag);
 #endif
 

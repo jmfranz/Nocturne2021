@@ -37,8 +37,7 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
             _currentAzureTag = string.Empty;
 #if !UNITY_EDITOR
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
-        anchorModule.StartAzureSession();
-        anchorModule.RemoveLocalAnchor(ParentAnchor);
+//        anchorModule.RemoveLocalAnchor(ParentAnchor);
         anchorModule.DeleteAzureAnchor();
 #endif
         }
@@ -53,7 +52,6 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
             StoreNewTag(tag);
 #if !UNITY_EDITOR
             var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
-            anchorModule.StartAzureSession();
             anchorModule.RemoveLocalAnchor(ParentAnchor);
             anchorModule.FindAzureAnchor(_currentAzureTag);
 #endif
@@ -71,7 +69,6 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
     {
 #if !UNITY_EDITOR
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
-        anchorModule.StartAzureSession();
         anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
         anchorModule.CreateAzureAnchor(ParentAnchor);
 #endif
