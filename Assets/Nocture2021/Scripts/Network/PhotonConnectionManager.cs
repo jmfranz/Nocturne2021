@@ -30,7 +30,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = gameVersion;
 
-        PhotonNetwork.Instantiate(PlayerPrefab.name,Vector3.zero, Quaternion.identity, 0);
+
     }
 
     public void JoinNocturneRoom()
@@ -58,4 +58,16 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         JoinNocturneRoom();
     }
 
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+    }
+
+    void OnGUI()
+    {
+        if (GUILayout.Button("Click me"))
+        {
+            Camera.main.GetComponent<AudioSource>().Play();
+        }
+    }
 }
