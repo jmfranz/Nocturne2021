@@ -20,8 +20,16 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(_audioSource.isPlaying);
-            stream.SendNext(_audioSource.volume); 
-            stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            stream.SendNext(_audioSource.volume);
+            var clip = _audioSource.clip;
+            if (clip != null)
+            {
+                stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            }
+            else
+            {
+                stream.SendNext("no Audio");
+            }
         }
         else
         {
@@ -30,7 +38,7 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
             {
                 _audioSource.volume = (float)stream.ReceiveNext();
                 var audioSourceName = (string)stream.ReceiveNext();
-                var audioClip = Resources.Load<AudioClip>($"Conversations/ConversationLines{audioSourceName}");
+                var audioClip = Resources.Load<AudioClip>($"Conversations/ConversationLines/{audioSourceName}");
                 _audioSource.clip = audioClip;
                 _audioSource.Play();
             }
