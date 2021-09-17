@@ -40,8 +40,8 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
     }
 
     /// <summary>
-    /// Once the user clicks the reference object, which will anchor the play space, gets instantiated
-    /// on the location of the QR code.
+    /// Position's the anchor object on the QR code. This will not create an anchor to allow for rotation fine tuning
+    /// The hand menu contains a create anchor option.
     ///
     /// We don't care (at least for now) what is the QR code as we assume there will be only one in sight.
     /// </summary>
@@ -64,13 +64,6 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         
         ParentAnchor.transform.rotation = Quaternion.Euler(0, QRCode.transform.rotation.eulerAngles.y-90, 0);
 
-#if !UNITY_EDITOR
-        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
-        anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
-        anchorModule.CreateAzureAnchor(ParentAnchor);
-#endif
-
-
         //Remove the text on the screen
         //TODO: move text creation to this script so we don't have to search for it... ugh...
         var text = GameObject.Find("No TAG Text(Clone)");
@@ -80,7 +73,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         }
 
         //Destroy the QR Code
-        //Destroy(QRCode);
+        Destroy(QRCode);
 
         //Disable the "scanner"
         var qrManager = GameObject.Find("QRCodesManager").GetComponent<QRCodesManager>();
@@ -102,5 +95,6 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
             Debug.Log("Storing new anchor ID into the local anchor store");
             anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
         }
+        anchorModule.OnCreateAnchorSucceeded -= AnchorCreatedOnAzure;
     }
 }
