@@ -8,7 +8,11 @@ using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 {
+    public GameObject PlayerPrefab;
+    
+    
     private string gameVersion = "0";
+
 
     //This will probably be 3 -> master + 2 HL
     private byte maxPlayers = 4;
@@ -25,6 +29,8 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected) return;
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = gameVersion;
+
+        PhotonNetwork.Instantiate(PlayerPrefab.name,Vector3.zero, Quaternion.identity, 0);
     }
 
     public void JoinNocturneRoom()
