@@ -38,4 +38,6 @@ public class ChildActiveSync : MonoBehaviour, IPunObservable
             }
         }
     }
+
+
 }

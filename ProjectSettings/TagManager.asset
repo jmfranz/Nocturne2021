@@ -13,6 +13,7 @@ TagManager:
   - Anchorable
   - isAgent
   - IsAgent
+  - PlayerRepresentation
   layers:
   - Default
   - TransparentFX
