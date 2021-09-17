@@ -6,9 +6,7 @@ using UnityEngine;
 public class ChildActiveSync : MonoBehaviour, IPunObservable
 {
     // Start is called before the first frame update
-
     public List<GameObject> syncObjects = new List<GameObject>();
-
 
     void Start() { 
 
@@ -40,6 +38,4 @@ public class ChildActiveSync : MonoBehaviour, IPunObservable
             }
         }
     }
-
-
 }

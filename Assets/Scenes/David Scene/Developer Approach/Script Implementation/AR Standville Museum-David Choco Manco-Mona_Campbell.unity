@@ -20962,7 +20962,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -67619,7 +67619,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292699960840905223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: d1b21b7581efb2547a80e447af154cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -67633,8 +67632,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292699960840905223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-=======
->>>>>>> Stashed changes
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -67645,29 +67642,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-<<<<<<< Updated upstream
   - {fileID: 6292699960840905231}
   sceneViewId: 4
   InstantiationId: 0
   isRuntimeInstantiated: 0
-=======
-  - {fileID: 6292699960840905232}
-  sceneViewId: 4
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &6292699960840905232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292699960840905223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1b21b7581efb2547a80e447af154cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!1 &6292699960862475358
 GameObject:
   m_ObjectHideFlags: 0
