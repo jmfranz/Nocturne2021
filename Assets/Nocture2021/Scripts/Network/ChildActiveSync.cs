@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChildActiveSync : MonoBehaviour, IPunObservable
 {
     // Start is called before the first frame update
-
+    public List<GameObject> syncObjects = new List<GameObject>();
 
     void Start() { 
 
@@ -20,14 +20,22 @@ public class ChildActiveSync : MonoBehaviour, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        Debug.Log("Test");
+
         if (stream.IsWriting)
         {
-            stream.SendNext(transform.GetChild(0).gameObject.activeInHierarchy);
+            foreach(GameObject syncObject in syncObjects)
+            {
+                stream.SendNext(syncObject.activeInHierarchy);
+            }
         }
         else
         {
-            transform.GetChild(0).gameObject.SetActive(
-                (bool)stream.ReceiveNext());
+            foreach (GameObject syncObject in syncObjects)
+            {
+                gameObject.SetActive(
+                    (bool)stream.ReceiveNext());
+            }
         }
     }
 }
