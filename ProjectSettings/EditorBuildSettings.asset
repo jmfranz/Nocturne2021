@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Nocture2021/Scenes/HRTF.unity
     guid: 8ff583642b99d704a85c51dc58498299
+  - enabled: 1
+    path: Assets/Scenes/David Scene/Developer Approach/Script Implementation/NO EVENTS.unity
+    guid: 299ffac7187ebe1438c7c515a5005903
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b10e1441decdd7741a43435fe62f47bb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}

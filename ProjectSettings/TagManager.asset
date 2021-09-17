@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Bullet
   - QRTag
+  - Map
+  - StoryMappingPair
+  - Sphere
+  - Avatar
+  - Anchorable
+  - isAgent
+  - IsAgent
   layers:
   - Default
   - TransparentFX
