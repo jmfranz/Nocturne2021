@@ -33,7 +33,7 @@ public class ChildActiveSync : MonoBehaviour, IPunObservable
         {
             foreach (GameObject syncObject in syncObjects)
             {
-                gameObject.SetActive(
+                syncObject.SetActive(
                     (bool)stream.ReceiveNext());
             }
         }
