@@ -38,7 +38,8 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
             {
                 _audioSource.volume = (float)stream.ReceiveNext();
                 var audioSourceName = (string)stream.ReceiveNext();
-                var audioClip = Resources.Load<AudioClip>($"Conversations/All Audio/{audioSourceName}");
+                Debug.Log(audioSourceName);
+                var audioClip = Resources.Load<AudioClip>($"Conversations/ConversationLines/{audioSourceName}");
                 _audioSource.clip = audioClip;
                 _audioSource.Play();
             }
