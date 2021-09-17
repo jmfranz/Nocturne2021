@@ -45,7 +45,7 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
             {
                 otherPlayer.GetComponent<AudioSource>().volume = (float)stream.ReceiveNext();
                 var audioSourceName = (string)stream.ReceiveNext();
-                var audioClip = Resources.Load<AudioClip>(audioSourceName);
+                var audioClip = Resources.Load<AudioClip>($"Conversations/ConversationLines/{audioSourceName}");
                 otherPlayer.GetComponent<AudioSource>().loop = (bool) stream.ReceiveNext();
                 otherPlayer.GetComponent<AudioSource>().clip = audioClip;
                 otherPlayer.GetComponent<AudioSource>().Play();
