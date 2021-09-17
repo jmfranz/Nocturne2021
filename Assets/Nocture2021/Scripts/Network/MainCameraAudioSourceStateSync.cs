@@ -22,9 +22,16 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(_audioSource.isPlaying);
-            Debug.Log(_audioSource.isPlaying);
-            stream.SendNext(_audioSource.volume); 
-            stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            stream.SendNext(_audioSource.volume);
+            if (_audioSource.clip != null)
+            {
+                stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            }
+            else
+            {
+                stream.SendNext("no Audio");
+            }
+
             stream.SendNext(_audioSource.loop);
         }
         else
@@ -35,6 +42,7 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
                 var view = go.GetComponent<PhotonView>();
                 if (!view.IsMine)
                 {
+                    Debug.Log("Found the other player");
                     otherPlayer = go;
                     break;
                 }
@@ -45,7 +53,7 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
             {
                 otherPlayer.GetComponent<AudioSource>().volume = (float)stream.ReceiveNext();
                 var audioSourceName = (string)stream.ReceiveNext();
-                var audioClip = Resources.Load<AudioClip>($"Conversations/ConversationLines/{audioSourceName}");
+                var audioClip = Resources.Load<AudioClip>($"Conversations/All Audio/{audioSourceName}");
                 otherPlayer.GetComponent<AudioSource>().loop = (bool) stream.ReceiveNext();
                 otherPlayer.GetComponent<AudioSource>().clip = audioClip;
                 otherPlayer.GetComponent<AudioSource>().Play();
