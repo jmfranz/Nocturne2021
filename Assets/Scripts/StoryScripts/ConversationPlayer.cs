@@ -282,8 +282,9 @@ public class ConversationPlayer : MonoBehaviour
             avatarControllers = line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
         }
 
-        var avatar = new AvatarController();
-        if(avatarControllers.Length > 0)
+        //var avatar = new AvatarController();
+        AvatarController avatar = this.gameObject.AddComponent<AvatarController>();
+        if (avatarControllers.Length > 0)
         {
             foreach (var avatarController in line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
             {

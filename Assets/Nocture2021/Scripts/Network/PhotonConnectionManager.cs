@@ -62,12 +62,4 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
     }
-
-    void OnGUI()
-    {
-        if (GUILayout.Button("Click me"))
-        {
-            Camera.main.GetComponent<AudioSource>().Play();
-        }
-    }
 }
