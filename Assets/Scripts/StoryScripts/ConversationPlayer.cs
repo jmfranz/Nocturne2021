@@ -280,10 +280,9 @@ public class ConversationPlayer : MonoBehaviour
         if (line.voiceOrigin.transform.tag == "Avatar")
         {
             avatarControllers = line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
+            Debug.Log("Is an avatar with " + avatarControllers.Length);
         }
 
-        //var avatar = new AvatarController();
-        AvatarController avatar = this.gameObject.AddComponent<AvatarController>();
         if (avatarControllers.Length > 0)
         {
             foreach (var avatarController in line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
@@ -291,10 +290,9 @@ public class ConversationPlayer : MonoBehaviour
                 avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
             }
 
-            avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
+            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
             avatar.SetConversationState(AvatarController.ConversationStates.Talking);
         }
-
 
         //Wait until voice clip is done playing
         while (line.voiceOrigin.isPlaying)
@@ -305,6 +303,7 @@ public class ConversationPlayer : MonoBehaviour
         //Done talking
         if(avatarControllers.Length > 0)
         {
+            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
             avatar.SetConversationState(AvatarController.ConversationStates.None);
         }
 
