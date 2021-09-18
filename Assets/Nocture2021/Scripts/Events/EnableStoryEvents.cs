@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 /**
@@ -13,6 +14,11 @@ public class EnableStoryEvents : MonoBehaviour
 
     public void EnableEventsTriggers()
     {
+        //Enable the Dog Nav
+        var dog = GameObject.FindGameObjectWithTag("IsAgent");
+        Debug.Log(dog.name);
+        dog.GetComponent<NavMeshAgent>().enabled = true;
+
         if (startCondition != null)
         {
             startCondition.Complete = true;
