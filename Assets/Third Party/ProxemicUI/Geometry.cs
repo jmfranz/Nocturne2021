@@ -134,7 +134,7 @@ namespace ProxemicUIFramework
         // how much should A rotate to face B
         protected double FacingAngleCalculator(Vector2 FirstVector, Vector2 SecondVector)
         {
-            Vector2 SecondToFirst = new Vector2(SecondVector.Y - FirstVector.Y, SecondVector.X - FirstVector.X);
+            Vector2 SecondToFirst = new Vector2(SecondVector.X - FirstVector.X, SecondVector.Y - FirstVector.Y);
 
             double radians = Math.Atan2(SecondToFirst.Y, SecondToFirst.X);
 
@@ -146,13 +146,13 @@ namespace ProxemicUIFramework
         // check if difference between current angle and rotation to directly face B is within threshold
         protected bool FacingAngleDetector(double CurrentAngle, double Rotation, double Threshold)
         {
-            double leftRotation = (Rotation - Threshold + 360) % 360;
-            double rightRotation = (Rotation + Threshold + 360) % 360;
+            double leftRotation = Rotation - Threshold;
+            double rightRotation = Rotation + Threshold;
 
             CurrentAngle = (CurrentAngle + 360) % 360;
 
-            if ((leftRotation < rightRotation && CurrentAngle > leftRotation && CurrentAngle < rightRotation)
-                || (leftRotation > rightRotation && (CurrentAngle > leftRotation || CurrentAngle < rightRotation)))
+            if (leftRotation < rightRotation && CurrentAngle > leftRotation && CurrentAngle < rightRotation
+                || leftRotation > rightRotation && (CurrentAngle > leftRotation || CurrentAngle < rightRotation))
                 return true;
             else
                 return false;

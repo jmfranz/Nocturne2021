@@ -52,7 +52,7 @@ public class ConversationPlayer : MonoBehaviour
     AudioSource _generalOutputSource;
     public bool _hasCompletedConversation = false;
     bool _playerInRangeFlag = false;
-    public bool _isPlaying = false;
+    bool _isPlaying = false;
     public List<VoiceLine> _remainingLines;
     Coroutine _currentVoiceLinePlaying;
     ORRule _rulesToTriggerConversation;
@@ -60,15 +60,9 @@ public class ConversationPlayer : MonoBehaviour
 
     bool quitting = false;
 
-
-    Transform VRPlayer;
-    Transform ARPlayer;
-
     // Start is called before the first frame update
     void Awake()
     {
-        ARPlayer = GameObject.Find("MixedRealityPlayspace (1)").transform.GetChild(0);
-
         _generalOutputSource = GetComponent<AudioSource>();
         if (_generalOutputSource != null && OutOfRangeLoopClip != null)
         {
@@ -78,84 +72,13 @@ public class ConversationPlayer : MonoBehaviour
 
         _remainingLines = new List<VoiceLine>(ConversationLines);
 
-        _conversationNode = GetComponent<ConversationNode>();
-
-        StartCoroutine(CreateRule());
-    }
-
-    IEnumerator CreateRule()
-    {
-        // Wait for Calibration
-        yield return new WaitUntil(() => ClickPlacer.CalibrationState == ClickPlacer.CalibrationStates.Finished);
-
         //Define as single OR rule!
-        var defaultRule = ConversationInfo.DefaultRule;
-        var proximityRule = ConversationInfo.ProximityRule;
-        var facingRule = ConversationInfo.FacingRule;
 
-        var defaultRule1 = defaultRule.FirstListEntities;
-        var defaultRule2 = defaultRule.SecondListEntities;
-        var proximityRule1 = proximityRule.FirstListEntities;
-        var proximityRule2 = proximityRule.SecondListEntities;
-
-        var facingRule1 = new List<Transform>();
-        if (facingRule.Entity != null)
-        {
-            facingRule1 = new List<Transform> { facingRule.Entity };
-        }
-
-        if (DeploymentOption.DeploymentTypes.AR == DeploymentOption.Instance.DeploymentType)
-        {
-            // Triggers
-            DeploymentOption.Instance.CheckEntity(defaultRule1, "VRPlayerController(Clone)");
-            DeploymentOption.Instance.CheckEntity(defaultRule2, "VRPlayerController(Clone)");
-            DeploymentOption.Instance.CheckEntity(proximityRule1, "VRPlayerController(Clone)");
-            DeploymentOption.Instance.CheckEntity(proximityRule2, "VRPlayerController(Clone)");
-            DeploymentOption.Instance.CheckEntity(facingRule1, "VRPlayerController(Clone)");
-
-            // Audio Sources
-
-        }
-        else if (DeploymentOption.DeploymentTypes.VR == DeploymentOption.Instance.DeploymentType)
-        {
-            DeploymentOption.Instance.CheckEntity(defaultRule1, "Main Camera");
-            DeploymentOption.Instance.CheckEntity(defaultRule2, "Main Camera");
-            DeploymentOption.Instance.CheckEntity(proximityRule1, "Main Camera");
-            DeploymentOption.Instance.CheckEntity(proximityRule2, "Main Camera");
-            DeploymentOption.Instance.CheckEntity(facingRule1, "Main Camera");
-        }
-
-        ReplaceVRARAudioSource();
+        _conversationNode = GetComponent<ConversationNode>();
     }
-
-
-    void ReplaceVRARAudioSource()
-    {
-        List<VoiceLine> newVoiceLines = new List<VoiceLine>();
-
-        for (int i = 0; i < ConversationLines.Count; i++)
-        {
-            VoiceLine voiceLine = ConversationLines[i];
-            AudioSource audioSource = voiceLine.voiceOrigin;
-
-            if(DeploymentOption.DeploymentTypes.AR == DeploymentOption.Instance.DeploymentType && audioSource.name.Contains("VRPlayerController"))
-            {
-                audioSource = ARPlayer.GetComponent<AudioSource>();
-            }
-
-            voiceLine.voiceOrigin = audioSource;
-            newVoiceLines.Add(voiceLine);
-        }
-
-        ConversationLines = newVoiceLines;
-        _remainingLines = newVoiceLines;
-    }
-
 
     private void OnEnable()
     {
-        Vector3 conversationNode = this.transform.position;
-        ConversationInfo.FacingRule.ConversationCenter = new List<float> { conversationNode.x, conversationNode.y, conversationNode.z }; // in case author moved the conversation node
         _isPlaying = false;
         _hasCompletedConversation = false;
         eventIsTrue = null;
@@ -237,7 +160,7 @@ public class ConversationPlayer : MonoBehaviour
             return;
         }
         eventIsTrue = true;
-        if (!_isPlaying && !_hasCompletedConversation && _remainingLines.Count != 0)
+        if (!_isPlaying && !_hasCompletedConversation)
         {
             _generalOutputSource?.Stop(); //stop general clip
             _currentVoiceLinePlaying = StartCoroutine(PlayVoiceLine(_remainingLines[0])); //continue conversation where it left off.
@@ -276,23 +199,17 @@ public class ConversationPlayer : MonoBehaviour
 
         line.voiceOrigin.clip = line.voiceLine;
         line.voiceOrigin.Play();
-        AvatarController[] avatarControllers = new AvatarController[0];
-        if (line.voiceOrigin.transform.tag == "Avatar")
+
+
+        foreach (var avatarController in line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
         {
-            avatarControllers = line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
-            Debug.Log("Is an avatar with " + avatarControllers.Length);
+            avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
         }
 
-        if (avatarControllers.Length > 0)
-        {
-            foreach (var avatarController in line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
-            {
-                avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
-            }
+        var avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
+        avatar.SetConversationState(AvatarController.ConversationStates.Talking);
 
-            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
-            avatar.SetConversationState(AvatarController.ConversationStates.Talking);
-        }
+
 
         //Wait until voice clip is done playing
         while (line.voiceOrigin.isPlaying)
@@ -301,11 +218,7 @@ public class ConversationPlayer : MonoBehaviour
         }
 
         //Done talking
-        if(avatarControllers.Length > 0)
-        {
-            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
-            avatar.SetConversationState(AvatarController.ConversationStates.None);
-        }
+        avatar.SetConversationState(AvatarController.ConversationStates.None);
 
         //Apply after voice delay
         yield return new WaitForSeconds(line.afterVoiceDelay);
@@ -329,12 +242,8 @@ public class ConversationPlayer : MonoBehaviour
     void StopCurrentVoiceClip()
     {
         _remainingLines[0].voiceOrigin.Stop();
-
-        if(_remainingLines[0].voiceOrigin.transform.tag == "Avatar")
-        {
-            var avatar = _remainingLines[0].voiceOrigin.transform.GetComponent<AvatarController>();
-            avatar.SetConversationState(AvatarController.ConversationStates.None);
-        }
+        var avatar = _remainingLines[0].voiceOrigin.transform.GetComponent<AvatarController>();
+        avatar.SetConversationState(AvatarController.ConversationStates.None);
 
         _isPlaying = false;
         StopCoroutine(_currentVoiceLinePlaying);

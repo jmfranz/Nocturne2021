@@ -77,7 +77,7 @@ public class CreateScene : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Application.isEditor && !Application.isPlaying)
         {

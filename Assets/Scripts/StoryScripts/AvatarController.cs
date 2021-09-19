@@ -30,21 +30,16 @@ public class AvatarController : MonoBehaviour
 
     public ConversationNode ActiveNode;
     public MovementStates MovementState { get { return _movementState; } }
-    public bool InConversationNode = true;
 
     NavMeshAgent _agent;
     ThirdPersonCharacter _character;
-    public MovementStates _movementState;
+    MovementStates _movementState;
     ConversationStates _conversationState;
     Animator _animator;
 
-    private void Awake()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-    }
-
     void Start()
     {
+        _agent = GetComponent<NavMeshAgent>();
         _character = GetComponent<ThirdPersonCharacter>();
         _animator = GetComponent<Animator>();
         _movementState = MovementStates.Stopped;
@@ -64,16 +59,14 @@ public class AvatarController : MonoBehaviour
         //Once reached destination, begin turning in spot until looking at prop
         else if (_movementState == MovementStates.IsMoving)
         {
-            if (InConversationNode)
-            {
-                transform.LookAt(ActiveNode.LookAtPoint);
+            transform.LookAt(ActiveNode.LookAtPoint);
 
-                transform.localEulerAngles = new Vector3(
-                        0,
-                        transform.localEulerAngles.y,
-                        transform.localEulerAngles.z
-                    );
-            }
+            transform.localEulerAngles = new Vector3(
+                    0,
+                    transform.localEulerAngles.y,
+                    transform.localEulerAngles.z
+                );
+
             _movementState = MovementStates.Stopped;
         }
         //Stop avatar movement

@@ -278,6 +278,7 @@ public class ConversationInstaller : Editor
         {
             ConversationPlayer.VoiceLine voiceLine;
             voiceLine.voiceLine = Resources.Load<AudioClip>("Conversations/ConversationLines/"+voiceLineData.VoiceClip);
+            Debug.Log(GameObject.Find(voiceLineData.VoiceOrigin).GetComponent<AudioSource>());
             voiceLine.voiceOrigin = GameObject.Find(voiceLineData.VoiceOrigin).GetComponent<AudioSource>();
             voiceLine.volume = voiceLineData.Volume;
 

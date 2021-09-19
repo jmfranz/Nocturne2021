@@ -61,7 +61,7 @@ namespace ProxemicUIFramework
                 oscServer.ConsumeParsingExceptions = false;
                 oscServer.Start();
                 System.Console.WriteLine("start to receive messages");
-                
+
             }
             catch (Exception e)
             {
@@ -107,9 +107,9 @@ namespace ProxemicUIFramework
             else
                 // store other data of entities (width, length) 
                 if (message.Address == "/tabletop/")
-                {
-                    Geometry.ShapeConverter(message);
-                }
+            {
+                Geometry.ShapeConverter(message);
+            }
             /*for (int i = 0; i < count; i++)
             {
                 string id = (string)message.Data[i]; // ID

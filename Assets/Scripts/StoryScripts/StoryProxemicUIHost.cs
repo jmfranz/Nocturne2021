@@ -81,7 +81,6 @@ public class StoryProxemicUIHost : MonoBehaviour
     List<XORRule> _xorRules = new List<XORRule>();
     List<ORRule> _orRules = new List<ORRule>();
 
-
     void Awake()
     {
         if(Instance == null)
@@ -266,13 +265,6 @@ public class StoryProxemicUIHost : MonoBehaviour
         RuleEngine.Instance.AddToRuleList(orRule);
 
         return orRule;
-    }
-
-    public void AddOrRule(IsFacingRule isFacingRule)
-    {
-        ORRule orRule = new ORRule(isFacingRule, isFacingRule);
-
-        RuleEngine.Instance.AddToRuleList(orRule);
     }
 
     public static List<string> GetRulesContainers(RuleContainer container)

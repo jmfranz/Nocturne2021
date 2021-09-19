@@ -277,12 +277,6 @@ namespace ProxemicUIFramework
                 {
                     if (firstID != secondID)
                     {
-                        var entity1 = EntityContainer.ListOfEntities[firstID];
-                        if (!EntityContainer.ListOfEntities.ContainsKey(secondID))
-                        {
-                            UnityEngine.Debug.LogFormat("ERROR Key '{0}' not found", secondID);
-                        }
-                        var entity2 = EntityContainer.ListOfEntities[secondID];
                         if (EntityContainer.ListOfEntities[firstID].Shape.CheckDistance(EntityContainer.ListOfEntities[secondID].Shape, _MinimumThreshold, _MaximumThreshold, this))
                         {
                             checkList.Add(true);

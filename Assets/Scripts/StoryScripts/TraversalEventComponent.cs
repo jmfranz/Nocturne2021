@@ -21,4 +21,17 @@ public class TraversalEventComponent : StoryEventComponent
         AvatarController.GoToConversationNode(Destination, MovementType);
         yield return new WaitUntil(() => AvatarController.MovementState == AvatarController.MovementStates.Stopped);
     }
+
+    public bool EventCompleted()
+    {
+        if (AvatarController.transform.position == Destination.transform.position)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+           
+        }
+    }
 }
