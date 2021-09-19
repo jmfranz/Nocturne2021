@@ -85,17 +85,17 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     private void Update()
     {
-        #if  UNITY_EDITOR
-            if (Input.GetKeyDown("y"))
-            {
-                TrustDogAction();
-            }
+        //#if  UNITY_EDITOR
+        //    if (Input.GetKeyDown("y"))
+        //    {
+        //        TrustDogAction();
+        //    }
 
-            if (Input.GetKeyDown("n"))
-            {
-                DontTrustDogAction();
-            }
-        #endif
+        //    if (Input.GetKeyDown("n"))
+        //    {
+        //        DontTrustDogAction();
+        //    }
+        //#endif
 
         #if UNITY_ANDROID
             if (OVRInput.Get(OVRInput.Button.One))
