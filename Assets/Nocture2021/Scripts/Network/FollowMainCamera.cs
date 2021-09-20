@@ -11,6 +11,7 @@ public class FollowMainCamera : MonoBehaviour
     public void Start()
     {
         partentAnchor = GameObject.Find("ParentAnchor").transform;
+        transform.parent = partentAnchor.transform;
 
     }
 
