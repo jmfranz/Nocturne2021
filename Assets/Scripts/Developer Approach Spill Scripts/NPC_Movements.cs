@@ -21,7 +21,6 @@ public class NPC_Movements : StoryEventComponent
     public AvatarController NPC1_Avatar;
     public AvatarController NPC2_Avatar;
     public AvatarController NPC3_Avatar;
-    public AvatarController CognitiveCatherine;
 
     //Fokthipur's conversations
     public ConversationNode Fokthipur_midgame;
@@ -47,9 +46,6 @@ public class NPC_Movements : StoryEventComponent
     public ConversationNode NPC1;
     public ConversationNode NPC2;
     public ConversationNode NPC3;
-    
-    //Cognitive conversation
-    public ConversationNode CognitiveConvo;
 
     //Final conversations
     public ConversationNode TellFokEnding;
@@ -269,12 +265,6 @@ public class NPC_Movements : StoryEventComponent
         yield return new WaitForSeconds(20);
         Debug.Log("Loop Complete");
         loopFinished = true;
-    }
-
-    public IEnumerator CognitiveConversationTraversal()
-    {
-        yield return new WaitForSeconds(2);
-        AvatarToConversation(CognitiveCatherine, CognitiveConvo);
     }
 
     public IEnumerator AfterCognitive()

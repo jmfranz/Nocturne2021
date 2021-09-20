@@ -1380,6 +1380,8 @@ MonoBehaviour:
   NPC1: {fileID: 0}
   NPC2: {fileID: 0}
   NPC3: {fileID: 0}
+  TellFokEnding: {fileID: 0}
+  TellCatherineEnding: {fileID: 0}
 --- !u!114 &55371931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10491,6 +10493,7 @@ MonoBehaviour:
   CognitiveConvoNode: {fileID: 1805984117}
   CognitiveCatherine: {fileID: 6448393417054185513}
   fokthipurRoomController: {fileID: 448624898}
+  nPC_Movements: {fileID: 0}
   inCognitive: 0
   getCaught: 0
   finishingText: 0
@@ -10547,6 +10550,8 @@ MonoBehaviour:
   NPC1: {fileID: 907477129}
   NPC2: {fileID: 1326592315}
   NPC3: {fileID: 1239137351}
+  TellFokEnding: {fileID: 1849383766}
+  TellCatherineEnding: {fileID: 276038233}
 --- !u!114 &448624897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20811,7 +20816,7 @@ Animator:
   m_GameObject: {fileID: 973391885}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5c3f6f52f12e14849b536566c5b161a9, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6e6b2d28e616fd4caecbb52b77a62f9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -24044,7 +24049,7 @@ Animator:
   m_GameObject: {fileID: 1144062622}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3db9af2bb20b9c14089c0e7d40b21e11, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6e6b2d28e616fd4caecbb52b77a62f9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -47571,7 +47576,7 @@ Animator:
   m_GameObject: {fileID: 2109601679}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a4f0c5554a623ff4d8b95ab7c72ba796, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6e6b2d28e616fd4caecbb52b77a62f9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

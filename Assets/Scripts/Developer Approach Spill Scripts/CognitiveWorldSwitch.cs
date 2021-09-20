@@ -69,7 +69,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         if (isClose(Player, MushroomRing, 1) && !inCognitive && !CognitiveConvo._hasCompletedConversation)
         {
             GoToCognitive();
-            StartCoroutine(nPC_Movements.CognitiveConversationTraversal());
         }
 
         if (isClose(Player, MushroomRing, 1) && inCognitive && CognitiveConvo._hasCompletedConversation)
@@ -92,6 +91,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public void GoToCognitive()
     {
         inCognitive = true;
+        StopCoroutine(nPC_Movements.ConversationLoop());
         foreach (GameObject actor in NormalAvatars)
         {
             actor.SetActive(false);
@@ -100,9 +100,9 @@ public class CognitiveWorldSwitch : MonoBehaviour
         CognitiveConvo.gameObject.SetActive(true);
         Walls.GetComponent<MeshRenderer>().material.color = new Color(7f/255f, 24f/255f, 61f/255f);
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
+       
+        //Cognitive Catherine to Cognitive Convo
         CognitiveCatherine.GoToConversationNode(CognitiveConvoNode, AvatarController.MovementTypes.Walk);
-
-        StopCoroutine(nPC_Movements.ConversationLoop());
     }
 
     public void LeaveCognitive()
