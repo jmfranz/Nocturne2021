@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 174488661}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &174488661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,7 +2410,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &174488662
 AudioSource:
@@ -3224,7 +3223,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 204358519}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &204358519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3300,7 +3299,6 @@ MonoBehaviour:
     volume: 1
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &204358520
 AudioSource:
@@ -3811,7 +3809,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 233596324}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &233596324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,7 +3893,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &233596325
 AudioSource:
@@ -4747,7 +4744,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 273429971}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &273429971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4823,7 +4820,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &273429972
 AudioSource:
@@ -5376,7 +5372,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!4 &294677990
 Transform:
@@ -5462,7 +5457,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 294677989}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!82 &294677992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7085,7 +7080,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 372867644}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &372867644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7206,7 +7201,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &372867645
 AudioSource:
@@ -7915,7 +7909,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 401144707}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &401144707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7999,7 +7993,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &401144708
 AudioSource:
@@ -8893,7 +8886,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 456597445}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &456597445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8972,7 +8965,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &456597446
 AudioSource:
@@ -9325,7 +9317,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 480797467}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &480797467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9414,7 +9406,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &480797468
 AudioSource:
@@ -9687,7 +9678,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 497688951}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &497688951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9763,7 +9754,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &497688952
 AudioSource:
@@ -11268,7 +11258,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 580475685}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &580475685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11347,7 +11337,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &580475686
 AudioSource:
@@ -13237,8 +13226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!95 &717845259
 Animator:
   serializedVersion: 3
@@ -18385,7 +18372,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1031986395}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1031986395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18461,7 +18448,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1031986396
 AudioSource:
@@ -19750,8 +19736,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  InConversationNode: 0
-  _movementState: 0
 --- !u!95 &1081662360
 Animator:
   serializedVersion: 3
@@ -20539,7 +20523,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1109380216}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1109380216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20621,7 +20605,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1109380217
 AudioSource:
@@ -21359,7 +21342,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1149763404}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1149763404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21455,7 +21438,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1149763405
 AudioSource:
@@ -21670,7 +21652,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1150572414}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1150572414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21754,7 +21736,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1150572415
 AudioSource:
@@ -23067,7 +23048,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1222968363}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1222968363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23143,7 +23124,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1222968364
 AudioSource:
@@ -23830,7 +23810,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1256634434}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1256634434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23909,7 +23889,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1256634435
 AudioSource:
@@ -24124,7 +24103,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1259541911}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1259541911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24200,7 +24179,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1259541912
 AudioSource:
@@ -24713,7 +24691,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1272670581}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1272670581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24807,7 +24785,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 1
   _hasCompletedConversation: 1
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1272670582
 AudioSource:
@@ -25805,7 +25782,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1322252881}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1322252881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25884,7 +25861,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 3
   _hasCompletedConversation: 1
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1322252882
 AudioSource:
@@ -26149,7 +26125,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1332097339}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1332097339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26225,7 +26201,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1332097340
 AudioSource:
@@ -28606,7 +28581,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1516529255}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1516529255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28685,7 +28660,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 2
   _hasCompletedConversation: 1
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1516529256
 AudioSource:
@@ -32349,7 +32323,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1756956513}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1756956513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32428,7 +32402,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1756956514
 AudioSource:
@@ -34101,7 +34074,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1876365079}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &1876365079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34202,7 +34175,6 @@ MonoBehaviour:
     volume: 1
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1876365080
 AudioSource:
@@ -36406,7 +36378,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2017952277}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &2017952277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36482,7 +36454,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!82 &2017952278
 AudioSource:
@@ -37828,7 +37799,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!4 &2093937735
 Transform:
@@ -37911,7 +37881,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2093937734}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!82 &2093937737
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39569,7 +39539,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!4 &2129650362
 Transform:
@@ -39652,7 +39621,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2129650361}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!82 &2129650364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -42165,8 +42134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!1 &78962182685863294
 GameObject:
   m_ObjectHideFlags: 0
@@ -44885,8 +44852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!1 &1132177868522617414
 GameObject:
   m_ObjectHideFlags: 0
@@ -46484,8 +46449,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!95 &1813727828046355584
 Animator:
   serializedVersion: 3
@@ -47933,8 +47896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!95 &2280577523471511560
 Animator:
   serializedVersion: 3
@@ -56230,8 +56191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!95 &6278726722469362413
 Animator:
   serializedVersion: 3
@@ -67018,7 +66977,6 @@ MonoBehaviour:
     volume: 0
   AllAvatarsInConvo: 1
   _hasCompletedConversation: 0
-  _isPlaying: 0
   _remainingLines: []
 --- !u!114 &6292699960840905226
 MonoBehaviour:
@@ -67089,7 +67047,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 6292699960840905225}
   IsPlayerEavesdropping: 0
-  InterruptOnTrueEvent: 1
+  Strikes: {fileID: 0}
 --- !u!114 &6292699960840905227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67816,8 +67774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  InConversationNode: 0
-  _movementState: 0
 --- !u!114 &6292699960914694971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70040,8 +69996,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!1 &6582406641341553803
 GameObject:
   m_ObjectHideFlags: 0
@@ -71896,8 +71850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  InConversationNode: 1
-  _movementState: 0
 --- !u!4 &7354814778771975260
 Transform:
   m_ObjectHideFlags: 0
