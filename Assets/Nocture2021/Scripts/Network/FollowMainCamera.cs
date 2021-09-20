@@ -4,28 +4,22 @@ using Microsoft.MixedReality.Toolkit;
 using Photon.Pun;
 using UnityEngine;
 
-public class FollowMainCamera : MonoBehaviour, IPunObservable
+public class FollowMainCamera : MonoBehaviour
 {
-    public Transform partentAnchor;
+    private Transform partentAnchor;
 
     public void Start()
     {
         partentAnchor = GameObject.Find("ParentAnchor").transform;
+
     }
 
-
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void Update()
     {
-        if (stream.IsWriting)
+        if (GetComponent<PhotonView>().IsMine)
         {
-            stream.SendNext(Camera.main.transform.InverseTransformPoint(partentAnchor.position));
-        }
-        else
-        {
-            var trans = (Vector3) stream.ReceiveNext();
-            //have not tested the - (minus)
-            transform.position = trans - partentAnchor.position;
+            transform.position = Camera.main.transform.position;
         }
     }
+
 }

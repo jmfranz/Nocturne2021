@@ -9,6 +9,7 @@ using PhotonNetwork = Photon.Pun.PhotonNetwork;
 public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 {
     public GameObject PlayerPrefab;
+    public Transform parentAnchor;
     
     
     private string gameVersion = "0";
@@ -43,7 +44,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var roomOptions = new RoomOptions();
         roomOptions.IsVisible = true;
         roomOptions.MaxPlayers = maxPlayers;
-        PhotonNetwork.JoinOrCreateRoom("Nocturne",roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("Nocturne2",roomOptions, TypedLobby.Default);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -60,6 +61,8 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+        var playerPrefab = PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+        playerPrefab.transform.parent = parentAnchor;
+
     }
 }
