@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Status: 0
   _preConditions:
-  - Component: {fileID: 132284126}
+  - Component: {fileID: 132284127}
     Action: 1
   _postConditions: []
   Complete: 0
@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Status: 0
   _preConditions:
-  - Component: {fileID: 132284126}
+  - Component: {fileID: 132284127}
     Action: 1
   _postConditions: []
   Complete: 0
@@ -10293,6 +10293,10 @@ PrefabInstance:
     - target: {fileID: 9168498083457755822, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9168498083668674561, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
+      propertyPath: requireFlatHand
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168498083668674566, guid: 062f19738ed939044a53ee8c6fdf0849, type: 3}
       propertyPath: m_RootOrder
@@ -35769,9 +35773,12 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 6.1476703, y: -1.2453573, z: 8.950176}
-      - {x: 6.079313, y: -1.1141591, z: 8.796009}
-      - {x: 6.599859, y: -1.1866889, z: 7.82993}
+      - {x: 6.0543094, y: -1.4154613, z: 9.343514}
+      - {x: 6.05027, y: -1.407709, z: 9.334405}
+      - {x: 6.1438518, y: -1.2193813, z: 8.898201}
+      - {x: 6.1436496, y: -1.2129817, z: 8.883778}
+      - {x: 6.140432, y: -1.1110752, z: 8.654106}
+      - {x: 6.5865984, y: -1.1829754, z: 7.8267856}
       - {x: 6.375438, y: -1.1238418, z: 7.7767205}
       isClosed: 0
       space: 0
@@ -35782,6 +35789,7 @@ MonoBehaviour:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 0, y: 0, z: 0}
       perAnchorNormalsAngle:
+      - 0
       - 0
       - 0
       globalNormalsAngle: 0
@@ -38097,7 +38105,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   persistentKeywords: 0
-  speechConfirmationTooltipPrefab: {fileID: 0}
+  speechConfirmationTooltipPrefab: {fileID: 8046114618238072051, guid: 271778f6c957b524981067a81d238394, type: 3}
 --- !u!114 &2120311950
 MonoBehaviour:
   m_ObjectHideFlags: 0
