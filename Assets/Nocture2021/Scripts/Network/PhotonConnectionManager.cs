@@ -10,7 +10,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 {
     public GameObject PlayerPrefab;
     public Transform parentAnchor;
-    
+    public string RoomName = "Nocturne";
     
     private string gameVersion = "0";
 
@@ -44,7 +44,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var roomOptions = new RoomOptions();
         roomOptions.IsVisible = true;
         roomOptions.MaxPlayers = maxPlayers;
-        PhotonNetwork.JoinOrCreateRoom("Nocturne2",roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(RoomName, roomOptions, TypedLobby.Default);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
