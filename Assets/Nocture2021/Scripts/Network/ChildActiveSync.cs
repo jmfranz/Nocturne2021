@@ -20,8 +20,6 @@ public class ChildActiveSync : MonoBehaviour, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        Debug.Log("Test");
-
         if (stream.IsWriting)
         {
             foreach(GameObject syncObject in syncObjects)

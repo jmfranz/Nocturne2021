@@ -21,7 +21,7 @@ public class NPCtoFollowPlayer : MonoBehaviour
     {
         if (FollowPlayer)
         {
-            agent.destination = Player.transform.position;
+            agent.SetDestination(Player.transform.position);
         }
     }
 }

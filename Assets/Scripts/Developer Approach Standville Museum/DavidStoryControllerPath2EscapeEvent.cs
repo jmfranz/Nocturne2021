@@ -55,7 +55,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         MapToDogRoomPathFollower.pathCreator.bezierPath.AddSegmentToStart(new Vector3(pos.x, 1.2f, pos.z));
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
-        LastRoomObjects.SetActive(true);
+        //LastRoomObjects.SetActive(true);
         Max.SetActive(true);
         StartCoroutine(TriggersDogLocation());
     }
@@ -112,11 +112,13 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     public void DontTrustDogAction()
     {
+        Debug.Log("No, I don't trust the dog");
         NoEventCondition.CompleteConditionalEvent();
     }
 
     public void TrustDogAction()
     {
+        Debug.Log("Of course, I trust the dog");
         if (testingYesTrustEnding)
         {
             YesEventCondition.Status = StoryEventComponent.StoryEventStatus.Running;
@@ -128,7 +130,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
         YesEventCondition.CompleteConditionalEvent();
 
-        DogDialogueRoom1.OnEventEnd += EnableDogMovementController;     
+        DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
 
         ShowLastRoom();
     }
@@ -145,6 +147,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         ShadowChild.transform.localPosition = new Vector3(0, 0, 0);
         ShadowChild.transform.localRotation = new Quaternion(0,0,0,0);
         Shadow.transform.GetChild(0).gameObject.SetActive(true);
+        LastRoomObjects.SetActive(true);
     }
 
     void EnableDogMovementController()
@@ -161,5 +164,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         MaxInOrb.SetActive(true);
         MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
+        MaxInOrb.transform.LookAt(Player.transform.position);
     }
 }

@@ -102,7 +102,6 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
 
     public void OnEvent(EventData photonEvent)
     {
-        Debug.Log(photonEvent.Code);
         //capture here the code event and stop timer OR start tracking
         if (photonEvent.Code == AnchorTagReply)
         {

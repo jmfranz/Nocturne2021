@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DontTrustDogHandler : MonoBehaviour
 {
     public DialogueEventComponent DontTrustDogComments;
     ConversationPlayer NoTrustDialogueConvo;
-    public GameObject DogBreakingVaseVideo;
 
     // Dog Room To Planetarium PATH
     public PathFollower DogRoomToPlantariumPathFollower;
@@ -39,24 +39,9 @@ public class DontTrustDogHandler : MonoBehaviour
     void Start()
     {
         NoTrustDialogueConvo = DontTrustDogComments.ConversationPlayer;
-        //StartCoroutine(ShowDogBreakingVaseVideo());
-
         DontTrustDogComments.OnEventEnd += ShowTrailDogRoomToPlanetarium;
         JohnReadsMural.OnEventEnd += ShowCraterRoom;
-
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
-    }
-
-    IEnumerator ShowDogBreakingVaseVideo()
-    {
-        yield return new WaitUntil(() => NoTrustDialogueConvo._remainingLines.Count == 8);
-
-        //Play 5 second Video (if timing needs to be changed, change the "wait before" part of the dialogue "Don't trust dog ending convo")
-        DogBreakingVaseVideo.SetActive(true);
-        //TODO: play the video
-
-        yield return new WaitForSeconds(5);
-        DogBreakingVaseVideo.SetActive(false);
     }
 
     void ShowTrailDogRoomToPlanetarium()
@@ -81,6 +66,7 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.SetActive(false); // Disable shadow while setting its position
         Shadow.transform.SetPositionAndRotation(new Vector3(ShadowPositionInCraterRoom.position.x, 0, ShadowPositionInCraterRoom.position.z),
                                         Quaternion.Euler(0, 90, 0));
+        Debug.Log("Shadow position " + Shadow.transform.localPosition);
         Shadow.SetActive(true);
     }
 
@@ -129,13 +115,22 @@ public class DontTrustDogHandler : MonoBehaviour
 
             if (distance < 2f) // Doctor is in front of player and starts talking
             {
+                Doctor.GetComponent<NavMeshAgent>().isStopped = true;
+
                 DoctorJohnConvo.enabled = true;
                 DocWalksToPlayer = false;
             }
             else // Doctor moves to Player
             {
-                Doctor.GetComponent<AvatarController>().SetDestination(Player.position);
+                Doctor.GetComponent<NavMeshAgent>().SetDestination(Player.position);
             }
         }   
     }
+
+    //IEnumerator WaitForDocToStop()
+    //{
+    //    AvatarController avatarController = Doctor.GetComponent<AvatarController>();
+    //    yield return new WaitUntil(() => avatarController.MovementState == AvatarController.MovementStates.Stopped);
+
+    //}
 }
