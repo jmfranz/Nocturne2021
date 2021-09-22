@@ -9,6 +9,8 @@ public class DavidStoryControllerPath2BathroomEvent : MonoBehaviour
     public GameObject SecurityCameraHighlight;
     public GameObject BathroomJohnFoundCam1;
     public DialogueEventComponent BathroomBloodConvo;
+    public ConditionalEventComponent StartGame;
+    public Fade BloodTextFade;
 
     ConversationPlayer securityCameraConversationPlayer;
     bool highlightShowing = false;
@@ -24,6 +26,7 @@ public class DavidStoryControllerPath2BathroomEvent : MonoBehaviour
 
         TimeToWaitBeforeHighlightingSecurityCamera.OnEventEnd += HelpPlayerFindCamera;
         BathroomBloodConvo.OnEventEnd += EnableSecurityCameraConvo;
+        StartGame.OnEventEnd += EnableTextFade;
     }
 
     void Update()
@@ -86,5 +89,10 @@ public class DavidStoryControllerPath2BathroomEvent : MonoBehaviour
     {
         highlightShowing = false;
         SecurityCameraHighlight.SetActive(false);
+    }
+
+    void EnableTextFade()
+    {
+        BloodTextFade.enabled = true;
     }
 }

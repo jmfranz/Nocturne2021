@@ -42,7 +42,6 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
                 var view = go.GetComponent<PhotonView>();
                 if (!view.IsMine)
                 {
-                    Debug.Log("Found the other player");
                     otherPlayer = go;
                     break;
                 }

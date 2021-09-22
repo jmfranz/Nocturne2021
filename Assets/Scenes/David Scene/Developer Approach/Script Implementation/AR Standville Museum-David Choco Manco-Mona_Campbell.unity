@@ -9299,7 +9299,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: baa5001eb12a6e44bbd10b96ba525337, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d6111963672288d438a1f487362188da, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -14436,6 +14436,8 @@ MonoBehaviour:
   SecurityCameraHighlight: {fileID: 1635122616}
   BathroomJohnFoundCam1: {fileID: 1109380214}
   BathroomBloodConvo: {fileID: 792375167}
+  StartGame: {fileID: 792375171}
+  BloodTextFade: {fileID: 2101743949}
   MapToSecurityRoomPathFollower: {fileID: 527060009}
   SecurityEnterLocationTrigger: {fileID: 569202630}
 --- !u!114 &792375171
@@ -37485,6 +37487,9 @@ GameObject:
   - component: {fileID: 2101743946}
   - component: {fileID: 2101743948}
   - component: {fileID: 2101743947}
+  - component: {fileID: 2101743949}
+  - component: {fileID: 2101743951}
+  - component: {fileID: 2101743950}
   m_Layer: 0
   m_Name: Wall text
   m_TagString: Untagged
@@ -37542,8 +37547,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 255
+  m_fontColor: {r: 1, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -37646,6 +37651,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2101743949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101743945}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634c4eb54be2b4d46949d179c36d716f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTextIn: 1
+  duration: 5
+--- !u!114 &2101743950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101743945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d25cff739d7cae41959a83efd76b502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2101743951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101743945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2101743950}
+  sceneViewId: 16
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2106511623
 GameObject:
   m_ObjectHideFlags: 0
