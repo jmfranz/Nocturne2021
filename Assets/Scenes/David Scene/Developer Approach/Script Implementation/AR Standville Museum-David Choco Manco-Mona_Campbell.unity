@@ -20514,6 +20514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DavidStoryControllerPath2BathroomEvent: {fileID: 792375170}
+  MainCamera: {fileID: 1672460195}
 --- !u!114 &1109380222
 MonoBehaviour:
   m_ObjectHideFlags: 0

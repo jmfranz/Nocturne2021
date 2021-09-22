@@ -8,6 +8,7 @@ public class ObjectTalking : MonoBehaviour
     StoryProxemicUIHost.OrRuleInfo orRule;
 
     public DavidStoryControllerPath2BathroomEvent DavidStoryControllerPath2BathroomEvent;
+    public AudioSource MainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,7 @@ public class ObjectTalking : MonoBehaviour
         DavidStoryControllerPath2BathroomEvent.HighlightSecurityCamera();
         AudioClip audioClip = Resources.Load<AudioClip>("Conversations/ConversationLines/John_26");
 
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(audioClip);
+        MainCamera.PlayOneShot(audioClip);
         rule.OnEventTrue -= PlayDialogue;
 
         StartCoroutine(WaitForAudioToFinish());
