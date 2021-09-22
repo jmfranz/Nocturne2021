@@ -1016,7 +1016,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ec0cb013296c97943bb4bb4a6a23ae17, type: 2}
-  - {fileID: 2100000, guid: ec0cb013296c97943bb4bb4a6a23ae17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5206,8 +5205,8 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 831fbec33e8364643b21f676279b0981, type: 3}
-    voiceOrigin: {fileID: 6292699960914694969}
+  - voiceLine: {fileID: 8300000, guid: 3ed0e4de266dc7e4f8ec25df8218311d, type: 3}
+    voiceOrigin: {fileID: 1259541912}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -6561,7 +6560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365278315}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2578, y: -0, z: 0.0157}
+  m_LocalPosition: {x: 1.256, y: 0, z: 0.008}
   m_LocalScale: {x: 3.5159323, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 269915906}
@@ -6579,15 +6578,14 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e94ecc88e931cfc429d3c8d177ce096f, type: 2}
-  - {fileID: 2100000, guid: e94ecc88e931cfc429d3c8d177ce096f, type: 2}
+  - {fileID: 2100000, guid: 066a84835b08cab4c97921c92ef6be2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12140,13 +12138,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630460689}
-  m_LocalRotation: {x: -0.1490258, y: 0.6776224, z: -0.1599035, w: -0.70217526}
-  m_LocalPosition: {x: -1.599, y: 1.473, z: -1.316}
+  m_LocalRotation: {x: 0.080872, y: -0.6890838, z: 0.08925333, w: 0.71460277}
+  m_LocalPosition: {x: -1.5989996, y: 1.4729999, z: -1.3160001}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -205.214, y: 452.359, z: -178.569}
+  m_LocalEulerAnglesHint: {x: -193.803, y: 452.198, z: -539.05}
 --- !u!20 &630460691
 Camera:
   m_ObjectHideFlags: 0
@@ -14511,16 +14509,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795958945}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0265}
+  m_LocalRotation: {x: 0.49686363, y: 0.5031169, z: 0.50311685, w: 0.4968636}
+  m_LocalPosition: {x: 0, y: 0, z: 0.026499996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 371944239}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_LocalEulerAnglesHint: {x: -0.717, y: 90, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9954, y: 0.029}
+  m_AnchoredPosition: {x: -0.9953987, y: 0.028999979}
   m_SizeDelta: {x: 0.5, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795958947
@@ -24303,8 +24301,8 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 831fbec33e8364643b21f676279b0981, type: 3}
-    voiceOrigin: {fileID: 1672460195}
+  - voiceLine: {fileID: 8300000, guid: 3ed0e4de266dc7e4f8ec25df8218311d, type: 3}
+    voiceOrigin: {fileID: 1259541912}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -24445,7 +24443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259541909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 302.93002, y: -22.23, z: -46.718575}
+  m_LocalPosition: {x: -72.3, y: -22.23, z: 52.7}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1340414517}

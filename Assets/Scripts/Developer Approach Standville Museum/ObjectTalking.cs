@@ -35,7 +35,7 @@ public class ObjectTalking : MonoBehaviour
         DavidStoryControllerPath2BathroomEvent.HighlightSecurityCamera();
         AudioClip audioClip = Resources.Load<AudioClip>("Conversations/ConversationLines/John_26");
         MainCamera.clip = audioClip;
-        MainCamera.Play();//.PlayOneShot(audioClip);
+        MainCamera.Play();
         rule.OnEventTrue -= PlayDialogue;
 
         StartCoroutine(WaitForAudioToFinish());
