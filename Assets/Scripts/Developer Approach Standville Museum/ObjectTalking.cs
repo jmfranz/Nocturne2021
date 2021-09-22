@@ -43,7 +43,7 @@ public class ObjectTalking : MonoBehaviour
 
     IEnumerator WaitForAudioToFinish()
     {
-        yield return new WaitUntil(() => !GetComponent<AudioSource>().isPlaying);
+        yield return new WaitUntil(() => !MainCamera.isPlaying);
 
         GetComponent<ConversationPlayer>()._hasCompletedConversation = true;
         DavidStoryControllerPath2BathroomEvent.UnHighlightSecurityCamera();
