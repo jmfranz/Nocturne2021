@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2487,7 +2487,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 0a6e98e0877d79042817125dfc9e7f10, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 15a2ca83e69f1d7499492fc2982776be, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -2497,7 +2497,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 088b2a167dd43954eb2dfdc82aac1b1b, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 6c7bf97cc65ba0f43a69bf6170117717, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 5
@@ -2507,7 +2507,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 35a0815c898dbcc478dfb0bf6878ac96, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ef90ab5c609197d49aebdb37bd779ccb, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -2517,7 +2517,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: f4fd2d834229126488e294bf71824319, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ab314414bed962c40bbfe1c50f42755d, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -6780,12 +6780,12 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 39befcd5a51056f45a0c2fcf332819f3, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 188e0632f4a05894a854c497125e3b0c, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 2f746953dd7c3d347a4f212d09228628, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 211d8fddd96bd5042bd406ec21353365, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -6795,7 +6795,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 982b026c1cbafdc4fada358968c5baf2, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a39680af57376d146ad19738e1931ad9, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -6805,7 +6805,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 63ee1b0227db8cb49b819beac5d4eab1, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d111ad0dc34eda54eaad8fd5f7c5c9fb, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -6815,7 +6815,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 6f6dbbd5a02ab964a85c02206649c51c, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ac628ea8f27253147b567b364f1c47f5, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -8632,7 +8632,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: f3cb1929963da474bad245c6673858f6, type: 3}
+  - voiceLine: {fileID: 8300000, guid: b89e5369447aaca4c9165f668d940982, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -18198,7 +18198,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 53d3a658d707bcd4595ce63a22a86b9a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ed2125da646cbac4784e543d3baba519, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -22944,7 +22944,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d2d0bc009050aec49b61f3a60b477a1e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 6f8b229d51c626b4c8ea342fe83e3bd6, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -35273,7 +35273,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 55ec1e33a834ec640a01d07943408068, type: 3}
+  - voiceLine: {fileID: 8300000, guid: bffb8e4b1211ddb4699082c5d3a6ca91, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -36920,7 +36920,6 @@ GameObject:
   - component: {fileID: 2100273804}
   - component: {fileID: 2100273803}
   - component: {fileID: 2100273806}
-  - component: {fileID: 2100273805}
   m_Layer: 0
   m_Name: Follower
   m_TagString: Untagged
@@ -37067,102 +37066,6 @@ MonoBehaviour:
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
---- !u!82 &2100273805
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100273801}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b859d6193004289458398be1895fc0b1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.6
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &2100273806
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38203,7 +38106,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 0e5b51efcd71df34e9a25e5236722433, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 223030eb726e02e49934a4672005b789, type: 3}
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
