@@ -4290,7 +4290,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea63ab93dd9ec594e8808cc1f2c8487a, type: 2}
+  - {fileID: 2100000, guid: 8941d7596069e1c4b82a0e2e06eb90b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41195,7 +41195,7 @@ Animator:
   m_GameObject: {fileID: 1148342101987110}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a7968e419b1ae294d9e93e3cf2823862, type: 3}
-  m_Controller: {fileID: 9100000, guid: 884c2b6aa3927084084e2bbb9fea30b7, type: 2}
+  m_Controller: {fileID: 9100000, guid: dfc392108dba3314bb7a03aba2dc9d85, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
