@@ -6,7 +6,7 @@ using UnityEngine.AI;
 // Adapted from the DogCollieFull_Controller
 public class DogAnimController : MonoBehaviour
 {
-    public enum DogAnimStates { Talking, Move, Idle, Sniff, Attack }
+    public enum DogAnimStates { Talking, Move, Idle, Sniff, Attack, Sit }
     public DogAnimStates DogAnimState = DogAnimStates.Idle;
 
     [Range(0, 10)]
@@ -71,6 +71,13 @@ public class DogAnimController : MonoBehaviour
             V = 0f;
             H = 0f;
             Aggression();
+        }
+
+        if (DogAnimState == DogAnimStates.Sit)
+        {
+            V = 0f;
+            H = 0f;
+            Sit();
         }
 
         if (horiz < H)
@@ -149,6 +156,7 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("sniff", false);
         anim.SetFloat("Hor", horiz);
         anim.SetFloat("Vert", vertic);
+        anim.SetBool("sit", false);
     }
 
     void DogStartTalking()
@@ -167,6 +175,7 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("talk", true);
         anim.SetBool("idle", false);
         anim.SetBool("sniff", false);
+        anim.SetBool("sit", false);
     }
 
     void IdleStation()
@@ -181,6 +190,7 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("jump", false);
         anim.SetBool("talk", false);
         anim.SetBool("sniff", false);
+        anim.SetBool("sit", false);
     }
 
     void Sniffing()
@@ -192,6 +202,7 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("jump", false);
         anim.SetBool("talk", false);
         anim.SetBool("sniff", true);
+        anim.SetBool("sit", false);
     }
 
     void Aggression()
@@ -203,5 +214,18 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("jump", false);
         anim.SetBool("talk", false);
         anim.SetBool("aggressive", true);
+        anim.SetBool("sit", false);
+    }
+
+    void Sit()
+    {
+        anim.SetFloat("Hor", horiz);
+        anim.SetFloat("Vert", vertic);
+        anim.SetBool("idle", false);
+        anim.SetBool("walk", false);
+        anim.SetBool("jump", false);
+        anim.SetBool("talk", false);
+        anim.SetBool("aggressive", false);
+        anim.SetBool("sit", true);
     }
 }
