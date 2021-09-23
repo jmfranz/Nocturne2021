@@ -40,12 +40,23 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
                 var audioSourceName = (string)stream.ReceiveNext();
                 Debug.Log(audioSourceName);
                 var audioClip = Resources.Load<AudioClip>($"Conversations/All Audio/{audioSourceName}");
+                if (audioClip == null)
+                {
+                    Debug.Log($"Could not find {audioSourceName}");
+                }
+
+                if (_audioSource == null)
+                {
+                    Debug.Log("audio clip is null dumbass");
+                }
                 _audioSource.clip = audioClip;
                 _audioSource.Play();
             }
-            else if (!isPlaying && _audioSource.isPlaying)
-            {
-                _audioSource.Stop();
+            else {
+                if (_audioSource != null && !isPlaying && _audioSource.isPlaying)
+                {
+                    _audioSource.Stop();
+                }
             }
         }
     }
