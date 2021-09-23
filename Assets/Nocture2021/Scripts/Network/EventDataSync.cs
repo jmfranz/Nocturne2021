@@ -11,13 +11,6 @@ using UnityEngine;
 public class EventDataSync : MonoBehaviour, IOnEventCallback
 {
     private static byte _event = 10;
-    private static EventDataSync _instance;
-
-    void Awake()
-    {
-        var singletonObject = GameObject.Find("Event Data Synchronization");
-        _instance = singletonObject.AddComponent<EventDataSync>();
-    }
 
     public void SetEventData(string eventName, bool eventActive)
     {
