@@ -39,6 +39,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         {
             DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
         }
+
+        //MapToDogRoomPathFollower.pathCreator.InitializeEditorData(false);
     }
 
     void Awake()
@@ -51,8 +53,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     void ShowTrailToDogRoom()
     {
-        Vector3 pos = Player.transform.position;
-        MapToDogRoomPathFollower.pathCreator.bezierPath.AddSegmentToStart(new Vector3(pos.x, 1.2f, pos.z));
+        //Vector3 pos = Player.transform.position;
+        //MapToDogRoomPathFollower.pathCreator.bezierPath.MovePoint(0, Camera.main.transform.position);
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
         //LastRoomObjects.SetActive(true);
