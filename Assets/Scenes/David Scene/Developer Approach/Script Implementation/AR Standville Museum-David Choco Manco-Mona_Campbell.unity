@@ -15887,7 +15887,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 1
+  Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
@@ -24977,7 +24977,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 397aff8591e0f8341925dab220ee3101, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 8d8c1ac235889814e95f190a06f79a5a, type: 3}
     voiceOrigin: {fileID: 1813727828046355582}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -24987,7 +24987,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: c7b0ecbd44233cb46863927cc63c2689, type: 3}
+  - voiceLine: {fileID: 8300000, guid: dd68fe109cf1abe4584f824dff061560, type: 3}
     voiceOrigin: {fileID: 1813727828046355582}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
