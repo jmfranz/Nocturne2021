@@ -2,16 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-[RequireComponent(typeof(StringBuilder))]
-public class EventDataSync : MonoBehaviour, IPunObservable
+
+public class EventDataSync : MonoBehaviour, IOnEventCallback
 {
-    private StringBuilder _eventName;
-    private StringBuilder _eventActive; // 1 means active, 0 means inactive
-
-
+    private static byte _event = 10;
+    
     //Singleton
     private static EventDataSync _instance;
     public static EventDataSync Instance
@@ -28,56 +28,27 @@ public class EventDataSync : MonoBehaviour, IPunObservable
     }
 
 
-    void Awake()
-    {
-        _eventName = new StringBuilder();
-        _eventActive = new StringBuilder();
-    }
-
-
     public void SetEventData(string eventName, bool eventActive)
     {
-        if(_eventName.Length == 0) // First string added
-        {
-            _eventName.AppendFormat("{0}", eventName);
-            _eventActive.AppendFormat("{0}", eventActive);
-        }
-        else // Subsequent string added
-        {
-            _eventName.AppendFormat(", {0}", eventName);
-            _eventActive.AppendFormat(", {0}", eventActive);
-        }
+        Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
+
+        object[] content = { eventName, eventActive };
+        RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;
+        raiseEventOptions.Receivers = ReceiverGroup.Others;
+        PhotonNetwork.RaiseEvent(_event, content, raiseEventOptions, SendOptions.SendReliable);
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnEvent(EventData photonEvent)
     {
-        if (stream.IsWriting)
+        if(photonEvent.Code != _event)
         {
-            if(_eventName.Length != 0)
-            {
-                stream.SendNext(_eventName.ToString());
-                stream.SendNext(_eventActive.ToString());
-                Debug.LogFormat("Sent '{0}' with status '{1}'", _eventName, _eventActive);
-
-                //Reset data
-                _eventName.Length = 0;
-                _eventActive.Length = 0;
-            }
-            else
-            {
-                stream.SendNext("No Events");
-                stream.SendNext("No Status");
-            }
+            return;
         }
-        else // Reading
-        {
-            string eventName = (string)stream.ReceiveNext();
-            string eventActive = (string)stream.ReceiveNext();
 
-            if(eventName != "No Events") // There was an event change
-            {
-                Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventActive);
-            }
-        }
+        object[] eventData = (object[])photonEvent.CustomData;
+        string eventName = (string)eventData[0];
+        bool eventSatus = (bool)eventData[1];
+
+        Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventSatus);
     }
 }
