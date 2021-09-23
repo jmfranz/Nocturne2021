@@ -112,13 +112,11 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     public void DontTrustDogAction()
     {
-        Debug.Log("No, I don't trust the dog");
         NoEventCondition.CompleteConditionalEvent();
     }
 
     public void TrustDogAction()
     {
-        Debug.Log("Of course, I trust the dog");
         if (testingYesTrustEnding)
         {
             YesEventCondition.Status = StoryEventComponent.StoryEventStatus.Running;

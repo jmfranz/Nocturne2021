@@ -1723,6 +1723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Escaped Shadow
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311948}
@@ -1776,6 +1777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284122}
@@ -1794,6 +1796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284124}
@@ -1814,6 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Player entered dog room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284125}
@@ -1832,6 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284126}
@@ -1850,6 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284138}
@@ -1868,6 +1874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: No don't trust dog
   Status: 0
   _preConditions:
   - Component: {fileID: 132284127}
@@ -1886,6 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284131}
@@ -1904,6 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Yes trust dog
   Status: 0
   _preConditions:
   - Component: {fileID: 132284127}
@@ -1922,6 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284133}
@@ -1940,6 +1950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284130}
@@ -1958,6 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284135}
@@ -1976,6 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284132}
@@ -1994,6 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284134}
@@ -2012,6 +2026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284134}
@@ -2030,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284136}
@@ -2048,6 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284140}
@@ -2066,6 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284125}
@@ -2084,6 +2102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284147}
@@ -2104,6 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Ending John enters Main Room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284138}
@@ -2122,6 +2142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284146}
@@ -4146,7 +4167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241920018
 GameObject:
@@ -9477,6 +9498,59 @@ Transform:
   m_Father: {fileID: 1081123251}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &492417744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492417745}
+  - component: {fileID: 492417746}
+  m_Layer: 0
+  m_Name: Event Data Synchronization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492417745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492417744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.12878, y: -4.9955597, z: -0.14300065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492417746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492417744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 17
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &493670713
 GameObject:
   m_ObjectHideFlags: 0
@@ -10543,7 +10617,7 @@ Transform:
   m_Children:
   - {fileID: 1672460188}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560731469
 GameObject:
@@ -11630,6 +11704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284129}
@@ -11648,6 +11723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 594376982}
@@ -11698,6 +11774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 594376974}
@@ -11716,6 +11793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 594376975}
@@ -11734,6 +11812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 594376976}
@@ -11752,8 +11831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Entered Astronomy Room
   Status: 0
-  _preConditions: []
+  _preConditions:
+  - Component: {fileID: 594376970}
+    Action: 1
   _postConditions: []
   Complete: 0
 --- !u!114 &594376977
@@ -11768,6 +11850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Shadow Disappears
   Status: 0
   _preConditions:
   - Component: {fileID: 594376981}
@@ -11786,6 +11869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Finished Reading Mural
   Status: 0
   _preConditions:
   - Component: {fileID: 594376973}
@@ -11804,6 +11888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Ending John enters Main Room
   Status: 0
   _preConditions:
   - Component: {fileID: 594376977}
@@ -11822,6 +11907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 2
   _preConditions:
   - Component: {fileID: 594376979}
@@ -11840,6 +11926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 594376978}
@@ -11858,6 +11945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions: []
   _postConditions: []
@@ -14378,6 +14466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 792375168}
@@ -14396,6 +14485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 792375171}
@@ -14414,6 +14504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 792375167}
@@ -14452,6 +14543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Game Start
   Status: 0
   _preConditions: []
   _postConditions: []
@@ -35031,7 +35123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002753850
 GameObject:
@@ -36576,7 +36668,7 @@ Transform:
   - {fileID: 1305319619}
   - {fileID: 213407530}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2075089738 stripped
 Transform:
@@ -37974,6 +38066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Entered Security Room
   Status: 0
   _preConditions:
   - Component: {fileID: 792375167}
@@ -37992,6 +38085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311942}
@@ -38010,6 +38104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311940}
@@ -38042,6 +38137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Start Chase
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311941}
@@ -38075,6 +38171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38093,6 +38190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38111,6 +38209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311947}
@@ -38179,6 +38278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions: []
   _postConditions: []
@@ -38195,6 +38295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311952}
@@ -38213,6 +38314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38988,6 +39090,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: aggressive
+  - Type: 4
+    SynchronizeType: 0
+    Name: sitting
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -77435,7 +77540,7 @@ Transform:
   m_Children:
   - {fileID: 9168498083917397588}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9168498083914543692
 GameObject:
