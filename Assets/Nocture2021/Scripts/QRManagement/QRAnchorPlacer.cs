@@ -111,7 +111,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             if (string.IsNullOrEmpty(tag))
             {
                 //throw new Exception("Oh no! anyway...");
-                throw new Exception("Received an invalid tag from the network, cannot query Azure");
+                return;//  throw new Exception("Received an invalid tag from the network, cannot query Azure");
             }
             var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
             if (anchorStore != null)
