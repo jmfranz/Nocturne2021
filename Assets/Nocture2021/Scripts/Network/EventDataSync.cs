@@ -8,9 +8,10 @@ using Photon.Realtime;
 using UnityEngine;
 
 
-public class EventDataSync : MonoBehaviour, IOnEventCallback
+public class EventDataSync : MonoBehaviourPun, IOnEventCallback
 {
     private static byte _event = 10;
+
 
     public void SetEventData(string eventName, bool eventActive)
     {
@@ -23,7 +24,8 @@ public class EventDataSync : MonoBehaviour, IOnEventCallback
 
         object[] content = { eventName, eventActive };
         RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;
-        raiseEventOptions.Receivers = ReceiverGroup.All;
+        raiseEventOptions.Receivers = ReceiverGroup.Others;
+        raiseEventOptions.CachingOption = EventCaching.DoNotCache;
         PhotonNetwork.RaiseEvent(_event, content, raiseEventOptions, SendOptions.SendReliable);
     }
 
@@ -39,5 +41,16 @@ public class EventDataSync : MonoBehaviour, IOnEventCallback
         bool eventSatus = (bool)eventData[1];
 
         Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventSatus);
+    }
+
+
+    private void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    private void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }
