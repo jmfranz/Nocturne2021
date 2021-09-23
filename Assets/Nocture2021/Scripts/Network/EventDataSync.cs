@@ -11,30 +11,26 @@ using UnityEngine;
 public class EventDataSync : MonoBehaviour, IOnEventCallback
 {
     private static byte _event = 10;
-    
-    //Singleton
     private static EventDataSync _instance;
-    public static EventDataSync Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                var singletonObject = GameObject.Find("Event Data Synchronization");
-                _instance = singletonObject.AddComponent<EventDataSync>();
-            }
-            return _instance;
-        }
-    }
 
+    void Awake()
+    {
+        var singletonObject = GameObject.Find("Event Data Synchronization");
+        _instance = singletonObject.AddComponent<EventDataSync>();
+    }
 
     public void SetEventData(string eventName, bool eventActive)
     {
+        if (!PhotonNetwork.IsConnectedAndReady)
+        {
+            return;
+        }
+
         Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
 
         object[] content = { eventName, eventActive };
         RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;
-        raiseEventOptions.Receivers = ReceiverGroup.Others;
+        raiseEventOptions.Receivers = ReceiverGroup.All;
         PhotonNetwork.RaiseEvent(_event, content, raiseEventOptions, SendOptions.SendReliable);
     }
 
