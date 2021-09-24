@@ -7071,7 +7071,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 82199ee33c5e3464ab9175959b5d201c, type: 3}
+  - voiceLine: {fileID: 8300000, guid: e9b5ceb493b3ea84db874def1fc393da, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -9808,7 +9808,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 1e23c7b5f2347ba458d18209760ef908, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a2da46ed6f3f78241891a84c73b33dd2, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
