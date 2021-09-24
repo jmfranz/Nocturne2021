@@ -28,13 +28,4 @@ public class TextureTextControl : MonoBehaviour
     {
         textMesh.text = newText;
     }
-
-    public void OnGUI()
-    {
-        if (GUILayout.Button("click me to change the image"))
-        {
-            GetComponent<TextureTextControl>().ChangeImage("puppy2");
-            GetComponent<TextureTextControl>().ChangeText("You clicked me");
-        }
-    }
 }

@@ -28,6 +28,9 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     public ConversationPlayer ScaryMusic;
 
+    public FadeShadow FadeShadow;
+    bool triggeredEnding = false;
+
     bool testingYesTrustEnding = false; // FOR TESTING ONLY
 
     private void Start()
@@ -58,7 +61,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
         //LastRoomObjects.SetActive(true);
-        Max.SetActive(true);
+        //Max.SetActive(true);
         StartCoroutine(TriggersDogLocation());
     }
 
@@ -75,7 +78,10 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         EnableDogMovementController();
 
         Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+
         ScaryMusic.enabled = true;
+
+        ShadowDisappears();
     }
 
     void PlayerEntersMainRoom()
@@ -114,19 +120,21 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     public void DontTrustDogAction()
     {
-        if (!DogRoomConvo1._hasCompletedConversation)
+        if (!DogRoomConvo1._hasCompletedConversation || triggeredEnding)
         {
             return;
         }
+        triggeredEnding = true;
         NoEventCondition.CompleteConditionalEvent();
     }
 
     public void TrustDogAction()
     {
-        if (!DogRoomConvo1._hasCompletedConversation)
+        if (!DogRoomConvo1._hasCompletedConversation || triggeredEnding)
         {
             return;
         }
+        triggeredEnding = true;
 
         if (testingYesTrustEnding)
         {
@@ -142,6 +150,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
 
         ShowLastRoom();
+        Max.SetActive(true);
     }
 
     IEnumerator WaitForDialogueFinished()
@@ -166,7 +175,9 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     void ShadowDisappears()
     {
-        ShadowChild.gameObject.SetActive(false);
+        Shadow.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        FadeShadow.enabled = true;
+        // Do for don't trust dog too
     }
 
     void ShowMaxInTinyOrb()

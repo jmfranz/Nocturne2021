@@ -33,6 +33,8 @@ public class DontTrustDogHandler : MonoBehaviour
     public Transform Doctor, Player;
     public ConversationPlayer DoctorJohnConvo;
 
+    public FadeShadow FadeShadow;
+
     bool DocWalksToPlayer = false;
 
     // Start is called before the first frame update
@@ -84,7 +86,8 @@ public class DontTrustDogHandler : MonoBehaviour
     void UnShowCraterRoom()
     {
         CraterRoomObjects.SetActive(false);
-        Shadow.transform.GetChild(0).gameObject.SetActive(false);
+        Shadow.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        FadeShadow.enabled = true;
     }
 
     void ShowTrailCraterToMainRoom()
