@@ -4154,7 +4154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
-  RoomName: Testing
+  RoomName: Standville
 --- !u!4 &234199318
 Transform:
   m_ObjectHideFlags: 0
@@ -9310,12 +9310,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: e55fa79452ecd214a8d2bb39fef1a3e2, type: 3}
-    voiceOrigin: {fileID: 1672460195}
-    beforeVoiceDelay: 0
-    afterVoiceDelay: 0
-    volume: 0
-  - voiceLine: {fileID: 8300000, guid: 2bf3f69a08403484e86983011cc0eb90, type: 3}
+  - voiceLine: {fileID: 8300000, guid: da29549c60a42ad40bf34b12873ba187, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
