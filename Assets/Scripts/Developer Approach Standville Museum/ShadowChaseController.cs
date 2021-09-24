@@ -81,8 +81,8 @@ public class ShadowChaseController : MonoBehaviour
                 shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
                 ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
 
-                shadowParticles.
-                //caughtPlayer = true;
+                //shadowParticles.
+
                 //TODO: Make shadow particle effect big and scary
                 // Start speed: 7:36
                 // Start Size: 0:67 - 1.02
