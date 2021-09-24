@@ -107,6 +107,38 @@ public class ContextAwareGuide : MonoBehaviour
         {
             Debug.Log("Escaped shadow");
         }
+        else if(eventName== "Player entered dog room" && !eventStatus)
+        {
+            Debug.Log("Player entered the dog room");
+        }
+        else if(eventName== "No don't trust dog" && !eventStatus)
+        {
+            Debug.Log("Don't trust the dog");
+        }
+        else if(eventName== "Yes trust dog" && !eventStatus)
+        {
+            Debug.Log("Trust the dog");
+        }
+        else if(eventName== "Ending John enters Main Room" && !eventStatus)
+        {
+            Debug.Log("Ending john enters the main room");
+        }
+        else if(eventName== "Entered Astronomy Room" && !eventStatus)
+        {
+            Debug.Log("Entering the astronmy room");
+        }
+        else if(eventName== "Finished Reading Mural" && !eventStatus)
+        {
+            Debug.Log("Finished reading the mural");
+        }
+        else if(eventName== "Shadow Disappears" && !eventStatus)
+        {
+            Debug.Log("Shadow disappears");
+        }
+        else if(eventName== "Ending John enters Main Room No" && !eventStatus)
+        {
+            Debug.Log("Ending John enters Main Room No");
+        }
     }
 
     
