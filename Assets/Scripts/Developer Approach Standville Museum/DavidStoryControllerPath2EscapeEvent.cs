@@ -114,11 +114,20 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     public void DontTrustDogAction()
     {
+        if (!DogRoomConvo1._hasCompletedConversation)
+        {
+            return;
+        }
         NoEventCondition.CompleteConditionalEvent();
     }
 
     public void TrustDogAction()
     {
+        if (!DogRoomConvo1._hasCompletedConversation)
+        {
+            return;
+        }
+
         if (testingYesTrustEnding)
         {
             YesEventCondition.Status = StoryEventComponent.StoryEventStatus.Running;
