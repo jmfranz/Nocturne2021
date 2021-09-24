@@ -89,7 +89,7 @@ public class ContextAwareGuide : MonoBehaviour
     {
         Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventStatus);
 
-        if(eventName =="Game Starts" && !eventStatus)
+        if(eventName =="Game Start" && !eventStatus)
         {
             Debug.Log("Story starts");
         }
