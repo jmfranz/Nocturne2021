@@ -9320,7 +9320,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: d6111963672288d438a1f487362188da, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 023c00ad602dcbd4c90d15d255740598, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
