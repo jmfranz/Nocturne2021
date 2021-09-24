@@ -105,6 +105,7 @@ public class ContextAwareGuide : MonoBehaviour
        else if(eventName == "Entered Security Room" && !eventStatus)
         {
             Debug.Log("Entered security room");
+            aware.ChangeImage("SECURITYROOM_1");
         }
         
        else if(eventName == "Start Chase" && eventStatus)
