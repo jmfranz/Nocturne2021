@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShadowChaseController : MonoBehaviour
 {
     [SerializeField] List<GameObject> _placesToGo;
-    public GameObject VRPlayer, Shadow, ARPlayer;
+    public GameObject VRPlayer, Shadow, ARPlayer, Smoke;
     Transform shadow, vrPlayer, arPlayer;
     bool followingPlayer;
     bool caughtPlayer; 
@@ -78,41 +78,20 @@ public class ShadowChaseController : MonoBehaviour
             {
                 caughtPlayer = true;
 
-                //// Play Sound crash for where the shadow is going to next
-                //List<ConversationPlayer.VoiceLine> convoLines = CaughtByShadowConversationPlayer.ConversationLines;
+                shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
+                ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
 
-                //List<ConversationPlayer.VoiceLine> voiceLines = new List<ConversationPlayer.VoiceLine>();
-                //ConversationPlayer.VoiceLine voiceLine = new ConversationPlayer.VoiceLine();
-                //ConversationPlayer.VoiceLine voiceLine2 = new ConversationPlayer.VoiceLine();
-
-                //voiceLine.voiceLine = convoLines[0].voiceLine;//Resources.Load<AudioClip>("Conversations/ConversationLines/DM_16");
-                //voiceLine.voiceOrigin = convoLines[0].voiceOrigin;
-                //voiceLine.volume = ConversationPlayer.VoiceVolumes.Normal;
-                //voiceLine.beforeVoiceDelay = 0;
-                //voiceLine.afterVoiceDelay = 0;
-
-                //voiceLine2.voiceLine = convoLines[1].voiceLine;
-                //voiceLine2.voiceOrigin = _placesToGo[placesToGoIndex].GetComponent<AudioSource>();
-                //voiceLine2.volume = ConversationPlayer.VoiceVolumes.Normal;
-                //voiceLine2.beforeVoiceDelay = 0;
-                //voiceLine2.afterVoiceDelay = 0;
-
-                //voiceLines.Add(voiceLine);
-                //voiceLines.Add(voiceLine2);
-
-                //CaughtByShadowConversationPlayer.ConversationLines = voiceLines;
-                //CaughtByShadowConversationPlayer._remainingLines = voiceLines;
-
-                //// Activate conversation
-                //CaughtByShadowConversationPlayer.enabled = true;
-
-                //StartCoroutine(DistractShadow());
-                   // [1].voiceOrigin = _placesToGo[placesToGoIndex].GetComponent<AudioSource>();
-                // TODO: Implement shadow caught player ending
-                // Play Scary music for 5 seconds while still within a certain distance -> play bang -> shadow goes to other area
+                shadowParticles.
+                //caughtPlayer = true;
+                //TODO: Make shadow particle effect big and scary
+                // Start speed: 7:36
+                // Start Size: 0:67 - 1.02
+                // Emission: rate over time: 177
             }
-            else
+            else // Go to next location
             {
+                // Change particle system to normal
+
                 Vector3 location = _placesToGo[placesToGoIndex].transform.position;
                 shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
             }
