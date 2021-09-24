@@ -11,6 +11,13 @@ public class ContextAwareGuide : MonoBehaviour
     public float nextGuide = 0.0f;
     public float period = 20.0f;
     public int count = 1;
+    TextureTextControl aware;
+
+    private void Awake()
+    {
+        aware = GameObject.Find("AwareGuide").GetComponent<TextureTextControl>();
+
+    }
     //public AroundDisplayLong script;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +33,8 @@ public class ContextAwareGuide : MonoBehaviour
         // };
 
         Debug.Log("Game starts!");
-           
-     
+
+        aware.ChangeImage("MAIN_ROOM_1");
 
     }
 
@@ -92,6 +99,7 @@ public class ContextAwareGuide : MonoBehaviour
         if(eventName =="Game Start" && !eventStatus)
         {
             Debug.Log("Story starts");
+            aware.ChangeImage("WASHROOM_1");
         }
        
        else if(eventName == "Entered Security Room" && !eventStatus)
@@ -119,7 +127,7 @@ public class ContextAwareGuide : MonoBehaviour
         {
             Debug.Log("Trust the dog");
         }
-        else if(eventName== "Ending John enters Main Room" && !eventStatus)
+        else if(eventName== "Ending John enters Main Room" && !eventStatus) //For ending like I trust the dog
         {
             Debug.Log("Ending john enters the main room");
         }
