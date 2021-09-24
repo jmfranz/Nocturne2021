@@ -45,7 +45,7 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
         bool eventSatus = (bool)eventData[1];
 
       //  Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventSatus);
-        GameObject.Find("ContextAwareGuide").GetComponent<ContextAwareGuide>().SetEventData(eventName,eventSatus);
+        GameObject.Find("ContextAwareGuide").GetComponent<ContextAwareGuide>().OnEventDataChange(eventName,eventSatus);
 
     }
 
