@@ -1749,7 +1749,7 @@ MonoBehaviour:
   ShadowChild: {fileID: 6292699960914694961}
   MaxInOrb: {fileID: 927000500}
   LastRoomObjects: {fileID: 1925924663}
-  DialogueBeforeShowingTrailToDogRoom: {fileID: 132284125}
+  DialogueBeforeShowingTrailToDogRoom: {fileID: 132284139}
   DialogueBeforeShowingTrailToDog: {fileID: 132284125}
   NoEventCondition: {fileID: 132284129}
   YesEventCondition: {fileID: 132284131}
@@ -1766,6 +1766,7 @@ MonoBehaviour:
   MapToDogRoomPathFollower: {fileID: 1431537458}
   DogEnterLocationTrigger: {fileID: 1086863936}
   MainRoomTrigger: {fileID: 929296661}
+  DogAudioSource: {fileID: 369992242}
   ScaryMusic: {fileID: 1332097339}
   FadeShadow: {fileID: 6292699960881798236}
 --- !u!114 &132284124
@@ -1786,7 +1787,7 @@ MonoBehaviour:
   - Component: {fileID: 132284122}
     Action: 1
   _postConditions: []
-  WaitTime: 2
+  WaitTime: 5
 --- !u!114 &132284125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,8 +1803,8 @@ MonoBehaviour:
   name: 
   Status: 0
   _preConditions:
-  - Component: {fileID: 132284124}
-    Action: 1
+  - Component: {fileID: 2120311946}
+    Action: 0
   _postConditions:
   - Component: {fileID: 132284126}
     Action: 1
@@ -2070,7 +2071,7 @@ MonoBehaviour:
   name: 
   Status: 0
   _preConditions:
-  - Component: {fileID: 132284140}
+  - Component: {fileID: 132284124}
     Action: 1
   _postConditions: []
   ConversationPlayer: {fileID: 1256634434}
@@ -2081,7 +2082,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132284120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
@@ -7120,7 +7121,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: e9b5ceb493b3ea84db874def1fc393da, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 97c52d59e53e07949af1d382fad61578, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -7885,7 +7886,7 @@ MonoBehaviour:
     beforeVoiceDelay: 5
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 10e4bfc32e6a3be4492f1ef687d9289d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 7bb3131ee4d73ee42b114d80e6947622, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -8868,8 +8869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e408ec3f447860144a2b0ec362241a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopConversation: 0
-  LoopBufferTime: 10
+  isLoopConversation: 1
+  LoopBufferTime: 2
   OutOfRangeLoopClip: {fileID: 0}
   ConversationInfo:
     DefaultRule:
@@ -9852,7 +9853,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: a2da46ed6f3f78241891a84c73b33dd2, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 61f110ca29e89104eb70b51a9bc455e8, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -11504,7 +11505,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -24461,7 +24462,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

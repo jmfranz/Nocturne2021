@@ -28,6 +28,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     public PathFollower MapToDogRoomPathFollower;
     public EnterLocationTrigger DogEnterLocationTrigger;
     public EnterLocationTrigger MainRoomTrigger;
+    public AudioSource DogAudioSource;
 
     public ConversationPlayer ScaryMusic;
 
@@ -79,6 +80,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         yield return new WaitUntil(() => DogEnterLocationTrigger.ReachedDestination);
         MapToDogRoomPathFollower.playPath = false;
+        DogAudioSource.Stop();
     }
 
     void GoToMainRoom()
