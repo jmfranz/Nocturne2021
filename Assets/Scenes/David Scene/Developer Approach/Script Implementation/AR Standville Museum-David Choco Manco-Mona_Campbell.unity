@@ -11481,7 +11481,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 482322a6443377348833337d5f38ac24, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 5167ead4aa04f2d4fa367ccd66491e6e, type: 3}
     voiceOrigin: {fileID: 580475686}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -33714,7 +33714,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 45bd0fdb91dfe4141975e820289e5f2c, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 1b16964ca9cc05b418836d56612f1f6e, type: 3}
     voiceOrigin: {fileID: 6292699960840905229}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -33729,7 +33729,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 1
-  - voiceLine: {fileID: 8300000, guid: 511e12408387a2f428537708b142609a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: c57f39c963b0c544f9b043311efd0310, type: 3}
     voiceOrigin: {fileID: 6292699960840905229}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -62623,22 +62623,22 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 5e348a414a663384c8b8d98fa823c5d3, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 6c6c22a63f2f0b14b8c0016b9fa27827, type: 3}
     voiceOrigin: {fileID: 6292699960914694969}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 9f234fca46d88ca45b69cfa1f8916cf0, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 2cf0e92ca19246f4c8b871cee0d65648, type: 3}
     voiceOrigin: {fileID: 6292699960914694969}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 17470074479224746ac0de51c9c69808, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 7e0432f2711f2f140a7bc9368d5fa393, type: 3}
     voiceOrigin: {fileID: 6292699960914694969}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 9eb630668d2f3b848b2df177448f1e3d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 920af356a02bb8f4997b37226f0b15d5, type: 3}
     voiceOrigin: {fileID: 6292699960914694969}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
