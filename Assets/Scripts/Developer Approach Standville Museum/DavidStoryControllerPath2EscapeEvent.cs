@@ -1,4 +1,5 @@
-﻿using PathCreation.Examples;
+﻿using Microsoft.MixedReality.Toolkit.Input;
+using PathCreation.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     public ConditionalEventComponent EnteredMainRoomForYesEnding;
 
     public ConversationPlayer DogRoomConvo1;
+    public SpeechInputHandler SpeechInputHandler;
+    public DialogueEventComponent DogRoomConvo1_DialogueComponent;
     public DogMovementController DogMovementController;
     public DialogueEventComponent DogDialogueRoom1;
     public DialogueEventComponent DialogueBeforeLastRoom;
@@ -43,6 +46,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
             DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
         }
 
+        DogRoomConvo1_DialogueComponent.OnEventEnd += EnableSpeechInputHandler;
+
         //MapToDogRoomPathFollower.pathCreator.InitializeEditorData(false);
     }
 
@@ -52,6 +57,11 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         DialogueLastRoom.OnEventEnd += GoToMainRoom;
         TimeToWaitBeforeShowingMaxInOrb.OnEventEnd += ShowMaxInTinyOrb;
         EnteredMainRoomForYesEnding.OnEventEnd += PlayerEntersMainRoom;
+    }
+
+    void EnableSpeechInputHandler()
+    {
+        SpeechInputHandler.enabled = true;
     }
 
     void ShowTrailToDogRoom()
@@ -126,6 +136,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         }
         triggeredEnding = true;
         NoEventCondition.CompleteConditionalEvent();
+        SpeechInputHandler.enabled = false;
     }
 
     public void TrustDogAction()
@@ -151,6 +162,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
         ShowLastRoom();
         Max.SetActive(true);
+        SpeechInputHandler.enabled = false;
     }
 
     IEnumerator WaitForDialogueFinished()

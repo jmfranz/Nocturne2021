@@ -15,7 +15,7 @@ public class DontTrustDogHandler : MonoBehaviour
 
     public ConditionalEventComponent EnteredPlanetarium;
 
-    public GameObject CraterRoomObjects, Max;
+    public GameObject CraterRoomObjects, Max, Dog;
     public GameObject Shadow;
     public Transform ShadowPositionInCraterRoom;
 
@@ -57,6 +57,7 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         yield return new WaitUntil(() => PlanetariumEnterLocationTrigger.ReachedDestination);
         DogRoomToPlantariumPathFollower.playPath = false;
+        Dog.SetActive(false);
         EnteredPlanetarium.CompleteConditionalEvent();
     }
 

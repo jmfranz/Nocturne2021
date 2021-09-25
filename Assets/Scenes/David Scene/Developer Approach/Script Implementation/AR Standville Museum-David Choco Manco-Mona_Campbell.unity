@@ -1755,6 +1755,8 @@ MonoBehaviour:
   YesEventCondition: {fileID: 132284131}
   EnteredMainRoomForYesEnding: {fileID: 132284137}
   DogRoomConvo1: {fileID: 372867644}
+  SpeechInputHandler: {fileID: 2120311949}
+  DogRoomConvo1_DialogueComponent: {fileID: 132284127}
   DogMovementController: {fileID: 369992239}
   DogDialogueRoom1: {fileID: 132284130}
   DialogueBeforeLastRoom: {fileID: 132284132}
@@ -11780,6 +11782,7 @@ MonoBehaviour:
   EnteredPlanetarium: {fileID: 594376976}
   CraterRoomObjects: {fileID: 1490812313}
   Max: {fileID: 717845250}
+  Dog: {fileID: 1148342101987110}
   Shadow: {fileID: 6292699960840905223}
   ShadowPositionInCraterRoom: {fileID: 656377638}
   JohnReadsMural: {fileID: 594376973}
@@ -13298,7 +13301,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 0.6
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -19827,7 +19830,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 0.6
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -38271,7 +38274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120311939}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
   m_Name: 
@@ -46186,7 +46189,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 0.6
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -57172,7 +57175,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1966fb38227f4e14bae38dd05ac535f7, type: 2}
+  - {fileID: 2100000, guid: f53f1a24bb4ef8f4d879ea7b3a5197e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57194,7 +57197,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_SortMode: 2
+  m_SortMode: 3
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -57336,7 +57339,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.029495593
+      scalar: 0.39
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -57452,8 +57455,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.30646
-      minScalar: 0.009514706
+      scalar: 0.6
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
