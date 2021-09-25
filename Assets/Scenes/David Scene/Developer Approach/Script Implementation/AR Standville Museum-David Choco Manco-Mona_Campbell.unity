@@ -9357,7 +9357,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: da29549c60a42ad40bf34b12873ba187, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 392a2c388b22f4b4abee3cd38837c743, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
