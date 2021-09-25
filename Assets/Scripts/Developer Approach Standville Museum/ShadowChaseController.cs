@@ -79,14 +79,17 @@ public class ShadowChaseController : MonoBehaviour
                 caughtPlayer = true;
 
                 shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
+
+                // Make shadow particles big and scary
                 ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
-
-                //shadowParticles.
-
-                //TODO: Make shadow particle effect big and scary
-                // Start speed: 7:36
-                // Start Size: 0:67 - 1.02
-                // Emission: rate over time: 177
+                var main = shadowParticles.main;
+                main.startSpeed = 7.36f;
+                ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
+                curve.constantMin = 0.67f;
+                curve.constantMax = 1.02f;
+                main.startSize = curve;
+                var emission = shadowParticles.emission;
+                emission.rateOverTime = 177;
             }
             else // Go to next location
             {
@@ -94,6 +97,17 @@ public class ShadowChaseController : MonoBehaviour
 
                 Vector3 location = _placesToGo[placesToGoIndex].transform.position;
                 shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
+
+                // Make shadow particles big and scary
+                ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
+                var main = shadowParticles.main;
+                main.startSpeed = 0.02949559f;
+                ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
+                curve.constantMin = 0.0095147f;
+                curve.constantMax = 0.30646f;
+                main.startSize = curve;
+                var emission = shadowParticles.emission;
+                emission.rateOverTime = 120;
             }
             followingPlayer = false;
         }

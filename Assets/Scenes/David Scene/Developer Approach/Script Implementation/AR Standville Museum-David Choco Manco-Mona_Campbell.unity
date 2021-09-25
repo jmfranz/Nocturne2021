@@ -41433,7 +41433,7 @@ Animator:
   m_GameObject: {fileID: 1148342101987110}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a7968e419b1ae294d9e93e3cf2823862, type: 3}
-  m_Controller: {fileID: 9100000, guid: dfc392108dba3314bb7a03aba2dc9d85, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5edcbe48a3ab40f49a6a161f723e14b9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -62861,8 +62861,8 @@ MonoBehaviour:
   VRPlayer: {fileID: 0}
   Shadow: {fileID: 6292699960914694961}
   ARPlayer: {fileID: 1672460187}
-  Smoke: {fileID: 0}
-  ChaseConvos: {fileID: 6292699960314246158}
+  Smoke: {fileID: 6292699960314246158}
+  ChaseConvos: {fileID: 844568841}
   CaughtByShadowConversationPlayer: {fileID: 294677989}
 --- !u!114 &6292699960840905231
 MonoBehaviour:
