@@ -58,6 +58,22 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         DialogueLastRoom.OnEventEnd += GoToMainRoom;
         TimeToWaitBeforeShowingMaxInOrb.OnEventEnd += ShowMaxInTinyOrb;
         EnteredMainRoomForYesEnding.OnEventEnd += PlayerEntersMainRoom;
+
+        StartCoroutine(WaitForShadowDialogue());
+        StartCoroutine(WaitForMaxToFollowPlayer());
+    }
+
+    IEnumerator WaitForShadowDialogue()
+    {
+        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 1);
+        ShadowDisappears();
+        LastRoomObjects.SetActive(false);
+    }
+
+    IEnumerator WaitForMaxToFollowPlayer()
+    {
+        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 3);
+        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
     }
 
     void EnableSpeechInputHandler()
@@ -89,11 +105,11 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
         EnableDogMovementController();
 
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+        //Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
 
         ScaryMusic.enabled = true;
 
-        ShadowDisappears();
+        //ShadowDisappears();
     }
 
     void PlayerEntersMainRoom()
@@ -191,7 +207,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         Shadow.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
         FadeShadow.enabled = true;
-        // Do for don't trust dog too
     }
 
     void ShowMaxInTinyOrb()

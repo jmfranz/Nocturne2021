@@ -6774,7 +6774,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 0.7
   m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 70
@@ -11798,6 +11798,8 @@ MonoBehaviour:
   Doctor: {fileID: 1324189634963556034}
   Player: {fileID: 1672460188}
   DoctorJohnConvo: {fileID: 1272670581}
+  ShadowDialogue: {fileID: 1149763404}
+  MaxScreams: {fileID: 204358519}
   FadeShadow: {fileID: 6292699960881798236}
 --- !u!114 &594376973
 MonoBehaviour:
@@ -13302,7 +13304,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.6
+  m_Speed: 0.7
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -19831,7 +19833,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.6
+  m_Speed: 0.7
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -46190,7 +46192,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.6
+  m_Speed: 0.7
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120

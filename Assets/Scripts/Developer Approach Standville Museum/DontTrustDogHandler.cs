@@ -32,6 +32,7 @@ public class DontTrustDogHandler : MonoBehaviour
     public ConversationPlayer ScaryMusic, PoliceConvo1, PoliceConvo2;
     public Transform Doctor, Player;
     public ConversationPlayer DoctorJohnConvo;
+    public ConversationPlayer ShadowDialogue, MaxScreams;
 
     public FadeShadow FadeShadow;
 
@@ -44,6 +45,20 @@ public class DontTrustDogHandler : MonoBehaviour
         DontTrustDogComments.OnEventEnd += ShowTrailDogRoomToPlanetarium;
         JohnReadsMural.OnEventEnd += ShowCraterRoom;
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
+        StartCoroutine(WaitForShadowDialogue());
+        StartCoroutine(WaitForMaxToFollowPlayer());
+    }
+
+    IEnumerator WaitForShadowDialogue()
+    {
+        yield return new WaitUntil(()=> ShadowDialogue._remainingLines.Count == 1);
+        UnShowCraterRoom();
+    }
+
+    IEnumerator WaitForMaxToFollowPlayer()
+    {
+        yield return new WaitUntil(() => MaxScreams._hasCompletedConversation);
+        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
     }
 
     void ShowTrailDogRoomToPlanetarium()
@@ -78,7 +93,7 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         ShowTrailCraterToMainRoom();
         UnShowCraterRoom();
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+        //Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
 
         ScaryMusic.enabled = true;
         PoliceConvo1.enabled = true;
@@ -131,11 +146,4 @@ public class DontTrustDogHandler : MonoBehaviour
             }
         }   
     }
-
-    //IEnumerator WaitForDocToStop()
-    //{
-    //    AvatarController avatarController = Doctor.GetComponent<AvatarController>();
-    //    yield return new WaitUntil(() => avatarController.MovementState == AvatarController.MovementStates.Stopped);
-
-    //}
 }
