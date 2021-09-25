@@ -71,7 +71,6 @@ public class DontTrustDogHandler : MonoBehaviour
                                         Quaternion.Euler(0, 90, 0));
         Shadow.transform.GetChild(0).localPosition = Vector3.zero;
         Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 90, 0);
-        Debug.Log("Shadow position " + Shadow.transform.localPosition);
         Shadow.SetActive(true);
     }
 

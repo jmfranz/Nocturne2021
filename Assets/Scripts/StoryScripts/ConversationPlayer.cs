@@ -280,7 +280,6 @@ public class ConversationPlayer : MonoBehaviour
         if (line.voiceOrigin.transform.tag == "Avatar")
         {
             avatarControllers = line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
-            Debug.Log("Is an avatar with " + avatarControllers.Length);
         }
 
         if (avatarControllers.Length > 0)
