@@ -85,7 +85,7 @@ public class ShadowChaseController : MonoBehaviour
 
                 shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
                 shadow.GetComponent<NavMeshAgent>().speed = 0;
-                ChaseConvos.GetComponent<AudioSource>().volume = 0.5f;
+                shadow.GetComponent<AudioSource>().volume = 1f;
 
                 // Make shadow particles big and scary
                 ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();

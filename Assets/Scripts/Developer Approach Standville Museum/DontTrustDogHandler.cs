@@ -69,6 +69,8 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.SetActive(false); // Disable shadow while setting its position
         Shadow.transform.SetPositionAndRotation(new Vector3(ShadowPositionInCraterRoom.position.x, 0, ShadowPositionInCraterRoom.position.z),
                                         Quaternion.Euler(0, 90, 0));
+        Shadow.transform.GetChild(0).localPosition = Vector3.zero;
+        Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 90, 0);
         Debug.Log("Shadow position " + Shadow.transform.localPosition);
         Shadow.SetActive(true);
     }
