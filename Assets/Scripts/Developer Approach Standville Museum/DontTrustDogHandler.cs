@@ -38,6 +38,8 @@ public class DontTrustDogHandler : MonoBehaviour
 
     bool DocWalksToPlayer = false;
 
+    public GameObject EndingMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class DontTrustDogHandler : MonoBehaviour
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
         StartCoroutine(WaitForShadowDialogue());
         StartCoroutine(WaitForMaxToFollowPlayer());
+        StartCoroutine(ShowEndingMessage());
     }
 
     IEnumerator WaitForShadowDialogue()
@@ -59,6 +62,12 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         yield return new WaitUntil(() => MaxScreams._hasCompletedConversation);
         Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+    }
+
+    IEnumerator ShowEndingMessage()
+    {
+        yield return new WaitUntil(() => DoctorJohnConvo._hasCompletedConversation);
+        EndingMessage.SetActive(true);
     }
 
     void ShowTrailDogRoomToPlanetarium()

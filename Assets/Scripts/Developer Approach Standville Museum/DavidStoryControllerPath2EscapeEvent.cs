@@ -35,7 +35,11 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     public FadeShadow FadeShadow;
     bool triggeredEnding = false;
 
+
     bool testingYesTrustEnding = false; // FOR TESTING ONLY
+
+    public GameObject EndingMessage;
+    public DialogueEventComponent MainRoomConvoEnd;
 
     private void Start()
     {
@@ -61,6 +65,12 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
         StartCoroutine(WaitForShadowDialogue());
         StartCoroutine(WaitForMaxToFollowPlayer());
+        MainRoomConvoEnd.OnEventEnd += ShowEndingMessage;
+    }
+
+    void ShowEndingMessage()
+    {
+        EndingMessage.SetActive(true);
     }
 
     IEnumerator WaitForShadowDialogue()
