@@ -209,7 +209,7 @@ public class StoryEventComponent : MonoBehaviour
         OnEventStart?.Invoke();
 
         // Tells across network this event starts
-        if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
+        //if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
         //Wait for action to finish
         yield return StartCoroutine(DoEventAction());
@@ -217,7 +217,7 @@ public class StoryEventComponent : MonoBehaviour
         EventFinished();
 
         // Tells across network this event finishes
-        if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
+       // if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
     }
 
 
