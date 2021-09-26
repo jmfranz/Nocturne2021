@@ -10792,6 +10792,7 @@ MonoBehaviour:
   CraterRoomToMainRoomPathFollower: {fileID: 830388904}
   MainRoomEnterLocationTrigger: {fileID: 929296661}
   EnteredMainRoom: {fileID: 594376979}
+  MainRoomTrigger: {fileID: 929296661}
   MainRoomObjects: {fileID: 1320284917}
   ScaryMusic: {fileID: 1332097339}
   PoliceConvo1: {fileID: 1322252881}

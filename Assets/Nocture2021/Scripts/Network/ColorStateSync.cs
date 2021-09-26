@@ -39,7 +39,15 @@ public class ColorStateSync : MonoBehaviour, IPunObservable
             byte b = (byte)stream.ReceiveNext();
             byte a = (byte)stream.ReceiveNext();
 
-            Text.color = new Color32(r, g, b, a);
+
+            if (UsingTextMeshPro)
+            {
+                Text.color = new Color32(r, g, b, a);
+            }
+            if (UsingShader)
+            {
+                Material.color = new Color32(r, g, b, a);
+            }
         }
     }
 }

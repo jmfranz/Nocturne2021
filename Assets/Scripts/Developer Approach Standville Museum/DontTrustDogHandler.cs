@@ -27,6 +27,7 @@ public class DontTrustDogHandler : MonoBehaviour
     public EnterLocationTrigger MainRoomEnterLocationTrigger;
 
     public ConditionalEventComponent EnteredMainRoom;
+    public EnterLocationTrigger MainRoomTrigger;                
 
     public GameObject MainRoomObjects;
     public ConversationPlayer ScaryMusic, PoliceConvo1, PoliceConvo2;
@@ -50,6 +51,9 @@ public class DontTrustDogHandler : MonoBehaviour
         StartCoroutine(WaitForShadowDialogue());
         StartCoroutine(WaitForMaxToFollowPlayer());
         StartCoroutine(ShowEndingMessage());
+
+
+
     }
 
     IEnumerator WaitForShadowDialogue()
@@ -107,6 +111,9 @@ public class DontTrustDogHandler : MonoBehaviour
         ScaryMusic.enabled = true;
         PoliceConvo1.enabled = true;
         PoliceConvo2.enabled = true;
+
+        MainRoomTrigger.enabled = true;
+        MainRoomTrigger.ConditionalEventComponent = EnteredMainRoom;
     }
 
     void UnShowCraterRoom()
