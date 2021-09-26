@@ -69,11 +69,11 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         GameObject playerHat;
         if (playerPrefab.GetPhotonView().IsMine)
         {
-            playerHat = Instantiate(ActiveUserHat1);
+            playerHat = PhotonNetwork.Instantiate("Detective Hat", ActiveUserHat1.transform.localPosition, ActiveUserHat1.transform.localRotation, 0);
         }
         else
         {
-            playerHat = Instantiate(PassiveUserHat2);
+            playerHat = PhotonNetwork.Instantiate("Cap", PassiveUserHat2.transform.localPosition, PassiveUserHat2.transform.localRotation, 0);
         }
 
         playerHat.transform.parent = playerPrefab.transform;
