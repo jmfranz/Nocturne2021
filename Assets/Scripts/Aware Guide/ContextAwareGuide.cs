@@ -111,42 +111,52 @@ public class ContextAwareGuide : MonoBehaviour
        else if(eventName == "Start Chase" && eventStatus)
         {
             Debug.Log("Start chase!");
+            aware.ChangeImage("SECURITYROOM_3");
         }
         else if(eventName== "Escaped Shadow" && !eventStatus)
         {
             Debug.Log("Escaped shadow");
+            aware.ChangeImage("SECURITYROOM_4");
         }
         else if(eventName== "Player entered dog room" && !eventStatus)
         {
             Debug.Log("Player entered the dog room");
+            aware.ChangeImage("DOGS_ROOM_1");
         }
         else if(eventName== "No don't trust dog" && !eventStatus)
         {
             Debug.Log("Don't trust the dog");
+            aware.ChangeImage("DOGS_ROOM_3");
         }
         else if(eventName== "Yes trust dog" && !eventStatus)
         {
             Debug.Log("Trust the dog");
+            aware.ChangeImage("DOGS_ROOM_2");
         }
         else if(eventName== "Ending John enters Main Room" && !eventStatus) //For ending like I trust the dog
         {
             Debug.Log("Ending john enters the main room");
+            aware.ChangeImage("LAST_ROOM_2");
         }
         else if(eventName== "Entered Astronomy Room" && !eventStatus)
         {
             Debug.Log("Entering the astronmy room");
+            aware.ChangeImage("ASTRONOMY_ROOM_1");
         }
         else if(eventName== "Finished Reading Mural" && !eventStatus)
         {
             Debug.Log("Finished reading the mural");
+            aware.ChangeImage("ASTRONOMY_ROOM_3");
         }
         else if(eventName== "Shadow Disappears" && !eventStatus)
         {
             Debug.Log("Shadow disappears");
+            aware.ChangeImage("ASTRONOMY_ROOM_4");
         }
         else if(eventName== "Ending John enters Main Room No" && !eventStatus)
         {
             Debug.Log("Ending John enters Main Room No");
+            aware.ChangeImage("LAST_ROOM_1");
         }
     }
 
