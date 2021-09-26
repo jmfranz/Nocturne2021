@@ -67,14 +67,14 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         playerPrefab.transform.parent = parentAnchor;
 
         GameObject playerHat;
-        if (playerPrefab.GetPhotonView().IsMine)
+        if (PhotonNetwork.IsMasterClient)
         {
             playerHat = PhotonNetwork.Instantiate(ActiveUserHat1.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
         }
         else
         {
             playerHat = PhotonNetwork.Instantiate(PassiveUserHat2.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
-        }
+        }       
 
         playerHat.transform.parent = playerPrefab.transform;
     }
