@@ -102,7 +102,6 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         ShowTrailCraterToMainRoom();
         UnShowCraterRoom();
-        //Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
 
         ScaryMusic.enabled = true;
         PoliceConvo1.enabled = true;

@@ -11472,7 +11472,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -16595,7 +16595,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -17746,6 +17746,8 @@ MonoBehaviour:
   Camera: {fileID: 1672460188}
   PathParent: {fileID: 950753360}
   PathCreator: {fileID: 1661598554}
+  PathFollower: {fileID: 2100273804}
+  VerticalOffsetFromCamera: 0
 --- !u!1 &952111386
 GameObject:
   m_ObjectHideFlags: 0
@@ -30854,7 +30856,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -33863,6 +33865,8 @@ MonoBehaviour:
   Camera: {fileID: 1672460188}
   PathParent: {fileID: 1866762005}
   PathCreator: {fileID: 895178039}
+  PathFollower: {fileID: 0}
+  VerticalOffsetFromCamera: 2
 --- !u!1 &1870429586
 GameObject:
   m_ObjectHideFlags: 0
@@ -35180,6 +35184,8 @@ MonoBehaviour:
   Camera: {fileID: 1672460188}
   PathParent: {fileID: 1973101828}
   PathCreator: {fileID: 577256342}
+  PathFollower: {fileID: 0}
+  VerticalOffsetFromCamera: 0
 --- !u!1 &1983521642
 GameObject:
   m_ObjectHideFlags: 0
@@ -35909,6 +35915,8 @@ MonoBehaviour:
   Camera: {fileID: 1672460188}
   PathParent: {fileID: 2016462039}
   PathCreator: {fileID: 2028317105}
+  PathFollower: {fileID: 1431537458}
+  VerticalOffsetFromCamera: 2
 --- !u!1 &2016742207
 GameObject:
   m_ObjectHideFlags: 0
@@ -36409,7 +36417,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1

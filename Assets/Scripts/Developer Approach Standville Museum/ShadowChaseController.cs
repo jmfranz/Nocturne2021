@@ -43,6 +43,7 @@ public class ShadowChaseController : MonoBehaviour
         shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
         Shadow.SetActive(false);
         ChaseConvos.SetActive(false);
+        OriginalParticleEffect();
         this.GetComponent<DirectIntroductionController>().enabled = false;
     }
 
@@ -116,16 +117,7 @@ public class ShadowChaseController : MonoBehaviour
                 shadow.GetComponent<NavMeshAgent>().speed = 0.4f;
                 ChaseConvos.GetComponent<AudioSource>().volume = 0.372f;
 
-                // Make shadow particles big and scary
-                ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
-                var main = shadowParticles.main;
-                main.startSpeed = 0.039f;
-                ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
-                curve.constantMin = 0.5f;
-                curve.constantMax = 0.6f;
-                main.startSize = curve;
-                var emission = shadowParticles.emission;
-                emission.rateOverTime = 120;
+                OriginalParticleEffect();
 
                 caughtPlayer = false;
                 StartCoroutine(WaitForEscape());
@@ -218,5 +210,18 @@ public class ShadowChaseController : MonoBehaviour
 
         return false;
 
+    }
+
+    void OriginalParticleEffect()
+    {
+        ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
+        var main = shadowParticles.main;
+        main.startSpeed = 0.039f;
+        ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
+        curve.constantMin = 0.5f;
+        curve.constantMax = 0.6f;
+        main.startSize = curve;
+        var emission = shadowParticles.emission;
+        emission.rateOverTime = 120;
     }
 }
