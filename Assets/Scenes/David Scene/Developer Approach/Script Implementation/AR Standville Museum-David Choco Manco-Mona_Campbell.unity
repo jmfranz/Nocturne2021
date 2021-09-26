@@ -18632,7 +18632,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: e0cd9400f97e3744c9e482a348666276, type: 3}
+  - voiceLine: {fileID: 8300000, guid: e54a31c5a3c50a44ea61cc4041d0b085, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -59210,8 +59210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d25cff739d7cae41959a83efd76b502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsingTextMeshPro: 1
-  UsingShader: 0
+  UsingTextMeshPro: 0
+  UsingShader: 1
   Text: {fileID: 0}
   Material: {fileID: 2100000, guid: 1966fb38227f4e14bae38dd05ac535f7, type: 2}
 --- !u!114 &6292699960881798238
@@ -59226,8 +59226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d25cff739d7cae41959a83efd76b502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UsingTextMeshPro: 1
-  UsingShader: 0
+  UsingTextMeshPro: 0
+  UsingShader: 1
   Text: {fileID: 0}
   Material: {fileID: 2100000, guid: 3d9b48e0c93756e44bf0ca189589739b, type: 2}
 --- !u!114 &6292699960881798241
