@@ -70,12 +70,10 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             playerHat = PhotonNetwork.Instantiate(ActiveUserHat1.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
-            playerHat.transform.localPosition = new Vector3(0, -2.12f, 0); 
         }
         else
         {
             playerHat = PhotonNetwork.Instantiate(PassiveUserHat2.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
-            playerHat.transform.localPosition = new Vector3(0, 0.05f, 0);
         }       
 
         playerHat.transform.parent = playerPrefab.transform;
