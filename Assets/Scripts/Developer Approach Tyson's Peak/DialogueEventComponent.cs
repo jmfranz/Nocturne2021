@@ -21,7 +21,7 @@ public class DialogueEventComponent : StoryEventComponent
     public override IEnumerator DoEventAction()
     {
         ConversationPlayer.enabled = true;
-        yield return new WaitUntil(() => ConversationPlayer.enabled && ConversationPlayer.IsConversationFinished);
+        yield return new WaitUntil(() => ConversationPlayer.enabled && ConversationPlayer.IsConversationFinished && !ConversationPlayer.isLoopConversation);
     }
 
 

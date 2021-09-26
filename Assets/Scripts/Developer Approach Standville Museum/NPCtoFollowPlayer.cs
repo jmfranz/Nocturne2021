@@ -9,6 +9,7 @@ public class NPCtoFollowPlayer : MonoBehaviour
     public GameObject Player;
 
     public bool FollowPlayer = false;
+    bool stop = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,13 @@ public class NPCtoFollowPlayer : MonoBehaviour
     {
         if (FollowPlayer)
         {
+            stop = true;
             agent.SetDestination(Player.transform.position);
+        }
+        else if(stop)
+        {
+            stop = false;
+            agent.transform.GetComponent<AvatarController>().enabled = false;
         }
     }
 }

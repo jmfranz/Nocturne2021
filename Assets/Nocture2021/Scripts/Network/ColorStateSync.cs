@@ -4,21 +4,28 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TextMeshPro))]
 public class ColorStateSync : MonoBehaviour, IPunObservable
 {
-    private TextMeshPro _text;
+    public bool UsingTextMeshPro = true;
+    public bool UsingShader = false;
 
-    private void Start()
-    {
-        _text = GetComponent<TextMeshPro>();
-    }
+    public TextMeshPro Text;
+    public Material Material;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            Color32 color = _text.color;
+            Color32 color = Color.clear;
+
+            if (UsingTextMeshPro)
+            {
+                color = Text.color;
+            }
+            if (UsingShader)
+            {
+                color = Material.color;
+            }
 
             stream.SendNext(color.r);
             stream.SendNext(color.g);
@@ -32,7 +39,7 @@ public class ColorStateSync : MonoBehaviour, IPunObservable
             byte b = (byte)stream.ReceiveNext();
             byte a = (byte)stream.ReceiveNext();
 
-            _text.color = new Color32(r, g, b, a);
+            Text.color = new Color32(r, g, b, a);
         }
     }
 }

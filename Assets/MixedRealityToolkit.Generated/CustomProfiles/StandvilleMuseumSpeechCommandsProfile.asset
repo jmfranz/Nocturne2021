@@ -52,14 +52,14 @@ MonoBehaviour:
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: Yes
+    keyword: Affirmative
     keyCode: 121
     action:
       id: 0
       description: None
       axisConstraint: 0
   - localizationKey: 
-    keyword: No
+    keyword: Negative
     keyCode: 110
     action:
       id: 0
