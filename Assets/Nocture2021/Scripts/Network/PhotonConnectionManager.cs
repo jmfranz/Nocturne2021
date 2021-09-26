@@ -11,8 +11,10 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     public GameObject PlayerPrefab;
     public Transform parentAnchor;
     public string RoomName = "Nocturne";
-    
+
     private string gameVersion = "0";
+
+    public GameObject ActiveUserHat1, PassiveUserHat2;
 
 
     //This will probably be 3 -> master + 2 HL
@@ -64,5 +66,16 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var playerPrefab = PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
         playerPrefab.transform.parent = parentAnchor;
 
+        GameObject playerHat;
+        if (playerPrefab.GetPhotonView().IsMine)
+        {
+            playerHat = Instantiate(ActiveUserHat1);
+        }
+        else
+        {
+            playerHat = Instantiate(PassiveUserHat2);
+        }
+
+        playerHat.transform.parent = playerPrefab.transform;
     }
 }

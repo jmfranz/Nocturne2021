@@ -3614,7 +3614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2079062873306329132, guid: 8d173a405a3219549bfb1cfdc32f6743, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2079062873306329132, guid: 8d173a405a3219549bfb1cfdc32f6743, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4205,6 +4205,8 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
   RoomName: Standville_Mine
+  ActiveUserHat1: {fileID: 184124274209160635, guid: e64f661e962205c4081912583d050249, type: 3}
+  PassiveUserHat2: {fileID: 37079185056313549, guid: e7a6e4715eabfa44db4fb18dbc656b1a, type: 3}
 --- !u!4 &234199318
 Transform:
   m_ObjectHideFlags: 0
@@ -9567,8 +9569,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492417744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.12878, y: -4.9955597, z: -0.14300065}
+  m_LocalRotation: {x: 0.0049679996, y: -0.9521613, z: 0.24999696, w: -0.17568634}
+  m_LocalPosition: {x: 2.8617182, y: 6.3471813, z: 5.6465025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26455,7 +26457,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.698
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
