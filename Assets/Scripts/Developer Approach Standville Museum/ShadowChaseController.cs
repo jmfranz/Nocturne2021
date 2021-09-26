@@ -127,7 +127,7 @@ public class ShadowChaseController : MonoBehaviour
         else if(shadowAvatarController._movementState == AvatarController.MovementStates.Stopped) 
         {
             Vector3 location = _placesToGo[placesToGoIndex].transform.position;
-            float distance = Vector3.Distance(shadow.position, new Vector3 (location.x, 0, location.z));
+           float distance = Vector3.Distance(shadow.position, new Vector3 (location.x, shadow.position.y, location.z));
             if (caughtPlayer)
             {
                 caughtPlayer = false;
