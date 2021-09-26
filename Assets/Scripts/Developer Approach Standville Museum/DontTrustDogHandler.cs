@@ -96,6 +96,7 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.transform.GetChild(0).localPosition = Vector3.zero;
         Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 90, 0);
         Shadow.SetActive(true);
+        Shadow.transform.localPosition = new Vector3(Shadow.transform.localPosition.x, 0, Shadow.transform.localPosition.z);
     }
 
     void FinishedOtherRoom()
