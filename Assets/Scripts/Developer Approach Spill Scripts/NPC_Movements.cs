@@ -66,7 +66,7 @@ public class NPC_Movements : StoryEventComponent
     {
         if (loopFinished)
         {
-            StartCoroutine("ConversationLoop");
+            StartCoroutine(ConversationLoop());
         }
     }
 
@@ -279,6 +279,14 @@ public class NPC_Movements : StoryEventComponent
 
     public void StopNPCMovements()
     {
-        StopCoroutine("ConversationLoop");
+        StopCoroutine(BL());
+        StopCoroutine(CF());
+        StopCoroutine(CB());
+        StopCoroutine(CK());
+        StopCoroutine(LF());
+        StopCoroutine(LC());
+        StopCoroutine(LK());
+        StopCoroutine(FB());
+        StopCoroutine(ConversationLoop());
     }
 }
