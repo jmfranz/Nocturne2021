@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class StoryEventComponent : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class StoryEventComponent : MonoBehaviour
     public StoryEventStatus Status = StoryEventComponent.StoryEventStatus.Waiting;
     public List<Condition> _preConditions = new List<Condition>(); //Possibly extend to have a bool if precondition needs to be ACTIVELY true or only true ONCE - for interuption
     public List<Condition> _postConditions = new List<Condition>();
+
+    // STATIC OBJECTS
+    public static string logFilename = "story.csv"; // Keeping track of when the story is logged.
+    public static bool logFileSetUp = false;        // Check if the log file has been set up or not.
 
     public virtual IEnumerator DoEventAction() { Debug.LogError("This function needs to be overridden"); return null; }
     public virtual void DoEventStoppedAction() { return; } // This function is optionally used by certain events (animation)
@@ -66,6 +71,21 @@ public class StoryEventComponent : MonoBehaviour
 
     void Start()
     {
+        // Try to set up the log file.
+        if (!logFileSetUp)
+        {
+            string path = Application.dataPath + "/Data/" + logFilename;
+
+            if (!File.Exists(path))
+            {
+                StreamWriter swt = File.CreateText(path);
+                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event");
+                swt.Close();
+            }
+
+            logFileSetUp = true;
+        }
+
         //No preconditions means run at game start
         if (_preConditions.Count == 0)
         {
@@ -211,6 +231,16 @@ public class StoryEventComponent : MonoBehaviour
         // Tells across network this event starts
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
+        // Log the events.
+        string path = Application.dataPath + "/Data/" + logFilename;
+        StreamWriter sw = new StreamWriter(path, true);
+
+        DateTime now = DateTime.Now;
+        string date = now.ToString("yyyy-MM-dd");
+
+        string log = string.Format("{0},{1},{2},{3},{4},{5},Start", date, now.Hour, now.Minute, now.Second, now.Millisecond, name);
+        sw.WriteLine(log);
+
         //Wait for action to finish
         yield return StartCoroutine(DoEventAction());
 
@@ -218,6 +248,13 @@ public class StoryEventComponent : MonoBehaviour
 
         // Tells across network this event finishes
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
+
+        // Log the event and close the stream.
+        now = DateTime.Now;
+        date = now.ToString("yyyy-MM-dd");
+        log = string.Format("{0},{1},{2},{3},{4},{5},End", date, now.Hour, now.Minute, now.Second, now.Millisecond, name);
+        sw.WriteLine(log);
+        sw.Close();
     }
 
 
