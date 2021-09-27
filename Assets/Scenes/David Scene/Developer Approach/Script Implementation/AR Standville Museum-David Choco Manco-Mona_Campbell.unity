@@ -31729,6 +31729,7 @@ MonoBehaviour:
   - {fileID: 1925924663}
   - {fileID: 927000500}
   - {fileID: 489612459}
+  - {fileID: 6292699959985869698}
 --- !u!114 &1995141117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34031,7 +34032,7 @@ MonoBehaviour:
   UsingTextMeshPro: 1
   UsingShader: 0
   Text: {fileID: 2101743947}
-  Material: {fileID: 0}
+  ShadowSkinnedMeshRenderer: {fileID: 0}
 --- !u!114 &2101743951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59092,7 +59093,6 @@ GameObject:
   - component: {fileID: 6292699960881798235}
   - component: {fileID: 6292699960881798236}
   - component: {fileID: 6292699960881798241}
-  - component: {fileID: 6292699960881798238}
   - component: {fileID: 6292699960881798237}
   m_Layer: 0
   m_Name: m016_hipoly_81_bones
@@ -59282,23 +59282,7 @@ MonoBehaviour:
   UsingTextMeshPro: 0
   UsingShader: 1
   Text: {fileID: 0}
-  Material: {fileID: 2100000, guid: 1966fb38227f4e14bae38dd05ac535f7, type: 2}
---- !u!114 &6292699960881798238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6292699960881798233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d25cff739d7cae41959a83efd76b502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UsingTextMeshPro: 0
-  UsingShader: 1
-  Text: {fileID: 0}
-  Material: {fileID: 2100000, guid: 3d9b48e0c93756e44bf0ca189589739b, type: 2}
+  ShadowSkinnedMeshRenderer: {fileID: 6292699960881798235}
 --- !u!114 &6292699960881798241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59318,7 +59302,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 6292699960881798238}
   - {fileID: 6292699960881798237}
   sceneViewId: 17
   InstantiationId: 0
