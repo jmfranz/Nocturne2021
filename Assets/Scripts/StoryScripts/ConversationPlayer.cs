@@ -175,9 +175,8 @@ public class ConversationPlayer : MonoBehaviour
             StopCurrentVoiceClip();
         }
     }
-
     IEnumerator PlayVoiceLine(VoiceLine line)
-    {
+   {
         _isPlaying = true;
 
         //Apply before voice delay
