@@ -106,6 +106,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         yield return new WaitUntil(() => DogEnterLocationTrigger.ReachedDestination);
         MapToDogRoomPathFollower.playPath = false;
+        DogAudioSource.clip = null;
         DogAudioSource.Stop();
     }
 
