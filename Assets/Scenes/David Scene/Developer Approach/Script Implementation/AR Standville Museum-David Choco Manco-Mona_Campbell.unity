@@ -8304,7 +8304,7 @@ MonoBehaviour:
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
-    volume: 0
+    volume: 1
   - voiceLine: {fileID: 8300000, guid: 023c00ad602dcbd4c90d15d255740598, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
@@ -14433,7 +14433,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5ba07dd8793029a4da53ae2e1ad04e21, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.372
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -58954,10 +58954,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292699960840905223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1b21b7581efb2547a80e447af154cca, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncObjects: []
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!114 &6292699960840905232
 MonoBehaviour:
   m_ObjectHideFlags: 0
