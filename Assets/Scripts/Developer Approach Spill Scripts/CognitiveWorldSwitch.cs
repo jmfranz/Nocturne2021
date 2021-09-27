@@ -10,6 +10,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public GameObject Floor;
 
     public GameObject CognitiveAvatars;
+    public GameObject CognitiveCatherine;
 
     public GameObject MushroomRing;
     public GameObject Fokthipur;
@@ -27,8 +28,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public ConversationNode TellFok;
     public ConversationNode TellNPC;
     public ConversationNode CognitiveConvoNode;
-
-    public AvatarController CognitiveCatherine;
 
     public FokthipurRoomController fokthipurRoomController;
     public NPC_Movements nPC_Movements;
@@ -82,6 +81,11 @@ public class CognitiveWorldSwitch : MonoBehaviour
             GetCaught();
         }
 
+        if (inCognitive && !CognitiveConvo._hasCompletedConversation)
+        {
+            nPC_Movements.AvatarToConversation(CognitiveCatherine.GetComponent<AvatarController>(), CognitiveConvoNode);
+        }
+
         if (CognitiveConvo.isActiveAndEnabled)
         {
             keywordInstruction.gameObject.SetActive(true);
@@ -92,17 +96,14 @@ public class CognitiveWorldSwitch : MonoBehaviour
     {
         inCognitive = true;
         StopCoroutine(nPC_Movements.ConversationLoop());
+        CognitiveConvo.gameObject.SetActive(true);
         foreach (GameObject actor in NormalAvatars)
         {
             actor.SetActive(false);
         }
         CognitiveAvatars.SetActive(true);
-        CognitiveConvo.gameObject.SetActive(true);
         Walls.GetComponent<MeshRenderer>().material.color = new Color(7f/255f, 24f/255f, 61f/255f);
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
-       
-        //Cognitive Catherine to Cognitive Convo
-        CognitiveCatherine.GoToConversationNode(CognitiveConvoNode, AvatarController.MovementTypes.Walk);
     }
 
     public void LeaveCognitive()

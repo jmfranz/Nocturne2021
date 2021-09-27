@@ -70,7 +70,7 @@ public class NPC_Movements : StoryEventComponent
         }
     }
 
-    void AvatarToConversation(AvatarController avatar, ConversationNode convo)
+    public void AvatarToConversation(AvatarController avatar, ConversationNode convo)
     {
         avatar.GoToConversationNode(convo, AvatarController.MovementTypes.Walk);
         
