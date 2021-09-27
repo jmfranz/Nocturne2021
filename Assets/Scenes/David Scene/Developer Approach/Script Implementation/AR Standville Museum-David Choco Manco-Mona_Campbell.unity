@@ -4743,12 +4743,12 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 854f8fc2251035746bca84ce34c6ad85, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 104c96d221de6d743806983132152860, type: 3}
     voiceOrigin: {fileID: 6292699960914694969}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 3ed0e4de266dc7e4f8ec25df8218311d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 3d6e3dcdcca217f47ba82e4becc40737, type: 3}
     voiceOrigin: {fileID: 1259541912}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -14431,7 +14431,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61a62c812ddc6c044a7e618420600232, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5ba07dd8793029a4da53ae2e1ad04e21, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.372
   m_Pitch: 1
