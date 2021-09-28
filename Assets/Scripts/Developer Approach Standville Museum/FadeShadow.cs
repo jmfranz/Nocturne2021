@@ -12,6 +12,8 @@ public class FadeShadow : MonoBehaviour
 
     Color color1 = Color.red, color2 = Color.red;
 
+    public GameObject Shadow;
+
     private void Awake()
     {
         var materials = GetComponent<Renderer>().materials;
@@ -31,6 +33,10 @@ public class FadeShadow : MonoBehaviour
             materials[1].color = color2_lerp;
 
             t += Time.deltaTime / duration;
+        }
+        else if(fadeShadow && t >= 1)
+        {
+            Shadow.SetActive(false);
         }
     }
 }

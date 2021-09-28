@@ -202,7 +202,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         Shadow.transform.position = ShadowLastRoomLocation.position;
         ShadowChild.transform.localPosition = new Vector3(0, 0, 0);
-        ShadowChild.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        ShadowChild.transform.localRotation = new Quaternion(0, -90, 0, 0);
         Shadow.transform.GetChild(0).gameObject.SetActive(true);
         LastRoomObjects.SetActive(true);
     }
