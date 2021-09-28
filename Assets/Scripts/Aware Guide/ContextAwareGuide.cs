@@ -175,6 +175,25 @@ public class ContextAwareGuide : MonoBehaviour
             Debug.Log("Entered security room");
             aware.ChangeImage("SECURITY_ROOM_2");
         }
+        else if (other.gameObject.name == "MAINROOM")
+        {
+
+            Debug.Log("Entered Main room");
+            aware.ChangeImage("MAIN_ROOM_1");
+
+        }
+        else if (other.gameObject.name == "ASTRONOMYROOM")
+        {
+
+            Debug.Log("Entered Main room");
+            aware.ChangeImage("ASTRONOMYROOM_1");
+        }
+        else if (other.gameObject.name == "LASTROOM")
+        {
+
+            Debug.Log("Entered Main room");
+            aware.ChangeImage("LASTROOM_1");
+        }
         // if(other.gameObject.name == "Box Collide 2")
         //{
         //  _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM2.html");
