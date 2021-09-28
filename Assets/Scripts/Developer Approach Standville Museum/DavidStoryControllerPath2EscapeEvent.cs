@@ -91,12 +91,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     void ShowTrailToDogRoom()
     {
-        //Vector3 pos = Player.transform.position;
-        //MapToDogRoomPathFollower.pathCreator.bezierPath.MovePoint(0, Camera.main.transform.position);
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
-        //LastRoomObjects.SetActive(true);
-        //Max.SetActive(true);
         StartCoroutine(TriggersDogLocation());
     }
 
@@ -114,11 +110,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
         EnableDogMovementController();
 
-        //Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
-
         ScaryMusic.enabled = true;
-
-        //ShadowDisappears();
     }
 
     void PlayerEntersMainRoom()
@@ -201,8 +193,9 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     void ShowLastRoom()
     {
         Shadow.transform.position = ShadowLastRoomLocation.position;
+        Shadow.transform.localRotation = Quaternion.Euler(0, 90, 0);
         ShadowChild.transform.localPosition = new Vector3(0, 0, 0);
-        ShadowChild.transform.localRotation = new Quaternion(0, -90, 0, 0);
+        ShadowChild.transform.localRotation = new Quaternion(0, 0, 0, 0);
         Shadow.transform.GetChild(0).gameObject.SetActive(true);
         LastRoomObjects.SetActive(true);
     }

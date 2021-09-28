@@ -18,6 +18,7 @@ public class ShadowChaseController : MonoBehaviour
 
     enum chaseStates { Chasing, Caught, Escaping}
     chaseStates chaseState = chaseStates.Chasing;
+    readonly float _closeDistance = 1;
 
     void Awake()
     {
@@ -79,7 +80,7 @@ public class ShadowChaseController : MonoBehaviour
                 distance = Vector3.Distance(shadow.position, arPlayer.position);
             }
 
-            if (distance < 2f && !caughtPlayer)
+            if (distance < _closeDistance && !caughtPlayer)
             {
                 caughtPlayer = true;
                 chaseState = chaseStates.Caught;
@@ -99,7 +100,7 @@ public class ShadowChaseController : MonoBehaviour
                 var emission = shadowParticles.emission;
                 emission.rateOverTime = 177;
             }
-            else if(distance >= 2f && chaseState == chaseStates.Caught) // Go to next location
+            else if(distance >= _closeDistance && chaseState == chaseStates.Caught) // Go to next location
             {
                 // Change particle system to normal
                 chaseState = chaseStates.Escaping;
@@ -134,7 +135,7 @@ public class ShadowChaseController : MonoBehaviour
             {
                 caughtPlayer = false;
             }
-            else if(distance < 2)
+            else if(distance < _closeDistance)
             {
                 placesToGoIndex++;
                 if (placesToGoIndex == _placesToGo.Count) // Ran out of locations
@@ -164,7 +165,7 @@ public class ShadowChaseController : MonoBehaviour
 
     bool TooClose()
     {
-        return Vector3.Distance(arPlayer.position, shadow.position) < 2;
+        return Vector3.Distance(arPlayer.position, shadow.position) < _closeDistance;
     }
 
     bool IsFacingPlayer()
