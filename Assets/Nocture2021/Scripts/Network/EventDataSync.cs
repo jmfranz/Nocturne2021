@@ -6,7 +6,7 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class EventDataSync : MonoBehaviourPun, IOnEventCallback
 {
@@ -27,12 +27,9 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
         raiseEventOptions.Receivers = ReceiverGroup.Others;
         raiseEventOptions.CachingOption = EventCaching.DoNotCache;
         PhotonNetwork.RaiseEvent(_event, content, raiseEventOptions, SendOptions.SendReliable);
-
-
     }
 
     
-
     public void OnEvent(EventData photonEvent)
     {
         if(photonEvent.Code != _event)
@@ -44,8 +41,10 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
         string eventName = (string)eventData[0];
         bool eventSatus = (bool)eventData[1];
 
-        GameObject.Find("ContextAwareGuide").GetComponent<ContextAwareGuide>().OnEventDataChange(eventName,eventSatus);
-
+        if(SceneManager.GetActiveScene().name.Contains("Guide"))
+        {
+            GameObject.Find("ContextAwareGuide").GetComponent<ContextAwareGuide>().OnEventDataChange(eventName, eventSatus);
+        }
     }
 
 

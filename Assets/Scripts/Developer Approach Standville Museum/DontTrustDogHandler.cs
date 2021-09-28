@@ -27,6 +27,7 @@ public class DontTrustDogHandler : MonoBehaviour
     public EnterLocationTrigger MainRoomEnterLocationTrigger;
 
     public ConditionalEventComponent EnteredMainRoom;
+    public EnterLocationTrigger MainRoomTrigger;                
 
     public GameObject MainRoomObjects;
     public ConversationPlayer ScaryMusic, PoliceConvo1, PoliceConvo2;
@@ -38,6 +39,8 @@ public class DontTrustDogHandler : MonoBehaviour
 
     bool DocWalksToPlayer = false;
 
+    public GameObject EndingMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,10 @@ public class DontTrustDogHandler : MonoBehaviour
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
         StartCoroutine(WaitForShadowDialogue());
         StartCoroutine(WaitForMaxToFollowPlayer());
+        StartCoroutine(ShowEndingMessage());
+
+
+
     }
 
     IEnumerator WaitForShadowDialogue()
@@ -59,6 +66,12 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         yield return new WaitUntil(() => MaxScreams._hasCompletedConversation);
         Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+    }
+
+    IEnumerator ShowEndingMessage()
+    {
+        yield return new WaitUntil(() => DoctorJohnConvo._hasCompletedConversation);
+        EndingMessage.SetActive(true);
     }
 
     void ShowTrailDogRoomToPlanetarium()
@@ -87,17 +100,20 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.transform.GetChild(0).localPosition = Vector3.zero;
         Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 90, 0);
         Shadow.SetActive(true);
+        Shadow.transform.localPosition = new Vector3(Shadow.transform.localPosition.x, 0, Shadow.transform.localPosition.z);
     }
 
     void FinishedOtherRoom()
     {
         ShowTrailCraterToMainRoom();
         UnShowCraterRoom();
-        //Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
 
         ScaryMusic.enabled = true;
         PoliceConvo1.enabled = true;
         PoliceConvo2.enabled = true;
+
+        MainRoomTrigger.enabled = true;
+        MainRoomTrigger.ConditionalEventComponent = EnteredMainRoom;
     }
 
     void UnShowCraterRoom()

@@ -10,7 +10,7 @@ public class ColorStateSync : MonoBehaviour, IPunObservable
     public bool UsingShader = false;
 
     public TextMeshPro Text;
-    public Material Material;
+    public SkinnedMeshRenderer ShadowSkinnedMeshRenderer;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -21,16 +21,28 @@ public class ColorStateSync : MonoBehaviour, IPunObservable
             if (UsingTextMeshPro)
             {
                 color = Text.color;
+
+                stream.SendNext(color.r);
+                stream.SendNext(color.g);
+                stream.SendNext(color.b);
+                stream.SendNext(color.a);
             }
             if (UsingShader)
             {
-                color = Material.color;
-            }
+                color = ShadowSkinnedMeshRenderer.materials[0].color;
 
-            stream.SendNext(color.r);
-            stream.SendNext(color.g);
-            stream.SendNext(color.b);
-            stream.SendNext(color.a);
+                stream.SendNext(color.r);
+                stream.SendNext(color.g);
+                stream.SendNext(color.b);
+                stream.SendNext(color.a);
+
+                color = ShadowSkinnedMeshRenderer.materials[1].color;
+
+                stream.SendNext(color.r);
+                stream.SendNext(color.g);
+                stream.SendNext(color.b);
+                stream.SendNext(color.a);
+            }
         }
         else // Reading
         {
@@ -39,7 +51,24 @@ public class ColorStateSync : MonoBehaviour, IPunObservable
             byte b = (byte)stream.ReceiveNext();
             byte a = (byte)stream.ReceiveNext();
 
-            Text.color = new Color32(r, g, b, a);
+
+            if (UsingTextMeshPro)
+            {
+                Text.color = new Color32(r, g, b, a);
+            }
+            if (UsingShader)
+            {
+                ShadowSkinnedMeshRenderer.materials[0].color = new Color32(r, g, b, a);
+
+                r = (byte)stream.ReceiveNext();
+                g = (byte)stream.ReceiveNext();
+                b = (byte)stream.ReceiveNext();
+                a = (byte)stream.ReceiveNext();
+
+                ShadowSkinnedMeshRenderer.materials[1].color = new Color32(r, g, b, a);
+
+
+            }
         }
     }
 }
