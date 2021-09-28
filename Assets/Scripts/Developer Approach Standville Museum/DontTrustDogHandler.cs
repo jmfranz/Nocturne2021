@@ -51,9 +51,6 @@ public class DontTrustDogHandler : MonoBehaviour
         StartCoroutine(WaitForShadowDialogue());
         StartCoroutine(WaitForMaxToFollowPlayer());
         StartCoroutine(ShowEndingMessage());
-
-
-
     }
 
     IEnumerator WaitForShadowDialogue()

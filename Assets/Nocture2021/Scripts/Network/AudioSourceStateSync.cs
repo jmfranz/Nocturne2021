@@ -19,9 +19,7 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(_audioSource.isPlaying);
-            stream.SendNext(_audioSource.volume);
-            stream.SendNext(_audioSource.loop);
+
             var clip = _audioSource.clip;
             if (clip != null)
             {
@@ -31,30 +29,39 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
             {
                 stream.SendNext("no Audio");
             }
+
+            stream.SendNext(_audioSource.isPlaying);
+            stream.SendNext(_audioSource.volume);
+            stream.SendNext(_audioSource.loop);
         }
         else
         {
-            var isPlaying = (bool) stream.ReceiveNext();
-            if (isPlaying && !_audioSource.isPlaying)
+            var audioSourceName = (string)stream.ReceiveNext();
+
+            if (audioSourceName == "no Audio")
             {
-                _audioSource.volume = (float)stream.ReceiveNext();
-                _audioSource.loop = (bool)stream.ReceiveNext();
-                var audioSourceName = (string)stream.ReceiveNext();
+                _audioSource.Stop();
+            }
+            else // It has an audio clip in the source
+            {
                 var audioClip = Resources.Load<AudioClip>($"Conversations/All Audio/{audioSourceName}");
+
                 if (audioClip == null)
                 {
                     Debug.Log($"Could not find {audioSourceName}");
                 }
 
-                if (_audioSource == null)
-                {
-                    Debug.Log("audio clip is null dumbass");
-                }
+
                 _audioSource.clip = audioClip;
-                _audioSource.Play();
-            }
-            else {
-                if (_audioSource != null && !isPlaying && _audioSource.isPlaying)
+                bool isPlaying = (bool)stream.ReceiveNext();
+                _audioSource.volume = (float)stream.ReceiveNext();
+                _audioSource.loop = (bool)stream.ReceiveNext();
+
+                if (isPlaying)
+                {
+                    _audioSource.Play();
+                }
+                else
                 {
                     _audioSource.Stop();
                 }
