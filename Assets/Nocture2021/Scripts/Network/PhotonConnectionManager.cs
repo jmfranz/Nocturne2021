@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 public class PhotonConnectionManager : MonoBehaviourPunCallbacks
@@ -15,7 +16,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     private string gameVersion = "0";
 
     public GameObject ActiveUserHat1, PassiveUserHat2;
-
+    public GameObject InGameObjects, AwareGuideObjects;
 
     //This will probably be 3 -> master + 2 HL
     private byte maxPlayers = 4;
@@ -32,8 +33,6 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected) return;
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = gameVersion;
-
-
     }
 
     public void JoinNocturneRoom()
@@ -77,5 +76,12 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         }       
 
         playerHat.transform.parent = playerPrefab.transform;
+
+        if (SceneManager.GetActiveScene().name.Contains("Guide") & !PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Setting up for aware guide :)");
+            InGameObjects.SetActive(false);
+            AwareGuideObjects.SetActive(true);
+        }
     }
 }

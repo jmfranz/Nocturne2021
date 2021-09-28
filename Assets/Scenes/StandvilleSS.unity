@@ -3730,6 +3730,8 @@ MonoBehaviour:
   RoomName: Standville_Mine
   ActiveUserHat1: {fileID: 4671357407252826205, guid: b19475da17ee1974287f131d30fd455f, type: 3}
   PassiveUserHat2: {fileID: 7125567536645437490, guid: 10598baeaa734aa419687814c339bcff, type: 3}
+  InGameObjects: {fileID: 1341104413}
+  AwareGuideObjects: {fileID: 1811542445}
 --- !u!4 &234199318
 Transform:
   m_ObjectHideFlags: 0
@@ -6935,7 +6937,7 @@ MonoBehaviour:
   ConversationLines:
   - voiceLine: {fileID: 8300000, guid: 41d6a1c89cfcf4a45ae7969b9d289609, type: 3}
     voiceOrigin: {fileID: 1672460195}
-    beforeVoiceDelay: 5
+    beforeVoiceDelay: 2
     afterVoiceDelay: 0
     volume: 0
   - voiceLine: {fileID: 8300000, guid: 7bb3131ee4d73ee42b114d80e6947622, type: 3}
@@ -9244,7 +9246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506342086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.3, y: 0, z: 28.2}
+  m_LocalPosition: {x: 243.3, y: 0, z: 17.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
@@ -9578,7 +9580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 577256342}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 3
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -10173,10 +10175,10 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 1.1110573, y: 2.0996017, z: -2.3462431}
-      - {x: 1.1125271, y: 2.11052, z: -2.3621213}
-      - {x: 3.8326101, y: 2.1176448, z: -2.3193243}
-      - {x: 3.7658634, y: 2.1170745, z: -2.2453485}
+      - {x: 0.14659262, y: 2.0996022, z: -2.0875683}
+      - {x: 0.14806247, y: 2.1105204, z: -2.1034465}
+      - {x: 3.950222, y: 2.1176443, z: -2.3193243}
+      - {x: 3.8834753, y: 2.117074, z: -2.2453485}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -12751,7 +12753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753484454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 264.1, y: 0, z: 51.6}
+  m_LocalPosition: {x: 267.4, y: 0, z: 52.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
@@ -20028,7 +20030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179980639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 276.6, y: -19.5, z: -8}
+  m_LocalPosition: {x: 280.6, y: -19.5, z: -11.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
@@ -22057,7 +22059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266444720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 227.5, y: 1, z: -7.9}
+  m_LocalPosition: {x: 225.5, y: -14, z: -5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
@@ -30052,7 +30054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847456108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 265.6, y: 0, z: 27.2}
+  m_LocalPosition: {x: 265.6, y: 0, z: 29.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
@@ -32057,7 +32059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003472621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 260.1, y: 0, z: 33.7}
+  m_LocalPosition: {x: 246.8, y: 0, z: 38.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 980988970}
