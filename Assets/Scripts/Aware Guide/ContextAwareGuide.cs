@@ -163,34 +163,41 @@ public class ContextAwareGuide : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-       // if(other.gameObject.name == "Box Collide")
-     //   {
-         //   
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/DOGSROOM1.html");
-       // }
-       // if(other.gameObject.name == "Box Collide 2")
+       if(other.gameObject.name == "WASHROOM")
+        {
+
+            Debug.Log("Entered washroom");
+            aware.ChangeImage("WASHROOM_1");
+        }
+       else if (other.gameObject.name == "SECURITYROOM")
+        {
+
+            Debug.Log("Entered security room");
+            aware.ChangeImage("SECURITY_ROOM_2");
+        }
+        // if(other.gameObject.name == "Box Collide 2")
         //{
-          //  _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM2.html");
+        //  _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM2.html");
         //}
         //if (other.gameObject.name == "MAIN_ROOM1")
-       // {
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/MAINROOM1.html");
-       // }
-       // if (other.gameObject.name == "LAST_ROOM1")
-       // {
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/LASTROOM1.html");
+        // {
+        //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/MAINROOM1.html");
+        // }
+        // if (other.gameObject.name == "LAST_ROOM1")
+        // {
+        //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/LASTROOM1.html");
         //}
-       // if (other.gameObject.name == "ASTRONOMY_ROOM1")
-       // {
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM1.html");
-       // }
-       // if (other.gameObject.name == "DOGS_ROOM1")
-       // {
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/DOGSROOM1.html");
-       // }
-       // if (other.gameObject.name == "WASHROOM_1")
-       // {
-         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/MAINROOM1.html");
-       // }
+        // if (other.gameObject.name == "ASTRONOMY_ROOM1")
+        // {
+        //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM1.html");
+        // }
+        // if (other.gameObject.name == "DOGS_ROOM1")
+        // {
+        //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/DOGSROOM1.html");
+        // }
+        // if (other.gameObject.name == "WASHROOM_1")
+        // {
+        //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/MAINROOM1.html");
+        // }
     }
 }
