@@ -102,10 +102,8 @@ public class DogMovementController : MonoBehaviour
             if (goingToLastRoom)
             {
                 goingToLastRoom = false;
-                ConditionalMadeItToLastRoom.CompleteConditionalEvent();
-                //gameObject.SetActive(false);                
-                transform.localRotation = Quaternion.Euler(0,15,0);//LookAt(Camera.main.transform.position); +60
-                //gameObject.SetActive(true);
+                ConditionalMadeItToLastRoom.CompleteConditionalEvent();               
+                transform.localRotation = Quaternion.Euler(0,15,0);
                 enabled = false;
             }
 
@@ -113,7 +111,7 @@ public class DogMovementController : MonoBehaviour
             {
                 goingToMainRoom = false;
                 MadeItToMainRoom.CompleteConditionalEvent();
-                transform.localRotation = Quaternion.Euler(0, -30, 0); //LookAt(Camera.main.transform.position);
+                transform.localRotation = Quaternion.Euler(0, -30, 0); 
                 enabled = false;
             }
         }
