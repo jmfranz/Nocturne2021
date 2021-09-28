@@ -1377,7 +1377,7 @@ MonoBehaviour:
   DialogueBeforeShowingTrailToDogRoom: {fileID: 132284139}
   NoEventCondition: {fileID: 132284129}
   YesEventCondition: {fileID: 132284131}
-  EnteredMainRoomForYesEnding: {fileID: 132284147}
+  EnteredMainRoomForYesEnding: {fileID: 132284137}
   DogRoomConvo1: {fileID: 372867644}
   SpeechInputHandler: {fileID: 2120311949}
   DogRoomConvo1_DialogueComponent: {fileID: 132284127}
@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Ending John enters Main Room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284134}
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Ending John enters Main Room
+  name: 
   Status: 0
   _preConditions:
   - Component: {fileID: 132284138}
@@ -7854,7 +7854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoopConversation: 1
-  LoopBufferTime: 2
+  LoopBufferTime: 5
   OutOfRangeLoopClip: {fileID: 0}
   ConversationInfo:
     DefaultRule:
