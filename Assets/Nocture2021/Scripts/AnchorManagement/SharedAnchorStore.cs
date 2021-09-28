@@ -24,7 +24,7 @@ public class SharedAnchorStore : MonoBehaviourPun, IOnEventCallback
 
     public void OnEvent(EventData photonEvent)
     {
-        Debug.Log("event on the store, code: " + photonEvent.Code);
+        //Debug.Log("event on the store, code: " + photonEvent.Code);
         if(photonEvent.Code == QRAnchorPlacer.WhatIsAnchorEvent)
         {
             Debug.Log("Replying to anchor challenge with " + _currentAzureTag);
