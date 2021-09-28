@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class StoryEventComponent : MonoBehaviour
 {
@@ -79,7 +81,7 @@ public class StoryEventComponent : MonoBehaviour
             if (!File.Exists(path))
             {
                 StreamWriter swt = File.CreateText(path);
-                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event");
+                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event,Scene,IsMaster");
                 swt.Close();
             }
 
@@ -238,7 +240,10 @@ public class StoryEventComponent : MonoBehaviour
         DateTime now = DateTime.Now;
         string date = now.ToString("yyyy-MM-dd");
 
-        string log = string.Format("{0},{1},{2},{3},{4},{5},Start", date, now.Hour, now.Minute, now.Second, now.Millisecond, name);
+        string log = string.Format("{0},{1},{2},{3},{4},{5},Start,{6},{7}", 
+            date, now.Hour, now.Minute, now.Second, now.Millisecond, 
+            name,
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
         sw.WriteLine(log);
 
         //Wait for action to finish
@@ -252,7 +257,10 @@ public class StoryEventComponent : MonoBehaviour
         // Log the event and close the stream.
         now = DateTime.Now;
         date = now.ToString("yyyy-MM-dd");
-        log = string.Format("{0},{1},{2},{3},{4},{5},End", date, now.Hour, now.Minute, now.Second, now.Millisecond, name);
+        log = string.Format("{0},{1},{2},{3},{4},{5},End,{6},{7}", 
+            date, now.Hour, now.Minute, now.Second, now.Millisecond, 
+            name,
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
         sw.WriteLine(log);
         sw.Close();
     }

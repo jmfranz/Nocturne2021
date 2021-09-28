@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 /// <summary>
 /// A Unity class for recording camera and the player's position logger.
@@ -15,12 +17,12 @@ public class CameraPositionLogger : MonoBehaviour
 
     bool logPathPrinted = false;
 
-    //public StreamWriter sw;
+    private string sceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class CameraPositionLogger : MonoBehaviour
         if (!File.Exists(path))
         {
             StreamWriter swt = File.CreateText(path);
-            swt.WriteLine("Date,Hour,Minute,Second,Milisecond,PosX,PosY,PosZ,RotX,RotY,RotZ,RotW");
+            swt.WriteLine("Date,Hour,Minute,Second,Milisecond,PosX,PosY,PosZ,RotX,RotY,RotZ,RotW,Scene,IsMaster");
             swt.Close();
         }
 
@@ -50,7 +52,12 @@ public class CameraPositionLogger : MonoBehaviour
 
 
 
-        string cam_info = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}", date, now.Hour, now.Minute, now.Second, now.Millisecond, pos.x, pos.y, pos.z, rot.x, rot.y, rot.z, rot.w);
+        string cam_info = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}", 
+            date, now.Hour, now.Minute, now.Second, now.Millisecond, 
+            pos.x, pos.y, pos.z, 
+            rot.x, rot.y, rot.z, rot.w, 
+            sceneName,
+            PhotonNetwork.IsMasterClient);
         sw.WriteLine(cam_info);
         sw.Close();
     }
