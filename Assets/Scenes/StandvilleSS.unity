@@ -7854,7 +7854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoopConversation: 1
-  LoopBufferTime: 5
+  LoopBufferTime: 0
   OutOfRangeLoopClip: {fileID: 0}
   ConversationInfo:
     DefaultRule:
@@ -28869,7 +28869,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: d4d476b3c1d7f7540b64111c4f48d4c3, type: 2}
 --- !u!64 &1704578560
@@ -32443,7 +32443,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.083333336
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: b4b4c6c314d63524c897914f07fb9016, type: 2}
 --- !u!65 &1868315613

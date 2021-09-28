@@ -113,7 +113,7 @@ public class DogMovementController : MonoBehaviour
             {
                 goingToMainRoom = false;
                 MadeItToMainRoom.CompleteConditionalEvent();
-                transform.localRotation = Quaternion.Euler(0, -12.535f, 0); //LookAt(Camera.main.transform.position);
+                transform.localRotation = Quaternion.Euler(0, -30, 0); //LookAt(Camera.main.transform.position);
                 enabled = false;
             }
         }
