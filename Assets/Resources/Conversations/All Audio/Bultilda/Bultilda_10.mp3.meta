@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Resources/Conversations/All Audio/Bultilda/Bultilda_10.mp3.meta
 guid: 57ce4d5fdb6c71e4380d73a3f60ce50e
+=======
+guid: e159b3c659b1cf4489a7f8e0f9c37712
+>>>>>>> main:Assets/Resources/Conversations/All Audio/MT_17 2.0.mp3.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6

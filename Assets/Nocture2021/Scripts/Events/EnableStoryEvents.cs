@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,16 +17,19 @@ public class EnableStoryEvents : MonoBehaviour
     {
         //Enable the Dog Nav
         var dog = GameObject.FindGameObjectWithTag("IsAgent");
-        Debug.Log(dog.name);
-        dog.GetComponent<NavMeshAgent>().enabled = true;
+        if (dog.GetComponent<PhotonView>().IsMine)
+        {          
+            dog.GetComponent<NavMeshAgent>().enabled = true;
 
-        if (startCondition != null)
-        {
-            startCondition.Complete = true;
-        }
-        else
-        {
-            throw new Exception("I cannot start the events without a reference ti the conditional component");
-        }
+            if (startCondition != null)
+            {
+                startCondition.Complete = true;
+                this.gameObject.SetActive(false); // So you can't restart the story multiple times in the same session
+            }
+            else
+            {
+                throw new Exception("I cannot start the events without a reference ti the conditional component");
+            }
+        }      
     }
 }

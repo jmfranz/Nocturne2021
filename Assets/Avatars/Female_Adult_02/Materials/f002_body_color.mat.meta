@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Avatars/Female_Adult_02/Materials/f002_body_color.mat.meta
 guid: 0ed980fc668de404bab9f92f55a134e4
+=======
+guid: e4ef56e10e2ee614bbafd3889faf0c8b
+>>>>>>> main:Assets/EffectExamples/TutorialInfo/Icons/Materials/ParticlePack5x_Icon.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

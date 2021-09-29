@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Avatars/Female_Adult_02/Materials.meta
 guid: 0fa2657356ac5d14f9a16b5b61c037e0
+=======
+guid: 97abcff0e68928a4a98f946ad379ed2f
+>>>>>>> main:Assets/EffectExamples/TutorialInfo/Icons/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

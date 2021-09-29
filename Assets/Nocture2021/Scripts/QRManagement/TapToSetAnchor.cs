@@ -79,8 +79,15 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         var qrManager = GameObject.Find("QRCodesManager").GetComponent<QRCodesManager>();
         qrManager.StopQRTracking();
 
-        //Get rid of this script (we already placed the anchor)
+#if !UNITY_EDITOR
+        var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
+        anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
+        anchorModule.CreateAzureAnchor(ParentAnchor);
+#else
         Destroy(this);
+#endif
+
+
 
     }
 
@@ -96,5 +103,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
             anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
         }
         anchorModule.OnCreateAnchorSucceeded -= AnchorCreatedOnAzure;
+        //Get rid of this script (we already placed the anchor)
+        Destroy(this);
     }
 }
