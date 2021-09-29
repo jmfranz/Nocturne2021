@@ -21433,12 +21433,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
-  parentAnchor: {fileID: 0}
+  parentAnchor: {fileID: 1688773326}
   RoomName: Nocturne
   ActiveUserHat1: {fileID: 0}
   PassiveUserHat2: {fileID: 0}
-  InGameObjects: {fileID: 0}
-  AwareGuideObjects: {fileID: 0}
+  InGameObjects: {fileID: 849244032}
+  AwareGuideObjects: {fileID: 2049710031}
 --- !u!4 &923432215
 Transform:
   m_ObjectHideFlags: 0
