@@ -234,7 +234,7 @@ public class StoryEventComponent : MonoBehaviour
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
         // Log the events.
-        string path = Application.dataPath + "/Data/" + logFilename;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
         StreamWriter sw = new StreamWriter(path, true);
 
         DateTime now = DateTime.Now;
@@ -245,6 +245,7 @@ public class StoryEventComponent : MonoBehaviour
             name,
             SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
         sw.WriteLine(log);
+        sw.Close();
 
         //Wait for action to finish
         yield return StartCoroutine(DoEventAction());
@@ -255,6 +256,8 @@ public class StoryEventComponent : MonoBehaviour
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
 
         // Log the event and close the stream.
+        sw = new StreamWriter(path, true);
+
         now = DateTime.Now;
         date = now.ToString("yyyy-MM-dd");
         log = string.Format("{0},{1},{2},{3},{4},{5},End,{6},{7}", 
