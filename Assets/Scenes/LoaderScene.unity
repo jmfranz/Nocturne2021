@@ -4540,8 +4540,8 @@ Transform:
   - {fileID: 1979625221}
   - {fileID: 875593953}
   - {fileID: 1628516619}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1836483675}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &543001407
 MonoBehaviour:
@@ -13421,6 +13421,7 @@ Transform:
   - {fileID: 1402563000}
   - {fileID: 1849967162}
   - {fileID: 864669294}
+  - {fileID: 543001406}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

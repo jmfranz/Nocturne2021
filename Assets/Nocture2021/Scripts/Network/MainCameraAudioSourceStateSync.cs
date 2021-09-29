@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -8,12 +9,13 @@ using UnityEngine.PlayerLoop;
 public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
 {
     private AudioSource _audioSource;
-
     private string _audioSourceFileName;
 
+    
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+
     }
 
 
@@ -48,12 +50,15 @@ public class MainCameraAudioSourceStateSync : MonoBehaviour, IPunObservable
             }
 
             var isPlaying = (bool) stream.ReceiveNext();
-            if (isPlaying && !otherPlayer.GetComponent<AudioSource>().isPlaying)
+            var volume = (float)stream.ReceiveNext();
+            var audioSourceName = (string)stream.ReceiveNext();
+            var loop = (bool)stream.ReceiveNext();
+
+            if (isPlaying)// && !otherPlayer.GetComponent<AudioSource>().isPlaying)
             {
-                otherPlayer.GetComponent<AudioSource>().volume = (float)stream.ReceiveNext();
-                var audioSourceName = (string)stream.ReceiveNext();
+                otherPlayer.GetComponent<AudioSource>().volume = volume;
                 var audioClip = Resources.Load<AudioClip>($"Conversations/All Audio/{audioSourceName}");
-                otherPlayer.GetComponent<AudioSource>().loop = (bool) stream.ReceiveNext();
+                otherPlayer.GetComponent<AudioSource>().loop = loop;
                 otherPlayer.GetComponent<AudioSource>().clip = audioClip;
                 otherPlayer.GetComponent<AudioSource>().Play();
             }

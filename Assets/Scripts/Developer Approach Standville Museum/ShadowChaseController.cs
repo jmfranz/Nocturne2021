@@ -47,6 +47,7 @@ public class ShadowChaseController : MonoBehaviour
         ChaseConvos.SetActive(false);
         OriginalParticleEffect();
         this.GetComponent<DirectIntroductionController>().enabled = false;
+        this.GetComponent<ConversationPlayer>().enabled = false;
     }
 
     void Update()

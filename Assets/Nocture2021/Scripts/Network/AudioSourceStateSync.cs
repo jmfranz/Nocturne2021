@@ -1,24 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Unity.Profiling;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceStateSync : MonoBehaviour, IPunObservable
 {
     private AudioSource _audioSource;
-
+    private bool hasPlayed14;
     private string _audioSourceFileName;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        hasPlayed14 = false;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+
+        if (_audioSource == null)
+        {
+            return;
+        }
         if (stream.IsWriting)
         {
+
+
 
             var clip = _audioSource.clip;
             if (clip != null)
@@ -36,7 +45,22 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
         }
         else
         {
+   
+
             var audioSourceName = (string)stream.ReceiveNext();
+            bool isPlaying = (bool)stream.ReceiveNext();
+            float volume = (float)stream.ReceiveNext();
+            bool loop = (bool)stream.ReceiveNext();
+
+
+            if (_audioSource == null)
+            {
+                Debug.Log($"GO {gameObject.name}, TR {audioSourceName}");
+                return;
+            }
+
+            _audioSource.volume = volume;
+            _audioSource.loop = loop;
 
             if (audioSourceName == "no Audio")
             {
@@ -51,11 +75,22 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
                     Debug.Log($"Could not find {audioSourceName}");
                 }
 
-
                 _audioSource.clip = audioClip;
-                bool isPlaying = (bool)stream.ReceiveNext();
-                _audioSource.volume = (float)stream.ReceiveNext();
-                _audioSource.loop = (bool)stream.ReceiveNext();
+
+                if (audioSourceName == _audioSource.clip.ToString().Split('(')[0].Trim() 
+                && _audioSource.isPlaying == isPlaying)
+                {
+                    //if (!hasPlayed14)
+                    //{
+                    //    _audioSource.Play();
+                    //    hasPlayed14 = true;
+                    //}
+
+                    //Debug.Log($"dog 14: \n{isPlaying}\n{_audioSource.gameObject.name}\n{volume}");
+
+                    return;
+                }
+
 
                 if (isPlaying)
                 {
@@ -67,6 +102,5 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
                 }
             }
         }
-    }
- 
+    }    
 }

@@ -24,6 +24,7 @@ public class EnableStoryEvents : MonoBehaviour
             if (startCondition != null)
             {
                 startCondition.Complete = true;
+                this.gameObject.SetActive(false); // So you can't restart the story multiple times in the same session
             }
             else
             {
