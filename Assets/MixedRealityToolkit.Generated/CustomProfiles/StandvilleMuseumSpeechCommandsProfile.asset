@@ -65,3 +65,10 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Unicorn
+    keyCode: 117
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
