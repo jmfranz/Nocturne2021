@@ -67,7 +67,7 @@ public class ConversationPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        ARPlayer = GameObject.Find("MixedRealityPlayspace (1)").transform.GetChild(0);
+        ARPlayer = GameObject.Find("MixedRealityPlayspace").transform.GetChild(0);
 
         _generalOutputSource = GetComponent<AudioSource>();
         if (_generalOutputSource != null && OutOfRangeLoopClip != null)

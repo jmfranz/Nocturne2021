@@ -33,7 +33,7 @@ public class AvatarController : MonoBehaviour
 
     public NavMeshAgent _agent;
     ThirdPersonCharacter _character;
-    MovementStates _movementState;
+    public MovementStates _movementState;
     ConversationStates _conversationState;
     Animator _animator;
 
