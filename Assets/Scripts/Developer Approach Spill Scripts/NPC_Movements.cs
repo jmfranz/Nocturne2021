@@ -62,7 +62,7 @@ public class NPC_Movements : StoryEventComponent
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (loopFinished)
         {
