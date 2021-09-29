@@ -20,6 +20,11 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
 
+            if(_audioSource == null)
+            {
+                return;
+            }
+
             var clip = _audioSource.clip;
             if (clip != null)
             {
@@ -37,6 +42,9 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
         else
         {
             var audioSourceName = (string)stream.ReceiveNext();
+            bool isPlaying = (bool)stream.ReceiveNext();
+            _audioSource.volume = (float)stream.ReceiveNext();
+            _audioSource.loop = (bool)stream.ReceiveNext();
 
             if (audioSourceName == "no Audio")
             {
@@ -51,11 +59,8 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
                     Debug.Log($"Could not find {audioSourceName}");
                 }
 
-
                 _audioSource.clip = audioClip;
-                bool isPlaying = (bool)stream.ReceiveNext();
-                _audioSource.volume = (float)stream.ReceiveNext();
-                _audioSource.loop = (bool)stream.ReceiveNext();
+
 
                 if (isPlaying)
                 {
