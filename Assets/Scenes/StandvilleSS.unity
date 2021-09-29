@@ -3832,8 +3832,6 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
   RoomName: Standville_Mine
-  ActiveUserHat1: {fileID: 4671357407252826205, guid: b19475da17ee1974287f131d30fd455f, type: 3}
-  PassiveUserHat2: {fileID: 7125567536645437490, guid: 10598baeaa734aa419687814c339bcff, type: 3}
   InGameObjects: {fileID: 1341104413}
   AwareGuideObjects: {fileID: 1811542445}
 --- !u!4 &234199318
@@ -8729,7 +8727,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489612459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.558249}
+  m_LocalPosition: {x: 0, y: 0, z: 3.311}
   m_LocalScale: {x: 25, y: 77.758095, z: 25}
   m_Children: []
   m_Father: {fileID: 1672460188}
@@ -27194,13 +27192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606210883}
-  m_LocalRotation: {x: -0.2176067, y: -0.1439381, z: 0.020746253, w: -0.96514183}
-  m_LocalPosition: {x: 6.582, y: 2.9320004, z: -4.2400017}
+  m_LocalRotation: {x: -0.31488207, y: -0.14530346, z: 0.005961678, w: -0.9379236}
+  m_LocalPosition: {x: 6.25, y: 2.32, z: -3.98}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -205.215, y: 557.28503, z: -178.569}
+  m_LocalEulerAnglesHint: {x: -216.328, y: 559.49097, z: -174.278}
 --- !u!20 &1606210885
 Camera:
   m_ObjectHideFlags: 0
