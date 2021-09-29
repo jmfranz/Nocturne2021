@@ -276,4 +276,17 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Lapin, NPC2);
         AvatarToConversation(Ferghus, NPC3);
     }
+
+    public void StopNPCMovements()
+    {
+        StopCoroutine(BL());
+        StopCoroutine(CF());
+        StopCoroutine(CB());
+        StopCoroutine(CK());
+        StopCoroutine(LF());
+        StopCoroutine(LC());
+        StopCoroutine(LK());
+        StopCoroutine(FB());
+        StopCoroutine(ConversationLoop());
+    }
 }

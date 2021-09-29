@@ -65,6 +65,13 @@ public class CognitiveWorldSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CognitiveCatherine.GetComponent<AvatarController>()._agent != null && !inCognitive)
+        {
+            CognitiveAvatars.SetActive(false);
+            CognitiveConvo.gameObject.SetActive(false);
+            CognitiveCatherine.SetActive(false);
+        }
+
         if (isClose(Player, MushroomRing, 1) && !inCognitive && !CognitiveConvo._hasCompletedConversation)
         {
             GoToCognitive();
@@ -94,16 +101,17 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void GoToCognitive()
     {
-        inCognitive = true;
-        StopCoroutine(nPC_Movements.ConversationLoop());
+        nPC_Movements.StopNPCMovements();
+        CognitiveCatherine.SetActive(true);
+        CognitiveAvatars.SetActive(true);
         CognitiveConvo.gameObject.SetActive(true);
         foreach (GameObject actor in NormalAvatars)
         {
             actor.SetActive(false);
         }
-        CognitiveAvatars.SetActive(true);
         Walls.GetComponent<MeshRenderer>().material.color = new Color(7f/255f, 24f/255f, 61f/255f);
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
+        inCognitive = true;
     }
 
     public void LeaveCognitive()

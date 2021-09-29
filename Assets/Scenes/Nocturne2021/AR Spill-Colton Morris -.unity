@@ -5957,7 +5957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopConversation: 0
   LoopBufferTime: 10
-  OutOfRangeLoopClip: {fileID: 8300000, guid: 5f47f0c506d74e041b427f57c14bae4a, type: 3}
+  OutOfRangeLoopClip: {fileID: 0}
   ConversationInfo:
     DefaultRule:
       MinimumThreshold: 0
@@ -6015,12 +6015,7 @@ MonoBehaviour:
     - default
   ConversationLines:
   - voiceLine: {fileID: 8300000, guid: a2c588d63674ae441b7ba6ddcc5f89eb, type: 3}
-    voiceOrigin: {fileID: 0}
-    beforeVoiceDelay: 0
-    afterVoiceDelay: 0
-    volume: 2
-  - voiceLine: {fileID: 8300000, guid: 8d25c41739b0a234ca0f1f96fe6f2c90, type: 3}
-    voiceOrigin: {fileID: 0}
+    voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 2
@@ -6971,7 +6966,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d948a88219a618f4d9df28de0bee9e03, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 6ea9f3fba2c1fc349b3d7a9363eee9eb, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -7050,47 +7045,47 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d3e65426dab32e94aa6d269df61f9c34, type: 3}
+  - voiceLine: {fileID: 8300000, guid: e0fd87bf6ed89224a8881ed7787f368f, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: f50a3198aeb7a724f86cd055a209265e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: cff9d5d0ab5ee904faac06222fd673d2, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: a26d57bc945012c4f8625751f369aa0d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 77afa060a6aa2674b9c18a27326fd373, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: e8cd10927f452294d96ec835f6099ea8, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 4254a3bb4557f7c41b61f7cea030b470, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 05aac645165af994bba9afbdc9462a5e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: b03516fb4b78d3542b704ee92e780159, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: b0cd37a0f69f9054f8ef2a33124ebb74, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ca57b464ea830e744959cbcbad5289b8, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: fdc00a6ba5231054daf681d91cd59a5e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ba16f74370c6de74686e7e9f26448379, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: c4eb22b73166f344cb3740ee96ec9670, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 112aee1af6212e04dba2f7d61ce69538, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 89472da0aab23a64587b154ea391faa4, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f3508ff1bb5354746948b99d481d860c, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -10127,8 +10122,8 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 75020620e8bf6844ab125bd71dcf4ad0, type: 3}
-    voiceOrigin: {fileID: 1553303102}
+  - voiceLine: {fileID: 8300000, guid: 23ee4dec2d934f048b63aecf555512c1, type: 3}
+    voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -11768,7 +11763,7 @@ Transform:
   m_Children:
   - {fileID: 1238209061}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 88.29101, z: 0}
 --- !u!1 &519612922
 GameObject:
@@ -12577,7 +12572,6 @@ GameObject:
   - component: {fileID: 565894538}
   - component: {fileID: 565894537}
   - component: {fileID: 565894536}
-  - component: {fileID: 565894545}
   - component: {fileID: 565894549}
   - component: {fileID: 565894548}
   - component: {fileID: 565894547}
@@ -12782,6 +12776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &565894543
 Animator:
   serializedVersion: 3
@@ -12817,18 +12812,6 @@ Transform:
   m_Father: {fileID: 1123391960}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 237.64499, z: 0}
---- !u!114 &565894545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 565894535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1068c0aff5f513c4fa74461171f79fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &565894546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12917,7 +12900,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 565894545}
   - {fileID: 565894548}
   - {fileID: 565894547}
   - {fileID: 565894546}
@@ -15780,7 +15762,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 11828c4d13dfe8c4d9d2fa366e11267a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 3ab0b6c4474a2ad44991e9f611ca9bbe, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -15859,7 +15841,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: bf618122ddf362840905b5d50e10fc1a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 39f5858f57882f143beb3c3a6e6a5870, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -15869,7 +15851,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 4b8393d3219ebe3479d6466ac4aaf95e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: bc85f98725d33474abfbeb12e87751ad, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -15879,7 +15861,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 42cbd468e6d52264882846269a5f7aa6, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 44bf56239890c6544b2970d0717f5d2b, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -17987,6 +17969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &833557312
 Animator:
   serializedVersion: 3
@@ -18873,7 +18856,7 @@ Transform:
   - {fileID: 1065408138}
   - {fileID: 1707926346}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 268.291, z: 0}
 --- !u!1 &886194896
 GameObject:
@@ -21064,6 +21047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &973391894
 Animator:
   serializedVersion: 3
@@ -23530,6 +23514,7 @@ Transform:
   - {fileID: 1553303105}
   - {fileID: 833557313}
   - {fileID: 565894544}
+  - {fileID: 5924092824047530642}
   - {fileID: 1306518059}
   - {fileID: 1275118662}
   - {fileID: 1899777908}
@@ -24395,6 +24380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &1144062631
 Animator:
   serializedVersion: 3
@@ -26200,7 +26186,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6921a454aa104cf47a67f59c64acaa17, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
@@ -27674,7 +27660,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 8d7b5a358e824eb489da1f1d99c33f39, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f2c8c5d6cb2a195418ebc81241ea74a0, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -27684,7 +27670,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: b1ccaec704b0a61469e3af90ffff5925, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 6eeec08dcce704042bbd6303e01a6d85, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -27694,7 +27680,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: e85608e3c79b50d469402c06c0746875, type: 3}
+  - voiceLine: {fileID: 8300000, guid: bdf2210c566becc45b886cb7ddc4e7a9, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -28156,7 +28142,7 @@ Transform:
   - {fileID: 286074984}
   - {fileID: 1131120206}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 88.29101, z: 0}
 --- !u!1 &1277739097
 GameObject:
@@ -28827,7 +28813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1306518059
 Transform:
   m_ObjectHideFlags: 0
@@ -28839,7 +28825,6 @@ Transform:
   m_LocalPosition: {x: -239.86856, y: 4.169999, z: 228.41963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5924092824047530642}
   - {fileID: 1225577069202594757}
   - {fileID: 7067629613472153321}
   - {fileID: 574539571208552376}
@@ -28847,7 +28832,7 @@ Transform:
   - {fileID: 4539752681568936751}
   - {fileID: 1859130479006185180}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 88.29101, z: 0}
 --- !u!1 &1307339397
 GameObject:
@@ -30351,7 +30336,7 @@ MonoBehaviour:
     - distance
     - isFacing
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 199b9ca3a5d62be459e798ee49e234ef, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d4eb36116ae252a429c2f7b3cd753990, type: 3}
     voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -30723,7 +30708,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 0c1f9cce31b4b344aa94a616c6200ce0, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 1c1180c1d11611d42b5289624b429a60, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -30802,37 +30787,37 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 6ca1ecd26748242408131d318303c8e4, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 76ddbd0374abe2c439f9fa1958661ff4, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 6d7e91695c30fff40b2aeaf4ef0e040d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: eef3ab2f864d8ba419af990cf488c47b, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: e1dfe4f2569cd9441a567a22f4736da1, type: 3}
+  - voiceLine: {fileID: 8300000, guid: df645321e74e195419af54c68342b52b, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 3a27e8df30e9033498842b6848e77694, type: 3}
+  - voiceLine: {fileID: 8300000, guid: babc014522836654fb5d5f1393dde0a6, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 9dca35ea73448b34580dcb591154ba6b, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a36ed8cdbb8a8af4ea18697fbcdf0e9a, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 192a53c0f160ccc4aacbbc8998da851a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 420fdb52439b900478a33208cf96519c, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 5be7352daa186754481000502a6ae5f7, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 55d7d70f7f839a64b99bab670efc54c5, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -31467,7 +31452,7 @@ Transform:
   - {fileID: 1088560217}
   - {fileID: 1500502440}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 229.605}
 --- !u!1 &1395848424
 GameObject:
@@ -31819,7 +31804,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 11828c4d13dfe8c4d9d2fa366e11267a, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 3ab0b6c4474a2ad44991e9f611ca9bbe, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -31898,37 +31883,37 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 41c8fc78bbe491742975f24e57d1a9f7, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 8e5bde5d159fd2f48b308a21bc633313, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 8294f5ec8b609d2488f3f8cbe8621e98, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 2e5d70472996dda4bb7b5fa9c1374370, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: a2c588d63674ae441b7ba6ddcc5f89eb, type: 3}
+  - voiceLine: {fileID: 8300000, guid: c88b5f83380b8724f9ab1c4c5e7e12e4, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 7bb438a363b4f01429ad8aad4c68f770, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d4b1339b44a210c4f86b163bf194b624, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 8d25c41739b0a234ca0f1f96fe6f2c90, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 228f3748412679e46bd0969033a81dfa, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 431c32de5d12b594b9e3609f502b2845, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 2da1f202de56ca64f8e2c97c523942a9, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 22a5f2b6ce43a8f41890fef79023793e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 0c1c9d333f9cb08439ba7b3cf39b327a, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -32767,7 +32752,7 @@ MonoBehaviour:
     RequiredRules:
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: e1b98d73a51984f48bae2f00b5a36655, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f3d18779814a8dd4b9b3325be892ed25, type: 3}
     voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -34283,7 +34268,7 @@ RectTransform:
   - {fileID: 1511472707}
   - {fileID: 1354429900}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -34552,7 +34537,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: c64a23f91a814674c92619deec95f844, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 7c5ca0af1df94024da9568baa67527e7, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -34562,7 +34547,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: f41d6bc19af7a07488d280fde005eb31, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 4d76101b451b33c4aadd6853f2a97efd, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -34572,7 +34557,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 2705c43503411a8499bc2f3c19e6c573, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 465ca28cd58b91f4e9d0ff04904c3631, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -34582,7 +34567,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 6db60cc9abba1e342a4a630710dd2262, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a8add8ca374fb8745a64355d75e1db99, type: 3}
     voiceOrigin: {fileID: 1538292177}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -35412,6 +35397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &1538292179
 Animator:
   serializedVersion: 3
@@ -36122,6 +36108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &1553303104
 Animator:
   serializedVersion: 3
@@ -36426,7 +36413,7 @@ Transform:
   - {fileID: 912990954}
   - {fileID: 1332775806}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 129.32701, z: 0}
 --- !u!1 &1571582436
 GameObject:
@@ -37936,7 +37923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657168586
 GameObject:
@@ -40064,7 +40051,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 050e9c7c04ed8e94684f35886bfdbd99, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f2aabb9a4f7c47a40afbc59ce37740e0, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -40074,7 +40061,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 102f332a19d4c5345a4f75d88166c450, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a20924f26ea164b408ccbe8a9e10baa5, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -40084,7 +40071,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 3d44a1343b6ff9941861db255f1fc98e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 7e1dfc54632c0e24a92feeaa8be7e797, type: 3}
     voiceOrigin: {fileID: 833557310}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -40539,7 +40526,7 @@ Transform:
   - {fileID: 254203976}
   - {fileID: 311822784}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 88.29101, z: 0}
 --- !u!1 &1785121200
 GameObject:
@@ -40919,7 +40906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1805984112
 Transform:
   m_ObjectHideFlags: 0
@@ -40928,7 +40915,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805984111}
   m_LocalRotation: {x: -0, y: 0.69648236, z: -0, w: 0.71757406}
-  m_LocalPosition: {x: 16.7, y: 4.169999, z: 0.4}
+  m_LocalPosition: {x: 15.5, y: 4.169999, z: 67.7}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1123391960}
@@ -42241,8 +42228,8 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 7b85d98f3fd73fd4e97dd45778d7312d, type: 3}
-    voiceOrigin: {fileID: 0}
+  - voiceLine: {fileID: 8300000, guid: 875b39c9e3ce3c5468d38d087dbc4b98, type: 3}
+    voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 2
@@ -43108,6 +43095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &1867072237
 Animator:
   serializedVersion: 3
@@ -43765,7 +43753,7 @@ Transform:
   - {fileID: 1903001329}
   - {fileID: 1245736455}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 136.418}
 --- !u!1 &1900480145
 GameObject:
@@ -48410,6 +48398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!95 &2109601688
 Animator:
   serializedVersion: 3
@@ -49014,7 +49003,7 @@ Transform:
   - {fileID: 1933321106}
   - {fileID: 1944792942}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2131967969
 GameObject:
@@ -49223,7 +49212,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d948a88219a618f4d9df28de0bee9e03, type: 3}
+  - voiceLine: {fileID: 8300000, guid: afdb02c50bcb85f4f8bc3262fa7a665f, type: 3}
     voiceOrigin: {fileID: 1553303102}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -51027,15 +51016,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3576550155515366827}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 114.23, y: -22.23, z: 260.34}
+  m_LocalRotation: {x: -0, y: 0.73875046, z: -0, w: 0.67397916}
+  m_LocalPosition: {x: 196, y: -22.23, z: 186.3}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 7624899037303112976}
   - {fileID: 4714230535456401197}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 95.25, z: 0}
 --- !u!1 &594283066112639518
 GameObject:
   m_ObjectHideFlags: 0
@@ -51355,7 +51344,7 @@ Transform:
   - {fileID: 1904097137}
   - {fileID: 211751822980516542}
   m_Father: {fileID: 1123391960}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763243256302222940
 GameObject:
@@ -52296,7 +52285,7 @@ Transform:
   - {fileID: 6039440859688803797}
   - {fileID: 5656009456394390611}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &1228517339771210238
 Transform:
@@ -53352,7 +53341,7 @@ Transform:
   - {fileID: 8639255001184734324}
   - {fileID: 6438362288183661591}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1859227127022203327
 GameObject:
@@ -53595,6 +53584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!195 &1894273220847010180
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -56981,6 +56971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &3429399354263536850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57615,6 +57606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!195 &3576550155515366832
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -58305,6 +58297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &3768283283997817243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60042,13 +60035,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3768283283997817237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 421.00003, y: -22.23, z: 238.4}
+  m_LocalPosition: {x: 324.5, y: -22.23, z: 187.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 9066319640969307455}
   - {fileID: 7229249560338658316}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4545118646834919708
 Transform:
@@ -62632,14 +62625,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6448393417054185512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 217.39647, y: -12.2, z: 184.69699}
+  m_LocalRotation: {x: -0, y: 0.6964823, z: -0, w: 0.717574}
+  m_LocalPosition: {x: -48.769928, y: -16.18, z: 16.628342}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1217348102422230146}
   - {fileID: 2021903516855400996}
-  m_Father: {fileID: 1306518059}
-  m_RootOrder: 0
+  m_Father: {fileID: 1123391960}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5931808759308713261
 Transform:
@@ -63673,6 +63666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!195 &6448393417054185514
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -65178,7 +65172,7 @@ Transform:
   - {fileID: 2361921535890798841}
   - {fileID: 6737089679203765562}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7082172607421136914
 GameObject:
@@ -65389,6 +65383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!195 &7190180364225128765
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -66389,7 +66384,7 @@ Transform:
   - {fileID: 3049234854698071441}
   - {fileID: 8719395662438502501}
   m_Father: {fileID: 1306518059}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7557377756061434627
 Transform:
@@ -66585,6 +66580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &7592667772840682582
 MonoBehaviour:
   m_ObjectHideFlags: 0

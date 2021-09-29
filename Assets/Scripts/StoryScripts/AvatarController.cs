@@ -31,7 +31,7 @@ public class AvatarController : MonoBehaviour
     public ConversationNode ActiveNode;
     public MovementStates MovementState { get { return _movementState; } }
 
-    NavMeshAgent _agent;
+    public NavMeshAgent _agent;
     ThirdPersonCharacter _character;
     MovementStates _movementState;
     ConversationStates _conversationState;
