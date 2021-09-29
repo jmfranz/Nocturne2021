@@ -36697,7 +36697,7 @@ MonoBehaviour:
   - Component: {fileID: 2120311944}
     Action: 1
   _postConditions: []
-  WaitTime: 25
+  WaitTime: 22225
 --- !u!114 &2120311947
 MonoBehaviour:
   m_ObjectHideFlags: 0
