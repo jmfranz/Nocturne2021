@@ -21245,7 +21245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237783003}
   m_LocalRotation: {x: -0, y: 0.0070596808, z: -0, w: -0.9999751}
-  m_LocalPosition: {x: 173.2, y: 316.99988, z: 1904}
+  m_LocalPosition: {x: 173.2, y: 316.99988, z: 1880}
   m_LocalScale: {x: 2916, y: 1944, z: 200.00002}
   m_Children: []
   m_Father: {fileID: 1609635842}
@@ -23308,12 +23308,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322252877}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e408ec3f447860144a2b0ec362241a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopConversation: 1
+  isLoopConversation: 0
   LoopBufferTime: 0
   OutOfRangeLoopClip: {fileID: 0}
   ConversationInfo:
@@ -23378,7 +23378,7 @@ MonoBehaviour:
     afterVoiceDelay: 0
     volume: 0
   AllAvatarsInConvo: 1
-  _hasCompletedConversation: 1
+  _hasCompletedConversation: 0
   _isPlaying: 0
   _remainingLines: []
 --- !u!82 &1322252882
@@ -23391,11 +23391,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_audioClip: {fileID: 8300000, guid: c912112a7676ce44199f07aaacee9955, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 1
   SpatializePostEffects: 0

@@ -37,6 +37,7 @@ public class FadeShadow : MonoBehaviour
         else if(fadeShadow && t >= 1)
         {
             Shadow.SetActive(false);
+            Shadow.GetComponent<ConversationPlayer>().enabled = false;
         }
     }
 }
