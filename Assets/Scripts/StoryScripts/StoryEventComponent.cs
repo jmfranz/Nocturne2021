@@ -76,7 +76,7 @@ public class StoryEventComponent : MonoBehaviour
         // Try to set up the log file.
         if (!logFileSetUp)
         {
-            string path = Application.dataPath + "/Data/" + logFilename;
+            string path = Path.Combine(Application.persistentDataPath, logFilename);
 
             if (!File.Exists(path))
             {
@@ -234,7 +234,8 @@ public class StoryEventComponent : MonoBehaviour
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
         // Log the events.
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
+        //string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
+        string path = Path.Combine(Application.persistentDataPath, logFilename);
         StreamWriter sw = new StreamWriter(path, true);
 
         DateTime now = DateTime.Now;
