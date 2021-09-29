@@ -102,17 +102,5 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
                 }
             }
         }
-    }
-
-    public void OnGUI()
-    {
-        if (gameObject.name == "Dog")
-        {
-            if (GUILayout.Button("Play dog source"))
-            {
-                _audioSource.Play();
-            }
-        }
-    }
- 
+    }    
 }
