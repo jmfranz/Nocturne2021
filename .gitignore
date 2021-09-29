@@ -61,4 +61,4 @@ crashlytics-build.properties
 
 # Logging data
 *.csv
-Data/**
+Data/
