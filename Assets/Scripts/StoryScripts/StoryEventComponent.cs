@@ -73,20 +73,7 @@ public class StoryEventComponent : MonoBehaviour
 
     void Start()
     {
-        // Try to set up the log file.
-        if (!logFileSetUp)
-        {
-            string path = Path.Combine(Application.persistentDataPath, logFilename);
-
-            if (!File.Exists(path))
-            {
-                StreamWriter swt = File.CreateText(path);
-                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event,Scene,IsMaster");
-                swt.Close();
-            }
-
-            logFileSetUp = true;
-        }
+        
 
         //No preconditions means run at game start
         if (_preConditions.Count == 0)
@@ -235,6 +222,21 @@ public class StoryEventComponent : MonoBehaviour
 
         // Log the events.
         //string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
+        // Try to set up the log file.
+        if (!logFileSetUp)
+        {
+            string path = Path.Combine(Application.persistentDataPath, logFilename);
+
+            if (!File.Exists(path))
+            {
+                StreamWriter swt = File.CreateText(path);
+                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event,Scene,IsMaster");
+                swt.Close();
+            }
+
+            logFileSetUp = true;
+        }
+
         string path = Path.Combine(Application.persistentDataPath, logFilename);
         StreamWriter sw = new StreamWriter(path, true);
 
