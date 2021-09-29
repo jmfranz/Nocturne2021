@@ -51,7 +51,7 @@ namespace ProxemicUIFramework
                 //oscServer = new OscServer(TransportType.Udp, IPAddress.Loopback, Port);
 
                 // Use this to receive messages from a different machine (replace IP address bellow with the IP of the current machine)
-                oscServer = new OscServer(TransportType.Udp, IPAddress.Parse(IPaddress), Port);
+                oscServer = new OscServer(System.Net.TransportType.Udp, IPAddress.Parse(IPaddress), Port);
 
                 oscServer.FilterRegisteredMethods = false;
                 oscServer.RegisterMethod(AliveMethod);
