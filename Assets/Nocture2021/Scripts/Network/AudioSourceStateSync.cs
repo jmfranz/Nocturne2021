@@ -40,7 +40,7 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
 
             if (audioSourceName == "no Audio")
             {
-                _audioSource.Stop();
+                _audioSource?.Stop();
             }
             else // It has an audio clip in the source
             {
