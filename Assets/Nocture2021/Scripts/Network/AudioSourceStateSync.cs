@@ -24,17 +24,21 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
         {
             return;
         }
-
-        
         if (stream.IsWriting)
         {
-            if (_audioSource.clip == null)
-            {
-                return;
-            }
+
+
 
             var clip = _audioSource.clip;
-            stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            if (clip != null)
+            {
+                stream.SendNext(_audioSource.clip.ToString().Split('(')[0].Trim());
+            }
+            else
+            {
+                stream.SendNext("no Audio");
+            }
+
             stream.SendNext(_audioSource.isPlaying);
             stream.SendNext(_audioSource.volume);
             stream.SendNext(_audioSource.loop);
@@ -48,10 +52,6 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
             float volume = (float)stream.ReceiveNext();
             bool loop = (bool)stream.ReceiveNext();
 
-            if (gameObject.name == "Dog")
-            {
-                Debug.Log($"Source {audioSourceName}");
-            }
 
             if (_audioSource == null)
             {
@@ -77,13 +77,14 @@ public class AudioSourceStateSync : MonoBehaviour, IPunObservable
 
                 _audioSource.clip = audioClip;
 
-                if (audioSourceName == "dog14")
+                if (audioSourceName == _audioSource.clip.ToString().Split('(')[0].Trim() 
+                && _audioSource.isPlaying == isPlaying)
                 {
-                    if (!hasPlayed14)
-                    {
-                        _audioSource.Play();
-                        hasPlayed14 = true;
-                    }
+                    //if (!hasPlayed14)
+                    //{
+                    //    _audioSource.Play();
+                    //    hasPlayed14 = true;
+                    //}
 
                     //Debug.Log($"dog 14: \n{isPlaying}\n{_audioSource.gameObject.name}\n{volume}");
 
