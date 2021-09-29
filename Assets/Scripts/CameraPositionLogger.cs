@@ -29,7 +29,7 @@ public class CameraPositionLogger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string path = Application.dataPath + "/Data/" + filename;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + filename;
 
         if (!File.Exists(path))
         {
