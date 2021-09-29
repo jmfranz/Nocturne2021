@@ -48,6 +48,7 @@ public class ShadowChaseController : MonoBehaviour
         OriginalParticleEffect();
         this.GetComponent<DirectIntroductionController>().enabled = false;
         this.GetComponent<ConversationPlayer>().enabled = false;
+        shadow.parent.GetComponent<ConversationPlayer>()._remainingLines =  new List<ConversationPlayer.VoiceLine>();
     }
 
     void Update()
