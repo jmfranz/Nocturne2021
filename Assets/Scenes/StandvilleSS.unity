@@ -3152,13 +3152,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208033726}
-  m_LocalRotation: {x: 0.18266939, y: 0.87265635, z: -0.32114744, w: 0.31932303}
-  m_LocalPosition: {x: 6.85, y: 2.0320685, z: -0.39000002}
+  m_LocalRotation: {x: -0.06677323, y: 0.67494005, z: 0.0032777893, w: 0.73483783}
+  m_LocalPosition: {x: 6.6460004, y: 1.665, z: -0.896}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -222.62201, y: 323.27698, z: -171.11}
+  m_LocalEulerAnglesHint: {x: -174.113, y: 265.387, z: -184.92}
 --- !u!20 &208033728
 Camera:
   m_ObjectHideFlags: 0
@@ -3184,7 +3184,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 256
-  field of view: 60
+  field of view: 120
   orthographic: 0
   orthographic size: 25.2
   m_Depth: 0
@@ -8728,13 +8728,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489612459}
-  m_LocalRotation: {x: -0.010604234, y: 0.0064065806, z: 0.015073559, w: -0.9998097}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.558249}
   m_LocalScale: {x: 25, y: 77.758095, z: 25}
   m_Children: []
   m_Father: {fileID: 1672460188}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.204, y: 359.247, z: -1.735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.68, y: 0.46}
@@ -8795,7 +8795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Please give your headset to the docent
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8822,8 +8822,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.05
-  m_fontSizeBase: 0.05
+  m_fontSize: 0.045
+  m_fontSizeBase: 0.045
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9747,7 +9747,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -9824,7 +9824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 577256342}
   endOfPathInstruction: 0
-  speed: 3
+  speed: 1.5
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -14245,7 +14245,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -14322,7 +14322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 895178039}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 1.5
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -25140,7 +25140,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -27194,13 +27194,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606210883}
-  m_LocalRotation: {x: -0.21824569, y: -0.10657236, z: 0.012330224, w: -0.969979}
-  m_LocalPosition: {x: 6.3820267, y: 2.0320685, z: -4.2040014}
+  m_LocalRotation: {x: -0.2176067, y: -0.1439381, z: 0.020746253, w: -0.96514183}
+  m_LocalPosition: {x: 6.582, y: 2.9320004, z: -4.2400017}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -205.215, y: 552.86, z: -178.569}
+  m_LocalEulerAnglesHint: {x: -205.215, y: 557.28503, z: -178.569}
 --- !u!20 &1606210885
 Camera:
   m_ObjectHideFlags: 0
@@ -36114,7 +36114,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -36191,7 +36191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 1661598554}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 2
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
