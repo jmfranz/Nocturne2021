@@ -58,8 +58,7 @@ public class NPC_Movements : StoryEventComponent
     // Start is called before the first frame update
     void Start()
     {
-        canStartStory = false;
-        loopFinished = false;
+        loopFinished = true;
         bultildaStatus = "";
         lapinStatus = "";
         catherineStatus = "";
@@ -67,15 +66,9 @@ public class NPC_Movements : StoryEventComponent
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (storyStart.Complete)
-        {
-            canStartStory = true;
-            loopFinished = true;
-        }
-
-        if (loopFinished)
+        if (storyStart.Complete && loopFinished)
         {
             StartCoroutine(ConversationLoop());
         }
@@ -207,6 +200,7 @@ public class NPC_Movements : StoryEventComponent
 
     public IEnumerator ConversationLoop()
     {
+        Debug.Log("Conversation Loop Started");
         loopFinished = false;
         yield return new WaitForSeconds(2);
         AvatarToConversation(Fokthipur, NPC1);
