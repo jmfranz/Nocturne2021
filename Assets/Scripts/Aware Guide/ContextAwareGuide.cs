@@ -37,8 +37,9 @@ public class ContextAwareGuide : MonoBehaviour
         // };
 
         Debug.Log("Game starts!");
-
+ 
         aware.ChangeImage("MAIN_ROOM_1");
+        
       //  Debug.Log();
 
     }
@@ -186,20 +187,27 @@ public class ContextAwareGuide : MonoBehaviour
 
     void UpdateGuideState()
     {
-        if (_eventName == "Game Start" && !_eventStatus && _room == "WASHROOM")
+        if (_room == "WASHROOM")
         {
             Debug.Log("Story starts");
             aware.ChangeImage("WASHROOM_1");
 
         }
-
+        else if(_eventName == "Game Start" && _eventStatus && _room != "MAINROOM")
+        {
+            aware.ChangeImage("puppy1"); //image needs to be changed
+        }
+        else if (_eventName == "Game Start" && _eventStatus && _room == "MAINROOM")
+        {
+            aware.ChangeImage("MAINROOM_1"); //image needs to be changed
+        }
         else if (_eventName == "Entered Security Room" && !_eventStatus && _room == "WASHROOM")
         {
             Debug.Log("Entered security room");
             aware.ChangeImage("SECURITYROOM_1");
 
         }
-
+       
         else if (_eventName == "Start Chase" && _eventStatus && _room == "SECURITYROOM")
         {
             Debug.Log("Start chase!");
