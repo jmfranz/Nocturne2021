@@ -214,7 +214,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     void ShowMaxInTinyOrb()
     {
         MaxInOrb.SetActive(true);
-        MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
+        //MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
         MaxInOrb.transform.LookAt(Player.transform.position);
     }
 }

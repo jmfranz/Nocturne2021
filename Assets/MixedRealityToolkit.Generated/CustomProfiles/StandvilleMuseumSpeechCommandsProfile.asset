@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   startBehavior: 0
-  recognitionConfidenceLevel: 1
+  recognitionConfidenceLevel: 2
   speechCommands:
   - localizationKey: 
     keyword: Menu
@@ -61,6 +61,13 @@ MonoBehaviour:
   - localizationKey: 
     keyword: Negative
     keyCode: 110
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Unicorn
+    keyCode: 117
     action:
       id: 0
       description: None
