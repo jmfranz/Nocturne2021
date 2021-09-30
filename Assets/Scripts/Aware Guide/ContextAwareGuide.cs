@@ -12,7 +12,11 @@ public class ContextAwareGuide : MonoBehaviour
     public float period = 20.0f;
     public int count = 1;
     TextureTextControl aware;
-    public string room;
+
+    private string _room;
+    private string _eventName;
+    private bool _eventStatus;
+
     private void Awake()
     {
         aware = GameObject.Find("AwareGuide").GetComponent<TextureTextControl>();
@@ -95,119 +99,64 @@ public class ContextAwareGuide : MonoBehaviour
     public void OnEventDataChange(string eventName, bool eventStatus)
     {
         Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventStatus);
+        _eventName = eventName;
+        _eventStatus = eventStatus;
 
-        if(eventName =="Game Start" && !eventStatus && room=="WASHROOM")
-        {
-            Debug.Log("Story starts");
-            aware.ChangeImage("WASHROOM_1");
-            
-        }
-       
-       else if(eventName == "Entered Security Room" && !eventStatus && room == "WASHROOM")
-        {
-            Debug.Log("Entered security room");
-            aware.ChangeImage("SECURITYROOM_1");
-            
-        }
-        
-       else if(eventName == "Start Chase" && eventStatus && room == "SECURITYROOM")
-        {
-            Debug.Log("Start chase!");
-            aware.ChangeImage("SECURITYROOM_3");
-        }
-        else if(eventName== "Escaped Shadow" && !eventStatus && room == "SECURITYROOM")
-        {
-            Debug.Log("Escaped shadow");
-            aware.ChangeImage("SECURITYROOM_4");
-        }
-        else if(eventName== "Player entered dog room" && !eventStatus && room == "DOGSROOM")
-        {
-            Debug.Log("Player entered the dog room");
-            aware.ChangeImage("DOGS_ROOM_1");
-        }
-        else if(eventName== "No don't trust dog" && !eventStatus && room == "DOGSROOM")
-        {
-            Debug.Log("Don't trust the dog");
-            aware.ChangeImage("DOGS_ROOM_3");
-        }
-        else if(eventName== "Yes trust dog" && !eventStatus && room == "DOGSROOM")
-        {
-            Debug.Log("Trust the dog");
-            aware.ChangeImage("DOGS_ROOM_2");
-        }
-        else if(eventName== "Ending John enters Main Room" && !eventStatus && room == "LASTROOM") //For ending like I trust the dog
-        {
-            Debug.Log("Ending john enters the main room");
-            aware.ChangeImage("LAST_ROOM_2");
-        }
-        else if(eventName== "Entered Astronomy Room" && !eventStatus && room == "ASTRONOMYROOM")
-        {
-            Debug.Log("Entering the astronmy room");
-            aware.ChangeImage("ASTRONOMY_ROOM_1");
-        }
-        else if(eventName== "Finished Reading Mural" && !eventStatus && room == "ASTRONOMYROOM")
-        {
-            Debug.Log("Finished reading the mural");
-            aware.ChangeImage("ASTRONOMY_ROOM_3");
-        }
-        else if(eventName== "Shadow Disappears" && !eventStatus && room == "ASTRONOMYROOM")
-        {
-            Debug.Log("Shadow disappears");
-            aware.ChangeImage("ASTRONOMY_ROOM_4");
-        }
-        else if(eventName== "Ending John enters Main Room No" && !eventStatus && room == "LASTROOM")
-        {
-            Debug.Log("Ending John enters Main Room No");
-            aware.ChangeImage("LAST_ROOM_1");
-        }
+        UpdateGuideState();
     }
 
     
     private void OnTriggerEnter(Collider other)
     {
-       if(other.gameObject.name == "WASHROOM")
+
+        //aware.ChangeImage("WASHROOM_1");
+
+
+        if (other.gameObject.tag == "Room")
         {
+            _room = other.gameObject.name;
+            Debug.Log(_room);
 
-            Debug.Log("Entered washroom");
-            aware.ChangeImage("WASHROOM_1");
-            room = "WASHROOM";
+            UpdateGuideState();
         }
-       else if (other.gameObject.name == "SECURITYROOM")
-        {
 
-            Debug.Log("Entered security room");
-            aware.ChangeImage("SECURITY_ROOM_2");
-            room = "SECURITYROOM";
-        }
-        else if (other.gameObject.name == "MAINROOM")
-        {
 
-            Debug.Log("Entered Main room");
-            aware.ChangeImage("MAIN_ROOM_1");
-            room = "MAINROOM";
+       //else if (other.gameObject.name == "SECURITYROOM")
+       // {
 
-        }
-        else if (other.gameObject.name == "ASTRONOMYROOM")
-        {
+       //     Debug.Log("Entered security room");
+       //     //aware.ChangeImage("SECURITY_ROOM_2");
+       //     room = "SECURITYROOM";
+       // }
+       // else if (other.gameObject.name == "MAINROOM")
+       // {
 
-            Debug.Log("Entered Main room");
-            aware.ChangeImage("ASTRONOMYROOM_1");
-            room = "ASTRNOMYROOM";
-        }
-        else if (other.gameObject.name == "LASTROOM")
-        {
+       //     Debug.Log("Entered Main room");
+       //    // aware.ChangeImage("MAIN_ROOM_1");
+       //     room = "MAINROOM";
 
-            Debug.Log("Entered Main room");
-            aware.ChangeImage("LASTROOM_1");
-            room = "LASTROOM";
-        }
-        else if (other.gameObject.name == "DOGSROOM")
-        {
+       // }
+       // else if (other.gameObject.name == "ASTRONOMYROOM")
+       // {
 
-            Debug.Log("Entered Main room");
-            aware.ChangeImage("DOGSROOM");
-            room = "DOGSROOM";
-        }
+       //     Debug.Log("Entered Main room");
+       //     //aware.ChangeImage("ASTRONOMYROOM_1");
+       //     room = "ASTRNOMYROOM";
+       // }
+       // else if (other.gameObject.name == "LASTROOM")
+       // {
+
+       //     Debug.Log("Entered Main room");
+       //     aware.ChangeImage("LASTROOM_1");
+       //     room = "LASTROOM";
+       // }
+       // else if (other.gameObject.name == "DOGSROOM")
+       // {
+
+       //     Debug.Log("Entered Main room");
+       //     aware.ChangeImage("DOGSROOM");
+       //     room = "DOGSROOM";
+       // }
         // if(other.gameObject.name == "Box Collide 2")
         //{
         //  _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/ASTRONOMYROOM2.html");
@@ -232,5 +181,73 @@ public class ContextAwareGuide : MonoBehaviour
         // {
         //   _webViewPrefab.WebView.LoadUrl("http://134.190.132.41:8080/Context/MAINROOM1.html");
         // }
+    }
+
+    void UpdateGuideState()
+    {
+        if (_eventName == "Game Start" && !_eventStatus && _room == "WASHROOM")
+        {
+            Debug.Log("Story starts");
+            aware.ChangeImage("WASHROOM_1");
+
+        }
+
+        else if (_eventName == "Entered Security Room" && !_eventStatus && _room == "WASHROOM")
+        {
+            Debug.Log("Entered security room");
+            aware.ChangeImage("SECURITYROOM_1");
+
+        }
+
+        else if (_eventName == "Start Chase" && _eventStatus && _room == "SECURITYROOM")
+        {
+            Debug.Log("Start chase!");
+            aware.ChangeImage("SECURITYROOM_3");
+        }
+        else if (_eventName == "Escaped Shadow" && !_eventStatus && _room == "SECURITYROOM")
+        {
+            Debug.Log("Escaped shadow");
+            aware.ChangeImage("SECURITYROOM_4");
+        }
+        else if (_eventName == "Player entered dog room" && !_eventStatus && _room == "DOGSROOM")
+        {
+            Debug.Log("Player entered the dog room");
+            aware.ChangeImage("DOGS_ROOM_1");
+        }
+        else if (_eventName == "No don't trust dog" && !_eventStatus && _room == "DOGSROOM")
+        {
+            Debug.Log("Don't trust the dog");
+            aware.ChangeImage("DOGS_ROOM_3");
+        }
+        else if (_eventName == "Yes trust dog" && !_eventStatus && _room == "DOGSROOM")
+        {
+            Debug.Log("Trust the dog");
+            aware.ChangeImage("DOGS_ROOM_2");
+        }
+        else if (_eventName == "Ending John enters Main Room" && !_eventStatus && _room == "LASTROOM") //For ending like I trust the dog
+        {
+            Debug.Log("Ending john enters the main room");
+            aware.ChangeImage("LAST_ROOM_2");
+        }
+        else if (_eventName == "Entered Astronomy Room" && !_eventStatus && _room == "ASTRONOMYROOM")
+        {
+            Debug.Log("Entering the astronmy room");
+            aware.ChangeImage("ASTRONOMY_ROOM_1");
+        }
+        else if (_eventName == "Finished Reading Mural" && !_eventStatus && _room == "ASTRONOMYROOM")
+        {
+            Debug.Log("Finished reading the mural");
+            aware.ChangeImage("ASTRONOMY_ROOM_3");
+        }
+        else if (_eventName == "Shadow Disappears" && !_eventStatus && _room == "ASTRONOMYROOM")
+        {
+            Debug.Log("Shadow disappears");
+            aware.ChangeImage("ASTRONOMY_ROOM_4");
+        }
+        else if (_eventName == "Ending John enters Main Room No" && !_eventStatus && _room == "LASTROOM")
+        {
+            Debug.Log("Ending John enters Main Room No");
+            aware.ChangeImage("LAST_ROOM_1");
+        }
     }
 }
