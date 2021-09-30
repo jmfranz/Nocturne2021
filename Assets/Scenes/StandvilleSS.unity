@@ -12344,6 +12344,7 @@ GameObject:
   - component: {fileID: 717845251}
   - component: {fileID: 717845259}
   - component: {fileID: 717845258}
+  - component: {fileID: 717845265}
   - component: {fileID: 717845257}
   - component: {fileID: 717845256}
   - component: {fileID: 717845255}
@@ -12704,6 +12705,25 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &717845265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717845250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 717845257}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1815398941}
+  lowerJaw: {fileID: 501570257}
+  upperLipLimit: {x: -0.0497, y: 0.1096, z: 0}
+  lowerJawLimit: {x: -0.0197, y: 0.0097, z: -0.0001}
 --- !u!1 &722090097
 GameObject:
   m_ObjectHideFlags: 0
@@ -17994,6 +18014,7 @@ GameObject:
   - component: {fileID: 1081662361}
   - component: {fileID: 1081662360}
   - component: {fileID: 1081662359}
+  - component: {fileID: 1081662367}
   - component: {fileID: 1081662358}
   - component: {fileID: 1081662357}
   - component: {fileID: 1081662356}
@@ -18354,6 +18375,25 @@ MonoBehaviour:
   sceneViewId: 15
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1081662367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081662352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1081662358}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 102937368}
+  lowerJaw: {fileID: 293992752}
+  upperLipLimit: {x: -0.0497, y: 0.1096, z: 0}
+  lowerJawLimit: {x: -0.0197, y: 0.0097, z: -0.0001}
 --- !u!1 &1085353233
 GameObject:
   m_ObjectHideFlags: 0
@@ -42942,6 +42982,7 @@ GameObject:
   - component: {fileID: 1324189634963556034}
   - component: {fileID: 1813727828046355584}
   - component: {fileID: 1813727828046355583}
+  - component: {fileID: 1813727828046355589}
   - component: {fileID: 1813727828046355582}
   - component: {fileID: 1813727828046355581}
   - component: {fileID: 1813727828046355580}
@@ -43271,6 +43312,25 @@ MonoBehaviour:
   sceneViewId: 12
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1813727828046355589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813727828046355576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1813727828046355582}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 304026390316057822}
+  lowerJaw: {fileID: 9005992642434126674}
+  upperLipLimit: {x: -0.0497, y: 0.1096, z: 0}
+  lowerJawLimit: {x: -0.0197, y: 0.0097, z: -0.0001}
 --- !u!4 &1815049713015382357
 Transform:
   m_ObjectHideFlags: 0
@@ -59745,6 +59805,7 @@ GameObject:
   - component: {fileID: 6292699960840905232}
   - component: {fileID: 6292699960840905231}
   - component: {fileID: 6292699960840905233}
+  - component: {fileID: 6292699960840905234}
   m_Layer: 0
   m_Name: Shadow 1
   m_TagString: Anchorable
@@ -60132,6 +60193,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1068c0aff5f513c4fa74461171f79fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6292699960840905234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292699960840905223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6292699960840905229}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 6292699960565019482}
+  lowerJaw: {fileID: 6292699961329559452}
+  upperLipLimit: {x: -0.0497, y: 0.1096, z: 0}
+  lowerJawLimit: {x: -0.0197, y: 0.0097, z: -0.0001}
 --- !u!1 &6292699960862475358
 GameObject:
   m_ObjectHideFlags: 0
@@ -60492,6 +60572,7 @@ GameObject:
   - component: {fileID: 6292699960914694976}
   - component: {fileID: 6292699960914694963}
   - component: {fileID: 6292699960914694970}
+  - component: {fileID: 6292699960914694962}
   - component: {fileID: 6292699960914694969}
   - component: {fileID: 6292699960914694968}
   - component: {fileID: 6292699960914694967}
@@ -60509,6 +60590,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6292699960914694962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292699960914694961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6292699960914694969}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 6292699960565019482}
+  lowerJaw: {fileID: 6292699961329559452}
+  upperLipLimit: {x: -0.0497, y: 0.1096, z: 0}
+  lowerJawLimit: {x: -0.0197, y: 0.0097, z: -0.0001}
 --- !u!95 &6292699960914694963
 Animator:
   serializedVersion: 3
