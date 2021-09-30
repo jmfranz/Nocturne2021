@@ -222,11 +222,12 @@ public class StoryEventComponent : MonoBehaviour
 
         // Log the events.
         //string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
+        string path = Path.Combine(Application.persistentDataPath, logFilename);
+
         // Try to set up the log file.
         if (!logFileSetUp)
         {
-            string path = Path.Combine(Application.persistentDataPath, logFilename);
-
+            
             if (!File.Exists(path))
             {
                 StreamWriter swt = File.CreateText(path);
@@ -237,7 +238,7 @@ public class StoryEventComponent : MonoBehaviour
             logFileSetUp = true;
         }
 
-        string path = Path.Combine(Application.persistentDataPath, logFilename);
+        path = Path.Combine(Application.persistentDataPath, logFilename);
         StreamWriter sw = new StreamWriter(path, true);
 
         DateTime now = DateTime.Now;
