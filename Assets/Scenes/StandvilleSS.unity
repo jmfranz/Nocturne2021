@@ -2156,7 +2156,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 174488661}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &174488661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,7 +2925,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 204358519}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &204358519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,13 +3152,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208033726}
-  m_LocalRotation: {x: 0.18266939, y: 0.87265635, z: -0.32114744, w: 0.31932303}
-  m_LocalPosition: {x: 6.85, y: 2.0320685, z: -0.39000002}
+  m_LocalRotation: {x: -0.06677323, y: 0.67494005, z: 0.0032777893, w: 0.73483783}
+  m_LocalPosition: {x: 6.6460004, y: 1.665, z: -0.896}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -222.62201, y: 323.27698, z: -171.11}
+  m_LocalEulerAnglesHint: {x: -174.113, y: 265.387, z: -184.92}
 --- !u!20 &208033728
 Camera:
   m_ObjectHideFlags: 0
@@ -3184,7 +3184,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 256
-  field of view: 60
+  field of view: 120
   orthographic: 0
   orthographic size: 25.2
   m_Depth: 0
@@ -3554,7 +3554,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 233596324}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &233596324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3826,9 +3826,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 234199316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 5c22986f75485f1469ba44705f613d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
+  parentAnchor: {fileID: 1647103155}
+  RoomName: Standville_Mine
+  InGameObjects: {fileID: 1341104413}
+  AwareGuideObjects: {fileID: 1811542445}
 --- !u!4 &234199318
 Transform:
   m_ObjectHideFlags: 0
@@ -4279,7 +4284,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 273429971}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &273429971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4913,7 +4918,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 294677989}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!82 &294677992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6239,7 +6244,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 372867644}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &372867644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7100,7 +7105,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 401144707}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &401144707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7910,7 +7915,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 456597445}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &456597445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8438,7 +8443,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 480797467}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &480797467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8721,16 +8726,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489612459}
-  m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.558249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.311}
   m_LocalScale: {x: 25, y: 77.758095, z: 25}
   m_Children: []
   m_Father: {fileID: 1672460188}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.68, y: 1.17}
+  m_AnchoredPosition: {x: 0.68, y: 0.46}
   m_SizeDelta: {x: 0.5, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489612461
@@ -8788,7 +8793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Please give your headset to the docent
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8798,7 +8803,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294901775
-  m_fontColor: {r: 0.058071136, g: 0, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8815,8 +8820,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.05
-  m_fontSizeBase: 0.05
+  m_fontSize: 0.045
+  m_fontSizeBase: 0.045
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9157,7 +9162,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 497688951}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &497688951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9740,7 +9745,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -9817,7 +9822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 577256342}
   endOfPathInstruction: 0
-  speed: 3
+  speed: 1.5
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -10615,7 +10620,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 580475685}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &580475685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12566,7 +12571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 0
   _movementState: 0
 --- !u!95 &717845259
 Animator:
@@ -14238,7 +14243,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -14315,7 +14320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 895178039}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 1.5
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -15703,7 +15708,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 927000505}
-  sceneViewId: 36
+  sceneViewId: 19
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &929296659
@@ -17000,7 +17005,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1031986395}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1031986395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17670,7 +17675,7 @@ GameObject:
   - component: {fileID: 1072784980}
   - component: {fileID: 1072784979}
   m_Layer: 0
-  m_Name: MixedRealityToolkit (Inactive)
+  m_Name: MixedRealityToolkit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18200,7 +18205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 0
   _movementState: 0
 --- !u!95 &1081662360
 Animator:
@@ -18803,7 +18808,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1109380216}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1109380216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19550,7 +19555,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1149763404}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1149763404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19861,7 +19866,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1150572414}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1150572414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21071,7 +21076,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1222968363}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1222968363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21672,7 +21677,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1256634434}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1256634434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21966,7 +21971,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1259541911}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1259541911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22555,7 +22560,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1272670581}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1272670581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23370,7 +23375,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1322252881}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1322252881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23714,7 +23719,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1332097339}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1332097339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25133,7 +25138,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -26355,7 +26360,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1516529255}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1516529255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27187,13 +27192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606210883}
-  m_LocalRotation: {x: -0.21824569, y: -0.10657236, z: 0.012330224, w: -0.969979}
-  m_LocalPosition: {x: 6.3820267, y: 2.0320685, z: -4.2040014}
+  m_LocalRotation: {x: -0.31488207, y: -0.14530346, z: 0.005961678, w: -0.9379236}
+  m_LocalPosition: {x: 6.25, y: 2.32, z: -3.98}
   m_LocalScale: {x: 0.5664946, y: 0.72602326, z: 0.729992}
   m_Children: []
   m_Father: {fileID: 1262012333}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -205.215, y: 552.86, z: -178.569}
+  m_LocalEulerAnglesHint: {x: -216.328, y: 559.49097, z: -174.278}
 --- !u!20 &1606210885
 Camera:
   m_ObjectHideFlags: 0
@@ -29389,7 +29394,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1756956513}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1756956513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32556,7 +32561,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b4b4c6c314d63524c897914f07fb9016, type: 2}
 --- !u!65 &1868315613
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32577,7 +32582,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868315610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32849,7 +32854,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1876365079}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1876365079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34640,7 +34645,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2017952277}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &2017952277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35874,7 +35879,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2093937734}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!82 &2093937737
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36107,7 +36112,7 @@ TrailRenderer:
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -36184,7 +36189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 1661598554}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 2
   playPath: 0
   closedLoop: 1
   useSoundEffect: 1
@@ -37393,7 +37398,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2129650361}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!82 &2129650364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38249,7 +38254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!1 &78962182685863294
 GameObject:
@@ -41248,7 +41253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!1 &1132177868522617414
 GameObject:
@@ -43147,7 +43152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!95 &1813727828046355584
 Animator:
@@ -44695,7 +44700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!95 &2280577523471511560
 Animator:
@@ -53779,7 +53784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!95 &6278726722469362413
 Animator:
@@ -59925,7 +59930,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 6292699960840905225}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 0}
+  InterruptOnTrueEvent: 1
 --- !u!114 &6292699960840905227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60716,7 +60721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 0
   _movementState: 0
 --- !u!114 &6292699960914694971
 MonoBehaviour:
@@ -63068,7 +63073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!1 &6582406641341553803
 GameObject:
@@ -65063,7 +65068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
 --- !u!4 &7354814778771975260
 Transform:

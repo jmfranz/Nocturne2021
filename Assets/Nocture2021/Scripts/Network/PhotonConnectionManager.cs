@@ -15,7 +15,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 
     private string gameVersion = "0";
 
-    public GameObject ActiveUserHat1, PassiveUserHat2;
+    //public GameObject ActiveUserHat1, PassiveUserHat2;
     public GameObject InGameObjects, AwareGuideObjects;
 
     //This will probably be 3 -> master + 2 HL
@@ -65,23 +65,28 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var playerPrefab = PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
         playerPrefab.transform.parent = parentAnchor;
 
-        GameObject playerHat;
         if (PhotonNetwork.IsMasterClient)
         {
-            playerHat = PhotonNetwork.Instantiate(ActiveUserHat1.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
+            playerPrefab.transform.GetChild(1).gameObject.SetActive(false);
         }
         else
         {
-            playerHat = PhotonNetwork.Instantiate(PassiveUserHat2.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
+            playerPrefab.transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
         }       
 
-        playerHat.transform.parent = playerPrefab.transform;
-
-        if (SceneManager.GetActiveScene().name.Contains("Guide") & !PhotonNetwork.IsMasterClient)
+        if (SceneManager.GetActiveScene().name.Contains("Guide"))
         {
             Debug.Log("Setting up for aware guide :)");
-            InGameObjects.SetActive(false);
-            AwareGuideObjects.SetActive(true);
+
+            playerPrefab.transform.GetChild(0).gameObject.SetActive(false);
+            playerPrefab.transform.GetChild(1).gameObject.SetActive(false);
+
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                InGameObjects.SetActive(false);
+                AwareGuideObjects.SetActive(true);
+            }
         }
     }
 }
