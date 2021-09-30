@@ -39,6 +39,7 @@ public class ContextAwareGuide : MonoBehaviour
         Debug.Log("Game starts!");
 
         aware.ChangeImage("MAIN_ROOM_1");
+      //  Debug.Log();
 
     }
 
