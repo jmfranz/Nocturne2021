@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class CognitiveWorldSwitch : MonoBehaviour
 {
-
-    public GameObject Walls;
     public GameObject Floor;
 
     public GameObject CognitiveAvatars;
@@ -109,7 +107,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         {
             actor.SetActive(false);
         }
-        Walls.GetComponent<MeshRenderer>().material.color = new Color(7f/255f, 24f/255f, 61f/255f);
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
         inCognitive = true;
     }
@@ -123,7 +120,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         }
         CognitiveAvatars.SetActive(false);
         CognitiveConvo.gameObject.SetActive(false);
-        Walls.GetComponent<MeshRenderer>().material.color = Color.grey;
         Floor.GetComponent<MeshRenderer>().material.color = Color.white;
 
         StartCoroutine(nPC_Movements.AfterCognitive());

@@ -11,6 +11,7 @@ public class NPC_Movements : StoryEventComponent
     string catherineStatus;
 
     bool loopFinished;
+    bool canStartStory;
 
     //Avatars
     public AvatarController Fokthipur;
@@ -51,19 +52,29 @@ public class NPC_Movements : StoryEventComponent
     public ConversationNode TellFokEnding;
     public ConversationNode TellCatherineEnding;
 
+    // Story Start Script
+    public ConditionalEventComponent storyStart;
+
     // Start is called before the first frame update
     void Start()
     {
+        canStartStory = false;
+        loopFinished = false;
         bultildaStatus = "";
         lapinStatus = "";
         catherineStatus = "";
         ferghusStatus = "";
-        loopFinished = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (storyStart.Complete)
+        {
+            canStartStory = true;
+            loopFinished = true;
+        }
+
         if (loopFinished)
         {
             StartCoroutine(ConversationLoop());
