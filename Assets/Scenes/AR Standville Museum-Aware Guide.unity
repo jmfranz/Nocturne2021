@@ -626,6 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35016964}
   - component: {fileID: 35016963}
+  - component: {fileID: 35016965}
   m_Layer: 0
   m_Name: Loggers
   m_TagString: Untagged
@@ -640,7 +641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35016962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9e4bb71e450dd44eba5a03116c8e5f0, type: 3}
   m_Name: 
@@ -662,6 +663,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &35016965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35016962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb4ae0c5c1c94c4f8a8d3a046b2c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WriteWaitTime: 1
 --- !u!1 &38638866
 GameObject:
   m_ObjectHideFlags: 0
@@ -31456,6 +31470,7 @@ GameObject:
   - component: {fileID: 1672460199}
   - component: {fileID: 1672460198}
   - component: {fileID: 1672460190}
+  - component: {fileID: 1672460200}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -31750,6 +31765,20 @@ MonoBehaviour:
   sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1672460200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672460187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3f9c07a5b1e944ca4ff4d099c0c09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecordFrequency: 1
+  filename: camera.csv
 --- !u!1 &1672872558
 GameObject:
   m_ObjectHideFlags: 0

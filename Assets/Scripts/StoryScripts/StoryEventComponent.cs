@@ -211,6 +211,29 @@ public class StoryEventComponent : MonoBehaviour
         }
     }
 
+    private void WriteEventStartRequest()
+    {
+        if (!logFileSetUp)
+        {
+            Logger.AddHeaderRequest(logFilename, "Date", "Hour", "Minute", "Second", "Milisecond", "EventName", "Event", "Scene", "IsMaster");
+            logFileSetUp = true;
+        }
+
+        DateTime now = DateTime.Now;
+        string date = now.ToString("yyyy-MM-dd");
+
+        Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Start",
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
+    }
+
+    private void WriteEventStopRequest()
+    {
+        DateTime now = DateTime.Now;
+        string date = now.ToString("yyyy-MM-dd");
+
+        Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Stop",
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
+    }
 
     IEnumerator TriggerEvent()
     {
@@ -220,36 +243,7 @@ public class StoryEventComponent : MonoBehaviour
         // Tells across network this event starts
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
-        // Log the events.
-        //string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/" + logFilename;
-        string path = Path.Combine(Application.persistentDataPath, logFilename);
-
-        // Try to set up the log file.
-        if (!logFileSetUp)
-        {
-            
-            if (!File.Exists(path))
-            {
-                StreamWriter swt = File.CreateText(path);
-                swt.WriteLine("Date,Hour,Minute,Second,Milisecond,EventName,Event,Scene,IsMaster");
-                swt.Close();
-            }
-
-            logFileSetUp = true;
-        }
-
-        path = Path.Combine(Application.persistentDataPath, logFilename);
-        StreamWriter sw = new StreamWriter(path, true);
-
-        DateTime now = DateTime.Now;
-        string date = now.ToString("yyyy-MM-dd");
-
-        string log = string.Format("{0},{1},{2},{3},{4},{5},Start,{6},{7}", 
-            date, now.Hour, now.Minute, now.Second, now.Millisecond, 
-            name,
-            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
-        sw.WriteLine(log);
-        sw.Close();
+        WriteEventStartRequest();
 
         //Wait for action to finish
         yield return StartCoroutine(DoEventAction());
@@ -259,17 +253,7 @@ public class StoryEventComponent : MonoBehaviour
         // Tells across network this event finishes
         if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
 
-        // Log the event and close the stream.
-        sw = new StreamWriter(path, true);
-
-        now = DateTime.Now;
-        date = now.ToString("yyyy-MM-dd");
-        log = string.Format("{0},{1},{2},{3},{4},{5},End,{6},{7}", 
-            date, now.Hour, now.Minute, now.Second, now.Millisecond, 
-            name,
-            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
-        sw.WriteLine(log);
-        sw.Close();
+        WriteEventStopRequest();
     }
 
 
