@@ -60,7 +60,7 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Unicorn
-    keyCode: 266
+    keyCode: 278
     action:
       id: 0
       description: Toggle Profiler
