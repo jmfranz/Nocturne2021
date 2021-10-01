@@ -65,13 +65,13 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var playerPrefab = PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
         playerPrefab.transform.parent = parentAnchor;
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
         {
-            playerPrefab.transform.GetChild(1).gameObject.SetActive(false);
+            playerPrefab.transform.GetChild(1).gameObject.SetActive(true);
         }
-        else
+        else if(!PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
         {
-            playerPrefab.transform.GetChild(0).gameObject.SetActive(false);
+            playerPrefab.transform.GetChild(0).gameObject.SetActive(true);
             GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
         }       
 
@@ -79,14 +79,13 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         {
             Debug.Log("Setting up for aware guide :)");
 
-            playerPrefab.transform.GetChild(0).gameObject.SetActive(false);
-            playerPrefab.transform.GetChild(1).gameObject.SetActive(false);
-
             if (!PhotonNetwork.IsMasterClient)
             {
                 InGameObjects.SetActive(false);
                 AwareGuideObjects.SetActive(true);
+                GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
             }
         }
+        
     }
 }
