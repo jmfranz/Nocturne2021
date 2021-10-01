@@ -1464,6 +1464,7 @@ MonoBehaviour:
   TimeToWaitBeforeShowingMaxInOrb: {fileID: 132284148}
   ShadowLastRoomLocation: {fileID: 752982481}
   MapToDogRoomPathFollower: {fileID: 1431537458}
+  LastToMainRoomPathFollower: {fileID: 0}
   DogEnterLocationTrigger: {fileID: 1086863936}
   MainRoomTrigger: {fileID: 929296661}
   DogAudioSource: {fileID: 369992242}
@@ -11587,7 +11588,7 @@ Transform:
   - {fileID: 525976118}
   - {fileID: 876425747}
   m_Father: {fileID: 1811542446}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628726571
 GameObject:
@@ -15387,11 +15388,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849131333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.380058, y: 0.62398815, z: -3.3319654}
+  m_LocalPosition: {x: -11.21023, y: -9.606266, z: -6.1860056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1811542446}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &849131335
 MonoBehaviour:
@@ -32623,9 +32624,11 @@ Transform:
   m_LocalPosition: {x: 6.830172, y: 10.230254, z: 2.8540401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 9168498083914543687}
+  - {fileID: 849131334}
   - {fileID: 618323667}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815398940
 GameObject:
@@ -35162,7 +35165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002753850
 GameObject:
@@ -36653,7 +36656,7 @@ Transform:
   - {fileID: 1305319619}
   - {fileID: 213407530}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2075089738 stripped
 Transform:
@@ -68903,13 +68906,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9168498083914543692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.830172, y: -10.230254, z: -2.8540401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9168498083917397588}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1811542446}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9168498083914543692
 GameObject:
