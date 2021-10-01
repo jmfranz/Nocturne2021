@@ -85,6 +85,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         var anchorModule = ParentAnchor.GetComponent<AnchorModuleScript>();
         anchorModule.OnCreateAnchorSucceeded += AnchorCreatedOnAzure;
         anchorModule.CreateAzureAnchor(ParentAnchor);
+        anchorModule.SaveAzureAnchorIdToDisk();
 #else
         Destroy(this);
 #endif
