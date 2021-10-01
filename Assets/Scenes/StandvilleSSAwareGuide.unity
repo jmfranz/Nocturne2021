@@ -35927,7 +35927,7 @@ MonoBehaviour:
       - {x: 7.3282824, y: 0, z: 11.282502}
       isClosed: 0
       space: 0
-      controlMode: 0
+      controlMode: 2
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
