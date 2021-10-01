@@ -3785,7 +3785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
-  RoomName: Standville_Mine
+  RoomName: Standville_Mine_Aware
   InGameObjects: {fileID: 1341104413}
   AwareGuideObjects: {fileID: 1811542445}
 --- !u!4 &234199318
