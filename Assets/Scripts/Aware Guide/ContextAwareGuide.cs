@@ -12,7 +12,7 @@ public class ContextAwareGuide : MonoBehaviour
     public float period = 20.0f;
     public int count = 1;
     TextureTextControl aware;
-
+    AudioSource audioContext;
     private string _room;
     private string _eventName;
     private bool _eventStatus;
@@ -26,6 +26,8 @@ public class ContextAwareGuide : MonoBehaviour
     private void Awake()
     {
         aware = GameObject.Find("AwareGuide").GetComponent<TextureTextControl>();
+        audioContext = GameObject.Find("Audio").GetComponent<AudioSource>();
+        
 
     }
     //public AroundDisplayLong script;
@@ -198,6 +200,7 @@ public class ContextAwareGuide : MonoBehaviour
             Debug.Log("Story starts");
             aware.ChangeImage("WASHROOM_1");
             _washroomState = "WASHROOM_1";
+            
 
         }
         else if (_eventName == "Game Start" && _eventStatus && _room != "MAINROOM")
@@ -345,10 +348,12 @@ public class ContextAwareGuide : MonoBehaviour
         else if (_room == "LASTROOM")
         {
             aware.ChangeImage(_lastRoomState);
+            
         }
         else if (_room == "MAINROOM")
         {
             aware.ChangeImage(_mainroomState);
+            
         }
         else if (_room == "WASHROOM")
         {
