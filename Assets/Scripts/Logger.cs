@@ -21,7 +21,7 @@ public class Logger : MonoBehaviour
         for (int i = 0; i < columnNames.Length; i++)
         {
             line += columnNames[i];
-            if (i <= columnNames.Length - 1)
+            if (i < columnNames.Length - 1)
                 line += ",";
         }
 
@@ -44,7 +44,7 @@ public class Logger : MonoBehaviour
         for (int i = 0; i < content.Length; i++)
         {
             line += content[i].ToString();
-            if (i <= content.Length - 1)
+            if (i < content.Length - 1)
                 line += ",";
         }
 
