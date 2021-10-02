@@ -33,6 +33,7 @@ public class LockpickController : MonoBehaviour
     {
         StartCoroutine(TakeLockpickInfoText());
         inventory.AddItem(thisLockpick);
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("TookLockpick", true);
         RemoveLockpick(thisLockpick);
     }
 

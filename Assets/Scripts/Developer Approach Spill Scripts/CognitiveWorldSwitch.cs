@@ -69,6 +69,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     {
         if (storyStart.Complete && !avatarsVisible)
         {
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("StoryStart", true);
             Catherine.SetActive(true);
             Fokthipur.SetActive(true);
             Ferghus.SetActive(true);
@@ -116,6 +117,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void GoToCognitive()
     {
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("IntoCognitive", true);
         nPC_Movements.StopNPCMovements();
         CognitiveCatherine.SetActive(true);
         CognitiveAvatars.SetActive(true);
@@ -131,6 +133,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public void LeaveCognitive()
     {
         inCognitive = false;
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
         foreach (GameObject actor in NormalAvatars)
         {
             actor.SetActive(true);

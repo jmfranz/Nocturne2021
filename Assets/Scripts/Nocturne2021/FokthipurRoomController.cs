@@ -83,6 +83,7 @@ public class FokthipurRoomController : MonoBehaviour
                     doorLock.SetActive(false);
                     StartCoroutine(LockpickInInventory());
                     UnlockDoorButton.gameObject.SetActive(false);
+                    GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
                 }
                 else
                 {
@@ -95,6 +96,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     public bool GetIsDoorLocked()
     {
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorLocked", true);
         return doorLocked;
     }
 

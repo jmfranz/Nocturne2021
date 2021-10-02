@@ -9,7 +9,8 @@ public class OpenDoor : MonoBehaviour
     public Vector3 initialStartRotation;
     public Vector3 initialEndRotation;
     Vector3 valueToLerp;
-    bool isOpening = false;
+    bool isOpen = false;
+    bool neverOpened = true;
 
     public GameObject Door;
     public FokthipurRoomController roomController;
@@ -17,6 +18,15 @@ public class OpenDoor : MonoBehaviour
     public enum DoorStatus { Open, Close }
     public DoorStatus Status = DoorStatus.Close; // At RunTime Door is closed 
 
+
+    private void Update()
+    {
+        if (neverOpened && isOpen)
+        {
+           GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("InFoksRoom", true);
+            neverOpened = false;
+        }
+    }
 
     public IEnumerator MoveDoor(Vector3 start, Vector3 end)
     {
@@ -42,9 +52,11 @@ public class OpenDoor : MonoBehaviour
         {
             case (DoorStatus.Close):
                 Status = DoorStatus.Open;
+                isOpen = true;
                 return;
             case (DoorStatus.Open):
                 Status = DoorStatus.Close;
+                isOpen = false;
                 return;
         }
 

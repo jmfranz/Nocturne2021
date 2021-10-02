@@ -19,12 +19,27 @@ public class Strikes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetStrikes();
+
     }
 
     public void GetStrike(int numStrikes)
     {
         currentStrikes += numStrikes;
+        SetStrikes();
+
+        switch (currentStrikes)
+        {
+            case 1:
+                GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike1", true);
+                break;
+            case 2:
+                GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike2", true);
+                break;
+            case 3:
+                GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
+                KickOutPlayer();
+                break;
+        }
     }
 
     public void RemoveStrike()
@@ -55,11 +70,11 @@ public class Strikes : MonoBehaviour
                 strikeBar.color = new Color(222, 13, 13, 1);
                 KickOutPlayer();
                 break;
-            case 4:
-                strikeBar.text = "X X X";
-                strikeBar.color = new Color(222, 13, 13, 1);
-                KickOutPlayer();
-                break;
         }
+    }
+
+    public int getCurrentStrikes()
+    {
+        return currentStrikes;
     }
 }
