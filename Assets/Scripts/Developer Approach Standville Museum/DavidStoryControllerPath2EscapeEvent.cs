@@ -24,6 +24,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     [SerializeField] Transform ShadowLastRoomLocation;
 
     public PathFollower MapToDogRoomPathFollower;
+
+    public PathFollower LastToMainRoomPathFollower;
     public EnterLocationTrigger DogEnterLocationTrigger;
     public EnterLocationTrigger MainRoomTrigger;
     public AudioSource DogAudioSource;
@@ -107,6 +109,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     void GoToMainRoom()
     {
         MainRoomTrigger.GetComponentInParent<BoxCollider>().enabled = true;
+        LastToMainRoomPathFollower.playPath = true;
 
         EnableDogMovementController();
 
@@ -118,6 +121,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         Max.SetActive(false);
         ScaryMusic.enabled = false;
         ScaryMusic.GetComponent<AudioSource>().clip = null;
+        LastToMainRoomPathFollower.playPath = false;
     }
 
     private void Update()
