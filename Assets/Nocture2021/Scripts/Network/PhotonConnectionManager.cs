@@ -78,7 +78,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene().name.Contains("Guide"))
         {
             Debug.Log("Setting up for aware guide :)");
-            Camera.main.GetComponent<MainCameraAudioSourceStateSync>().enabled = false;
+            
 
             if (!PhotonNetwork.IsMasterClient)
             {
