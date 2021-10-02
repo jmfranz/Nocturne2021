@@ -80,7 +80,7 @@ void Start()
             aware.ChangeImage("WASHROOM_1");
             _washroomState = "WASHROOM_1";
             //Play Conversation
-            audioContext.clip = Resources.Load<AudioClip>("Conversations/All Audio/AwareGuideConversations/WASROOM_1​​​");
+            audioContext.clip = Resources.Load<AudioClip>("Conversations/All Audio/AwareGuideConversations/WASHROOM_1​​​");
             audioContext.Play();
 
         }
