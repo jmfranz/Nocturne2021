@@ -5,7 +5,7 @@ using System;
 public class ContextAwareGuide : MonoBehaviour
 {
     
-    TextureTextControl aware;
+    public TextureTextControl aware;
     AudioSource audioContext;
     private string _room;
     private string _eventName;
@@ -19,8 +19,7 @@ public class ContextAwareGuide : MonoBehaviour
 
     private void Awake()
     {
-        aware = GameObject.Find("AwareGuide").GetComponent<TextureTextControl>();
-        audioContext = GetComponent<AudioSource>();
+    
         
         
      
@@ -32,6 +31,9 @@ public class ContextAwareGuide : MonoBehaviour
 void Start()
     {
         
+       
+        audioContext = GetComponent<AudioSource>();
+
         Debug.Log("Game starts!");
  
         aware.ChangeImage("MAIN_ROOM_1");

@@ -84,6 +84,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
                 InGameObjects.SetActive(false);
                 AwareGuideObjects.SetActive(true);
                 GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
+                GameObject.Find("Audio").GetComponent<ContextAwareGuide>().enabled = true;
             }
         }
         
