@@ -14225,6 +14225,7 @@ GameObject:
   - component: {fileID: 565894538}
   - component: {fileID: 565894537}
   - component: {fileID: 565894536}
+  - component: {fileID: 565894550}
   - component: {fileID: 565894549}
   - component: {fileID: 565894548}
   - component: {fileID: 565894547}
@@ -14578,6 +14579,25 @@ MonoBehaviour:
   sceneViewId: 19
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &565894550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565894535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 565894541}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 952485905}
+  lowerJaw: {fileID: 1459079044}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &569080852
 GameObject:
   m_ObjectHideFlags: 0
@@ -20275,6 +20295,7 @@ GameObject:
   - component: {fileID: 833557307}
   - component: {fileID: 833557306}
   - component: {fileID: 833557305}
+  - component: {fileID: 833557318}
   - component: {fileID: 833557317}
   - component: {fileID: 833557316}
   - component: {fileID: 833557315}
@@ -20610,6 +20631,25 @@ MonoBehaviour:
   sceneViewId: 24
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &833557318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833557304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 833557310}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1231531243}
+  lowerJaw: {fileID: 319306020}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &837712144
 GameObject:
   m_ObjectHideFlags: 0
@@ -23742,6 +23782,7 @@ GameObject:
   - component: {fileID: 973391889}
   - component: {fileID: 973391888}
   - component: {fileID: 973391887}
+  - component: {fileID: 973391899}
   - component: {fileID: 973391898}
   - component: {fileID: 973391897}
   - component: {fileID: 973391896}
@@ -24077,6 +24118,25 @@ MonoBehaviour:
   sceneViewId: 33
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &973391899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973391885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 973391892}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1169589859}
+  lowerJaw: {fileID: 183862719}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &973397761
 GameObject:
   m_ObjectHideFlags: 0
@@ -27557,6 +27617,7 @@ GameObject:
   - component: {fileID: 1144062626}
   - component: {fileID: 1144062625}
   - component: {fileID: 1144062624}
+  - component: {fileID: 1144062636}
   - component: {fileID: 1144062635}
   - component: {fileID: 1144062634}
   - component: {fileID: 1144062633}
@@ -27892,6 +27953,25 @@ MonoBehaviour:
   sceneViewId: 28
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1144062636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144062622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1144062629}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1150474940}
+  lowerJaw: {fileID: 530364997}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &1144885219
 GameObject:
   m_ObjectHideFlags: 0
@@ -39989,6 +40069,7 @@ GameObject:
   - component: {fileID: 1538292174}
   - component: {fileID: 1538292173}
   - component: {fileID: 1538292172}
+  - component: {fileID: 1538292186}
   - component: {fileID: 1538292184}
   - component: {fileID: 1538292183}
   - component: {fileID: 1538292182}
@@ -40341,6 +40422,25 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1538292186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538292171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1538292177}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1049682207}
+  lowerJaw: {fileID: 326990638}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &1539565921
 GameObject:
   m_ObjectHideFlags: 0
@@ -40950,6 +41050,7 @@ GameObject:
   - component: {fileID: 1553303099}
   - component: {fileID: 1553303098}
   - component: {fileID: 1553303097}
+  - component: {fileID: 1553303111}
   - component: {fileID: 1553303109}
   - component: {fileID: 1553303107}
   - component: {fileID: 1553303106}
@@ -41303,6 +41404,25 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1553303111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553303096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1553303102}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 825205323}
+  lowerJaw: {fileID: 260856663}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &1554654147
 GameObject:
   m_ObjectHideFlags: 0
@@ -49970,6 +50090,7 @@ GameObject:
   - component: {fileID: 1867072232}
   - component: {fileID: 1867072231}
   - component: {fileID: 1867072230}
+  - component: {fileID: 1867072243}
   - component: {fileID: 1867072241}
   - component: {fileID: 1867072240}
   - component: {fileID: 1867072239}
@@ -50323,6 +50444,25 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1867072243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867072228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1867072235}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 695982297}
+  lowerJaw: {fileID: 406486983}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &1867663982
 GameObject:
   m_ObjectHideFlags: 0
@@ -57175,6 +57315,7 @@ GameObject:
   - component: {fileID: 2109601683}
   - component: {fileID: 2109601682}
   - component: {fileID: 2109601681}
+  - component: {fileID: 2109601693}
   - component: {fileID: 2109601692}
   - component: {fileID: 2109601691}
   - component: {fileID: 2109601690}
@@ -57407,7 +57548,7 @@ Animator:
   m_GameObject: {fileID: 2109601679}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a4f0c5554a623ff4d8b95ab7c72ba796, type: 3}
-  m_Controller: {fileID: 9100000, guid: b6e6b2d28e616fd4caecbb52b77a62f9, type: 2}
+  m_Controller: {fileID: 9100000, guid: fcdefc21382f00c4380f08cc38affdce, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -57510,6 +57651,25 @@ MonoBehaviour:
   sceneViewId: 35
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2109601693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109601679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2109601686}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 1130293834}
+  lowerJaw: {fileID: 1268991149}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!1 &2111178053
 GameObject:
   m_ObjectHideFlags: 0
@@ -68203,6 +68363,7 @@ GameObject:
   - component: {fileID: 6448393417054185516}
   - component: {fileID: 6448393417054185515}
   - component: {fileID: 6448393417054185524}
+  - component: {fileID: 6448393417054185525}
   - component: {fileID: 6448393417054185523}
   - component: {fileID: 6448393417054185522}
   - component: {fileID: 6448393417054185521}
@@ -68516,6 +68677,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f0bfba4ae1b6241806681857da12a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6448393417054185525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448393417054185512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8985d0d75e8d46b39307d8f8fc1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6448393417054185518}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  upperLip: {fileID: 4931144828716642446}
+  lowerJaw: {fileID: 5982793465175557085}
+  upperLipLimit: {x: 0, y: 0, z: 0}
+  lowerJawLimit: {x: 0, y: 0, z: 0}
 --- !u!4 &6468893960277649843
 Transform:
   m_ObjectHideFlags: 0
