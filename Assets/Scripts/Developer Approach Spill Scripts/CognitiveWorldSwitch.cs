@@ -34,11 +34,15 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public bool inCognitive;
     public bool getCaught;
     public bool finishingText;
+    bool avatarsVisible;
     public TMPro.TMP_Text keywordInstruction;
 
     public Strikes Strikes;
 
     List<GameObject> NormalAvatars;
+
+    // Story Start Script
+    public ConditionalEventComponent storyStart;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +50,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         inCognitive = false;
         getCaught = false;
         finishingText = false;
-
+        avatarsVisible = false;
 
         NormalAvatars = new List<GameObject>();
         NormalAvatars.Add(Catherine);
@@ -63,6 +67,19 @@ public class CognitiveWorldSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (storyStart.Complete && !avatarsVisible)
+        {
+            Catherine.SetActive(true);
+            Fokthipur.SetActive(true);
+            Ferghus.SetActive(true);
+            Lapin.SetActive(true);
+            Bultilda.SetActive(true);
+            NPC1.SetActive(true);
+            NPC2.SetActive(true);
+            NPC3.SetActive(true);
+            avatarsVisible = true;
+        }
+        
         if (CognitiveCatherine.GetComponent<AvatarController>()._agent != null && !inCognitive)
         {
             CognitiveAvatars.SetActive(false);
