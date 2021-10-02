@@ -54,23 +54,22 @@ void Start()
         UpdateGuideState();
     }
 
-    
-    private void OnTriggerEnter(Collider other)
+
+    public void OnRoomChange(string roomname)
     {
 
-        
 
 
-        if (other.gameObject.tag == "Room")
-        {
-            _room = other.gameObject.name;
+
+
+           _room = roomname;
             Debug.Log(_room);
 
             UpdateGuideState();
-        }
-
-
        
+
+
+
     }
 
     void UpdateGuideState()
