@@ -42175,6 +42175,58 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.021674842, y: 0.031789348, z: -0.00000014901161}
     m_Extent: {x: 0.9200952, y: 0.18673529, z: 0.68302166}
   m_DirtyAABB: 0
+--- !u!1 &1585762818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585762820}
+  - component: {fileID: 1585762819}
+  m_Layer: 0
+  m_Name: EventTesting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1585762819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585762818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f241843d82649b74f980591f6857e509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  Status: 0
+  _preConditions:
+  - Component: {fileID: 448624900}
+    Action: 1
+  _postConditions: []
+  AvatarController: {fileID: 2109601687}
+  MovementType: 2
+  Destination: {fileID: 1849383766}
+--- !u!4 &1585762820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585762818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3805256, y: 4.8658543, z: 1.6278071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1587025426
 GameObject:
   m_ObjectHideFlags: 0
