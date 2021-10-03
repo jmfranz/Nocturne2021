@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CognitiveWorldSwitch : MonoBehaviour
 {
@@ -29,13 +30,21 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public FokthipurRoomController fokthipurRoomController;
     public NPC_Movements nPC_Movements;
-
    
     public bool inCognitive;
     public bool getCaught;
     public bool finishingText;
     bool avatarsVisible;
     public TMPro.TMP_Text keywordInstruction;
+
+    public SpriteRenderer NorthReal;
+    public SpriteRenderer NorthCognitive;
+    public SpriteRenderer SouthReal;
+    public SpriteRenderer SouthCognitive;
+    public SpriteRenderer EastReal;
+    public SpriteRenderer EastCognitive;
+    List<SpriteRenderer> CognitiveImages = new List<SpriteRenderer>();
+    List<SpriteRenderer> RealImages = new List<SpriteRenderer>();
 
     public Strikes Strikes;
 
@@ -61,6 +70,25 @@ public class CognitiveWorldSwitch : MonoBehaviour
         NormalAvatars.Add(NPC1);
         NormalAvatars.Add(NPC2);
         NormalAvatars.Add(NPC3);
+
+        CognitiveImages.Add(NorthCognitive);
+        CognitiveImages.Add(SouthCognitive);
+        CognitiveImages.Add(EastCognitive);
+
+        RealImages.Add(SouthReal);
+        RealImages.Add(NorthReal);
+        RealImages.Add(EastReal);
+
+        foreach (var image in RealImages)
+        {
+            image.enabled = true;
+        }
+        foreach (var image in CognitiveImages)
+        {
+            image.enabled = false;
+        }
+
+
     }
 
 
@@ -118,6 +146,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public void GoToCognitive()
     {
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("IntoCognitive", true);
+        ToggleWindows();
         nPC_Movements.StopNPCMovements();
         CognitiveCatherine.SetActive(true);
         CognitiveAvatars.SetActive(true);
@@ -133,6 +162,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public void LeaveCognitive()
     {
         inCognitive = false;
+        ToggleWindows();
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
         foreach (GameObject actor in NormalAvatars)
         {
@@ -167,5 +197,30 @@ public class CognitiveWorldSwitch : MonoBehaviour
     {
         Strikes.GetStrike(1);
         getCaught = true;
+    }
+
+    public void ToggleWindows()
+    {
+        if (NorthReal.enabled)
+        {
+            foreach (var image in RealImages)
+            {
+                image.enabled = false;
+            }
+            foreach (var image in CognitiveImages)
+            {
+                image.enabled = true;
+            }
+        } else
+        {
+            foreach (var image in RealImages)
+            {
+                image.enabled = true;
+            }
+            foreach (var image in CognitiveImages)
+            {
+                image.enabled = false;
+            }
+        }
     }
 }

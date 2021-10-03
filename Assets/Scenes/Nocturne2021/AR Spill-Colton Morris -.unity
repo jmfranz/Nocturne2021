@@ -11326,6 +11326,12 @@ MonoBehaviour:
   getCaught: 0
   finishingText: 0
   keywordInstruction: {fileID: 290578806}
+  NorthReal: {fileID: 1568881547883064012}
+  NorthCognitive: {fileID: 1363288226}
+  SouthReal: {fileID: 6321096456203354000}
+  SouthCognitive: {fileID: 577325017}
+  EastReal: {fileID: 2232208027321645313}
+  EastCognitive: {fileID: 1256689895}
   Strikes: {fileID: 448624895}
   storyStart: {fileID: 448624900}
 --- !u!114 &448624895
@@ -48174,7 +48180,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: e1dfe4f2569cd9441a567a22f4736da1, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f49e840d219c36641ba202a1b7fd467d, type: 3}
     voiceOrigin: {fileID: 6448393417054185518}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
