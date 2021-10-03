@@ -34,11 +34,22 @@ public class CameraLogger : MonoBehaviour
             Quaternion rot = transform.rotation;
             string sceneName = SceneManager.GetActiveScene().name;
 
+            string IsMaster;
+
+            try
+            {
+                IsMaster = PhotonNetwork.IsMasterClient.ToString();
+            }
+            catch
+            {
+                IsMaster = "ERROR";
+            }
+
             Logger.WriteRequest(filename, date, now.Hour, now.Minute, now.Second, now.Millisecond,
                 pos.x, pos.y, pos.z,
                 rot.x, rot.y, rot.z, rot.w,
                 sceneName,
-                PhotonNetwork.IsMasterClient);
+                IsMaster);
         }
     }
 }

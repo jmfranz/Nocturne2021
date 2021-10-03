@@ -8,15 +8,27 @@ public class Logger : MonoBehaviour
     public static Dictionary<string, List<string>> Buffer;
     private static Dictionary<string, string> Headers;
 
+    private static string UserID;
+
     public float WriteWaitTime = 1;
     private float elapsedTime = 0;
+
+    public static void SetUserID(string newID)
+    {
+        UserID = newID;
+    }
+
+    public static string GetUserID()
+    {
+        return UserID;
+    }
 
     public static void AddHeaderRequest(string filename, params string[] columnNames)
     {
         if (Headers == null)
             Headers = new Dictionary<string, string>();
 
-        string line = "";
+        string line = "UserID,";
 
         for (int i = 0; i < columnNames.Length; i++)
         {
@@ -39,7 +51,7 @@ public class Logger : MonoBehaviour
             Buffer.Add(filename, new List<string>());
         }
 
-        string line = "";
+        string line = UserID + ",";
 
         for (int i = 0; i < content.Length; i++)
         {

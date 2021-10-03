@@ -25,8 +25,8 @@ public class ChangeUserID : MonoBehaviour
             if(int.TryParse(keyboardText, out currentUserID))
             {
                 UIText.text = $"Current User ID {currentUserID}";
+                Logger.SetUserID(currentUserID.ToString());   // Set the User ID for the Logger.
             }
         }
     }
-
 }
