@@ -3787,7 +3787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
-  RoomName: Standville_Mine
+  RoomName: Standville_Mine_Testing
   Walls:
   - {fileID: 5703688490343153608}
   - {fileID: 1888513094186775205}
@@ -13555,7 +13555,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -15801,9 +15801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812942d3d54665b4f80a6229f437b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextGuide: 0
-  period: 20
-  count: 1
 --- !u!1 &849275753
 GameObject:
   m_ObjectHideFlags: 0
@@ -20879,7 +20876,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 77bb9a045a277ef44a5c7cfc245a7f5f, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d38994aa468ff194f85fd1a4d69451d1, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -22999,7 +22996,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: a70064acdccff644daa896f4c7a56cc0, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 34d909e05ecf8954bac4f943650b525e, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -34285,7 +34282,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 77bb9a045a277ef44a5c7cfc245a7f5f, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d38994aa468ff194f85fd1a4d69451d1, type: 3}
     voiceOrigin: {fileID: 1672460195}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
