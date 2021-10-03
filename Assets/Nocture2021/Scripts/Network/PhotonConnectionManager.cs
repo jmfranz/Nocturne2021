@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 public class PhotonConnectionManager : MonoBehaviourPunCallbacks
@@ -11,9 +12,11 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     public GameObject PlayerPrefab;
     public Transform parentAnchor;
     public string RoomName = "Nocturne";
-    
+
     private string gameVersion = "0";
 
+    //public GameObject ActiveUserHat1, PassiveUserHat2;
+    public GameObject InGameObjects, AwareGuideObjects;
 
     //This will probably be 3 -> master + 2 HL
     private byte maxPlayers = 4;
@@ -30,8 +33,6 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected) return;
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = gameVersion;
-
-
     }
 
     public void JoinNocturneRoom()
@@ -64,5 +65,29 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         var playerPrefab = PhotonNetwork.Instantiate(PlayerPrefab.name, Vector3.zero, Quaternion.identity, 0);
         playerPrefab.transform.parent = parentAnchor;
 
+        if (PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
+        {
+            playerPrefab.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if(!PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
+        {
+            playerPrefab.transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
+        }       
+
+        if (SceneManager.GetActiveScene().name.Contains("Guide"))
+        {
+            Debug.Log("Setting up for aware guide :)");
+            
+
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                InGameObjects.SetActive(false);
+                AwareGuideObjects.SetActive(true);
+                GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
+                GameObject.Find("Audio").GetComponent<ContextAwareGuide>().enabled = true;
+            }
+        }
+        
     }
 }

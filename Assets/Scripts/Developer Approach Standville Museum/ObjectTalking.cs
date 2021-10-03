@@ -33,7 +33,7 @@ public class ObjectTalking : MonoBehaviour
     void PlayDialogue(Rules rule, ProximityEventArgs proximityEvent)
     {
         DavidStoryControllerPath2BathroomEvent.HighlightSecurityCamera();
-        AudioClip audioClip = Resources.Load<AudioClip>("Conversations/ConversationLines/John_26");
+        AudioClip audioClip = Resources.Load<AudioClip>("Conversations/All Audio/John_26");
         MainCamera.clip = audioClip;
         MainCamera.Play();
         rule.OnEventTrue -= PlayDialogue;

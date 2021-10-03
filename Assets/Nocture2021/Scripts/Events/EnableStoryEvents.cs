@@ -19,12 +19,12 @@ public class EnableStoryEvents : MonoBehaviour
         var dog = GameObject.FindGameObjectWithTag("IsAgent");
         if (dog.GetComponent<PhotonView>().IsMine)
         {          
-            Debug.Log(dog.name);
             dog.GetComponent<NavMeshAgent>().enabled = true;
 
             if (startCondition != null)
             {
                 startCondition.Complete = true;
+                this.gameObject.SetActive(false); // So you can't restart the story multiple times in the same session
             }
             else
             {

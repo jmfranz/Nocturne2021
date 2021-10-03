@@ -1,34 +1,45 @@
-﻿using PathCreation.Examples;
+using Microsoft.MixedReality.Toolkit.Input;
+using PathCreation.Examples;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 {
-    public GameObject Player, DogRoomTrigger, Shadow, Max, ShadowChild, MaxInOrb, LastRoomObjects;   
+    public GameObject Player, DogRoomTrigger, Shadow, Max, ShadowChild, MaxInOrb, LastRoomObjects;
 
     public DialogueEventComponent DialogueBeforeShowingTrailToDogRoom;
-    public DialogueEventComponent DialogueBeforeShowingTrailToDog;
     public ConditionalEventComponent NoEventCondition;
     public ConditionalEventComponent YesEventCondition;
     public ConditionalEventComponent EnteredMainRoomForYesEnding;
 
     public ConversationPlayer DogRoomConvo1;
+    public SpeechInputHandler SpeechInputHandler;
+    public DialogueEventComponent DogRoomConvo1_DialogueComponent;
     public DogMovementController DogMovementController;
     public DialogueEventComponent DogDialogueRoom1;
-    public DialogueEventComponent DialogueBeforeLastRoom;
     public DialogueEventComponent DialogueLastRoom;
     public TimerEventComponent TimeToWaitBeforeShowingMaxInOrb;
 
     [SerializeField] Transform ShadowLastRoomLocation;
 
     public PathFollower MapToDogRoomPathFollower;
+
+    public PathFollower LastToMainRoomPathFollower;
     public EnterLocationTrigger DogEnterLocationTrigger;
     public EnterLocationTrigger MainRoomTrigger;
+    public AudioSource DogAudioSource;
 
     public ConversationPlayer ScaryMusic;
 
+    public FadeShadow FadeShadow;
+    bool triggeredEnding = false;
+
+
     bool testingYesTrustEnding = false; // FOR TESTING ONLY
+
+    public GameObject EndingMessage;
+    public DialogueEventComponent MainRoomConvoEnd;
 
     private void Start()
     {
@@ -39,6 +50,10 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         {
             DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
         }
+
+        DogRoomConvo1_DialogueComponent.OnEventEnd += EnableSpeechInputHandler;
+
+        //MapToDogRoomPathFollower.pathCreator.InitializeEditorData(false);
     }
 
     void Awake()
@@ -47,16 +62,39 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         DialogueLastRoom.OnEventEnd += GoToMainRoom;
         TimeToWaitBeforeShowingMaxInOrb.OnEventEnd += ShowMaxInTinyOrb;
         EnteredMainRoomForYesEnding.OnEventEnd += PlayerEntersMainRoom;
+
+        StartCoroutine(WaitForShadowDialogue());
+        StartCoroutine(WaitForMaxToFollowPlayer());
+        MainRoomConvoEnd.OnEventEnd += ShowEndingMessage;
+    }
+
+    void ShowEndingMessage()
+    {
+        EndingMessage.SetActive(true);
+    }
+
+    IEnumerator WaitForShadowDialogue()
+    {
+        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 1);
+        ShadowDisappears();
+        LastRoomObjects.SetActive(false);
+    }
+
+    IEnumerator WaitForMaxToFollowPlayer()
+    {
+        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 3);
+        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+    }
+
+    void EnableSpeechInputHandler()
+    {
+        SpeechInputHandler.enabled = true;
     }
 
     void ShowTrailToDogRoom()
     {
-        Vector3 pos = Player.transform.position;
-        MapToDogRoomPathFollower.pathCreator.bezierPath.AddSegmentToStart(new Vector3(pos.x, 1.2f, pos.z));
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
-        //LastRoomObjects.SetActive(true);
-        Max.SetActive(true);
         StartCoroutine(TriggersDogLocation());
     }
 
@@ -64,15 +102,17 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         yield return new WaitUntil(() => DogEnterLocationTrigger.ReachedDestination);
         MapToDogRoomPathFollower.playPath = false;
+        DogAudioSource.clip = null;
+        DogAudioSource.Stop();
     }
 
     void GoToMainRoom()
     {
         MainRoomTrigger.GetComponentInParent<BoxCollider>().enabled = true;
+        LastToMainRoomPathFollower.playPath = true;
 
         EnableDogMovementController();
 
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
         ScaryMusic.enabled = true;
     }
 
@@ -81,6 +121,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         Max.SetActive(false);
         ScaryMusic.enabled = false;
         ScaryMusic.GetComponent<AudioSource>().clip = null;
+        LastToMainRoomPathFollower.playPath = false;
     }
 
     private void Update()
@@ -97,7 +138,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         //    }
         //#endif
 
-        #if UNITY_ANDROID
+#if UNITY_ANDROID
             if (OVRInput.Get(OVRInput.Button.One))
             {
                 TrustDogAction();
@@ -107,16 +148,28 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
             {
                 DontTrustDogAction();
             }
-        #endif
+#endif
     }
 
     public void DontTrustDogAction()
     {
+        if (!DogRoomConvo1._hasCompletedConversation || triggeredEnding)
+        {
+            return;
+        }
+        triggeredEnding = true;
         NoEventCondition.CompleteConditionalEvent();
+        SpeechInputHandler.enabled = false;
     }
 
     public void TrustDogAction()
     {
+        if (!DogRoomConvo1._hasCompletedConversation || triggeredEnding)
+        {
+            return;
+        }
+        triggeredEnding = true;
+
         if (testingYesTrustEnding)
         {
             YesEventCondition.Status = StoryEventComponent.StoryEventStatus.Running;
@@ -131,6 +184,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         DogDialogueRoom1.OnEventEnd += EnableDogMovementController;
 
         ShowLastRoom();
+        Max.SetActive(true);
+        SpeechInputHandler.enabled = false;
     }
 
     IEnumerator WaitForDialogueFinished()
@@ -142,8 +197,9 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     void ShowLastRoom()
     {
         Shadow.transform.position = ShadowLastRoomLocation.position;
+        Shadow.transform.localRotation = Quaternion.Euler(0, 90, 0);
         ShadowChild.transform.localPosition = new Vector3(0, 0, 0);
-        ShadowChild.transform.localRotation = new Quaternion(0,0,0,0);
+        ShadowChild.transform.localRotation = new Quaternion(0, 0, 0, 0);
         Shadow.transform.GetChild(0).gameObject.SetActive(true);
         LastRoomObjects.SetActive(true);
     }
@@ -155,13 +211,14 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     void ShadowDisappears()
     {
-        ShadowChild.gameObject.SetActive(false);
+        Shadow.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        FadeShadow.enabled = true;
     }
 
     void ShowMaxInTinyOrb()
     {
         MaxInOrb.SetActive(true);
-        MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
+        //MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
         MaxInOrb.transform.LookAt(Player.transform.position);
     }
 }

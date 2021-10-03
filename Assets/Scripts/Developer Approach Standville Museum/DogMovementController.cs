@@ -8,7 +8,7 @@ public class DogMovementController : MonoBehaviour
     NavMeshAgent dogNavMeshAgent;
     DogAnimController dogAnimController;
 
-    readonly float DOG_SPEED = 0.75f;
+    readonly float DOG_SPEED = 2f;
 
     public enum DogStates { ToLastRoom, ToMainRoom }
     public DogStates DogState = DogStates.ToLastRoom;
@@ -102,15 +102,17 @@ public class DogMovementController : MonoBehaviour
             if (goingToLastRoom)
             {
                 goingToLastRoom = false;
-                ConditionalMadeItToLastRoom.CompleteConditionalEvent();
-                this.enabled = false;
+                ConditionalMadeItToLastRoom.CompleteConditionalEvent();               
+                transform.localRotation = Quaternion.Euler(0,15,0);
+                enabled = false;
             }
 
             if (goingToMainRoom)
             {
                 goingToMainRoom = false;
                 MadeItToMainRoom.CompleteConditionalEvent();
-                this.enabled = false;
+                transform.localRotation = Quaternion.Euler(0, -30, 0); 
+                enabled = false;
             }
         }
     }

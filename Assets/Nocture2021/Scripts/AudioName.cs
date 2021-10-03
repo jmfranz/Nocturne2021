@@ -12,8 +12,6 @@ public class AudioName : MonoBehaviour
         var audioClip = Resources.Load<AudioClip>("Conversations/ConversationLines/dog7");
         source.clip = audioClip;
         source.Play();
-
-        //Debug.Log(source.clip.ToString().Split('(')[0].Trim());
     }
 
     // Update is called once per frame

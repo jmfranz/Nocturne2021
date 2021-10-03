@@ -6,11 +6,12 @@ using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class EventDataSync : MonoBehaviour, IOnEventCallback
+public class EventDataSync : MonoBehaviourPun, IOnEventCallback
 {
     private static byte _event = 10;
+    public ContextAwareGuide AwareGuide;
 
     public void SetEventData(string eventName, bool eventActive)
     {
@@ -23,10 +24,12 @@ public class EventDataSync : MonoBehaviour, IOnEventCallback
 
         object[] content = { eventName, eventActive };
         RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;
-        raiseEventOptions.Receivers = ReceiverGroup.All;
+        raiseEventOptions.Receivers = ReceiverGroup.Others;
+        raiseEventOptions.CachingOption = EventCaching.DoNotCache;
         PhotonNetwork.RaiseEvent(_event, content, raiseEventOptions, SendOptions.SendReliable);
     }
 
+    
     public void OnEvent(EventData photonEvent)
     {
         if(photonEvent.Code != _event)
@@ -38,6 +41,20 @@ public class EventDataSync : MonoBehaviour, IOnEventCallback
         string eventName = (string)eventData[0];
         bool eventSatus = (bool)eventData[1];
 
-        Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventSatus);
+        if(SceneManager.GetActiveScene().name.Contains("Guide"))
+        {
+            AwareGuide.OnEventDataChange(eventName, eventSatus);
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+
+    private void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }

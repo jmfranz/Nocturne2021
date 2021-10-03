@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShadowChaseController : MonoBehaviour
 {
     [SerializeField] List<GameObject> _placesToGo;
-    public GameObject VRPlayer, Shadow, ARPlayer;
+    public GameObject VRPlayer, Shadow, ARPlayer, Smoke;
     Transform shadow, vrPlayer, arPlayer;
     bool followingPlayer;
     bool caughtPlayer; 
@@ -14,6 +15,11 @@ public class ShadowChaseController : MonoBehaviour
     public GameObject ChaseConvos;
 
     public ConversationPlayer CaughtByShadowConversationPlayer;
+
+    enum chaseStates { Chasing, Caught}
+    chaseStates chaseState = chaseStates.Chasing;
+    readonly float _caughtDistance = 1.25f; // larger than shadow stopping distance
+    readonly float _shadowSenseDistance = 2.25f;
 
     void Awake()
     {
@@ -39,7 +45,10 @@ public class ShadowChaseController : MonoBehaviour
         shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
         Shadow.SetActive(false);
         ChaseConvos.SetActive(false);
+        OriginalParticleEffect();
         this.GetComponent<DirectIntroductionController>().enabled = false;
+        this.GetComponent<ConversationPlayer>().enabled = false;
+        shadow.parent.GetComponent<ConversationPlayer>()._remainingLines =  new List<ConversationPlayer.VoiceLine>();
     }
 
     void Update()
@@ -49,20 +58,21 @@ public class ShadowChaseController : MonoBehaviour
             return;
         }
 
-        if ((IsFacingPlayer() || TooClose()) && !followingPlayer) // Change destination of shadow to follow player
+        if ((IsFacingPlayer() || TooClose())) // Shadow follows player
         {
-            followingPlayer = true;
-            if (DeploymentOption.DeploymentTypes.VR == DeploymentOption.Instance.DeploymentType)
+           if(chaseState == chaseStates.Chasing)
             {
-                shadowAvatarController.SetDestination(vrPlayer.position);
+                if (DeploymentOption.DeploymentTypes.VR == DeploymentOption.Instance.DeploymentType)
+                {
+                    shadowAvatarController.SetDestination(vrPlayer.position);
+                }
+                else if (DeploymentOption.DeploymentTypes.AR == DeploymentOption.Instance.DeploymentType)
+                {
+                    shadowAvatarController.SetDestination(arPlayer.position);
+                    shadow.GetComponent<NavMeshAgent>().isStopped = false;
+                }
             }
-            else if (DeploymentOption.DeploymentTypes.AR == DeploymentOption.Instance.DeploymentType)
-            {
-                shadowAvatarController.SetDestination(arPlayer.position);
-            }
-        }
-        else if (followingPlayer) // Not facing player anymore
-        {
+
             float distance = 0;
 
             if (DeploymentOption.DeploymentTypes.VR == DeploymentOption.Instance.DeploymentType)
@@ -71,62 +81,68 @@ public class ShadowChaseController : MonoBehaviour
             }
             else if (DeploymentOption.DeploymentTypes.AR == DeploymentOption.Instance.DeploymentType)
             {
-                distance = Vector3.Distance(shadow.position, arPlayer.position);
+                distance = Vector2.Distance(new Vector2(shadow.position.x, shadow.position.z), new Vector2(arPlayer.position.x, arPlayer.position.z));
             }
 
-            if (distance < 2f && !caughtPlayer)
+            if (distance < _caughtDistance && !caughtPlayer) // Caught
             {
                 caughtPlayer = true;
+                chaseState = chaseStates.Caught;
 
-                //// Play Sound crash for where the shadow is going to next
-                //List<ConversationPlayer.VoiceLine> convoLines = CaughtByShadowConversationPlayer.ConversationLines;
+                shadowAvatarController._movementState = AvatarController.MovementStates.Stopped;
+                shadow.GetComponent<NavMeshAgent>().isStopped = true;
+                shadow.GetComponent<AudioSource>().volume = 1f;
 
-                //List<ConversationPlayer.VoiceLine> voiceLines = new List<ConversationPlayer.VoiceLine>();
-                //ConversationPlayer.VoiceLine voiceLine = new ConversationPlayer.VoiceLine();
-                //ConversationPlayer.VoiceLine voiceLine2 = new ConversationPlayer.VoiceLine();
-
-                //voiceLine.voiceLine = convoLines[0].voiceLine;//Resources.Load<AudioClip>("Conversations/ConversationLines/DM_16");
-                //voiceLine.voiceOrigin = convoLines[0].voiceOrigin;
-                //voiceLine.volume = ConversationPlayer.VoiceVolumes.Normal;
-                //voiceLine.beforeVoiceDelay = 0;
-                //voiceLine.afterVoiceDelay = 0;
-
-                //voiceLine2.voiceLine = convoLines[1].voiceLine;
-                //voiceLine2.voiceOrigin = _placesToGo[placesToGoIndex].GetComponent<AudioSource>();
-                //voiceLine2.volume = ConversationPlayer.VoiceVolumes.Normal;
-                //voiceLine2.beforeVoiceDelay = 0;
-                //voiceLine2.afterVoiceDelay = 0;
-
-                //voiceLines.Add(voiceLine);
-                //voiceLines.Add(voiceLine2);
-
-                //CaughtByShadowConversationPlayer.ConversationLines = voiceLines;
-                //CaughtByShadowConversationPlayer._remainingLines = voiceLines;
-
-                //// Activate conversation
-                //CaughtByShadowConversationPlayer.enabled = true;
-
-                //StartCoroutine(DistractShadow());
-                   // [1].voiceOrigin = _placesToGo[placesToGoIndex].GetComponent<AudioSource>();
-                // TODO: Implement shadow caught player ending
-                // Play Scary music for 5 seconds while still within a certain distance -> play bang -> shadow goes to other area
+                // Make shadow particles big and scary
+                ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
+                shadowParticles.Stop();
+                var main = shadowParticles.main;
+                main.startSpeed = 7.36f;
+                ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
+                curve.constantMin = 0.67f;
+                curve.constantMax = 1.02f;
+                main.startSize = curve;
+                var emission = shadowParticles.emission;
+                emission.rateOverTime = 177;
+                shadowParticles.Play();
             }
-            else
+            else if(distance >= (_caughtDistance + 0.25f) && chaseState == chaseStates.Caught) // Escaping
             {
-                Vector3 location = _placesToGo[placesToGoIndex].transform.position;
-                shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
+                caughtPlayer = false;
+                shadow.transform.GetChild(0).LookAt(arPlayer.transform);
+                // Change particle system to normal
+                //Vector3 location = _placesToGo[placesToGoIndex].transform.position;
+
+                //if (TooClose())
+                //{
+                //    shadowAvatarController.SetDestination(arPlayer.position);
+                //}
+                //else
+                //{
+                //    shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
+                //}
+
+                shadow.GetComponent<NavMeshAgent>().speed = 0.3f;
+                shadow.GetComponent<AudioSource>().volume = 0.5f;
+
+                OriginalParticleEffect();
+
+                //caughtPlayer = false;
+                StartCoroutine(WaitForEscape());
             }
             followingPlayer = false;
         }
         else if(shadowAvatarController._movementState == AvatarController.MovementStates.Stopped) 
         {
             Vector3 location = _placesToGo[placesToGoIndex].transform.position;
-            float distance = Vector3.Distance(shadow.position, new Vector3 (location.x, 0, location.z));
+            chaseState = chaseStates.Chasing;
+
+            float distance = Vector2.Distance(new Vector2(shadow.position.x, shadow.position.z), new Vector2 (location.x, location.z));
             if (caughtPlayer)
             {
                 caughtPlayer = false;
             }
-            else if(distance < 2)
+            else if(distance < _caughtDistance)
             {
                 placesToGoIndex++;
                 if (placesToGoIndex == _placesToGo.Count) // Ran out of locations
@@ -136,8 +152,14 @@ public class ShadowChaseController : MonoBehaviour
             }
 
             location = _placesToGo[placesToGoIndex].transform.position;
-            shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
+            shadowAvatarController.SetDestination(new Vector3(location.x, shadow.position.y, location.z));
         }
+    }
+
+    IEnumerator WaitForEscape()
+    {
+        yield return new WaitForSeconds(1);
+        chaseState = chaseStates.Chasing;
     }
 
     IEnumerator DistractShadow()
@@ -150,7 +172,7 @@ public class ShadowChaseController : MonoBehaviour
 
     bool TooClose()
     {
-        return Vector3.Distance(arPlayer.position, shadow.position) < 3;
+        return Vector2.Distance(new Vector2(shadow.position.x, shadow.position.z), new Vector2(arPlayer.position.x, arPlayer.position.z)) < _shadowSenseDistance;
     }
 
     bool IsFacingPlayer()
@@ -198,5 +220,20 @@ public class ShadowChaseController : MonoBehaviour
 
         return false;
 
+    }
+
+    void OriginalParticleEffect()
+    {
+        ParticleSystem shadowParticles = Smoke.GetComponent<ParticleSystem>();
+        shadowParticles.Stop();
+        var main = shadowParticles.main;
+        main.startSpeed = 0.039f;
+        ParticleSystem.MinMaxCurve curve = new ParticleSystem.MinMaxCurve();
+        curve.constantMin = 0.5f;
+        curve.constantMax = 0.6f;
+        main.startSize = curve;
+        var emission = shadowParticles.emission;
+        emission.rateOverTime = 120;
+        shadowParticles.Play();
     }
 }

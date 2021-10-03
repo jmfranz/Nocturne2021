@@ -89,6 +89,7 @@ public class DavidStoryControllerPath2BathroomEvent : MonoBehaviour
     {
         highlightShowing = false;
         SecurityCameraHighlight.SetActive(false);
+        SecurityEnterLocationTrigger.GetComponent<BoxCollider>().enabled = true;
     }
 
     void EnableTextFade()

@@ -15,7 +15,7 @@ public class DontTrustDogHandler : MonoBehaviour
 
     public ConditionalEventComponent EnteredPlanetarium;
 
-    public GameObject CraterRoomObjects, Max;
+    public GameObject CraterRoomObjects, Max, Dog;
     public GameObject Shadow;
     public Transform ShadowPositionInCraterRoom;
 
@@ -27,13 +27,19 @@ public class DontTrustDogHandler : MonoBehaviour
     public EnterLocationTrigger MainRoomEnterLocationTrigger;
 
     public ConditionalEventComponent EnteredMainRoom;
+    public EnterLocationTrigger MainRoomTrigger;                
 
     public GameObject MainRoomObjects;
     public ConversationPlayer ScaryMusic, PoliceConvo1, PoliceConvo2;
     public Transform Doctor, Player;
     public ConversationPlayer DoctorJohnConvo;
+    public ConversationPlayer ShadowDialogue, MaxScreams;
+
+    public FadeShadow FadeShadow;
 
     bool DocWalksToPlayer = false;
+
+    public GameObject EndingMessage;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +48,27 @@ public class DontTrustDogHandler : MonoBehaviour
         DontTrustDogComments.OnEventEnd += ShowTrailDogRoomToPlanetarium;
         JohnReadsMural.OnEventEnd += ShowCraterRoom;
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
+        StartCoroutine(WaitForShadowDialogue());
+        StartCoroutine(WaitForMaxToFollowPlayer());
+        StartCoroutine(ShowEndingMessage());
+    }
+
+    IEnumerator WaitForShadowDialogue()
+    {
+        yield return new WaitUntil(()=> ShadowDialogue._remainingLines.Count == 1);
+        UnShowCraterRoom();
+    }
+
+    IEnumerator WaitForMaxToFollowPlayer()
+    {
+        yield return new WaitUntil(() => MaxScreams._hasCompletedConversation);
+        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+    }
+
+    IEnumerator ShowEndingMessage()
+    {
+        yield return new WaitUntil(() => DoctorJohnConvo._hasCompletedConversation);
+        EndingMessage.SetActive(true);
     }
 
     void ShowTrailDogRoomToPlanetarium()
@@ -55,6 +82,7 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         yield return new WaitUntil(() => PlanetariumEnterLocationTrigger.ReachedDestination);
         DogRoomToPlantariumPathFollower.playPath = false;
+        Dog.SetActive(false);
         EnteredPlanetarium.CompleteConditionalEvent();
     }
 
@@ -65,26 +93,33 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.transform.GetChild(0).gameObject.SetActive(true);
         Shadow.SetActive(false); // Disable shadow while setting its position
         Shadow.transform.SetPositionAndRotation(new Vector3(ShadowPositionInCraterRoom.position.x, 0, ShadowPositionInCraterRoom.position.z),
-                                        Quaternion.Euler(0, 90, 0));
-        Debug.Log("Shadow position " + Shadow.transform.localPosition);
+                                        Quaternion.Euler(0, 0, 0));
+        Shadow.transform.GetChild(0).localPosition = Vector3.zero;
+        Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         Shadow.SetActive(true);
+        //Shadow.GetComponent<ConversationPlayer>().enabled = false;
+        Shadow.transform.localPosition = new Vector3(Shadow.transform.localPosition.x, 0, Shadow.transform.localPosition.z);
+        Shadow.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
     void FinishedOtherRoom()
     {
         ShowTrailCraterToMainRoom();
         UnShowCraterRoom();
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
 
         ScaryMusic.enabled = true;
         PoliceConvo1.enabled = true;
         PoliceConvo2.enabled = true;
+
+        MainRoomTrigger.enabled = true;
+        MainRoomTrigger.ConditionalEventComponent = EnteredMainRoom;
     }
 
     void UnShowCraterRoom()
     {
         CraterRoomObjects.SetActive(false);
-        Shadow.transform.GetChild(0).gameObject.SetActive(false);
+        Shadow.transform.GetChild(0).GetChild(2).gameObject.SetActive(false);
+        FadeShadow.enabled = true;
     }
 
     void ShowTrailCraterToMainRoom()
@@ -126,11 +161,4 @@ public class DontTrustDogHandler : MonoBehaviour
             }
         }   
     }
-
-    //IEnumerator WaitForDocToStop()
-    //{
-    //    AvatarController avatarController = Doctor.GetComponent<AvatarController>();
-    //    yield return new WaitUntil(() => avatarController.MovementState == AvatarController.MovementStates.Stopped);
-
-    //}
 }
