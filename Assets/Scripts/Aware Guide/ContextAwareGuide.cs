@@ -13,11 +13,10 @@ public abstract class ContextAwareGuide: MonoBehaviour
     {
         AudioSource = GetComponent<AudioSource>();
 
-        //Debug.Log("Game starts!");
+        Debug.Log("game starts!");
 
-        //awareGuide.ChangeImage("MAIN_ROOM_1");
-        //audioSource.clip = Resources.Load<AudioClip>("Conversations/All Audio/AwareGuideConversations/MAIN_ROOM_1");
-        //audioSource.Play();
+        UpdateGuideState(true);
+        UpdateAwareGuideContent("main_room_1");
     }
 
 
