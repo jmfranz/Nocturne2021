@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait 2 sec after chase
   Status: 0
   _preConditions:
   - Component: {fileID: 132284122}
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog talking to itself
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311946}
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with dog in dog room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284126}
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog follow me convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284138}
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with dog for trusting it
   Status: 0
   _preConditions:
   - Component: {fileID: 132284131}
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog sniffing convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284133}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to mid point
   Status: 0
   _preConditions:
   - Component: {fileID: 132284130}
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog at last room convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284135}
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to last room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284132}
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with shadow, max, john
   Status: 0
   _preConditions:
   - Component: {fileID: 132284134}
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog lets get out of here midpoint
   Status: 0
   _preConditions:
   - Component: {fileID: 132284136}
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait what is that convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284124}
@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Ending convo with dog (yes trust dog)
   Status: 0
   _preConditions:
   - Component: {fileID: 132284147}
@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait before displaying Max
   Status: 0
   _preConditions:
   - Component: {fileID: 132284146}
@@ -3788,6 +3788,14 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 4851131541957942078, guid: c45d698eab9b98841bed524427436804, type: 3}
   parentAnchor: {fileID: 1647103155}
   RoomName: Standville_Mine
+  Walls:
+  - {fileID: 5703688490343153608}
+  - {fileID: 1888513094186775205}
+  - {fileID: 7744130367077897803}
+  - {fileID: 4160743428627475259}
+  - {fileID: 2937128368094654665}
+  - {fileID: 7380176100268746791}
+  - {fileID: 7337045251493399602}
   InGameObjects: {fileID: 1341104413}
   AwareGuideObjects: {fileID: 1811542445}
 --- !u!4 &234199318
@@ -8007,7 +8015,7 @@ MonoBehaviour:
     voiceOrigin: {fileID: 369992242}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
-    volume: 0
+    volume: 2
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
   _isPlaying: 0
@@ -8980,6 +8988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AwareGuide: {fileID: 0}
 --- !u!1 &493670713
 GameObject:
   m_ObjectHideFlags: 0
@@ -10784,8 +10793,8 @@ MonoBehaviour:
       points:
       - {x: 0.14659262, y: 2.0996022, z: -2.0875683}
       - {x: 0.14806247, y: 2.1105204, z: -2.1034465}
-      - {x: 3.950222, y: 2.1176443, z: -2.3193243}
-      - {x: 3.8834753, y: 2.117074, z: -2.2453485}
+      - {x: 5.042432, y: 2.1176443, z: -2.3193243}
+      - {x: 4.975685, y: 2.117074, z: -2.2453485}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -11312,7 +11321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Don't trust dog convo after saying "Negative"
   Status: 0
   _preConditions:
   - Component: {fileID: 132284129}
@@ -11388,7 +11397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: John reads mural
   Status: 0
   _preConditions:
   - Component: {fileID: 594376974}
@@ -11407,7 +11416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait before mural is read
   Status: 0
   _preConditions:
   - Component: {fileID: 594376975}
@@ -11426,7 +11435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Instruction to look at Mural
   Status: 0
   _preConditions:
   - Component: {fileID: 594376976}
@@ -11521,7 +11530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo between doctor and John
   Status: 2
   _preConditions:
   - Component: {fileID: 594376979}
@@ -11540,7 +11549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Max screams
   Status: 0
   _preConditions:
   - Component: {fileID: 594376978}
@@ -13529,8 +13538,8 @@ MonoBehaviour:
       - {x: 3.5923629, y: 1.9595861, z: -0.88332415}
       - {x: 2.9176297, y: 1.9606459, z: -0.64271545}
       - {x: 2.8755405, y: 1.960712, z: -0.6277065}
-      - {x: 5.0958776, y: 1.9728078, z: -0.5722775}
-      - {x: 5.0551867, y: 1.9742587, z: -0.5738249}
+      - {x: 5.6540766, y: 1.9728078, z: -0.77869457}
+      - {x: 5.6133857, y: 1.9742587, z: -0.78024197}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -13546,7 +13555,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -14320,7 +14329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: From All Rooms Convo
   Status: 0
   _preConditions:
   - Component: {fileID: 792375168}
@@ -14339,7 +14348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait for Wall Text
   Status: 0
   _preConditions:
   - Component: {fileID: 792375171}
@@ -14358,7 +14367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait time before helping find security camera
   Status: 0
   _preConditions:
   - Component: {fileID: 792375167}
@@ -16233,8 +16242,8 @@ MonoBehaviour:
       points:
       - {x: -8.282253, y: 1.9510453, z: -1.1099653}
       - {x: -8.2827425, y: 1.9479536, z: -1.1137675}
-      - {x: -4.042801, y: 1.8142269, z: -1.0226297}
-      - {x: -4.088086, y: 1.9046509, z: -1.0914412}
+      - {x: -2.7308016, y: 1.8142266, z: -1.0226297}
+      - {x: -2.7760868, y: 1.9046507, z: -1.0914412}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -25033,7 +25042,7 @@ MonoBehaviour:
     voiceOrigin: {fileID: 1332097340}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
-    volume: 0
+    volume: 2
   AllAvatarsInConvo: 0
   _hasCompletedConversation: 0
   _isPlaying: 0
@@ -25050,7 +25059,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -29260,8 +29269,8 @@ MonoBehaviour:
       - {x: 3.112122, y: 1.9595861, z: -0.88332415}
       - {x: 2.437389, y: 1.9606459, z: -0.64271545}
       - {x: 2.3952997, y: 1.960712, z: -0.6277065}
-      - {x: 1.4187574, y: 1.9728078, z: -0.5722794}
-      - {x: 1.3780665, y: 1.9742587, z: -0.5738268}
+      - {x: 0.29278517, y: 1.9728078, z: -0.6737923}
+      - {x: 0.25209427, y: 1.9742587, z: -0.6753397}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -29720,6 +29729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecordFrequency: 1
   filename: camera.csv
+  ParentAnchor: {fileID: 1647103154}
 --- !u!1 &1672872558
 GameObject:
   m_ObjectHideFlags: 0
@@ -36410,8 +36420,8 @@ MonoBehaviour:
       - {x: 6.3567324, y: 0, z: 10.87273}
       - {x: 6.2100782, y: 0, z: 11.143569}
       - {x: 6.1995454, y: 0, z: 11.163021}
-      - {x: 7.3424315, y: 0, z: 11.285857}
-      - {x: 7.3282824, y: 0, z: 11.282502}
+      - {x: 8.576741, y: 0, z: 11.285857}
+      - {x: 8.562592, y: 0, z: 11.282502}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -38117,7 +38127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Read clue dialogue
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311942}
@@ -38136,7 +38146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Pause before reading security camera clue
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311940}
@@ -38203,7 +38213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Chase duration (25 sec)
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38222,7 +38232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Notice shadow on monitor convo
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38241,7 +38251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Growling sounds
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311947}
@@ -38327,7 +38337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Creepy line
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311952}
@@ -38346,7 +38356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait in chase before saying creepy line
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -39078,7 +39088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148342101987110}
   m_LocalRotation: {x: -0, y: 0.09301025, z: -0, w: 0.9956652}
-  m_LocalPosition: {x: 18.79, y: -23.699999, z: 24.34}
+  m_LocalPosition: {x: 18.79, y: -23.699999, z: 25.3}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 1791666832}
