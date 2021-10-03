@@ -9,6 +9,7 @@ public class CameraLogger : MonoBehaviour
 {
     public float RecordFrequency = 1;
     public string filename = "camera.csv";
+    public GameObject ParentAnchor;
 
     private float elapsedTime = 0;
 
@@ -30,7 +31,7 @@ public class CameraLogger : MonoBehaviour
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd");
 
-            Vector3 pos = transform.position;
+            Vector3 pos = Camera.main.transform.InverseTransformPoint(ParentAnchor.transform.position);
             Quaternion rot = transform.rotation;
             string sceneName = SceneManager.GetActiveScene().name;
 

@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait 2 sec after chase
   Status: 0
   _preConditions:
   - Component: {fileID: 132284122}
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog talking to itself
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311946}
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with dog in dog room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284126}
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog follow me convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284138}
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with dog for trusting it
   Status: 0
   _preConditions:
   - Component: {fileID: 132284131}
@@ -1638,7 +1638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog sniffing convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284133}
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to mid point
   Status: 0
   _preConditions:
   - Component: {fileID: 132284130}
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog at last room convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284135}
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to last room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284132}
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo with shadow, max, john
   Status: 0
   _preConditions:
   - Component: {fileID: 132284134}
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog lets get out of here midpoint
   Status: 0
   _preConditions:
   - Component: {fileID: 132284136}
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait what is that convo
   Status: 0
   _preConditions:
   - Component: {fileID: 132284124}
@@ -1809,7 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Ending convo with dog (yes trust dog)
   Status: 0
   _preConditions:
   - Component: {fileID: 132284147}
@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait before displaying Max
   Status: 0
   _preConditions:
   - Component: {fileID: 132284146}
@@ -8980,6 +8980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AwareGuide: {fileID: 0}
 --- !u!1 &493670713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11312,7 +11313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Don't trust dog convo after saying "Negative"
   Status: 0
   _preConditions:
   - Component: {fileID: 132284129}
@@ -11388,7 +11389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: John reads mural
   Status: 0
   _preConditions:
   - Component: {fileID: 594376974}
@@ -11407,7 +11408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait before mural is read
   Status: 0
   _preConditions:
   - Component: {fileID: 594376975}
@@ -11426,7 +11427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Instruction to look at Mural
   Status: 0
   _preConditions:
   - Component: {fileID: 594376976}
@@ -11521,7 +11522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Convo between doctor and John
   Status: 2
   _preConditions:
   - Component: {fileID: 594376979}
@@ -11540,7 +11541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Max screams
   Status: 0
   _preConditions:
   - Component: {fileID: 594376978}
@@ -14320,7 +14321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: From All Rooms Convo
   Status: 0
   _preConditions:
   - Component: {fileID: 792375168}
@@ -14339,7 +14340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait for Wall Text
   Status: 0
   _preConditions:
   - Component: {fileID: 792375171}
@@ -14358,7 +14359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Wait time before helping find security camera
   Status: 0
   _preConditions:
   - Component: {fileID: 792375167}
@@ -29720,6 +29721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecordFrequency: 1
   filename: camera.csv
+  ParentAnchor: {fileID: 1647103154}
 --- !u!1 &1672872558
 GameObject:
   m_ObjectHideFlags: 0
@@ -38117,7 +38119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Read clue dialogue
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311942}
@@ -38136,7 +38138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Pause before reading security camera clue
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311940}
@@ -38203,7 +38205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Chase duration (25 sec)
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38222,7 +38224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Notice shadow on monitor convo
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
@@ -38241,7 +38243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Growling sounds
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311947}
@@ -38327,7 +38329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d90b5d83fcd3e74fba8d58c99e9dd07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Creepy line
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311952}
@@ -38346,7 +38348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79e99dd5d8a154e8c9dd75a6a892d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Time to wait in chase before saying creepy line
   Status: 0
   _preConditions:
   - Component: {fileID: 2120311944}
