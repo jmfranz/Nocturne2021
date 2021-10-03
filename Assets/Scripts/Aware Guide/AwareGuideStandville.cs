@@ -89,7 +89,7 @@ public class AwareGuideStandville : ContextAwareGuide
             }
             else if (EventName == "Start Chase" && EventStatus) // Chase has started
             {
-                _dogsRoomState = "ALL_OTHER_SPACES_1";
+                _dogsRoomState = "DOGS_ROOM_2";
                 _washroomState = "ALL_OTHER_SPACES_1";
                 _mainroomState = "ALL_OTHER_SPACES_1";
                 _astronomyRoomState = "ALL_OTHER_SPACES_1";
