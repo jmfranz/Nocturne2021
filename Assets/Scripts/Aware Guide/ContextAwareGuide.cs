@@ -31,8 +31,6 @@ public class ContextAwareGuide : MonoBehaviour
 
     }
 
-   
-
     public void OnEventDataChange(string eventName, bool eventStatus)
     {
         Debug.LogFormat("Received '{0}' with status '{1}'", eventName, eventStatus);
@@ -277,6 +275,14 @@ public class ContextAwareGuide : MonoBehaviour
         if(audioContext.clip != null)
         {
             audioContext.Play();
+        }
+    }
+
+    public void StopAudio()
+    {
+        if (audioContext.clip != null)
+        {
+            audioContext.Stop();
         }
     }
 }
