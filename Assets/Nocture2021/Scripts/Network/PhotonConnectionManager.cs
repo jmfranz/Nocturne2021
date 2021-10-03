@@ -12,6 +12,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     public GameObject PlayerPrefab;
     public Transform parentAnchor;
     public string RoomName = "Nocturne";
+    public List<MeshRenderer> Walls;
 
     private string gameVersion = "0";
 
@@ -82,6 +83,11 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 
             if (!PhotonNetwork.IsMasterClient)
             {
+                foreach(var meshRenderer in Walls)
+                {
+                    meshRenderer.enabled = false;
+                }
+
                 InGameObjects.SetActive(false);
                 AwareGuideObjects.SetActive(true);
                 GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
