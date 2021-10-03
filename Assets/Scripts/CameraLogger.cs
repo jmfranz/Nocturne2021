@@ -10,6 +10,8 @@ public class CameraLogger : MonoBehaviour
     public float RecordFrequency = 1;
     public string filename = "camera.csv";
 
+    public GameObject parentAnchor;
+
     private float elapsedTime = 0;
 
     // Start is called before the first frame update
@@ -30,8 +32,8 @@ public class CameraLogger : MonoBehaviour
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd");
 
-            Vector3 pos = transform.position;
-            Quaternion rot = transform.rotation;
+            Vector3 pos = parentAnchor.transform.position - transform.position;
+            Quaternion rot = Quaternion.Inverse(parentAnchor.transform.rotation) * transform.rotation;
             string sceneName = SceneManager.GetActiveScene().name;
 
             string IsMaster;
