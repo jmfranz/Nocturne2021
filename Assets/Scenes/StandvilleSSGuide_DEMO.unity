@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &119535216
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5295,7 +5295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &321874196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9923,7 +9923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &516220134
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22107,7 +22107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &1214601043
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27656,7 +27656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &1516312407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36967,7 +36967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 2117948424}
+  guide: {fileID: 0}
 --- !u!54 &2056616587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38372,12 +38372,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117948423}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 812942d3d54665b4f80a6229f437b83e, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d278d28f559f14d890e09b1bb30323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aware: {fileID: 846841810}
+  AwareGuide: {fileID: 846841810}
+  AudioSource: {fileID: 2117948426}
+  Room: 
+  EventName: Game Start
+  EventStatus: 1
 --- !u!114 &2117948425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38396,7 +38400,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2117948424}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ContextAwareGuide, Assembly-CSharp
           m_MethodName: restartAudio
           m_Mode: 1
@@ -38412,7 +38416,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2117948424}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: ContextAwareGuide, Assembly-CSharp
           m_MethodName: StopAudio
           m_Mode: 1
