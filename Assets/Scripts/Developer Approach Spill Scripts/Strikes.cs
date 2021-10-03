@@ -9,9 +9,27 @@ public class Strikes : MonoBehaviour
 
     public TMPro.TMP_Text strikeBar;
 
+    public ConversationPlayer Catherine_Bultilda;
+    public ConversationPlayer Catherine_Lapin;
+    public ConversationPlayer Catherine_Ferghus;
+    public ConversationPlayer Ferghus_Bultilda;
+    public ConversationPlayer Lapin_Ferghus;
+
+    bool CBStrike;
+    bool CLStirke;
+    bool CFStrike;
+    bool FBStrike;
+    bool LFStrike;
+
     // Start is called before the first frame update
     void Start()
     {
+        CBStrike = false;
+        CLStirke = false;
+        CFStrike = false;
+        FBStrike = false;
+        LFStrike = false;
+
         currentStrikes = 0;
         SetStrikes();
     }
@@ -19,7 +37,31 @@ public class Strikes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Catherine_Bultilda._remainingLines.Count == 0 && !CBStrike)
+        {
+            GetStrike(1);
+            CBStrike = true;
+        }
+        if (Catherine_Ferghus._remainingLines.Count == 0 && !CFStrike)
+        {
+            GetStrike(1);
+            CFStrike = true;
+        }
+        if (Catherine_Lapin._remainingLines.Count == 0 && !CLStirke)
+        {
+            GetStrike(1);
+            CLStirke = true;
+        }
+        if (Ferghus_Bultilda._remainingLines.Count == 0 && !FBStrike)
+        {
+            GetStrike(1);
+            FBStrike = true;
+        }
+        if (Lapin_Ferghus._remainingLines.Count == 0 && !LFStrike)
+        {
+            GetStrike(1);
+            LFStrike = true;
+        }
     }
 
     public void GetStrike(int numStrikes)

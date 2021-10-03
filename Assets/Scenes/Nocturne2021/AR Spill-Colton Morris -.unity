@@ -11349,6 +11349,11 @@ MonoBehaviour:
   currentStrikes: 0
   maxStrikes: 3
   strikeBar: {fileID: 460570881}
+  Catherine_Bultilda: {fileID: 1527357085}
+  Catherine_Lapin: {fileID: 1757825147}
+  Catherine_Ferghus: {fileID: 1268098533}
+  Ferghus_Bultilda: {fileID: 302827531}
+  Lapin_Ferghus: {fileID: 1416980634}
 --- !u!114 &448624896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31741,7 +31746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268098530}
   m_LocalRotation: {x: -0, y: 0.6964823, z: -0, w: 0.717574}
-  m_LocalPosition: {x: 30.1, y: -57.920006, z: 11.1}
+  m_LocalPosition: {x: 30.1, y: -59.5, z: 11.1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 849244033}
