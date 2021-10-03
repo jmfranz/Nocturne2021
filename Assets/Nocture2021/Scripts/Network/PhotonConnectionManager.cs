@@ -78,6 +78,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
         if (SceneManager.GetActiveScene().name.Contains("Guide"))
         {
             Debug.Log("Setting up for aware guide :)");
+            
 
             if (!PhotonNetwork.IsMasterClient)
             {

@@ -5,30 +5,12 @@ using UnityEngine;
 public class PlayerTriggers : MonoBehaviour
 {
     public ContextAwareGuide guide;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-
-
-
-
-        if (other.gameObject.tag == "Room")
+        if (other.gameObject.tag == "MainCamera")
         {
-            guide.OnRoomChange(other.gameObject.name);
+            guide.OnRoomChange(this.gameObject.name);
         }
-
-
-
     }
 }
