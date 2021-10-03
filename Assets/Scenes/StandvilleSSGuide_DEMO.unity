@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to mid point
   Status: 0
   _preConditions:
   - Component: {fileID: 132284130}
@@ -1821,7 +1821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog made it to last room
   Status: 0
   _preConditions:
   - Component: {fileID: 132284132}
@@ -1878,7 +1878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9829ff5ef50f65048b7c2614075d338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Dog lets get out of here midpoint
   Status: 0
   _preConditions:
   - Component: {fileID: 132284136}
