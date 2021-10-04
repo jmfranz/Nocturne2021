@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StandvilleSS.unity
     guid: 2ae0dccbc8b365340af0f7faba602745
+  - enabled: 1
+    path: Assets/Scenes/StandvilleSSAwareGuideNew.unity
+    guid: 6210fe7fcb549d1408aad83a5d125a23
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b10e1441decdd7741a43435fe62f47bb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}
