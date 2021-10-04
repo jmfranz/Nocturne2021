@@ -222,8 +222,19 @@ public class StoryEventComponent : MonoBehaviour
         DateTime now = DateTime.Now;
         string date = now.ToString("yyyy-MM-dd");
 
+        string IsMaster;
+
+        try
+        {
+            IsMaster = PhotonNetwork.IsMasterClient.ToString();
+        }
+        catch
+        {
+            IsMaster = "ERROR";
+        }
+
         Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Start",
-            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
+            SceneManager.GetActiveScene().name, IsMaster);
     }
 
     private void WriteEventStopRequest()
@@ -231,8 +242,19 @@ public class StoryEventComponent : MonoBehaviour
         DateTime now = DateTime.Now;
         string date = now.ToString("yyyy-MM-dd");
 
+        string IsMaster;
+
+        try
+        {
+            IsMaster = PhotonNetwork.IsMasterClient.ToString();
+        }
+        catch
+        {
+            IsMaster = "ERROR";
+        }
+
         Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Stop",
-            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
+            SceneManager.GetActiveScene().name, IsMaster);
     }
 
     IEnumerator TriggerEvent()
