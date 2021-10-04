@@ -52,6 +52,9 @@ public class NPC_Movements : StoryEventComponent
     public ConversationNode TellFokEnding;
     public ConversationNode TellCatherineEnding;
 
+    public GameObject test;
+    public GameObject BultildaObject;
+
     // Story Start Script
     public ConditionalEventComponent storyStart;
 
@@ -70,7 +73,8 @@ public class NPC_Movements : StoryEventComponent
     {
         if (storyStart.Complete && loopFinished)
         {
-            StartCoroutine(ConversationLoop());
+            TestTraversal();
+            //StartCoroutine(ConversationLoop());
         }
     }
 
@@ -197,9 +201,19 @@ public class NPC_Movements : StoryEventComponent
         yield return new WaitForSeconds(85);
     }
 
+    public void TestTraversal()
+    {
+        Bultilda.SetDestination(test.transform.position);
+        Bultilda.ActiveNode = test.GetComponent<ConversationNode>();
+        test.GetComponent<ConversationNode>().AddAvatar(BultildaObject);
+
+        Bultilda._movementState = AvatarController.MovementStates.IsMoving;
+    }
+
 
     public IEnumerator ConversationLoop()
     {
+
         Debug.Log("Conversation Loop Started");
         loopFinished = false;
         yield return new WaitForSeconds(2);
