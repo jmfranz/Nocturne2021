@@ -117,88 +117,151 @@ public class NPC_Movements : StoryEventComponent
     }
 
 
+    public  IEnumerator FixedTimeCoroutineWaitingThing(int d)
+    {
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        while (true)
+        {
+
+            for (float duration = d; duration > 0; duration -= Time.fixedDeltaTime)
+            {
+                yield return waitForFixedUpdate;
+            }
+        }
+    }
+
     //Bultilda's Conversations
 
     IEnumerator BL()
     {
         AvatarToConversation(Bultilda, B_Lapin);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Lapin, B_Lapin);
-        yield return new WaitForSeconds(45);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(45);
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
-    
+
     //Catherine's Conversations
     IEnumerator CF()
     {
         AvatarToConversation(Catherine, C_Ferghus);
-        yield return new WaitForSeconds(5);
+
+        FixedTimeCoroutineWaitingThing(5);
+        // yield return new WaitForSeconds(5);
+
         AvatarToConversation(Ferghus, C_Ferghus);
-        yield return new WaitForSeconds(65);
+        //yield return new WaitForSeconds(65);
+        FixedTimeCoroutineWaitingThing(65);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     IEnumerator CB()
     {
         AvatarToConversation(Catherine, C_Bultilda);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Bultilda, C_Bultilda);
-        yield return new WaitForSeconds(65);
+        FixedTimeCoroutineWaitingThing(65);
+        //yield return new WaitForSeconds(65);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     IEnumerator CL()
     {
         AvatarToConversation(Catherine, C_Lapin);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+       // yield return new WaitForSeconds(5);
         AvatarToConversation(Lapin, C_Lapin);
-        yield return new WaitForSeconds(65);
+        FixedTimeCoroutineWaitingThing(65);
+        // yield return new WaitForSeconds(65);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     IEnumerator CK()
     {
         AvatarToConversation(Catherine, C_Fok);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Fokthipur, C_Fok);
-        yield return new WaitForSeconds(65);
+        FixedTimeCoroutineWaitingThing(65);
+        //yield return new WaitForSeconds(65);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     //Lapin's Conversations
     IEnumerator LF()
     {
         AvatarToConversation(Lapin, L_Ferghus);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Ferghus, L_Ferghus);
-        yield return new WaitForSeconds(55);
+        FixedTimeCoroutineWaitingThing(55);
+        //yield return new WaitForSeconds(55);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     IEnumerator LC()
     {
         AvatarToConversation(Lapin, L_Catherine);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Catherine, L_Catherine);
-        yield return new WaitForSeconds(55);
+        FixedTimeCoroutineWaitingThing(55);
+        //yield return new WaitForSeconds(55);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     IEnumerator LK()
     {
         AvatarToConversation(Lapin, L_Fok);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Fokthipur, L_Fok);
-        yield return new WaitForSeconds(55);
+        FixedTimeCoroutineWaitingThing(55);
+        //yield return new WaitForSeconds(55);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     //Ferghus' Conversations
     IEnumerator FB()
     {
         AvatarToConversation(Ferghus, F_Bultilda);
-        yield return new WaitForSeconds(5);
+        FixedTimeCoroutineWaitingThing(5);
+        //yield return new WaitForSeconds(5);
         AvatarToConversation(Bultilda, F_Bultilda);
-        yield return new WaitForSeconds(60);
+        FixedTimeCoroutineWaitingThing(60);
+        //yield return new WaitForSeconds(60);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     //Fok Midgame
     IEnumerator Fok_Player()
     {
         AvatarToConversation(Fokthipur, Fokthipur_midgame);
-        yield return new WaitForSeconds(85);
+        FixedTimeCoroutineWaitingThing(85);
+        //yield return new WaitForSeconds(85);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     public void TestTraversal()
@@ -216,7 +279,8 @@ public class NPC_Movements : StoryEventComponent
 
         Debug.Log("Conversation Loop Started");
         loopFinished = false;
-        yield return new WaitForSeconds(2);
+        FixedTimeCoroutineWaitingThing(2);
+        //yield return new WaitForSeconds(2);
         AvatarToConversation(Fokthipur, NPC1);
         AvatarToConversation(Bultilda, NPC1);
         AvatarToConversation(Ferghus, NPC2);
@@ -225,28 +289,33 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(NPC1_Avatar, NPC1);
         AvatarToConversation(NPC2_Avatar, NPC2);
         AvatarToConversation(NPC3_Avatar, NPC3);
-        
+
         //Everyone is now at initial conversations
-        yield return new WaitForSeconds(10);
+        FixedTimeCoroutineWaitingThing(10);
+        //yield return new WaitForSeconds(10);
         
         //Catherine & Ferghus
         StartCoroutine(CF());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Ferghus.transform.position, 2));
         AvatarToConversation(Fokthipur, NPC2);
-        yield return new WaitForSeconds(45);
+        FixedTimeCoroutineWaitingThing(45);
+        //yield return new WaitForSeconds(45);
         AvatarToConversation(Catherine, NPC2);
         AvatarToConversation(Ferghus, NPC1);
-        yield return new WaitForSeconds(15);
+        FixedTimeCoroutineWaitingThing(15);
+        //yield return new WaitForSeconds(15);
         
         //Catherine & Bultilda
         StartCoroutine(CB());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Bultilda.transform.position, 2));
-        yield return new WaitForSeconds(55);
+        FixedTimeCoroutineWaitingThing(55);
+        //yield return new WaitForSeconds(55);
        
         //Lapin & Ferghus
         StartCoroutine(LF());
         yield return new WaitUntil(() => isClose(Ferghus.transform.position, L_Ferghus.transform.position, 2));
-        yield return new WaitForSeconds(30);
+        FixedTimeCoroutineWaitingThing(30);
+        //yield return new WaitForSeconds(30);
         
         //Catherine & Lapin
         StartCoroutine(CL());
@@ -256,10 +325,12 @@ public class NPC_Movements : StoryEventComponent
         
         //Ferghus & Bultilda
         StartCoroutine(FB());
-        yield return new WaitForSeconds(45);
+        FixedTimeCoroutineWaitingThing(45);
+        //yield return new WaitForSeconds(45);
         AvatarToConversation(Catherine, NPC3);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, NPC3.transform.position, 2));
-        yield return new WaitForSeconds(25);
+        FixedTimeCoroutineWaitingThing(25);
+        //yield return new WaitForSeconds(25);
        
         //Bultilda & Lapin
         StartCoroutine(BL());
@@ -269,31 +340,42 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Ferghus, NPC2);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Fok.transform.position, 2));
         AvatarToConversation(Fokthipur, Fokthipur_midgame);
-        yield return new WaitForSeconds(40);
+        FixedTimeCoroutineWaitingThing(405);
+        //yield return new WaitForSeconds(40);
         AvatarToConversation(Bultilda, NPC2);
         AvatarToConversation(Ferghus, NPC3);
         AvatarToConversation(Catherine, NPC3);
         AvatarToConversation(Lapin, NPC2);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, NPC3.transform.position, 2));
-        yield return new WaitForSeconds(20);
+        FixedTimeCoroutineWaitingThing(20);
+        //yield return new WaitForSeconds(20);
         
         //Lapin & Catherine
         StartCoroutine(LC());
         
         yield return new WaitUntil(() => isClose(Catherine.transform.position, L_Catherine.transform.position, 2));
-        yield return new WaitForSeconds(20);
+        FixedTimeCoroutineWaitingThing(20);
+        //yield return new WaitForSeconds(20);
         Debug.Log("Loop Complete");
         loopFinished = true;
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
     }
 
     public IEnumerator AfterCognitive()
     {
-        yield return new WaitForSeconds(2);
+        FixedTimeCoroutineWaitingThing(2);
+        //yield return new WaitForSeconds(2);
         AvatarToConversation(Fokthipur, TellFokEnding);
         AvatarToConversation(Catherine, TellCatherineEnding);
         AvatarToConversation(Bultilda, NPC1);
         AvatarToConversation(Lapin, NPC2);
         AvatarToConversation(Ferghus, NPC3);
+
+        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        yield return waitForFixedUpdate;
+
     }
 
     public void StopNPCMovements()
