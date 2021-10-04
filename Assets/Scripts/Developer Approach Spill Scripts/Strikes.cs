@@ -8,6 +8,7 @@ public class Strikes : MonoBehaviour
     public int maxStrikes = 3;
 
     public TMPro.TMP_Text strikeBar;
+    public TMPro.TMP_Text endStrikeBar;
 
     public ConversationPlayer Catherine_Bultilda;
     public ConversationPlayer Catherine_Lapin;
@@ -20,6 +21,8 @@ public class Strikes : MonoBehaviour
     bool CFStrike;
     bool FBStrike;
     bool LFStrike;
+
+    public EndingController ending;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +94,9 @@ public class Strikes : MonoBehaviour
 
     public void KickOutPlayer()
     {
-        //Player gets kicked out sequence starts
+        endStrikeBar.enabled = true;
+        strikeBar.enabled = false;
+        ending.TheEnd();
     }
 
     public void SetStrikes()
