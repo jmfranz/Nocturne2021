@@ -9,7 +9,8 @@ public class CameraLogger : MonoBehaviour
 {
     public float RecordFrequency = 1;
     public string filename = "camera.csv";
-    public GameObject ParentAnchor;
+
+    public GameObject parentAnchor;
 
     private float elapsedTime = 0;
 
@@ -31,15 +32,26 @@ public class CameraLogger : MonoBehaviour
             DateTime now = DateTime.Now;
             string date = now.ToString("yyyy-MM-dd");
 
-            Vector3 pos = Camera.main.transform.InverseTransformPoint(ParentAnchor.transform.position);
-            Quaternion rot = transform.rotation;
+            Vector3 pos = parentAnchor.transform.position - transform.position;
+            Quaternion rot = Quaternion.Inverse(parentAnchor.transform.rotation) * transform.rotation;
             string sceneName = SceneManager.GetActiveScene().name;
+
+            string IsMaster;
+
+            try
+            {
+                IsMaster = PhotonNetwork.IsMasterClient.ToString();
+            }
+            catch
+            {
+                IsMaster = "ERROR";
+            }
 
             Logger.WriteRequest(filename, date, now.Hour, now.Minute, now.Second, now.Millisecond,
                 pos.x, pos.y, pos.z,
                 rot.x, rot.y, rot.z, rot.w,
                 sceneName,
-                PhotonNetwork.IsMasterClient);
+                IsMaster);
         }
     }
 }
