@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Logger : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class Logger : MonoBehaviour
 
     public float WriteWaitTime = 1;
     private float elapsedTime = 0;
+
+    private bool logFileSetUp = false;
+
+    public int MaxAudioTime = 3;
+    private AudioClip audioClip;
 
     public static void SetUserID(string newID)
     {
@@ -66,7 +73,21 @@ public class Logger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*audioClip = Microphone.Start(Microphone.devices[0], false, MaxAudioTime, 44100);
 
+        if (!logFileSetUp)
+        {
+            AddHeaderRequest("audio-starttime.csv", "Date", "Hour", "Minute", "Second", "Milisecond", "AudioStarted", "Scene");
+            logFileSetUp = true;
+        }
+
+        DateTime now = DateTime.Now;
+        string date = now.ToString("yyyy-MM-dd");
+
+        bool audioClipStarted = (audioClip != null);
+
+        WriteRequest("audio-starttime.csv", date, now.Hour, now.Minute, now.Second, now.Millisecond, audioClipStarted,
+            SceneManager.GetActiveScene().name);*/
     }
 
     // Update is called once per frame
@@ -109,5 +130,19 @@ public class Logger : MonoBehaviour
         }
 
         elapsedTime += Time.deltaTime;
+
+        /*if (!Microphone.IsRecording(Microphone.devices[0]))
+            SaveAudio();*/
+    }
+
+    private void OnDestroy()
+    {
+        //Microphone.End(Microphone.devices[0]);
+        //SaveAudio();
+    }
+
+    void SaveAudio()
+    {
+        //SavWav.Save(UserID.ToString() + ".wav", audioClip);
     }
 }

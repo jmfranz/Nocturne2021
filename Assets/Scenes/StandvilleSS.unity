@@ -5542,7 +5542,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 358907598}
-  - component: {fileID: 358907597}
   - component: {fileID: 358907596}
   m_Layer: 0
   m_Name: Loggers
@@ -5564,21 +5563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WriteWaitTime: 1
---- !u!114 &358907597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358907595}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e4bb71e450dd44eba5a03116c8e5f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filename: camera.csv
-  camera: {fileID: 0}
-  parentAnchor: {fileID: 0}
 --- !u!4 &358907598
 Transform:
   m_ObjectHideFlags: 0
@@ -8980,6 +8964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AwareGuide: {fileID: 0}
 --- !u!1 &493670713
 GameObject:
   m_ObjectHideFlags: 0
@@ -15792,9 +15777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812942d3d54665b4f80a6229f437b83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextGuide: 0
-  period: 20
-  count: 1
+  aware: {fileID: 0}
 --- !u!1 &849275753
 GameObject:
   m_ObjectHideFlags: 0
@@ -29720,6 +29703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecordFrequency: 1
   filename: camera.csv
+  parentAnchor: {fileID: 1647103154}
 --- !u!1 &1672872558
 GameObject:
   m_ObjectHideFlags: 0
