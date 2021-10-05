@@ -22,8 +22,11 @@ public class StoryEventComponent : MonoBehaviour
     public static string logFilename = "story.csv"; // Keeping track of when the story is logged.
     public static bool logFileSetUp = false;        // Check if the log file has been set up or not.
 
-    public virtual IEnumerator DoEventAction() { Debug.LogError("This function needs to be overridden"); return null; }
+    public virtual void DoEventAction() { }
     public virtual void DoEventStoppedAction() { return; } // This function is optionally used by certain events (animation)
+
+    bool _doingEventAction = false;
+    protected bool DoneEventAction = false;
 
     //Must get called before Start to work properly
     public void SetupPreconditions(List<StoryEventComponent> eventComponents, List<StoryEventActions> eventActions)
@@ -73,12 +76,11 @@ public class StoryEventComponent : MonoBehaviour
 
     void Start()
     {
-        
-
         //No preconditions means run at game start
         if (_preConditions.Count == 0)
         {
-            co = StartCoroutine(TriggerEvent());
+            //co = StartCoroutine(TriggerEvent());
+            TriggerEvent();
         }
 
         //Otherwise, subscribe to each storyevent for its preconditions
@@ -118,7 +120,7 @@ public class StoryEventComponent : MonoBehaviour
     }
 
 
-    Coroutine co;
+    //Coroutine co;
 
     void OnPostconditionChange()
     {
@@ -129,7 +131,6 @@ public class StoryEventComponent : MonoBehaviour
 
         //Check for each postcondition - if each passes then start event
         bool hasPostConditionPassed = true; //until proven false
-
 
         foreach (var storyEventPair in _postConditions)
         {
@@ -165,9 +166,14 @@ public class StoryEventComponent : MonoBehaviour
     public void InterruptEvent()
     {
         EventFinished();
-        StopCoroutine(co);
+        StopEventAction();
+        //StopCoroutine(co);
     }
 
+    public virtual void StopEventAction()
+    {
+
+    }
 
     void OnPreconditionChange()
     {
@@ -207,7 +213,8 @@ public class StoryEventComponent : MonoBehaviour
 
         if (hasPreConditionPassed)
         {
-            co = StartCoroutine(TriggerEvent());
+            //co = StartCoroutine(TriggerEvent());
+            TriggerEvent();
         }
     }
 
@@ -234,7 +241,7 @@ public class StoryEventComponent : MonoBehaviour
         }
 
         Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Start",
-            SceneManager.GetActiveScene().name, IsMaster);
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
     }
 
     private void WriteEventStopRequest()
@@ -254,28 +261,39 @@ public class StoryEventComponent : MonoBehaviour
         }
 
         Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, name, "Stop",
-            SceneManager.GetActiveScene().name, IsMaster);
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
     }
 
-    IEnumerator TriggerEvent()
+    void TriggerEvent()
     {
         Status = StoryEventStatus.Running;
         OnEventStart?.Invoke();
 
         // Tells across network this event starts
-        if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
+        if (name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, true);
 
         WriteEventStartRequest();
 
         //Wait for action to finish
-        yield return StartCoroutine(DoEventAction());
+        _doingEventAction = true;
 
-        EventFinished();
+        DoEventAction();
+    }
 
-        // Tells across network this event finishes
-        if(name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
+    public void Update()
+    {
+        if (_doingEventAction && DoneEventAction)
+        {
+            _doingEventAction = false;
+            DoneEventAction = false;
 
-        WriteEventStopRequest();
+            EventFinished();
+
+            // Tells across network this event finishes
+            if (name != "") GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData(name, false);
+
+            WriteEventStopRequest();
+        }
     }
 
 
@@ -327,5 +345,3 @@ public class StoryEventComponent : MonoBehaviour
         }
     }
 }
-
-
