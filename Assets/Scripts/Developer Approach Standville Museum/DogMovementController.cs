@@ -24,6 +24,7 @@ public class DogMovementController : MonoBehaviour
     [SerializeField] Transform _lastRoomLoc;
     [SerializeField] Transform _mainRoomLoc;
 
+
     void Awake()
     {
         dogNavMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -38,16 +39,8 @@ public class DogMovementController : MonoBehaviour
 
     private void OnEnable()
     {
-        switch (DogState)
-        {
-            case DogStates.ToLastRoom:
-                GoToMidPoint();
-                break;
-            case DogStates.ToMainRoom:
-                GoToMidPoint();
-                DogState = DogStates.ToMainRoom;
-                break;
-        }
+        GoToMidPoint();
+      
     }
    
     bool walkToMidPoint = false;
@@ -57,6 +50,7 @@ public class DogMovementController : MonoBehaviour
         dogNavMeshAgent.speed = DOG_SPEED;
         dogNavMeshAgent.SetDestination(new Vector3(_midPointLoc.position.x, 0, _midPointLoc.position.z)); // mid point between dog's room and last room
         walkToMidPoint = true;
+
     }
 
     bool goingToLastRoom = false;
@@ -66,6 +60,7 @@ public class DogMovementController : MonoBehaviour
         dogNavMeshAgent.SetDestination(new Vector3(_lastRoomLoc.position.x, 0, _lastRoomLoc.position.z));
         dogNavMeshAgent.speed = DOG_SPEED;
         goingToLastRoom = true;
+
     }
 
     bool goingToMainRoom;
@@ -75,14 +70,16 @@ public class DogMovementController : MonoBehaviour
         dogNavMeshAgent.SetDestination(new Vector3(_mainRoomLoc.position.x, 0, _mainRoomLoc.position.z));
         dogNavMeshAgent.speed = DOG_SPEED;
         goingToMainRoom = true;
+
     }
 
+    
     void LateUpdate()
     {
-        if (dogNavMeshAgent.remainingDistance < dogNavMeshAgent.stoppingDistance) // Stop Dog Movement
+
+        if (!dogNavMeshAgent.pathPending && dogNavMeshAgent.remainingDistance < dogNavMeshAgent.stoppingDistance) // Stop Dog Movement
         {
-            dogNavMeshAgent.speed = 0;
-            dogAnimController.DogAnimState = DogAnimController.DogAnimStates.Idle; 
+
 
             if (walkToMidPoint && DogState == DogStates.ToLastRoom) // Between dog's room and last room
             {
@@ -113,6 +110,9 @@ public class DogMovementController : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(0, -30, 0); 
                 enabled = false;
             }
+
+            dogNavMeshAgent.speed = 0;
+            dogAnimController.DogAnimState = DogAnimController.DogAnimStates.Idle;
         }
     }
 }
