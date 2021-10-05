@@ -68,11 +68,11 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
         {
-            playerPrefab.transform.GetChild(1).gameObject.SetActive(true);
+            //playerPrefab.transform.GetChild(1).gameObject.SetActive(true);
         }
         else if(!PhotonNetwork.IsMasterClient && !SceneManager.GetActiveScene().name.Contains("Guide"))
         {
-            playerPrefab.transform.GetChild(0).gameObject.SetActive(true);
+/*            playerPrefab.transform.GetChild(0).gameObject.SetActive(true);*/
             GameObject.Find("Enable Story Events").SetActive(false); // We don't want the passivie viewer to be able to say voice commands
         }       
 

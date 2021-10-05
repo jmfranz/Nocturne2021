@@ -20,7 +20,7 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
             return;
         }
 
-        Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
+        //Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
 
         object[] content = { eventName, eventActive };
         RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;

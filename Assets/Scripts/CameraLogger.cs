@@ -9,7 +9,6 @@ public class CameraLogger : MonoBehaviour
 {
     public float RecordFrequency = 1;
     public string filename = "camera.csv";
-    public GameObject ParentAnchor;
 
     public GameObject parentAnchor;
 
