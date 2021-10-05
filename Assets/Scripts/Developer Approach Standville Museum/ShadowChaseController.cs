@@ -20,6 +20,7 @@ public class ShadowChaseController : MonoBehaviour
     chaseStates chaseState = chaseStates.Chasing;
     readonly float _caughtDistance = 1.25f; // larger than shadow stopping distance
     readonly float _shadowSenseDistance = 2.25f;
+    bool _waitingForEscape = false;
 
     void Awake()
     {
@@ -110,25 +111,14 @@ public class ShadowChaseController : MonoBehaviour
             {
                 caughtPlayer = false;
                 shadow.transform.GetChild(0).LookAt(arPlayer.transform);
-                // Change particle system to normal
-                //Vector3 location = _placesToGo[placesToGoIndex].transform.position;
-
-                //if (TooClose())
-                //{
-                //    shadowAvatarController.SetDestination(arPlayer.position);
-                //}
-                //else
-                //{
-                //    shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
-                //}
 
                 shadow.GetComponent<NavMeshAgent>().speed = 0.3f;
                 shadow.GetComponent<AudioSource>().volume = 0.5f;
 
                 OriginalParticleEffect();
 
-                //caughtPlayer = false;
-                StartCoroutine(WaitForEscape());
+                _waitingForEscape = true;
+                //WaitForEscape();
             }
             followingPlayer = false;
         }
@@ -156,19 +146,31 @@ public class ShadowChaseController : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForEscape()
+    float _timeSinceStart = 0f;
+    public void FixedUpdate()
     {
-        yield return new WaitForSeconds(1);
-        chaseState = chaseStates.Chasing;
+        if (_waitingForEscape)
+        {
+
+            if (_timeSinceStart < 1)
+            {
+                _timeSinceStart += Time.deltaTime;
+            }
+            else
+            {
+                _waitingForEscape = false;
+                chaseState = chaseStates.Chasing;
+            }
+        }
     }
 
-    IEnumerator DistractShadow()
-    {
-        yield return new WaitUntil(() => CaughtByShadowConversationPlayer._hasCompletedConversation);
+    //IEnumerator DistractShadow()
+    //{
+    //    yield return new WaitUntil(() => CaughtByShadowConversationPlayer._hasCompletedConversation);
 
-        Vector3 location = _placesToGo[placesToGoIndex].transform.position;
-        shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
-    }
+    //    Vector3 location = _placesToGo[placesToGoIndex].transform.position;
+    //    shadowAvatarController.SetDestination(new Vector3(location.x, 0, location.z));
+    //}
 
     bool TooClose()
     {

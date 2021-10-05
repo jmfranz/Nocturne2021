@@ -54,7 +54,7 @@ public class ConversationPlayer : MonoBehaviour
     bool _playerInRangeFlag = false;
     public bool _isPlaying = false;
     public List<VoiceLine> _remainingLines;
-    Coroutine _currentVoiceLinePlaying;
+    VoiceLine _currentVoiceLinePlaying;
     ORRule _rulesToTriggerConversation;
     ConversationNode _conversationNode;
 
@@ -80,14 +80,11 @@ public class ConversationPlayer : MonoBehaviour
 
         _conversationNode = GetComponent<ConversationNode>();
 
-        StartCoroutine(CreateRule());
+        CreateRule();
     }
 
-    IEnumerator CreateRule()
+    void CreateRule()
     {
-        // Wait for Calibration
-        yield return new WaitUntil(() => ClickPlacer.CalibrationState == ClickPlacer.CalibrationStates.Finished);
-
         //Define as single OR rule!
         var defaultRule = ConversationInfo.DefaultRule;
         var proximityRule = ConversationInfo.ProximityRule;
@@ -148,7 +145,8 @@ public class ConversationPlayer : MonoBehaviour
         }
 
         ConversationLines = newVoiceLines;
-        _remainingLines = newVoiceLines;
+
+        _remainingLines = new List<VoiceLine>(newVoiceLines);
     }
 
 
@@ -194,7 +192,6 @@ public class ConversationPlayer : MonoBehaviour
         {
             _hasCompletedConversation = false;
             _remainingLines = new List<VoiceLine>(ConversationLines);
-
             //Add a buffer before looping
             var tempLine = _remainingLines[0];
             tempLine.beforeVoiceDelay += LoopBufferTime;
@@ -221,7 +218,7 @@ public class ConversationPlayer : MonoBehaviour
         }
 
         //Cancel existing line if out of range
-        if (_currentVoiceLinePlaying != null)
+        if (_currentVoiceLinePlaying.voiceLine != null)
         {
             StopCurrentVoiceClip();
         }
@@ -240,84 +237,129 @@ public class ConversationPlayer : MonoBehaviour
         if (!_isPlaying && !_hasCompletedConversation && _remainingLines.Count != 0)
         {
             _generalOutputSource?.Stop(); //stop general clip
-            _currentVoiceLinePlaying = StartCoroutine(PlayVoiceLine(_remainingLines[0])); //continue conversation where it left off.
+            _currentVoiceLinePlaying = _remainingLines[0]; //continue conversation where it left off.
+            BeforeVoiceLineDelay();
         }
     }
 
     public void InteruptConversation()
     {
         //Cancel existing line if interupted 
-        if (_currentVoiceLinePlaying != null)
+        if (_currentVoiceLinePlaying.voiceLine != null)
         {
             StopCurrentVoiceClip();
         }
     }
 
-    IEnumerator PlayVoiceLine(VoiceLine line)
+    bool doBeforeDelay = false;
+    bool playVoiceLine = false;
+    bool doAfterDelay = false;
+    float _timeSinceStart = 0f;
+
+    AvatarController[] avatarControllers = new AvatarController[0];
+
+    private void FixedUpdate()
+    {
+        if (doBeforeDelay)
+        {
+            if (_timeSinceStart < _currentVoiceLinePlaying.beforeVoiceDelay)
+            {
+                _timeSinceStart += Time.deltaTime;
+            }
+            else
+            {
+                doBeforeDelay = false;
+                _timeSinceStart = 0f;
+
+                PlayVoiceLine();
+            }
+        }
+        else if (playVoiceLine && !_currentVoiceLinePlaying.voiceOrigin.isPlaying)
+        {
+            playVoiceLine = false;
+
+            //Done talking
+            if (avatarControllers.Length > 0)
+            {
+                AvatarController avatar = _currentVoiceLinePlaying.voiceOrigin.transform.GetComponent<AvatarController>();
+                avatar.SetConversationState(AvatarController.ConversationStates.None);
+            }
+            AfterVoiceLineDelay();
+        }
+        else if (doAfterDelay)
+        {
+            if(_timeSinceStart < _currentVoiceLinePlaying.afterVoiceDelay)
+            {
+                _timeSinceStart += Time.deltaTime;
+            }
+            else
+            {
+                doAfterDelay = false;
+                _timeSinceStart = 0f;
+
+                _isPlaying = false;
+                DiscardLine(_currentVoiceLinePlaying); //May be problematic if async here?
+            }
+        }
+    }
+
+    void BeforeVoiceLineDelay()
     {
         _isPlaying = true;
 
         //Apply before voice delay
-        yield return new WaitForSeconds(line.beforeVoiceDelay);
+        doBeforeDelay = true;
+    }
 
+    void PlayVoiceLine()
+    {
         //Apply voice volume
-        switch (line.volume)
+        switch (_currentVoiceLinePlaying.volume)
         {
             case (VoiceVolumes.Whispering):
-                line.voiceOrigin.volume = 0.4f;
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.4f;
                 break;
             case (VoiceVolumes.Normal):
-                line.voiceOrigin.volume = 0.5f;
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.5f;
                 break;
             case (VoiceVolumes.Yelling):
-                line.voiceOrigin.volume = 0.6f;
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.6f;
                 break;
         }
 
-        line.voiceOrigin.clip = line.voiceLine;
-        line.voiceOrigin.Play();
-        AvatarController[] avatarControllers = new AvatarController[0];
-        if (line.voiceOrigin.transform.tag == "Avatar")
+        _currentVoiceLinePlaying.voiceOrigin.clip = _currentVoiceLinePlaying.voiceLine;
+        _currentVoiceLinePlaying.voiceOrigin.Play();
+
+        avatarControllers = new AvatarController[0];
+        if (_currentVoiceLinePlaying.voiceOrigin.transform.tag == "Avatar")
         {
-            avatarControllers = line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
+            avatarControllers = _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
         }
 
         if (avatarControllers.Length > 0)
         {
-            foreach (var avatarController in line.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
+            foreach (var avatarController in _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
             {
                 avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
             }
 
-            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
+            AvatarController avatar = _currentVoiceLinePlaying.voiceOrigin.transform.GetComponent<AvatarController>();
             avatar.SetConversationState(AvatarController.ConversationStates.Talking);
         }
 
-        //Wait until voice clip is done playing
-        while (line.voiceOrigin.isPlaying)
-        {
-            yield return null;
-        }
+        playVoiceLine = true;
+    }
 
-        //Done talking
-        if(avatarControllers.Length > 0)
-        {
-            AvatarController avatar = line.voiceOrigin.transform.GetComponent<AvatarController>();
-            avatar.SetConversationState(AvatarController.ConversationStates.None);
-        }
-
-        //Apply after voice delay
-        yield return new WaitForSeconds(line.afterVoiceDelay);
-
-        _currentVoiceLinePlaying = null;
-        _isPlaying = false;
-        DiscardLine(line); //May be problematic if async here?
+    void AfterVoiceLineDelay()
+    {
+        doAfterDelay = true;
     }
 
     //Remove line from queue of remaining lines
     void DiscardLine(VoiceLine line)
     {
         _remainingLines.Remove(line);
+        _currentVoiceLinePlaying.voiceLine = null;
 
         if (_remainingLines.Count == 0)
         {
@@ -336,8 +378,8 @@ public class ConversationPlayer : MonoBehaviour
         }
 
         _isPlaying = false;
-        StopCoroutine(_currentVoiceLinePlaying);
-        _currentVoiceLinePlaying = null;
+        _currentVoiceLinePlaying.voiceOrigin.Stop();
+        _currentVoiceLinePlaying.voiceLine = null;
     }
 
 }

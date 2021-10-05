@@ -9,8 +9,8 @@ public class DialogueEventComponent : StoryEventComponent
     //  1. Should not be looping
     //  2. Make proximityy rule have max distance as 1000 (always triggers)
     //  3. Disable component
-    public ConversationPlayer ConversationPlayer; 
-
+    public ConversationPlayer ConversationPlayer;
+    bool _doEventAction = false;
 
     public void Init(ConversationPlayer convoPlayer)
     {
@@ -18,15 +18,30 @@ public class DialogueEventComponent : StoryEventComponent
     }
 
 
-    public override IEnumerator DoEventAction()
+    public override void DoEventAction()
     {
         ConversationPlayer.enabled = true;
-        yield return new WaitUntil(() => ConversationPlayer.enabled && ConversationPlayer.IsConversationFinished && !ConversationPlayer.isLoopConversation);
+        _doEventAction = true;
+        //yield return new WaitUntil(() => ConversationPlayer.enabled && ConversationPlayer.IsConversationFinished && !ConversationPlayer.isLoopConversation);
+    }
+
+    public void FixedUpdate()
+    {
+        if(_doEventAction && ConversationPlayer.enabled && ConversationPlayer.IsConversationFinished && !ConversationPlayer.isLoopConversation)
+        {
+            _doEventAction = false;
+            DoneEventAction = true;
+        }
     }
 
 
     public override void DoEventStoppedAction()
     {
         ConversationPlayer.enabled = false;
+    }
+
+    public override void StopEventAction()
+    {
+        _doEventAction = false;
     }
 }
