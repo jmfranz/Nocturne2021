@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// Currently not in a working state since the transition from coroutines to fixed update calls
 
 public class AnimationEventComponent : StoryEventComponent
 {
@@ -20,19 +21,19 @@ public class AnimationEventComponent : StoryEventComponent
     }
 
 
-    public override IEnumerator DoEventAction()
+    public override void DoEventAction()
     {
         StartAnimation();
         Interrupted = false;
 
-        if (!IsLooping)
-        {
-            yield return new WaitUntil(() => !AnimatorIsPlaying(StateName));
-        }
-        else
-        {
-            yield return new WaitUntil(() => Interrupted);
-        }
+        //if (!IsLooping)
+        //{
+        //    yield return new WaitUntil(() => !AnimatorIsPlaying(StateName));
+        //}
+        //else
+        //{
+        //    yield return new WaitUntil(() => Interrupted);
+        //}
     }
 
 

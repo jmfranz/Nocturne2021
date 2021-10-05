@@ -22,7 +22,6 @@ public class DogMovementController : MonoBehaviour
 
     [SerializeField] Transform _midPointLoc;
     [SerializeField] Transform _lastRoomLoc;
-    [SerializeField] Transform _dogRoomLoc;
     [SerializeField] Transform _mainRoomLoc;
 
     void Awake()
@@ -78,7 +77,7 @@ public class DogMovementController : MonoBehaviour
         goingToMainRoom = true;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (dogNavMeshAgent.remainingDistance < dogNavMeshAgent.stoppingDistance) // Stop Dog Movement
         {

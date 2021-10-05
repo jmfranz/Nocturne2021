@@ -8,6 +8,7 @@ public class ConditionalEventComponent : StoryEventComponent
     // NOTE: Make sure to use another script to set the CompleteConditionalEvent() method
 
     public bool Complete;
+    bool _doEventAction = false;
 
     public void Init()
     {
@@ -20,8 +21,22 @@ public class ConditionalEventComponent : StoryEventComponent
         Complete = true;
     }
 
-    public override IEnumerator DoEventAction()
+    public override void DoEventAction()
     {
-        yield return new WaitUntil(() => Complete);
+        _doEventAction = true;
+    }
+
+    public void FixedUpdate()
+    {
+        if (_doEventAction && Complete)
+        {
+            _doEventAction = false;
+            DoneEventAction = true;
+        }
+    }
+
+    public override void StopEventAction()
+    {
+        _doEventAction = false;
     }
 }
