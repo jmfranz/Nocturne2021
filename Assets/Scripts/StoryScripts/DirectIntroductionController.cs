@@ -15,11 +15,71 @@ public class DirectIntroductionController : MonoBehaviour
     ConversationNode _conversationNode;
     public bool IsPlayerEavesdropping = false;
     bool? isEventTrue = null;
+    public bool InterruptOnTrueEvent = true;
 
-    public Strikes Strikes;
+    private void Awake()
+    {
+        var defaultRule = RuleInfo.DefaultRule;
+        var proximityRule = RuleInfo.ProximityRule;
+        var facingRule = RuleInfo.FacingRule;
+
+        var defaultRule1 = defaultRule.FirstListEntities;
+        var defaultRule2 = defaultRule.SecondListEntities;
+        var proximityRule1 = proximityRule.FirstListEntities;
+        var proximityRule2 = proximityRule.SecondListEntities;
+
+        var facingRule1 = new List<Transform>();
+        if (facingRule.Entity != null)
+        {
+            facingRule1 = new List<Transform> { facingRule.Entity };
+        }
+        //StartCoroutine(SetUpRule());
+    }
+
+    //IEnumerator SetUpRule()
+    //{
+    //    // Wait for Calibration
+    //    yield return new WaitUntil(() => ClickPlacer.CalibrationState == ClickPlacer.CalibrationStates.Finished);
+
+    //    var defaultRule = RuleInfo.DefaultRule;
+    //    var proximityRule = RuleInfo.ProximityRule;
+    //    var facingRule = RuleInfo.FacingRule;
+
+    //    var defaultRule1 = defaultRule.FirstListEntities;
+    //    var defaultRule2 = defaultRule.SecondListEntities;
+    //    var proximityRule1 = proximityRule.FirstListEntities;
+    //    var proximityRule2 = proximityRule.SecondListEntities;
+
+    //    var facingRule1 = new List<Transform>();
+    //    if (facingRule.Entity != null)
+    //    {
+    //        facingRule1 = new List<Transform> { facingRule.Entity };
+    //    }
+
+    //    //if (DeploymentOption.Instance.DeploymentType == DeploymentOption.DeploymentTypes.AR)
+    //    //{
+    //    //    DeploymentOption.Instance.CheckEntity(defaultRule1, "VRPlayerController(Clone)");
+    //    //    DeploymentOption.Instance.CheckEntity(defaultRule2, "VRPlayerController(Clone)");
+    //    //    DeploymentOption.Instance.CheckEntity(proximityRule1, "VRPlayerController(Clone)");
+    //    //    DeploymentOption.Instance.CheckEntity(proximityRule2, "VRPlayerController(Clone)");
+    //    //    DeploymentOption.Instance.CheckEntity(facingRule1, "VRPlayerController(Clone)");
+    //    //}
+    //    //else if (DeploymentOption.Instance.DeploymentType == DeploymentOption.DeploymentTypes.VR)
+    //    //{
+    //    //    DeploymentOption.Instance.CheckEntity(defaultRule1, "Main Camera");
+    //    //    DeploymentOption.Instance.CheckEntity(defaultRule2, "Main Camera");
+    //    //    DeploymentOption.Instance.CheckEntity(proximityRule1, "Main Camera");
+    //    //    DeploymentOption.Instance.CheckEntity(proximityRule2, "Main Camera");
+    //    //    DeploymentOption.Instance.CheckEntity(facingRule1, "Main Camera");
+    //    //}
+    //}
 
     void Start()
     {
+        //AR option
+        //StartCoroutine(SetUpConversationTriggers());
+
+        //VR below
         _ruleToSwitchToDirectIntro = StoryProxemicUIHost.Instance.AddOrRule(RuleInfo);
 
         _ruleToSwitchToDirectIntro.OnEventTrue += _ruleToSwitchToDirectIntro_OnEventTrue;
@@ -28,16 +88,71 @@ public class DirectIntroductionController : MonoBehaviour
         _conversationNode = GetComponent<ConversationNode>();
     }
 
+    //IEnumerator SetUpConversationTriggers()
+    //{
+    //    // Wait for Calibration 
+    //    yield return new WaitUntil(() => ClickPlacer.CalibrationState == ClickPlacer.CalibrationStates.Finished);
 
-    // Update is called once per frame
-    void Update()
-    {
+    //    _ruleToSwitchToDirectIntro = StoryProxemicUIHost.Instance.AddOrRule(RuleInfo);
+
+    //    _ruleToSwitchToDirectIntro.OnEventTrue += _ruleToSwitchToDirectIntro_OnEventTrue;
+    //    _ruleToSwitchToDirectIntro.OnEventFalse += _ruleToSwitchToDirectIntro_OnEventFalse;
+
+    //    _conversationNode = GetComponent<ConversationNode>();
+    //}
+
+
+    //    // Update is called once per frame
+    //    void Update()
+    //{
+    //    /*for (int i = 0; i < RuleEngine.Instance.listOfRules.Count; i++)
+    //    {
+    //        Rules rule = RuleEngine.Instance.listOfRules[i];
+    //        RuleEngine.Instance.TestRunner(rule);
+    //    }*/
+
+    //    /*bool inRange = _ruleToSwitchToDirectIntro.Test();
+    //    bool inRangeChanged = (inRange && !_inRangeBefore) || (!inRange && _inRangeBefore);
+    //    _inRangeBefore = inRange;
         
-    }
+
+    //    //Transition from general to direct intro when in range
+    //    if (inRange)
+    //    {
+    //        Debug.Log("Conversation Starting");
+    //        if(inRangeChanged)
+    //        {
+    //            if (GeneralLoop != null)
+    //            {
+    //                GeneralLoop.InteruptConversation();
+    //                GeneralLoop.enabled = false;
+    //            }
+
+    //            DirectIntroduction.enabled = true;
+    //        }
+
+    //        _conversationNode.AllAvatarsLookAt(Camera.main.transform);
+    //    }
+    //    //Switch back to general conversation once stepped away
+    //    else if(!inRange && inRangeChanged)
+    //    {
+    //        Debug.Log("Conversation Stopping");
+
+    //        DirectIntroduction.InteruptConversation();
+    //        DirectIntroduction.enabled = false;
+
+    //        if (GeneralLoop != null)
+    //        {
+    //            GeneralLoop.enabled = true;
+    //        }
+
+    //        _conversationNode.ResetAvatarLookAt();
+    //    }
+    //    */
+    //}
 
     private void _ruleToSwitchToDirectIntro_OnEventTrue(Rules rule, ProximityEventArgs proximityEvent)
     {
-        // This OnEventTrue has already ran
         if (!isEventTrue.HasValue)
         {
             isEventTrue = true;
@@ -46,10 +161,9 @@ public class DirectIntroductionController : MonoBehaviour
         {
             return;
         }
-
         isEventTrue = true;
 
-        //IsPlayerEavesdropping = false;
+        IsPlayerEavesdropping = false;
         if (GeneralLoop != null)
         {
             GeneralLoop.InteruptConversation();
@@ -74,7 +188,10 @@ public class DirectIntroductionController : MonoBehaviour
         }
         isEventTrue = false;
 
-        DirectIntroduction.InteruptConversation();
+        if (InterruptOnTrueEvent)
+        {
+            DirectIntroduction.InteruptConversation();
+        }
         DirectIntroduction.enabled = false;
 
         if (GeneralLoop != null)
@@ -103,4 +220,5 @@ public class DirectIntroductionController : MonoBehaviour
             DirectIntroduction.InteruptConversation();
         }
     }
+
 }

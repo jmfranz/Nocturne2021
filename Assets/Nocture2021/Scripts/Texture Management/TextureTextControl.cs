@@ -5,18 +5,11 @@ using UnityEngine;
 
 public class TextureTextControl : MonoBehaviour
 {
-    public GameObject ImageObject;
+   
     public TextMeshPro textMesh;
 
-    private MeshRenderer imageRenderer;
-    public void Awake()
-    {
-        imageRenderer = ImageObject.GetComponent<MeshRenderer>();
-        //  Texture2D imageTexture = Resources.Load<Texture2D>($"AwareGuide/puppy1");
-        // imageRenderer.material.mainTexture = imageTexture;
-        Debug.Log(imageRenderer);
-
-    }
+    public MeshRenderer imageRenderer;
+    
 
     public bool ChangeImage(string imageName)
     {

@@ -6,6 +6,8 @@ using UnityEngine;
 public class ObjectTalking : MonoBehaviour
 {
     StoryProxemicUIHost.OrRuleInfo orRule;
+    bool _waitingForAudioToFinish = false;
+    float _timeSinceStart = 0f;
 
     public DavidStoryControllerPath2BathroomEvent DavidStoryControllerPath2BathroomEvent;
     public AudioSource MainCamera;
@@ -38,14 +40,16 @@ public class ObjectTalking : MonoBehaviour
         MainCamera.Play();
         rule.OnEventTrue -= PlayDialogue;
 
-        StartCoroutine(WaitForAudioToFinish());
+        _waitingForAudioToFinish = true;
     }
 
-    IEnumerator WaitForAudioToFinish()
+    public void FixedUpdate()
     {
-        yield return new WaitUntil(() => !MainCamera.isPlaying);
-
-        GetComponent<ConversationPlayer>()._hasCompletedConversation = true;
-        DavidStoryControllerPath2BathroomEvent.UnHighlightSecurityCamera();
+        if (_waitingForAudioToFinish && !MainCamera.isPlaying)
+        {
+            _waitingForAudioToFinish = false;
+            GetComponent<ConversationPlayer>()._hasCompletedConversation = true;
+            DavidStoryControllerPath2BathroomEvent.UnHighlightSecurityCamera();
+        }
     }
 }
