@@ -1491,6 +1491,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 2
+  FinishedEvent: 0
 --- !u!114 &132284125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,6 +1798,7 @@ MonoBehaviour:
     Action: 0
   _postConditions: []
   WaitTime: 5
+  FinishedEvent: 0
 --- !u!114 &132284146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,6 +1858,7 @@ MonoBehaviour:
     Action: 0
   _postConditions: []
   WaitTime: 18
+  FinishedEvent: 0
 --- !u!1 &133003839
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,6 +5575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WriteWaitTime: 1
+  MaxAudioTime: 3
 --- !u!114 &358907597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6013,7 +6017,6 @@ MonoBehaviour:
   ConditionalMadeItToLastRoom: {fileID: 132284135}
   _midPointLoc: {fileID: 2003472622}
   _lastRoomLoc: {fileID: 506342087}
-  _dogRoomLoc: {fileID: 1847456109}
   _mainRoomLoc: {fileID: 753484455}
 --- !u!114 &369992240
 MonoBehaviour:
@@ -11410,6 +11413,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 2
+  FinishedEvent: 0
 --- !u!114 &594376975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11486,6 +11490,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 1
+  FinishedEvent: 0
 --- !u!114 &594376979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11560,6 +11565,7 @@ MonoBehaviour:
   _preConditions: []
   _postConditions: []
   WaitTime: 0
+  FinishedEvent: 0
 --- !u!4 &600284787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011081001030, guid: 3cdf614b79009ca49a2a5c117fb49c35, type: 3}
@@ -14342,6 +14348,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 5
+  FinishedEvent: 0
 --- !u!114 &792375169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14361,6 +14368,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 5
+  FinishedEvent: 0
 --- !u!114 &792375170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29713,7 +29721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecordFrequency: 1
   filename: camera.csv
-  ParentAnchor: {fileID: 1647103154}
+  parentAnchor: {fileID: 1647103154}
 --- !u!1 &1672872558
 GameObject:
   m_ObjectHideFlags: 0
@@ -30232,7 +30240,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: d4d476b3c1d7f7540b64111c4f48d4c3, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!64 &1704578560
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38137,6 +38145,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 1
+  FinishedEvent: 0
 --- !u!4 &2120311943
 Transform:
   m_ObjectHideFlags: 0
@@ -38204,6 +38213,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 25
+  FinishedEvent: 0
 --- !u!114 &2120311947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38347,6 +38357,7 @@ MonoBehaviour:
     Action: 1
   _postConditions: []
   WaitTime: 15
+  FinishedEvent: 0
 --- !u!1 &2121740193
 GameObject:
   m_ObjectHideFlags: 0
@@ -59926,7 +59937,7 @@ MonoBehaviour:
       MinimumThreshold: 0
       MaximumThreshold: 5
       FirstListEntities:
-      - {fileID: 0}
+      - {fileID: 6292699960840905224}
       SecondListEntities:
       - {fileID: 1672460188}
       TestCondition: 0
