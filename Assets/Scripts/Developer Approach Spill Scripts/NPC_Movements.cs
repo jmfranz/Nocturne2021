@@ -14,7 +14,6 @@ public class NPC_Movements : StoryEventComponent
     public AvatarController Lapin;
     public AvatarController Catherine;
     public AvatarController Bultilda;
-    public AvatarController NPC1_Avatar;
     public AvatarController NPC2_Avatar;
     public AvatarController NPC3_Avatar;
 
@@ -123,7 +122,7 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Catherine, C_Bultilda);
         FixedTimeCoroutineWaitingThing(5);
         AvatarToConversation(Bultilda, C_Bultilda);
-        FixedTimeCoroutineWaitingThing(65);
+        FixedTimeCoroutineWaitingThing(45);
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -201,7 +200,7 @@ public class NPC_Movements : StoryEventComponent
     IEnumerator Fok_Player()
     {
         AvatarToConversation(Fokthipur, Fokthipur_midgame);
-        FixedTimeCoroutineWaitingThing(85);
+        FixedTimeCoroutineWaitingThing(35);
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -219,20 +218,19 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Ferghus, NPC2);
         AvatarToConversation(Catherine, NPC3);
         AvatarToConversation(Lapin, NPC3);
-        AvatarToConversation(NPC1_Avatar, NPC1);
         AvatarToConversation(NPC2_Avatar, NPC2);
         AvatarToConversation(NPC3_Avatar, NPC3);
 
         //Everyone is now at initial conversations
         yield return new WaitForSeconds(10);
 
-        Debug.Log("cat move!");
         //Catherine & Ferghus
         StartCoroutine(CF());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Ferghus.transform.position, 2));
-        Debug.Log("Everybody dance!");
         AvatarToConversation(Fokthipur, NPC2);
+        AvatarToConversation(Bultilda, NPC3);
         yield return new WaitForSeconds(45);
+        StartCoroutine(Fok_Player());
         AvatarToConversation(Catherine, NPC2);
         AvatarToConversation(Ferghus, NPC1);
         yield return new WaitForSeconds(15);
@@ -241,7 +239,7 @@ public class NPC_Movements : StoryEventComponent
         StartCoroutine(CB());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Bultilda.transform.position, 2));
         yield return new WaitForSeconds(55);
-        Debug.Log("Everybody dance2!");
+        AvatarToConversation(Fokthipur, NPC1);
 
         //Lapin & Ferghus
         StartCoroutine(LF());
@@ -251,13 +249,13 @@ public class NPC_Movements : StoryEventComponent
         //Catherine & Lapin
         StartCoroutine(CL());
         AvatarToConversation(Fokthipur, NPC1);
-        AvatarToConversation(Ferghus, NPC1);
+        AvatarToConversation(Ferghus, NPC3);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Lapin.transform.position, 2));
         
         //Ferghus & Bultilda
         StartCoroutine(FB());
         yield return new WaitForSeconds(45);
-        AvatarToConversation(Catherine, NPC3);
+        AvatarToConversation(Catherine, NPC1);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, NPC3.transform.position, 2));
         yield return new WaitForSeconds(25);
 
@@ -284,23 +282,16 @@ public class NPC_Movements : StoryEventComponent
         yield return new WaitForSeconds(20);
         Debug.Log("Loop Complete");
         loopFinished = true;
-
-        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
-        yield return waitForFixedUpdate;
     }
 
     public IEnumerator AfterCognitive()
     {
-        FixedTimeCoroutineWaitingThing(2);
+        yield return new WaitForSeconds(2);
         AvatarToConversation(Fokthipur, TellFokEnding);
         AvatarToConversation(Catherine, TellCatherineEnding);
         AvatarToConversation(Bultilda, NPC1);
         AvatarToConversation(Lapin, NPC2);
         AvatarToConversation(Ferghus, NPC3);
-
-        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
-        yield return waitForFixedUpdate;
-
     }
 
     public void StopNPCMovements()

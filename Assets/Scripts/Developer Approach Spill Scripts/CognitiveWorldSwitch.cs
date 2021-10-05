@@ -17,7 +17,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public GameObject Lapin;
     public GameObject Ferghus;
     public GameObject Bultilda;
-    public GameObject NPC1;
     public GameObject NPC2;
     public GameObject NPC3;
     public GameObject Player;
@@ -67,7 +66,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         NormalAvatars.Add(Ferghus);
         NormalAvatars.Add(Bultilda);
         NormalAvatars.Add(Fokthipur);
-        NormalAvatars.Add(NPC1);
         NormalAvatars.Add(NPC2);
         NormalAvatars.Add(NPC3);
 
@@ -103,7 +101,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
             Ferghus.SetActive(true);
             Lapin.SetActive(true);
             Bultilda.SetActive(true);
-            NPC1.SetActive(true);
             NPC2.SetActive(true);
             NPC3.SetActive(true);
             avatarsVisible = true;
@@ -132,7 +129,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
             GetCaught();
         }
 
-        if (inCognitive && !CognitiveConvo._hasCompletedConversation)
+        if (inCognitive && !CognitiveConvo._hasCompletedConversation && CognitiveCatherine.activeInHierarchy)
         {
             nPC_Movements.AvatarToConversation(CognitiveCatherine.GetComponent<AvatarController>(), CognitiveConvoNode);
         }
