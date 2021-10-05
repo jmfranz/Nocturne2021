@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -926,7 +926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47000452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.6, y: 0, z: -56.9}
+  m_LocalPosition: {x: 42.620003, y: -15.299999, z: -96.310005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 51068331}
@@ -22634,7 +22634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: 0c91d89f5682db245a95ebe8349eb74f, type: 3}
   parentAnchor: {fileID: 1688773326}
-  RoomName: Nocturne1
+  RoomName: Nocturne1_Testing
   InGameObjects: {fileID: 849244032}
   AwareGuideObjects: {fileID: 2049710031}
 --- !u!4 &923432215
@@ -45131,15 +45131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 673047343869339924, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.302
       objectReference: {fileID: 0}
     - target: {fileID: 673047343869339924, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 673047343869339924, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.941
       objectReference: {fileID: 0}
     - target: {fileID: 673047343869339924, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_LocalRotation.w
