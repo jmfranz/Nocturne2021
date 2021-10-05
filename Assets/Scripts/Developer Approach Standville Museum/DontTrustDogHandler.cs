@@ -48,42 +48,59 @@ public class DontTrustDogHandler : MonoBehaviour
         DontTrustDogComments.OnEventEnd += ShowTrailDogRoomToPlanetarium;
         JohnReadsMural.OnEventEnd += ShowCraterRoom;
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
-        StartCoroutine(WaitForShadowDialogue());
-        StartCoroutine(WaitForMaxToFollowPlayer());
-        StartCoroutine(ShowEndingMessage());
     }
 
-    IEnumerator WaitForShadowDialogue()
-    {
-        yield return new WaitUntil(()=> ShadowDialogue._remainingLines.Count == 1);
-        UnShowCraterRoom();
-    }
+    bool unshowCraterRoom = false;
+    bool maxScreams = false;
+    bool docJohnConvo = false;
+    bool planetarium = false;
+    bool mainRoom = false;
 
-    IEnumerator WaitForMaxToFollowPlayer()
+    private void FixedUpdate()
     {
-        yield return new WaitUntil(() => MaxScreams._hasCompletedConversation);
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
-    }
+        if(ShadowDialogue._remainingLines.Count == 1 && !unshowCraterRoom)
+        {
+            unshowCraterRoom = true;
+            UnShowCraterRoom();
+        }
 
-    IEnumerator ShowEndingMessage()
-    {
-        yield return new WaitUntil(() => DoctorJohnConvo._hasCompletedConversation);
-        EndingMessage.SetActive(true);
+        if (MaxScreams._hasCompletedConversation && !maxScreams)
+        {
+            maxScreams = true;
+            Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+        }
+
+        if (DoctorJohnConvo._hasCompletedConversation && !docJohnConvo)
+        {
+            docJohnConvo = true;
+            EndingMessage.SetActive(true);
+        }
+
+        if (PlanetariumEnterLocationTrigger.ReachedDestination && !planetarium)
+        {
+            planetarium = true;
+            DogRoomToPlantariumPathFollower.playPath = false;
+            Dog.SetActive(false);
+            EnteredPlanetarium.CompleteConditionalEvent();
+        }
+
+        if (MainRoomEnterLocationTrigger.ReachedDestination && CraterRoomToMainRoomPathFollower.playPath && !mainRoom)
+        {
+            mainRoom = true;
+            CraterRoomToMainRoomPathFollower.playPath = false;
+            EnteredMainRoom.CompleteConditionalEvent();
+
+            ScaryMusic.enabled = false;
+            ScaryMusic.GetComponent<AudioSource>().clip = null;
+
+            DocWalksToPlayer = true;
+        }
     }
 
     void ShowTrailDogRoomToPlanetarium()
     {
         DogRoomToPlantariumPathFollower.playPath = true;
         PlanetariumEnterLocationTrigger.GetComponentInParent<BoxCollider>().enabled = true;
-        StartCoroutine(TriggersPlanetariumLocation());
-    }
-
-    IEnumerator TriggersPlanetariumLocation()
-    {
-        yield return new WaitUntil(() => PlanetariumEnterLocationTrigger.ReachedDestination);
-        DogRoomToPlantariumPathFollower.playPath = false;
-        Dog.SetActive(false);
-        EnteredPlanetarium.CompleteConditionalEvent();
     }
 
     void ShowCraterRoom()
@@ -97,7 +114,6 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.transform.GetChild(0).localPosition = Vector3.zero;
         Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         Shadow.SetActive(true);
-        //Shadow.GetComponent<ConversationPlayer>().enabled = false;
         Shadow.transform.localPosition = new Vector3(Shadow.transform.localPosition.x, 0, Shadow.transform.localPosition.z);
         Shadow.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
@@ -126,20 +142,7 @@ public class DontTrustDogHandler : MonoBehaviour
     {
         CraterRoomToMainRoomPathFollower.playPath = true;
         MainRoomEnterLocationTrigger.GetComponentInParent<BoxCollider>().enabled = true;
-        StartCoroutine(TriggersMainRoomLocation());
         MainRoomObjects.SetActive(true);
-    }
-
-    IEnumerator TriggersMainRoomLocation()
-    {
-        yield return new WaitUntil(() => MainRoomEnterLocationTrigger.ReachedDestination);
-        CraterRoomToMainRoomPathFollower.playPath = false;
-        EnteredMainRoom.CompleteConditionalEvent();
-
-        ScaryMusic.enabled = false;
-        ScaryMusic.GetComponent<AudioSource>().clip = null;
-
-        DocWalksToPlayer = true;
     }
 
     private void Update()

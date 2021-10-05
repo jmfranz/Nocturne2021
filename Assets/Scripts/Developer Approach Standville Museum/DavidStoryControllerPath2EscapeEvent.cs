@@ -52,8 +52,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         }
 
         DogRoomConvo1_DialogueComponent.OnEventEnd += EnableSpeechInputHandler;
-
-        //MapToDogRoomPathFollower.pathCreator.InitializeEditorData(false);
     }
 
     void Awake()
@@ -63,8 +61,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         TimeToWaitBeforeShowingMaxInOrb.OnEventEnd += ShowMaxInTinyOrb;
         EnteredMainRoomForYesEnding.OnEventEnd += PlayerEntersMainRoom;
 
-        StartCoroutine(WaitForShadowDialogue());
-        StartCoroutine(WaitForMaxToFollowPlayer());
         MainRoomConvoEnd.OnEventEnd += ShowEndingMessage;
     }
 
@@ -73,17 +69,39 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         EndingMessage.SetActive(true);
     }
 
-    IEnumerator WaitForShadowDialogue()
-    {
-        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 1);
-        ShadowDisappears();
-        LastRoomObjects.SetActive(false);
-    }
+    bool shadowDisappears = false;
+    bool maxFollows = false;
+    bool trustDog = false;
+    bool reachedDogRoom = false;
 
-    IEnumerator WaitForMaxToFollowPlayer()
+    private void FixedUpdate()
     {
-        yield return new WaitUntil(() => DialogueLastRoom.ConversationPlayer._remainingLines.Count == 3);
-        Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+        if(DialogueLastRoom.ConversationPlayer._remainingLines.Count == 1 && !shadowDisappears)
+        {
+            shadowDisappears = true;
+            ShadowDisappears();
+            LastRoomObjects.SetActive(false);
+        }
+        
+        if(DialogueLastRoom.ConversationPlayer._remainingLines.Count == 3 && !maxFollows)
+        {
+            maxFollows = true;
+            Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
+        }
+
+        if (DogRoomConvo1._hasCompletedConversation && testingYesTrustEnding && yesTrustDog && !trustDog)
+        {
+            trustDog = true;
+            EnableDogMovementController();
+        }
+
+        if (DogEnterLocationTrigger.ReachedDestination && !reachedDogRoom)
+        {
+            reachedDogRoom = true;
+            MapToDogRoomPathFollower.playPath = false;
+            DogAudioSource.clip = null;
+            DogAudioSource.Stop();
+        }
     }
 
     void EnableSpeechInputHandler()
@@ -95,15 +113,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     {
         MapToDogRoomPathFollower.playPath = true;
         DogRoomTrigger.GetComponent<BoxCollider>().isTrigger = true;
-        StartCoroutine(TriggersDogLocation());
-    }
-
-    IEnumerator TriggersDogLocation()
-    {
-        yield return new WaitUntil(() => DogEnterLocationTrigger.ReachedDestination);
-        MapToDogRoomPathFollower.playPath = false;
-        DogAudioSource.clip = null;
-        DogAudioSource.Stop();
     }
 
     void GoToMainRoom()
@@ -126,17 +135,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
 
     private void Update()
     {
-        //#if  UNITY_EDITOR
-        //    if (Input.GetKeyDown("y"))
-        //    {
-        //        TrustDogAction();
-        //    }
-
-        //    if (Input.GetKeyDown("n"))
-        //    {
-        //        DontTrustDogAction();
-        //    }
-        //#endif
 
 #if UNITY_ANDROID
             if (OVRInput.Get(OVRInput.Button.One))
@@ -149,6 +147,8 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
                 DontTrustDogAction();
             }
 #endif
+
+
     }
 
     public void DontTrustDogAction()
@@ -162,6 +162,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         SpeechInputHandler.enabled = false;
     }
 
+    bool yesTrustDog = false;
     public void TrustDogAction()
     {
         if (!DogRoomConvo1._hasCompletedConversation || triggeredEnding)
@@ -169,6 +170,7 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
             return;
         }
         triggeredEnding = true;
+        yesTrustDog = true;
 
         if (testingYesTrustEnding)
         {
@@ -176,7 +178,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
             YesEventCondition.CompleteConditionalEvent();
 
             DogRoomConvo1.enabled = true;
-            StartCoroutine(WaitForDialogueFinished());
         }
 
         YesEventCondition.CompleteConditionalEvent();
@@ -186,12 +187,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
         ShowLastRoom();
         Max.SetActive(true);
         SpeechInputHandler.enabled = false;
-    }
-
-    IEnumerator WaitForDialogueFinished()
-    {
-        yield return new WaitUntil(() => DogRoomConvo1._hasCompletedConversation);
-        EnableDogMovementController();
     }
 
     void ShowLastRoom()
@@ -218,7 +213,6 @@ public class DavidStoryControllerPath2EscapeEvent : MonoBehaviour
     void ShowMaxInTinyOrb()
     {
         MaxInOrb.SetActive(true);
-        //MaxInOrb.transform.position = Player.transform.position + (Player.transform.forward * 2f);
         MaxInOrb.transform.LookAt(Player.transform.position);
     }
 }
