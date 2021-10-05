@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2443,8 +2443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03376d4de32637c439d167ab2d603851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageObject: {fileID: 0}
   textMesh: {fileID: 0}
+  imageRenderer: {fileID: 0}
 --- !u!1 &94984604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,7 +6666,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 276038230}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &276038230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7699,7 +7699,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 302827532}
   DirectIntroduction: {fileID: 302827531}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &302827531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17890,7 +17890,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 711650993}
   DirectIntroduction: {fileID: 711650992}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &711650992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22634,9 +22634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: 0c91d89f5682db245a95ebe8349eb74f, type: 3}
   parentAnchor: {fileID: 1688773326}
-  RoomName: Nocturne1_Testing
+  RoomName: Shannon
+  Walls: []
   InGameObjects: {fileID: 849244032}
-  AwareGuideObjects: {fileID: 2049710031}
+  AwareGuideObjects: {fileID: 0}
 --- !u!4 &923432215
 Transform:
   m_ObjectHideFlags: 0
@@ -31979,7 +31980,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 1268098534}
   DirectIntroduction: {fileID: 1268098533}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1268098533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35234,7 +35235,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1355808339}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1355808339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35689,7 +35690,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 1363241255}
   DirectIntroduction: {fileID: 1363241254}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1363241254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36928,7 +36929,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 1416980634}
   DirectIntroduction: {fileID: 1416980633}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1416980633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39656,7 +39657,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 1527357086}
   DirectIntroduction: {fileID: 1527357085}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1527357085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40031,6 +40032,7 @@ GameObject:
   - component: {fileID: 1529622444}
   - component: {fileID: 1529622452}
   - component: {fileID: 1529622453}
+  - component: {fileID: 1529622454}
   - component: {fileID: 1529622443}
   m_Layer: 0
   m_Name: Main Camera
@@ -40327,6 +40329,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d30241ad0c003f4695e5b091b13a2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1529622454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529622441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 2
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 0
 --- !u!1 &1531695090
 GameObject:
   m_ObjectHideFlags: 0
@@ -42666,7 +42686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590122752
 GameObject:
@@ -46882,7 +46902,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 1757825148}
   DirectIntroduction: {fileID: 1757825147}
   IsPlayerEavesdropping: 1
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1757825147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48271,7 +48291,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1805984114}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1805984114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49764,7 +49784,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1849383763}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &1849383763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53334,6 +53354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AwareGuide: {fileID: 0}
 --- !u!4 &1969330068
 Transform:
   m_ObjectHideFlags: 0
@@ -56479,7 +56500,7 @@ Transform:
   - {fileID: 1974810338}
   - {fileID: 93050869}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2056391100
 GameObject:
@@ -58805,7 +58826,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2132297339}
   IsPlayerEavesdropping: 0
-  Strikes: {fileID: 448624895}
+  InterruptOnTrueEvent: 1
 --- !u!114 &2132297339
 MonoBehaviour:
   m_ObjectHideFlags: 0
