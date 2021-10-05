@@ -6738,7 +6738,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: a2c588d63674ae441b7ba6ddcc5f89eb, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 5fadd52aa2fd0f2468769c4691d67396, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -6746,7 +6746,12 @@ MonoBehaviour:
   AllAvatarsInConvo: 1
   _hasCompletedConversation: 0
   _isPlaying: 0
-  _remainingLines: []
+  _remainingLines:
+  - voiceLine: {fileID: 8300000, guid: 5fadd52aa2fd0f2468769c4691d67396, type: 3}
+    voiceOrigin: {fileID: 565894541}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
 --- !u!82 &276038231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11350,6 +11355,7 @@ MonoBehaviour:
   currentStrikes: 0
   maxStrikes: 3
   strikeBar: {fileID: 460570881}
+  endStrikeBar: {fileID: 0}
   Catherine_Bultilda: {fileID: 1527357085}
   Catherine_Lapin: {fileID: 1757825147}
   Catherine_Ferghus: {fileID: 1268098533}
@@ -18041,7 +18047,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 591ba8f92e18f46419d7caf71d69013e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 2e9c68bbed5cdf34cb1021cd5d9de109, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -18051,7 +18057,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 3c89dc476e90a534d8d83f52b635328b, type: 3}
+  - voiceLine: {fileID: 8300000, guid: dd093c8f1a29d26459348ca881654465, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -18061,7 +18067,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 9d1ab1d51d70b214bbf7bebb1c50ac51, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a2aa9f260b5c19a42bc2c7551eccf660, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -29109,7 +29115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1185420256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32045,7 +32051,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: ebe3c8de37439d547a6624072363df22, type: 3}
+  - voiceLine: {fileID: 8300000, guid: af1ce6bfa0c855447816ffb04bf0cf95, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -32125,7 +32131,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: ae234ffd9e5f24a429c57545c84d5f60, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a09f553061de9cd40bde1c1d33a512a1, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -32135,7 +32141,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: fd0c8d7c1ec2cf64885c6fc1472c4178, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 593b02ca53170cf40a2b0521f56f2ae6, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -32145,7 +32151,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: b54a234426148d341ad059c29a31e148, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 431dcb3a650d55e4f85ea4789a16500e, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -32155,7 +32161,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 037db7c3279062f439bdc9ab238b9206, type: 3}
+  - voiceLine: {fileID: 8300000, guid: cf013bfb0e86706428661ae481f3e8c0, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -39722,7 +39728,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: ebe3c8de37439d547a6624072363df22, type: 3}
+  - voiceLine: {fileID: 8300000, guid: af1ce6bfa0c855447816ffb04bf0cf95, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -39802,7 +39808,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 59778f6a99cdd6941b65e1a9c4670ead, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 054f4207d862ecc4ba890891477640bd, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -39822,7 +39828,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 0193779d3aa27124c9ed121b27b3a22d, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 0ee7ac33ef26bf246a72e775a1a4cab8, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -39832,7 +39838,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: d83e1954356c6494197e72822406081c, type: 3}
+  - voiceLine: {fileID: 8300000, guid: a508f98d98f43684b8f218cd253f79ef, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -39842,7 +39848,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 370276314fc19c940aa487cfba36bcc3, type: 3}
+  - voiceLine: {fileID: 8300000, guid: ae79ca00ab8c12c4095146acab901042, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -46948,7 +46954,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: ebe3c8de37439d547a6624072363df22, type: 3}
+  - voiceLine: {fileID: 8300000, guid: af1ce6bfa0c855447816ffb04bf0cf95, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -47028,7 +47034,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: df0d3cf677e50694f953f2ffdf5f8832, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 23a0d4c3744e6dd42a7d22ea51b8288f, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -47038,7 +47044,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: ccd184bcc30a3bd4794b15d497d0036e, type: 3}
+  - voiceLine: {fileID: 8300000, guid: 5f94b251e2235e949a446fe398e76e1d, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -47048,7 +47054,7 @@ MonoBehaviour:
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: af3944131034c234090eb5200427c9f3, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f656a7e35afc75c47baf0e103bcc7a8e, type: 3}
     voiceOrigin: {fileID: 565894541}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -49830,7 +49836,7 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: 875b39c9e3ce3c5468d38d087dbc4b98, type: 3}
+  - voiceLine: {fileID: 8300000, guid: d4eb36116ae252a429c2f7b3cd753990, type: 3}
     voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
@@ -49838,7 +49844,12 @@ MonoBehaviour:
   AllAvatarsInConvo: 1
   _hasCompletedConversation: 0
   _isPlaying: 0
-  _remainingLines: []
+  _remainingLines:
+  - voiceLine: {fileID: 8300000, guid: d4eb36116ae252a429c2f7b3cd753990, type: 3}
+    voiceOrigin: {fileID: 1867072235}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
 --- !u!82 &1849383764
 AudioSource:
   m_ObjectHideFlags: 0
