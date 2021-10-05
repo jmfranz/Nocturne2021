@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -582,6 +582,63 @@ Transform:
   m_Father: {fileID: 1450254415}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &55197789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 745910835500405037, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_Name
+      value: MicrophoneRecorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.74893427
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18066502
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.043466
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745910835500405074, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
 --- !u!1 &56084591
 GameObject:
   m_ObjectHideFlags: 0
@@ -8739,6 +8796,7 @@ GameObject:
   - component: {fileID: 489612466}
   - component: {fileID: 489612462}
   - component: {fileID: 489612461}
+  - component: {fileID: 489612463}
   m_Layer: 0
   m_Name: Ending Message
   m_TagString: Untagged
@@ -8800,6 +8858,19 @@ MonoBehaviour:
   sceneViewId: 18
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &489612463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489612459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ced5347803aa3a4eacf2c94efeae2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Microphone: {fileID: 1714257811}
 --- !u!114 &489612464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30335,6 +30406,17 @@ Transform:
   m_Father: {fileID: 1124793576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1714257811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745910835500405036, guid: 78ad0040ace9c574d987340f10afa09f, type: 3}
+  m_PrefabInstance: {fileID: 55197789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556b0bb1980b3214aa8cdac9f57944d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1715827720
 GameObject:
   m_ObjectHideFlags: 0
