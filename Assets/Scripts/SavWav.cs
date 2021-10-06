@@ -25,12 +25,19 @@
 //  http://forum.unity3d.com/threads/119295-Writing-AudioListener.GetOutputData-to-wav-problem?p=806734&viewfull=1#post806734
 
 // CODE MODIFIED TO USE MORE PERFORMANT VERSION WITH THE CLIP DATA STRUCT
+// Juliano changed the recording mode to support UWP too ;)
 
 using System;
 using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using System.Threading;
+using System.Threading.Tasks;
+
+#if WINDOWS_UWP
+using Windows.Storage;
+#endif
 
 public class SavWav
 {
@@ -52,19 +59,14 @@ public class SavWav
 			filename += ".wav";
 		}
 
-		var filepath = filename;
 
-		Debug.Log(filepath);
-
-		// Make sure directory exists if user is saving to sub dir.
-		Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 		ClipData clipdata = new ClipData();
 		clipdata.samples = clip.samples;
 		clipdata.channels = clip.channels;
 		float[] dataFloat = new float[clip.samples * clip.channels];
 		clip.GetData(dataFloat, 0);
 		clipdata.samplesData = dataFloat;
-		using (var fileStream = CreateEmpty(filepath))
+		using (var fileStream = CreateEmpty(filename))
 		{
 			MemoryStream memstrm = new MemoryStream();
 			ConvertAndWrite(memstrm, clipdata);
@@ -120,9 +122,39 @@ public class SavWav
 		return clip;
 	}
 
-	FileStream CreateEmpty(string filepath)
+
+	/// <summary>
+	/// Modified to support UWP. We are using the defualt app path
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <returns></returns>
+	FileStream CreateEmpty(string filename)
 	{
-		var fileStream = new FileStream(filepath, FileMode.Create);
+
+        var path = Application.persistentDataPath;
+#if WINDOWS_UWP
+        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+        path = storageFolder.Path.Replace('\\', '/') + "/";
+#endif
+        var filePath = Path.Combine(path, filename);
+
+//#if WINDOWS_UWP
+//		StorageFile SF;
+//
+//		//OK, this method is not async so lets cheat with a Task (because I don't want to write a new method from scratch. Maybe I should.
+//        Task openFileTask = new Task()
+//        {
+//			SF = await storageFolder.GetFileAsync(filePath);
+//            var fileStream = System.IO.File.Open(storageFile.Path, FileMode.Create);
+//        };
+//        openFileTask.Start();
+//        openFileTask.Wait();
+//#else
+
+		var fileStream = new FileStream(filePath, FileMode.Create);
+//#endif
+        Debug.Log(filePath);
+
 		byte emptyByte = new byte();
 
 		for (int i = 0; i < HEADER_SIZE; i++) //preparing the header
