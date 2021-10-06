@@ -7,6 +7,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
     public string Room;
     public string EventName = "Game Start";
     public bool EventStatus = true;
+    public bool isSpill = true;
 
 
     void Awake()
@@ -15,8 +16,14 @@ public abstract class ContextAwareGuide: MonoBehaviour
 
         Debug.Log("game starts!");
 
+
         UpdateGuideState(true);
-        UpdateAwareGuideContent("main_room_1");
+
+        if(isSpill){
+            UpdateAwareGuideContent("Spill/MAIN_ROOM_0");
+        }else{
+            UpdateAwareGuideContent("main_room_1");
+        }
     }
 
 
@@ -50,6 +57,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
         AwareGuide.ChangeImage(name);
 
         AudioSource.clip = Resources.Load<AudioClip>("Conversations/All Audio/AwareGuideConversations/" + name);
+        Debug.Log("UPDATE AUDIO CLIP: " + name);
         AudioSource.Play();
     }
 

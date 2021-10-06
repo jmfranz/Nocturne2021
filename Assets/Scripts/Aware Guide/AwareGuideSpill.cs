@@ -8,11 +8,11 @@ public class AwareGuideSpill : ContextAwareGuide
     // private string _lastRoomState;
     // private string _dogsRoomState;
     // private string _washroomState;
-    // private string _mainroomState;
+    private string _mainroomState;
     // private string _astronomyRoomState;
 
     // const string WASHROOM = "WASHROOM";
-    // const string MAINROOM = "MAINROOM";
+    const string MAINROOM = "MAINROOM";
     // const string ASTRONOMYROOM = "ASTRONOMYROOM";
     // const string SECURITYROOM = "SECURITYROOM";
     // const string DOGROOM = "DOGROOM";
