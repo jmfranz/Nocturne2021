@@ -40,7 +40,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
     public void OnRoomChange(string roomname)
     {
         Room = roomname;
-        Debug.Log(Room);
+        Debug.Log("Room Update: " + Room);
 
         UpdateGuideState(false);
     }
