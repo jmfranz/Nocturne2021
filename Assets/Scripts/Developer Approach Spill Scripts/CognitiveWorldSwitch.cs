@@ -17,6 +17,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public GameObject Lapin;
     public GameObject Ferghus;
     public GameObject Bultilda;
+    public GameObject NPC1;
     public GameObject NPC2;
     public GameObject NPC3;
     public GameObject Player;
@@ -47,6 +48,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public Strikes Strikes;
 
+    private Cognitive_Catherine_Reaction cognitive_Catherine_Reaction;
+
     List<GameObject> NormalAvatars;
 
     // Story Start Script
@@ -54,7 +57,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         inCognitive = false;
         getCaught = false;
         finishingText = false;
@@ -66,6 +69,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         NormalAvatars.Add(Ferghus);
         NormalAvatars.Add(Bultilda);
         NormalAvatars.Add(Fokthipur);
+        NormalAvatars.Add(NPC1);
         NormalAvatars.Add(NPC2);
         NormalAvatars.Add(NPC3);
 
@@ -101,6 +105,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
             Ferghus.SetActive(true);
             Lapin.SetActive(true);
             Bultilda.SetActive(true);
+            NPC1.SetActive(true);
             NPC2.SetActive(true);
             NPC3.SetActive(true);
             avatarsVisible = true;
@@ -129,11 +134,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
             GetCaught();
         }
 
-        if (inCognitive && !CognitiveConvo._hasCompletedConversation && CognitiveCatherine.activeInHierarchy)
-        {
-            nPC_Movements.AvatarToConversation(CognitiveCatherine.GetComponent<AvatarController>(), CognitiveConvoNode);
-        }
-
         if (CognitiveConvo.isActiveAndEnabled)
         {
             keywordInstruction.gameObject.SetActive(true);
@@ -158,18 +158,20 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void LeaveCognitive()
     {
-        inCognitive = false;
-        ToggleWindows();
-        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
-        foreach (GameObject actor in NormalAvatars)
-        {
-            actor.SetActive(true);
-        }
-        CognitiveAvatars.SetActive(false);
-        CognitiveConvo.gameObject.SetActive(false);
-        Floor.GetComponent<MeshRenderer>().material.color = Color.white;
+            inCognitive = false;
+            ToggleWindows();
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
+            foreach (GameObject actor in NormalAvatars)
+            {
+                actor.SetActive(true);
+            }
+            CognitiveAvatars.SetActive(false);
+            CognitiveConvo.gameObject.SetActive(false);
+            TellFok.gameObject.SetActive(true);
+            TellNPC.gameObject.SetActive(true);
+            Floor.GetComponent<MeshRenderer>().material.color = Color.white;
 
-        StartCoroutine(nPC_Movements.AfterCognitive());
+            StartCoroutine(nPC_Movements.AfterCognitive());
     }
 
     public bool isClose(GameObject player, GameObject otherObject, float distance)
