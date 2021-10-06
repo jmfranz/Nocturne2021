@@ -10,6 +10,8 @@ public class EndingText : MonoBehaviour
     [SerializeField] float timeToWaitForFirstMessage; 
 
     private TextMeshPro _text;
+    bool _waitingForEndingText = false;
+    float _timeSinceStart = 0f;
 
     void Awake()
     {
@@ -20,12 +22,22 @@ public class EndingText : MonoBehaviour
     {
         P2.SetActive(false);
         _text.text = "Thanks for experiencing " + StoryName;
-        StartCoroutine(WaitToReadFirstMessage());
+        _waitingForEndingText = true;
     }
 
-    IEnumerator WaitToReadFirstMessage()
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(timeToWaitForFirstMessage);
-        _text.text = "Please give your headset to the docent";
+        if (_waitingForEndingText)
+        {
+            if (_timeSinceStart < timeToWaitForFirstMessage)
+            {
+                _timeSinceStart += Time.deltaTime;
+            }
+            else
+            {
+                _waitingForEndingText = false;
+                _text.text = "Please give your headset to the docent";
+            }
+        }
     }
 }

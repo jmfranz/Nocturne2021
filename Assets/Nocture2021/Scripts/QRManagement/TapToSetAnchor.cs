@@ -104,6 +104,8 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
             Debug.Log("Storing new anchor ID into the local anchor store");
             anchorStore.StoreNewTag(anchorModule.currentAzureAnchorID);
         }
+
+        anchorModule.SaveAzureAnchorIdToDisk();
         anchorModule.OnCreateAnchorSucceeded -= AnchorCreatedOnAzure;
         //Get rid of this script (we already placed the anchor)
         Destroy(this);

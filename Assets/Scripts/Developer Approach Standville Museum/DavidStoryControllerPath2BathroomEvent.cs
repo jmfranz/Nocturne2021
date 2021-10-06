@@ -51,13 +51,14 @@ public class DavidStoryControllerPath2BathroomEvent : MonoBehaviour
     void ShowTrailToSecurityRoom()
     {
         MapToSecurityRoomPathFollower.playPath = true;
-        StartCoroutine(TriggerSecurityLocation());
     }
 
-    IEnumerator TriggerSecurityLocation()
+    private void FixedUpdate()
     {
-        yield return new WaitUntil(() => SecurityEnterLocationTrigger.ReachedDestination);
-        MapToSecurityRoomPathFollower.playPath = false;
+        if(SecurityEnterLocationTrigger.ReachedDestination && MapToSecurityRoomPathFollower.playPath)
+        {
+            MapToSecurityRoomPathFollower.playPath = false;
+        }
     }
 
     void HelpPlayerFindCamera()

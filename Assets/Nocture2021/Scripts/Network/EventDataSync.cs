@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 public class EventDataSync : MonoBehaviourPun, IOnEventCallback
 {
     private static byte _event = 10;
-
+    public ContextAwareGuide AwareGuide;
 
     public void SetEventData(string eventName, bool eventActive)
     {
@@ -20,7 +20,7 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
             return;
         }
 
-        Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
+        //Debug.LogFormat("Sent '{0}' with status '{1}'", eventName, eventActive);
 
         object[] content = { eventName, eventActive };
         RaiseEventOptions raiseEventOptions = RaiseEventOptions.Default;
@@ -43,7 +43,7 @@ public class EventDataSync : MonoBehaviourPun, IOnEventCallback
 
         if(SceneManager.GetActiveScene().name.Contains("Guide"))
         {
-            GameObject.Find("ContextAwareGuide").GetComponent<ContextAwareGuide>().OnEventDataChange(eventName, eventSatus);
+            AwareGuide.OnEventDataChange(eventName, eventSatus);
         }
     }
 

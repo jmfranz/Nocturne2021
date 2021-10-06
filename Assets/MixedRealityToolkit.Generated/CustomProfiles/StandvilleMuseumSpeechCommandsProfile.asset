@@ -72,3 +72,17 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Restart
+    keyCode: 114
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Stop
+    keyCode: 115
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

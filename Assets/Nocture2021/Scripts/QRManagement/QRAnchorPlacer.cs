@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
@@ -32,13 +33,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
 
     public  void OnJoinedRoom()
     {
-        if (PhotonNetwork.IsConnectedAndReady)
-        {
-            PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
-        }
-        Debug.Log("Joined Room starting Anchor Placer");
-        networkReady = true;
-
+        bool loadedAnchorFromFile = false;
 #if !UNITY_EDITOR
         //Connect to the azure cloud
         var anchorModuleScript = ParentAnchor.GetComponent<AnchorModuleScript>();
@@ -47,7 +42,30 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             throw new System.NotSupportedException("could not find the anchor module script"); 
         }
         anchorModuleScript.StartAzureSession();
+
+        try
+        {
+            anchorModuleScript.GetAzureAnchorIdFromDisk();
+            anchorModuleScript.FindAzureAnchor();
+            loadedAnchorFromFile = true;
+            var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
+            anchorStore.StoreNewTag(tag);
+            _hasReceivedAnchorReply = true;
+        }
+        catch (FileNotFoundException e)
+        {
+            Debug.Log("No anchor fond on disk. Moving on to network");
+        }
 #endif
+
+        
+
+        if (PhotonNetwork.IsConnectedAndReady && !loadedAnchorFromFile)
+        {
+            PhotonNetwork.RaiseEvent(WhatIsAnchorEvent, null, RaiseEventOptions.Default, SendOptions.SendReliable);
+        }
+        Debug.Log("Joined Room starting Anchor Placer");
+        networkReady = true;
 
     }
 
