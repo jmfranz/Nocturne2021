@@ -18,7 +18,7 @@ public class MicrophoneAccess : MonoBehaviour
     private const int RecordTimeInMinutes = 15;
     private const int TempSaveTimeInSeconds = 20;
     private float _timeSinceStart = 0;
-    private bool _hasSaved = false;
+
     public void Start()
     {
         var audioSource = GetComponent<AudioSource>();
@@ -37,22 +37,6 @@ public class MicrophoneAccess : MonoBehaviour
         }
     }
 #endif
-
-    public void FixedUpdate()
-    {
-
-        if (_hasSaved)
-        {
-            return;
-        }
-
-        _timeSinceStart += Time.fixedDeltaTime;
-        if (_timeSinceStart > TempSaveTimeInSeconds)
-        {
-            saveAudioFile("AutoSave");
-            _hasSaved = true;
-        }
-    }
 
 
     public void saveAudioFile(string fileName)
