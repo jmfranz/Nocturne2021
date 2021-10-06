@@ -20,12 +20,18 @@ public class EndingController : MonoBehaviour
     {
         if (TellFok._remainingLines.Count == 0 || TellCatherine._remainingLines.Count == 0)
         {
-            TheEnd();
+            StartCoroutine(EndingTime());
         }
     }
 
     public void TheEnd()
     {
+        End.SetActive(true);
+    }
+
+    public IEnumerator EndingTime()
+    {
+        yield return new WaitForSeconds(6);
         End.SetActive(true);
     }
 }

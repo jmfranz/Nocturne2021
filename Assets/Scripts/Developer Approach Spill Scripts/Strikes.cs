@@ -96,7 +96,7 @@ public class Strikes : MonoBehaviour
     {
         endStrikeBar.enabled = true;
         strikeBar.enabled = false;
-        ending.TheEnd();
+        StartCoroutine(ending.EndingTime());
     }
 
     public void SetStrikes()
