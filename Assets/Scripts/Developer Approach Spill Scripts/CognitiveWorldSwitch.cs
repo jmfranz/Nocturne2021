@@ -48,6 +48,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public Strikes Strikes;
 
+    private Cognitive_Catherine_Reaction cognitive_Catherine_Reaction;
+
     List<GameObject> NormalAvatars;
 
     // Story Start Script
@@ -55,7 +57,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         inCognitive = false;
         getCaught = false;
         finishingText = false;
@@ -161,18 +163,20 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void LeaveCognitive()
     {
-        inCognitive = false;
-        ToggleWindows();
-        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
-        foreach (GameObject actor in NormalAvatars)
-        {
-            actor.SetActive(true);
-        }
-        CognitiveAvatars.SetActive(false);
-        CognitiveConvo.gameObject.SetActive(false);
-        Floor.GetComponent<MeshRenderer>().material.color = Color.white;
+            inCognitive = false;
+            ToggleWindows();
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
+            foreach (GameObject actor in NormalAvatars)
+            {
+                actor.SetActive(true);
+            }
+            CognitiveAvatars.SetActive(false);
+            CognitiveConvo.gameObject.SetActive(false);
+            TellFok.gameObject.SetActive(true);
+            TellNPC.gameObject.SetActive(true);
+            Floor.GetComponent<MeshRenderer>().material.color = Color.white;
 
-        StartCoroutine(nPC_Movements.AfterCognitive());
+            StartCoroutine(nPC_Movements.AfterCognitive());
     }
 
     public bool isClose(GameObject player, GameObject otherObject, float distance)
