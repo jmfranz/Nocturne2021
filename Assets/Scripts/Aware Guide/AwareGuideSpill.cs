@@ -9,10 +9,12 @@ public class AwareGuideSpill : ContextAwareGuide
     // private string _dogsRoomState;
     // private string _washroomState;
     private string _mainroomState;
+    private string _teaRoomState;
     // private string _astronomyRoomState;
 
     // const string WASHROOM = "WASHROOM";
     const string MAINROOM = "MAINROOM";
+    const string TEAROOM = "TEAROOM";
     // const string ASTRONOMYROOM = "ASTRONOMYROOM";
     // const string SECURITYROOM = "SECURITYROOM";
     // const string DOGROOM = "DOGROOM";
@@ -22,8 +24,9 @@ public class AwareGuideSpill : ContextAwareGuide
     {
         if (eventChange)
         {
-        //     if (EventName == "Game Start" && EventStatus) // Game not started
-        //     {
+            if (EventName == "Game Start" && EventStatus) // Game not started
+            {
+                _teaRoomState = "Spill/TEA_ROOM_0";
         //         _washroomState = "WASHROOM_0";
         //         _astronomyRoomState = "WRONG_ROOM_1";
         //         _dogsRoomState = "WRONG_ROOM_1";
@@ -43,7 +46,7 @@ public class AwareGuideSpill : ContextAwareGuide
         //         {
         //             UpdateAwareGuideContent(_astronomyRoomState);
         //         }
-        //     }
+            }
         //     else if (EventName == "Game Start" && !EventStatus) // Story has started
         //     {
         //         _washroomState = "WASHROOM_1";
@@ -195,7 +198,13 @@ public class AwareGuideSpill : ContextAwareGuide
         }
         else
         {
-            // // Update room to last updated room state
+            // Update room to last updated room state
+            if(Room == TEAROOM){
+                UpdateAwareGuideContent(_teaRoomState);
+            }
+
+
+            /* FROM STANDVILLE AWARE GUIDE, REMOVE WHEN DONE*/
             // if (Room == SECURITYROOM)
             // {
             //     UpdateAwareGuideContent(_securityroomState);

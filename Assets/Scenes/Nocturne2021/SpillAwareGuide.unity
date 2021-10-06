@@ -23035,7 +23035,7 @@ GameObject:
   - component: {fileID: 923204456}
   - component: {fileID: 923204455}
   m_Layer: 0
-  m_Name: MAINROOM
+  m_Name: TEAROOM
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
