@@ -16,6 +16,9 @@ public class MicrophoneAccess : MonoBehaviour
     private AudioClip mic;
 
     private const int RecordTimeInMinutes = 15;
+    private const int TempSaveTimeInSeconds = 20;
+    private float _timeSinceStart = 0;
+    private bool _hasSaved = false;
     public void Start()
     {
         var audioSource = GetComponent<AudioSource>();
@@ -35,24 +38,36 @@ public class MicrophoneAccess : MonoBehaviour
     }
 #endif
 
+    public void FixedUpdate()
+    {
+
+        if (_hasSaved)
+        {
+            return;
+        }
+
+        _timeSinceStart += Time.fixedDeltaTime;
+        if (_timeSinceStart > TempSaveTimeInSeconds)
+        {
+            saveAudioFile("AutoSave");
+            _hasSaved = true;
+        }
+    }
+
 
     public void saveAudioFile(string fileName)
     {
         
         var audioSource = GetComponent<AudioSource>();
-        float[] samples = new float[audioSource.clip.samples * audioSource.clip.channels];
-
-
-        SavWav sav = new SavWav();
+        audioSource.Stop();
         
-        string path = Application.persistentDataPath;
+        var sav = new SavWav();
+        
+        sav.Save(fileName, mic);
 
-#if WINDOWS_UWP
-        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-        path = storageFolder.Path.Replace('\\', '/') + "/";
-#endif
-        string filePath = Path.Combine(path, fileName);
+        var saveCube = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        saveCube.transform.position = Camera.main.transform.position;
+        saveCube.transform.Translate(0,0,1.5f);
 
-        sav.Save(filePath, mic);
     }
 }
