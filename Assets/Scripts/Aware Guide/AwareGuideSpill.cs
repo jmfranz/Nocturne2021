@@ -4,233 +4,140 @@ using UnityEngine;
 
 public class AwareGuideSpill : ContextAwareGuide
 {
-    // private string _securityroomState;
-    // private string _lastRoomState;
-    // private string _dogsRoomState;
-    // private string _washroomState;
-    private string _mainroomState;
+    // Define string variables for Spill AwareGuide
+    private string _mainRoomState;
     private string _teaRoomState;
-    // private string _astronomyRoomState;
+    private string _fokthipurRoomState;
 
-    // const string WASHROOM = "WASHROOM";
+       private string _dogsRoomState;
+    private string _securityroomState;
+    private string _astronomyRoomState;
+
+    // Define globals to make state comparison easier later in the script.
     const string MAINROOM = "MAINROOM";
     const string TEAROOM = "TEAROOM";
-    // const string ASTRONOMYROOM = "ASTRONOMYROOM";
-    // const string SECURITYROOM = "SECURITYROOM";
-    // const string DOGROOM = "DOGROOM";
-    // const string LASTROOM = "LASTROOM";
+    const string FOKTHIPURROOM = "FOKTHIPURROOM";
+
+    const string DOGSROOM = "DOGSROOM";
+    const string ASTRONOMYROOM = "ASTRONOMYROOM";
+    const string SECURITYROOM = "SECURITYROOM";
+
+    const string LOCKPICKTAKENROOM = null;
+    const string ACTIVEPARTICIPANTROOM = null;
 
     public override void UpdateGuideState(bool eventChange)
     {
         if (eventChange)
         {
+
+            //TODO: Determine what "EventStatus" means and does....
+
             if (EventName == "Game Start" && EventStatus) // Game not started
             {
+                // These may need to be updated to handle the "WRONG STATE" stuff...
                 _teaRoomState = "Spill/TEA_ROOM_0";
-        //         _washroomState = "WASHROOM_0";
-        //         _astronomyRoomState = "WRONG_ROOM_1";
-        //         _dogsRoomState = "WRONG_ROOM_1";
-        //         _lastRoomState = "WRONG_ROOM_1";
-        //         _securityroomState = "WRONG_ROOM_1";
-        //         _mainroomState = "MAIN_ROOM_1";
+                _fokthipurRoomState = "Spill/FOKTHIPUR_ROOM_0";
+                _mainRoomState = "Spill/MAIN_ROOM_0";
 
-        //         if (Room == WASHROOM)
-        //         {
-        //             UpdateAwareGuideContent(_washroomState);
-        //         }
-        //         else if (Room == MAINROOM)
-        //         {
-        //             UpdateAwareGuideContent(_mainroomState);
-        //         }
-        //         else
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
             }
-        //     else if (EventName == "Game Start" && !EventStatus) // Story has started
-        //     {
-        //         _washroomState = "WASHROOM_1";
-        //         _astronomyRoomState = "ASTRONOMY_ROOM_1";
-        //         _dogsRoomState = "DOGS_ROOM_1";
-        //         _lastRoomState = "LAST_ROOM_1";
-        //         _securityroomState = "SECURITY_ROOM_1";
-        //         _mainroomState = "MAIN_ROOM_2";
 
-        //         if (Room == WASHROOM)
-        //         {
-        //             UpdateAwareGuideContent(_washroomState);
-        //         }
-        //         else if (Room == MAINROOM)
-        //         {
-        //             UpdateAwareGuideContent(_mainroomState);
-        //         }
-        //         else if (Room == ASTRONOMYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
-        //         else if (Room == DOGROOM)
-        //         {
-        //             UpdateAwareGuideContent(_dogsRoomState);
-        //         }
-        //         else if (Room == LASTROOM)
-        //         {
-        //             UpdateAwareGuideContent(_lastRoomState);
-        //         }
-        //         else if (Room == SECURITYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_securityroomState);
-        //         }
-        //     }
-        //     else if (EventName == "Entered Security Room" && !EventStatus) // Active user Entered Security Room
-        //     {
-        //         _securityroomState = "SECURITYROOM_2";
+            /*
+                ALL OF THESE STATES SHOULD BE TRIGGERED WHEN THE ACTIVE PLAYER SENDS THE ASSOCIATED EVENT
 
-        //         if (Room == SECURITYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_securityroomState);
-        //         }
-        //     }
-        //     else if (EventName == "Start Chase" && EventStatus) // Chase has started
-        //     {
-        //         _dogsRoomState = "DOGS_ROOM_2";
-        //         _washroomState = "ALL_OTHER_SPACES_1";
-        //         _mainroomState = "ALL_OTHER_SPACES_1";
-        //         _astronomyRoomState = "ALL_OTHER_SPACES_1";
-        //         _securityroomState = "SECURITY_ROOM_3";
-
-        //         if (Room == SECURITYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_securityroomState);
-        //         }
-        //         else if (Room != LASTROOM)
-        //         {
-        //             UpdateAwareGuideContent(_lastRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Escaped Shadow" && !EventStatus) // Active user escaped shadow
-        //     {
-        //         _securityroomState = "SECURITYROOM_4";
-        //         _washroomState = "WASHROOM_1";
-        //         _mainroomState = "MAIN_ROOM_2";
-        //         _astronomyRoomState = "ASTRONOMY_ROOM_1";
-
-        //         if (Room == WASHROOM)
-        //         {
-        //             UpdateAwareGuideContent(_washroomState);
-        //         }
-        //         else if (Room == MAINROOM)
-        //         {
-        //             UpdateAwareGuideContent(_mainroomState);
-
-        //         }
-        //         else if (Room == SECURITYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_securityroomState);
-        //         }
-        //         else if (Room == ASTRONOMYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Player entered dog room" && !EventStatus) // Active user entered dog room
-        //     {
-        //         _dogsRoomState = "DOGS_ROOM_3";
-
-        //         if (Room == "DOGSROOM")
-        //         {
-        //             UpdateAwareGuideContent(_dogsRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Yes trust dog" && !EventStatus) // Yes trust dog
-        //     {
-        //         _lastRoomState = "LAST_ROOM_2";
-        //         if (Room == LASTROOM)
-        //         {
-        //             UpdateAwareGuideContent(_lastRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Ending John enters Main Room" && !EventStatus) // Entered main room for "Yes, trust dog" ending
-        //     {
-        //         _mainroomState = "MAIN_ROOM_3";
-
-        //         if (Room == MAINROOM)
-        //         {
-        //             UpdateAwareGuideContent(_mainroomState);
-        //         }
-        //     }
-        //     else if (EventName == "Ending John enters Main Room No" && !EventStatus) // Entered main room for "No, don't trust dog" ending
-        //     {
-        //         _mainroomState = "MAIN_ROOM_4";
-
-        //         if (Room == MAINROOM)
-        //         {
-        //             UpdateAwareGuideContent(_mainroomState);
-        //         }
-        //     }
-        //     else if (EventName == "Entered Astronomy Room" && !EventStatus) // Active user entered astronomy room
-        //     {
-        //         _astronomyRoomState = "ASTRONOMY_ROOM_2";
-
-        //         if (Room == ASTRONOMYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Finished Reading Mural" && !EventStatus) // Mural has been read
-        //     {
-        //         _astronomyRoomState = "ASTRONOMY_ROOM_3";
-
-        //         if (Room == ASTRONOMYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
-        //     }
-        //     else if (EventName == "Shadow Disappears" && !EventStatus) // Shadow disappears for "No, don't trust dog" ending
-        //     {
-        //         _astronomyRoomState = "ASTRONOMY_ROOM_4";
-
-        //         if (Room == ASTRONOMYROOM)
-        //         {
-        //             UpdateAwareGuideContent(_astronomyRoomState);
-        //         }
-        //     }
-        return;
+                TODO: THIS STILL NEEDS TO BE TESTED!
+            */
+ 
+            else if(EventName == "Strike1" && EventStatus){ // Player has been given Strike 1
+                string _strike1State = "Spill/RECEIVED_STRIKE_1";
+                UpdateAwareGuideContent(_strike1State);
+            }
+            else if(EventName == "Strike2" && EventStatus){ // Player has been given Strike 2
+                string _strike2State = "Spill/RECEIVED_STRIKE_2";
+                UpdateAwareGuideContent(_strike2State);
+            }
+            else if(EventName == "Strike3" && !EventStatus){ // Player has been given Strike 3 
+                string _strike3State = "Spill/RECEIVED_STRIKE_3";
+                UpdateAwareGuideContent(_strike3State);
+            }
+            else if(EventName == "IntoCognitive" && !EventStatus){ // Player entered cognitive realm
+                string _awareGuideContent = "Spill/ENTERED_COGNITIVE";
+                UpdateAwareGuideContent(_awareGuideContent);
+            }
+            else if(EventName == "LearnedSecret" && !EventStatus){ // Player entered cognitive realm
+                string _awareGuideContent = "Spill/LEARNED_SECRET";
+                UpdateAwareGuideContent(_awareGuideContent);
+            }
+            else if(EventName == "TellFok" && !EventStatus){ // Fok is told
+                string _awareGuideContent = "Spill/TELL_FOK";
+                UpdateAwareGuideContent(_awareGuideContent);
+            }
+            else if(EventName == "TellCath" && !EventStatus){ // Cath is told
+                string _awareGuideContent = "Spill/TELL_CATH";
+                UpdateAwareGuideContent(_awareGuideContent);
+            }
         }
-        else
+        else // This is triggered (seemingly...) ONLY when a room change occurs.
         {
+
+            if (EventName == "Game Start" && !EventStatus) // Story has started -- Use the ALL_OTHER_SPACES audio
+            {
+                _astronomyRoomState = "Spill/ALL_OTHER_SPACES_0";
+                _dogsRoomState = "Spill/ALL_OTHER_SPACES_0";
+                _securityroomState = "Spill/ALL_OTHER_SPACES_0";
+
+                // TODO: Rename these rooms based on spill landmarks, not standville -- HOW? We shall discuss.
+                if (Room == ASTRONOMYROOM)
+                {
+                    UpdateAwareGuideContent(_astronomyRoomState);
+                }
+                if (Room == DOGSROOM)
+                {
+                    UpdateAwareGuideContent(_dogsRoomState);
+                }
+                if (Room == SECURITYROOM)
+                {
+                    UpdateAwareGuideContent(_securityroomState);
+                }
+            }
+            else if(EventName == "TookLockPick" && !EventStatus){
+                if(Room == LOCKPICKTAKENROOM){ // Ensure that passive player is in the room where the LOCK PICK was taken from.
+                    string _awareGuideContent = "Spill/TEA_ROOM_1";
+                    UpdateAwareGuideContent(_awareGuideContent);
+                }
+            }
+            else if(EventName == "LeaveSame" && !EventStatus){
+                if(Room == ACTIVEPARTICIPANTROOM){ // Ensure that PASSIVE player is in the same room as the ACTIVE player.
+                    string _awareGuideContent = "Spill/LEAVE_0";
+                    UpdateAwareGuideContent(_awareGuideContent);
+                }
+            }
+
             // Update room to last updated room state
+            if(Room == MAINROOM){
+                UpdateAwareGuideContent(_mainRoomState);
+            }
             if(Room == TEAROOM){
                 UpdateAwareGuideContent(_teaRoomState);
             }
+            if (Room == FOKTHIPURROOM)
+            {
+                UpdateAwareGuideContent(_fokthipurRoomState);
+            }
 
+            // THESE HAVE NOT BEEN RENAMED YET... TODO: UPDATE
+            if (Room == ASTRONOMYROOM)
+            {
+                UpdateAwareGuideContent(_astronomyRoomState);
+            }
+            if (Room == DOGSROOM)
+            {
+                UpdateAwareGuideContent(_dogsRoomState);
+            }
+            if (Room == SECURITYROOM)
+            {
+                UpdateAwareGuideContent(_securityroomState);
+            }
 
-            /* FROM STANDVILLE AWARE GUIDE, REMOVE WHEN DONE*/
-            // if (Room == SECURITYROOM)
-            // {
-            //     UpdateAwareGuideContent(_securityroomState);
-            // }
-            // else if (Room == LASTROOM)
-            // {
-            //     UpdateAwareGuideContent(_lastRoomState);
-
-            // }
-            // else if (Room == MAINROOM)
-            // {
-            //     UpdateAwareGuideContent(_mainroomState);
-            // }
-            // else if (Room == WASHROOM)
-            // {
-            //     UpdateAwareGuideContent(_washroomState);
-            // }
-            // else if (Room == ASTRONOMYROOM)
-            // {
-            //     UpdateAwareGuideContent(_astronomyRoomState);
-            // }
-            // else if (Room == "DOGSROOM")
-            // {
-            //     UpdateAwareGuideContent(_dogsRoomState);
-            // }
-            return;
         }   
     }
 }

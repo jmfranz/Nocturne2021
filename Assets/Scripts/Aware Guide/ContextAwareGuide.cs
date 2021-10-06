@@ -9,7 +9,6 @@ public abstract class ContextAwareGuide: MonoBehaviour
     public bool EventStatus = true;
     public bool isSpill = true;
 
-
     void Awake()
     {
         AudioSource = GetComponent<AudioSource>();
@@ -40,6 +39,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
     public void OnRoomChange(string roomname)
     {
         Room = roomname;
+        //todo: Remove the Debug when necessary
         Debug.Log("Room Update: " + Room);
 
         UpdateGuideState(false);

@@ -74,7 +74,7 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Stop
-    keyCode: 115
+    keyCode: 102
     action:
       id: 0
       description: Toggle Profiler
