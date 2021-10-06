@@ -40389,7 +40389,7 @@ MonoBehaviour:
     - distance
     - isFacing
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d4eb36116ae252a429c2f7b3cd753990, type: 3}
+  - voiceLine: {fileID: 8300000, guid: f3d18779814a8dd4b9b3325be892ed25, type: 3}
     voiceOrigin: {fileID: 1867072235}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
