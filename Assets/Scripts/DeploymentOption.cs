@@ -29,7 +29,7 @@ public class DeploymentOption : MonoBehaviour
     private void Awake()
     {
         //VRPlayer = GameObject.Find("VRPlayerController(Clone)").transform;
-        ARPlayer = GameObject.Find("MixedRealityPlayspace (1)").transform.GetChild(0); // Main camera is the part that moves
+        ARPlayer = GameObject.FindGameObjectWithTag("MainCamera").transform; // Main camera is the part that moves
     }
 
     //private void Start()
