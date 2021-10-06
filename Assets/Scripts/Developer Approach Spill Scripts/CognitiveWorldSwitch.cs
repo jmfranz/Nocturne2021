@@ -134,11 +134,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
             GetCaught();
         }
 
-        if (inCognitive && !CognitiveConvo._hasCompletedConversation)
-        {
-            nPC_Movements.AvatarToConversation(CognitiveCatherine.GetComponent<AvatarController>(), CognitiveConvoNode);
-        }
-
         if (CognitiveConvo.isActiveAndEnabled)
         {
             keywordInstruction.gameObject.SetActive(true);

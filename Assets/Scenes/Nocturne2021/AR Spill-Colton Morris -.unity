@@ -55590,7 +55590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805984111}
   m_LocalRotation: {x: -0, y: 0.6964823, z: -0, w: 0.717574}
-  m_LocalPosition: {x: -78.700005, y: 0, z: 63.9}
+  m_LocalPosition: {x: -29.9, y: 0, z: 63.9}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 849244033}
@@ -55739,7 +55739,7 @@ MonoBehaviour:
     - default
   ConversationLines:
   - voiceLine: {fileID: 8300000, guid: f49e840d219c36641ba202a1b7fd467d, type: 3}
-    voiceOrigin: {fileID: 0}
+    voiceOrigin: {fileID: 1805984115}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -55747,8 +55747,8 @@ MonoBehaviour:
   _hasCompletedConversation: 0
   _isPlaying: 0
   _remainingLines:
-  - voiceLine: {fileID: 8300000, guid: 3c89dc476e90a534d8d83f52b635328b, type: 3}
-    voiceOrigin: {fileID: 0}
+  - voiceLine: {fileID: 8300000, guid: f49e840d219c36641ba202a1b7fd467d, type: 3}
+    voiceOrigin: {fileID: 1805984115}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -55872,9 +55872,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6740fa6534a38498d1e246453896de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialAvatars: []
+  InitialAvatars:
+  - {fileID: 851925491}
   Prop: {fileID: 0}
-  PlacementType: 1
+  PlacementType: 0
   Radius: 0.25
   PropPosition: 0
 --- !u!1 &1810144759
