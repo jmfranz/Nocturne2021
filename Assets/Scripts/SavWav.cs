@@ -39,9 +39,6 @@ using System.Threading.Tasks;
 using Windows.Storage;
 #endif
 
-public class SavWav
-{
-
 public class SavWav
 {
 
