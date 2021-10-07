@@ -97,8 +97,13 @@ public class AvatarController : MonoBehaviour
         Vector3 destination = node.AddAvatar(this.gameObject);
         ActiveNode = node;
 
-        _agent.SetDestination(destination);
-        _movementState = MovementStates.IsMoving;
+        //SetDestination can only be called on an active agent that has been placed on a NavMesh.
+        //Verification if _agent is enabled
+        if (_agent.isActiveAndEnabled)
+        {
+            _agent.SetDestination(destination);
+            _movementState = MovementStates.IsMoving;
+        }
     }
 
 
