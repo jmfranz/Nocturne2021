@@ -44,6 +44,8 @@ public class AwareGuideSpill : ContextAwareGuide
             /*
                 ALL OF THESE STATES SHOULD BE TRIGGERED WHEN THE ACTIVE PLAYER SENDS THE ASSOCIATED EVENT
 
+                This needs to be added to include a section that updates the state for each room.
+
                 TODO: THIS STILL NEEDS TO BE TESTED!
             */
  
