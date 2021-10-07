@@ -26,7 +26,7 @@ public class MicrophoneAccess : MonoBehaviour
         var audioSource = GetComponent<AudioSource>();
         mic = Microphone.Start(Microphone.devices[0], true, 60*RecordTimeInMinutes, 44100);
         audioSource.clip = mic;
-        audioSource.loop = true;
+        audioSource.loop = false;
         audioSource.Play();
     }
 
