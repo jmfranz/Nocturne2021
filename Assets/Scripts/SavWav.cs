@@ -38,12 +38,15 @@ using System.Threading.Tasks;
 #if WINDOWS_UWP
 using Windows.Storage;
 #endif
+
+public class SavWav
+{
 
 public class SavWav
 {
 
 	const int HEADER_SIZE = 44;
-	struct ClipData
+	struct ClipData
 	{
 
 		public int samples;
@@ -52,9 +55,9 @@ public class SavWav
 
 	}
 
-	public bool Save(string filename, AudioClip clip)
+	public bool Save(string filename, AudioClip clip)
 	{
-		if (!filename.ToLower().EndsWith(".wav"))
+		if (!filename.ToLower().EndsWith(".wav"))
 		{
 			filename += ".wav";
 		}
@@ -66,7 +69,7 @@ public class SavWav
 		float[] dataFloat = new float[clip.samples * clip.channels];
 		clip.GetData(dataFloat, 0);
 		clipdata.samplesData = dataFloat;
-		using (var fileStream = CreateEmpty(filename))
+		using (var fileStream = CreateEmpty(filename))
 		{
 			MemoryStream memstrm = new MemoryStream();
 			ConvertAndWrite(memstrm, clipdata);
@@ -74,10 +77,10 @@ public class SavWav
 			WriteHeader(fileStream, clip);
 		}
 
-		return true; // TODO: return false if there's a failure saving the file
+		return true; // TODO: return false if there's a failure saving the file
 	}
 
-	public AudioClip TrimSilence(AudioClip clip, float min)
+	public AudioClip TrimSilence(AudioClip clip, float min)
 	{
 		var samples = new float[clip.samples];
 
@@ -86,18 +89,18 @@ public class SavWav
 		return TrimSilence(new List<float>(samples), min, clip.channels, clip.frequency);
 	}
 
-	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz)
+	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz)
 	{
 		return TrimSilence(samples, min, channels, hz, false, false);
 	}
 
-	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream)
+	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream)
 	{
 		int i;
 
-		for (i = 0; i < samples.Count; i++)
+		for (i = 0; i < samples.Count; i++)
 		{
-			if (Mathf.Abs(samples[i]) > min)
+			if (Mathf.Abs(samples[i]) > min)
 			{
 				break;
 			}
@@ -105,9 +108,9 @@ public class SavWav
 
 		samples.RemoveRange(0, i);
 
-		for (i = samples.Count - 1; i > 0; i--)
+		for (i = samples.Count - 1; i > 0; i--)
 		{
-			if (Mathf.Abs(samples[i]) > min)
+			if (Mathf.Abs(samples[i]) > min)
 			{
 				break;
 			}
@@ -120,24 +123,24 @@ public class SavWav
 		clip.SetData(samples.ToArray(), 0);
 
 		return clip;
-	}
-
-
-	/// <summary>
-	/// Modified to support UWP. We are using the defualt app path
-	/// </summary>
-	/// <param name="filename"></param>
-	/// <returns></returns>
-	FileStream CreateEmpty(string filename)
+	}
+
+
+	/// <summary>
+	/// Modified to support UWP. We are using the defualt app path
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <returns></returns>
+	FileStream CreateEmpty(string filename)
 	{
 
-        var path = Application.persistentDataPath;
+        var path = Application.persistentDataPath;
 #if WINDOWS_UWP
         StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
         path = storageFolder.Path.Replace('\\', '/') + "/";
 #endif
-        var filePath = Path.Combine(path, filename);
-
+        var filePath = Path.Combine(path, filename);
+
 //#if WINDOWS_UWP
 //		StorageFile SF;
 //
@@ -149,17 +152,17 @@ public class SavWav
 //        };
 //        openFileTask.Start();
 //        openFileTask.Wait();
-//#else
-
-		var fileStream = new FileStream(filePath, FileMode.Create);
+//#else
+
+		var fileStream = new FileStream(filePath, FileMode.Create);
 //#endif
-        Debug.Log(filePath);
-
-		byte emptyByte = new byte();
-
-		for (int i = 0; i < HEADER_SIZE; i++) //preparing the header
-		{
-			fileStream.WriteByte(emptyByte);
+        Debug.Log(filePath);
+
+		byte emptyByte = new byte();
+
+		for (int i = 0; i < HEADER_SIZE; i++) //preparing the header
+		{
+			fileStream.WriteByte(emptyByte);
 		}
 
 		return fileStream;
@@ -175,18 +178,18 @@ public class SavWav
 
 		Byte[] bytesData = new Byte[samples.Length * 2];
 
-		const float rescaleFactor = 32767; //to convert float to Int16
-
+		const float rescaleFactor = 32767; //to convert float to Int16
+
 		for (int i = 0; i < samples.Length; i++)
 		{
-			intData[i] = (short)(samples[i] * rescaleFactor);
-			//Debug.Log (samples [i]);
+			intData[i] = (short)(samples[i] * rescaleFactor);
+			//Debug.Log (samples [i]);
 		}
 		Buffer.BlockCopy(intData, 0, bytesData, 0, bytesData.Length);
 		memStream.Write(bytesData, 0, bytesData.Length);
-	}
-
-	void WriteHeader(FileStream fileStream, AudioClip clip)
+	}
+
+	void WriteHeader(FileStream fileStream, AudioClip clip)
 	{
 
 		var hz = clip.frequency;
@@ -222,7 +225,7 @@ public class SavWav
 		Byte[] sampleRate = BitConverter.GetBytes(hz);
 		fileStream.Write(sampleRate, 0, 4);
 
-		Byte[] byteRate = BitConverter.GetBytes(hz * channels * 2); // sampleRate * bytesPerSample*number of channels, here 44100*2*2
+		Byte[] byteRate = BitConverter.GetBytes(hz * channels * 2); // sampleRate * bytesPerSample*number of channels, here 44100*2*2
 		fileStream.Write(byteRate, 0, 4);
 
 		UInt16 blockAlign = (ushort)(channels * 2);
@@ -236,8 +239,8 @@ public class SavWav
 		fileStream.Write(datastring, 0, 4);
 
 		Byte[] subChunk2 = BitConverter.GetBytes(samples * channels * 2);
-		fileStream.Write(subChunk2, 0, 4);
-
-		//		fileStream.Close();
+		fileStream.Write(subChunk2, 0, 4);
+
+		//		fileStream.Close();
 	}
 }
