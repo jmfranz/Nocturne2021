@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+
 #if WINDOWS_UWP
 using Windows.Storage;
+using Windows.ApplicationModel.Core;
 #endif
 
 
@@ -15,8 +18,7 @@ public class MicrophoneAccess : MonoBehaviour
 {
     private AudioClip mic;
 
-    private const int RecordTimeInMinutes = 15;
-    private const int TempSaveTimeInSeconds = 20;
+    public int RecordTimeInMinutes = 15;
     private float _timeSinceStart = 0;
 
     public void Start()
@@ -37,6 +39,24 @@ public class MicrophoneAccess : MonoBehaviour
         }
     }
 #endif
+
+
+
+    /// <summary>
+    /// Save the recording when the app pauses/closes
+    /// Note that this only works on the Hololens
+    ///
+    /// We should switch to the OpenXR XR_SESSION_STATE_STOPPING in the future and not rely on Unity's MonoBehaviour
+    /// </summary>
+    /// <param name="paused">true if paused</param>
+    public void OnApplicationPause(bool paused)
+    {
+        if (!paused) return;
+
+        var id = Logger.GetUserID() ?? DateTime.UtcNow.ToString();
+        saveAudioFile($"Recording-{id}");
+    }
+
 
 
     public void saveAudioFile(string fileName)
