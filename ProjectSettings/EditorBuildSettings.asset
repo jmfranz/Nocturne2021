@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StandvilleSS.unity
     guid: 2ae0dccbc8b365340af0f7faba602745
   - enabled: 1
+    path: Assets/Scenes/StandvilleAuthor.unity
+    guid: 45b17649e32ba5344b64b62bf1961d28
+  - enabled: 1
     path: Assets/Scenes/StandvilleSSAwareGuide.unity
     guid: 794df974ef0987e458b11f873495cb99
+  - enabled: 1
+    path: Assets/Scenes/StandvilleAuthorAwareGuide.unity
+    guid: 47bb4b22bbeb57b4eb63fcc5288c42d3
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b10e1441decdd7741a43435fe62f47bb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}
