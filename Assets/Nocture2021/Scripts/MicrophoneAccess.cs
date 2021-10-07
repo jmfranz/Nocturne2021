@@ -54,7 +54,7 @@ public class MicrophoneAccess : MonoBehaviour
         if (!paused) return;
 
         var id = Logger.GetUserID() ?? DateTime.UtcNow.ToString();
-        saveAudioFile($"Recording-{id}");
+        saveAudioFile($"{id}-recording");
     }
 
 
