@@ -26,6 +26,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     {
         //Ensures the scenes are loaded automatically over the network when the master switches scenes
         PhotonNetwork.AutomaticallySyncScene = true;
+        Debug.Log("STARTING PHOTON");
     }
 
     private void Start()

@@ -41,7 +41,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
     {
         Room = roomname;
         //todo: Remove the Debug when necessary
-        Debug.Log("Room Update: " + Room);
+        // Debug.Log("Room Update: " + Room);
 
         UpdateGuideState(false);
     }
@@ -58,7 +58,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
         AwareGuide.ChangeImage(name);
 
         AudioSource.clip = Resources.Load<AudioClip>("Conversations/All Audio/AwareGuideConversations/" + name);
-        Debug.Log("UPDATE AUDIO CLIP: " + name);
+        // Debug.Log("UPDATE AUDIO CLIP: " + name);
         AudioSource.Play();
     }
 

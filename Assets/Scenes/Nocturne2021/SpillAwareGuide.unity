@@ -54007,7 +54007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AwareGuide: {fileID: 0}
+  AwareGuide: {fileID: 1990397190}
 --- !u!4 &1969330068
 Transform:
   m_ObjectHideFlags: 0

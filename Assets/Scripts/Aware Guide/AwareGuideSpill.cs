@@ -29,7 +29,7 @@ public class AwareGuideSpill : ContextAwareGuide
     {
         if (eventChange)
         {
-            if (EventName == "Game Start" && EventStatus) // Game not started
+            if (EventName == "Game Start" && EventStatus) // Game not started /* TESTED & Works*/
             {
                 // This may need to be updated to handle the "WRONG STATE", but there is no such content in the AwareGuide script? Temp using the ALL OTHER SPACES content.
                 //TODO: Address or remove comments
@@ -42,8 +42,9 @@ public class AwareGuideSpill : ContextAwareGuide
                 _mainRoomState = "Spill/MAIN_ROOM_0";
 
             }
-
-            else if (EventName == "Game Start" && !EventStatus) // Story has started
+            
+            /* TESTED & Works*/
+            else if (EventName == "StartGame" && !EventStatus) // Story has started
             {
                 _windowEmptyRoomState = "Spill/ALL_OTHER_SPACES_0";
                 _emptyRoomState = "Spill/ALL_OTHER_SPACES_0";
@@ -80,7 +81,6 @@ public class AwareGuideSpill : ContextAwareGuide
                 ALL OF THESE STATES SHOULD BE TRIGGERED WHEN THE ACTIVE PLAYER SENDS THE ASSOCIATED EVENT
                 TODO: THIS STILL NEEDS TO BE TESTED!
             */
-
 
             /* Handle the three different strikes logic, none of these are room specific according to the script */
             else if(EventName == "Strike1" && EventStatus){ // Player has been given Strike 1
@@ -171,8 +171,6 @@ public class AwareGuideSpill : ContextAwareGuide
             {
                 UpdateAwareGuideContent(_fokthipurRoomState);
             }
-
-            // THESE HAVE NOT BEEN RENAMED YET... TODO: UPDATE
             if (Room == CIRCLESROOM)
             {
                 UpdateAwareGuideContent(_circlesRoomState);
