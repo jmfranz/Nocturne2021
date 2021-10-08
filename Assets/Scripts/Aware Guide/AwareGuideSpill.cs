@@ -8,8 +8,10 @@ public class AwareGuideSpill : ContextAwareGuide
     private string _mainRoomState;
     private string _teaRoomState;
     private string _fokthipurRoomState;
+    private string _fokdoorwayState;
 
-       private string _dogsRoomState;
+    // TODO: These need to be renamed
+    private string _dogsRoomState;
     private string _securityroomState;
     private string _astronomyRoomState;
 
@@ -17,7 +19,9 @@ public class AwareGuideSpill : ContextAwareGuide
     const string MAINROOM = "MAINROOM";
     const string TEAROOM = "TEAROOM";
     const string FOKTHIPURROOM = "FOKTHIPURROOM";
+    const string FOKDOORWAY = "FOKDOORWAY";
 
+    // TODO: These need to be renamed as well.
     const string DOGSROOM = "DOGSROOM";
     const string ASTRONOMYROOM = "ASTRONOMYROOM";
     const string SECURITYROOM = "SECURITYROOM";
@@ -81,11 +85,12 @@ public class AwareGuideSpill : ContextAwareGuide
         else // This is triggered (seemingly...) ONLY when a room change occurs.
         {
 
-            if (EventName == "Game Start" && !EventStatus) // Story has started -- Use the ALL_OTHER_SPACES audio
+            if (EventName == "StoryStart" && !EventStatus) // Story has started -- Use the ALL_OTHER_SPACES audio
             {
                 _astronomyRoomState = "Spill/ALL_OTHER_SPACES_0";
                 _dogsRoomState = "Spill/ALL_OTHER_SPACES_0";
                 _securityroomState = "Spill/ALL_OTHER_SPACES_0";
+                _fokdoorwayState = "Spill/FOKTHIPUR_DOORWAY_0";
 
                 // TODO: Rename these rooms based on spill landmarks, not standville -- HOW? We shall discuss.
                 if (Room == ASTRONOMYROOM)
@@ -100,13 +105,24 @@ public class AwareGuideSpill : ContextAwareGuide
                 {
                     UpdateAwareGuideContent(_securityroomState);
                 }
+                if (Room == FOKDOORWAY){
+                    UpdateAwareGuideContent(_fokdoorwayState);
+                }
             }
             else if(EventName == "TookLockPick" && !EventStatus){
                 if(Room == LOCKPICKTAKENROOM){ // Ensure that passive player is in the room where the LOCK PICK was taken from.
-                    string _awareGuideContent = "Spill/TEA_ROOM_1";
+                    string _awareGuideContent = "Spill/TEA_ROOM_1"; // TODO: Update to use room based state and interrupt.. ANYWHERE?
                     UpdateAwareGuideContent(_awareGuideContent);
                 }
             }
+            else if(EventName == "DoorUnlocked" && !EventStatus){
+                if(Room == FOKDOORWAY){
+                    _fokdoorwayState = "Spill/FOKTHIPUR_DOORWAY_1"; // TODO: Update to use room based state and interrupt..
+                    UpdateAwareGuideContent(_fokdoorwayState);
+                }
+            }
+
+
             else if(EventName == "LeaveSame" && !EventStatus){
                 if(Room == ACTIVEPARTICIPANTROOM){ // Ensure that PASSIVE player is in the same room as the ACTIVE player.
                     string _awareGuideContent = "Spill/LEAVE_0";
