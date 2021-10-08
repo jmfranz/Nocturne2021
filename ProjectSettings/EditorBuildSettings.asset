@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StandvilleAuthor.unity
     guid: 45b17649e32ba5344b64b62bf1961d28
   - enabled: 1
-    path: Assets/Scenes/StandvilleSSAwareGuide.unity
-    guid: 794df974ef0987e458b11f873495cb99
+    path: Assets/Scenes/StandvilleSSAwareGuideNew.unity
+    guid: 2e5087e67c81e7c43828260ab9b3eef9
   - enabled: 1
     path: Assets/Scenes/StandvilleAuthorAwareGuideNew.unity
     guid: 5304b713004f9ad499d95070d8e0fcec
