@@ -12,7 +12,7 @@ public class Logger : MonoBehaviour
     public int MaxAudioTime = 3;
 
     private static Dictionary<string, string> _headers;
-    private static string _userId;
+    private static string _userId = "0";
     private float _elapsedTime = 0;
     private bool _logFileSetUp = false;
     private AudioClip _audioClip;
