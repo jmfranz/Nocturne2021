@@ -9697,7 +9697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878d51816a6a1a847bc8909a54a1355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AwareGuide: {fileID: 0}
+  AwareGuide: {fileID: 769694151}
 --- !u!1 &493670713
 GameObject:
   m_ObjectHideFlags: 0
@@ -30290,7 +30290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 673047343869339926, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 758921296441952264, guid: eee6a024b4a153e48b88665b46a6c40a, type: 3}
       propertyPath: hostTransform
