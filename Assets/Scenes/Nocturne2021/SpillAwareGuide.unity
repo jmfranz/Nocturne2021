@@ -15650,7 +15650,7 @@ GameObject:
   - component: {fileID: 599180220}
   - component: {fileID: 599180219}
   m_Layer: 0
-  m_Name: ASTRONOMYROOM
+  m_Name: CIRCLESROOM
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33011,7 +33011,7 @@ GameObject:
   - component: {fileID: 1268367236}
   - component: {fileID: 1268367235}
   m_Layer: 0
-  m_Name: DOGSROOM
+  m_Name: EMPTYROOM
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51351,7 +51351,7 @@ GameObject:
   - component: {fileID: 1874867753}
   - component: {fileID: 1874867752}
   m_Layer: 0
-  m_Name: SECURITYROOM
+  m_Name: WINDOWEMPTYROOM
   m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

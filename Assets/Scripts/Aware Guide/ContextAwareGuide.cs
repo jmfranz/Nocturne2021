@@ -18,6 +18,7 @@ public abstract class ContextAwareGuide: MonoBehaviour
 
         UpdateGuideState(true);
 
+        // This is to allow the switching between Awareguides. If it needs to be changed, that's fine.
         if(isSpill){
             UpdateAwareGuideContent("Spill/MAIN_ROOM_0");
         }else{
