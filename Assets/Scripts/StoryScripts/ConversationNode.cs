@@ -77,6 +77,8 @@ public class ConversationNode : MonoBehaviour
     //Return: Position of where avatar should stand
     public Vector3 AddAvatar(GameObject newAvatar)
     {
+        LookAtPoint = this.transform.position;
+
         Radius = CalculateProxemicRadius(_boundaryObjects.Count, PlacementType);
 
         //Reposition other avatars in circle to make room for 1 more

@@ -4,7 +4,10 @@ using UnityEngine;
 using System;
 
 public class NPC_Movements : StoryEventComponent
-{   
+{
+    Coroutine ConversationCoroutine;
+    
+    
     bool loopFinished;
     bool canStartStory;
 
@@ -60,7 +63,7 @@ public class NPC_Movements : StoryEventComponent
     {
         if (storyStart.Complete && loopFinished)
         {
-            StartCoroutine(ConversationLoop());
+            ConversationCoroutine = StartCoroutine(ConversationLoop());
         }
     }
 
@@ -116,9 +119,9 @@ public class NPC_Movements : StoryEventComponent
     {
         AvatarToConversation(Catherine, C_Ferghus);
 
-        StartCoroutine(FixedTimeCoroutineWaitingThing(5));
+        yield return new WaitForSeconds(5);
         AvatarToConversation(Ferghus, C_Ferghus);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(45));
+        yield return new WaitForSeconds(45);
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -222,8 +225,8 @@ public class NPC_Movements : StoryEventComponent
         loopFinished = false;
         yield return new WaitForSeconds(5);
         //StartCoroutine(FixedTimeCoroutineWaitingThing(2));
-        AvatarToConversation(Fokthipur, NPC1);
-        AvatarToConversation(Bultilda, NPC1);
+        AvatarToConversation(Fokthipur, NPC2);
+        AvatarToConversation(Bultilda, NPC2);
         AvatarToConversation(Ferghus, NPC2);
         AvatarToConversation(Catherine, NPC3);
         AvatarToConversation(Lapin, NPC3);
@@ -231,13 +234,12 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(NPC3_Avatar, NPC3);
 
         //Everyone is now at initial conversations
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         //StartCoroutine(FixedTimeCoroutineWaitingThing(10));
 
         //Catherine & Ferghus
         StartCoroutine(CF());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Ferghus.transform.position, 2));
-        AvatarToConversation(Fokthipur, NPC1);
         //StartCoroutine(FixedTimeCoroutineWaitingThing(45));
         yield return new WaitForSeconds(45);
         AvatarToConversation(Catherine, NPC2);
@@ -305,6 +307,7 @@ public class NPC_Movements : StoryEventComponent
 
     public IEnumerator AfterCognitive()
     {
+        loopFinished = false;
         yield return new WaitForSeconds(2);
         //StartCoroutine(FixedTimeCoroutineWaitingThing(2));
         AvatarToConversation(Fokthipur, TellFokEnding);
@@ -320,14 +323,6 @@ public class NPC_Movements : StoryEventComponent
 
     public void StopNPCMovements()
     {
-        StopCoroutine(BL());
-        StopCoroutine(CF());
-        StopCoroutine(CB());
-        StopCoroutine(CK());
-        StopCoroutine(LF());
-        StopCoroutine(LC());
-        StopCoroutine(LK());
-        StopCoroutine(FB());
-        StopCoroutine(ConversationLoop());
+        StopCoroutine(ConversationCoroutine);
     }
 }
