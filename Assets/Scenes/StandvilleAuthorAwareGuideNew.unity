@@ -9204,7 +9204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &492205449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21808,7 +21808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &1204441454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24210,7 +24210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &1303965917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26022,7 +26022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &1387840200
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27510,7 +27510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &1498372403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34369,7 +34369,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868315610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36856,7 +36856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03d268e31cbb0846b43465b506a6ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guide: {fileID: 0}
+  guide: {fileID: 636007017}
 --- !u!54 &2023515220
 Rigidbody:
   m_ObjectHideFlags: 0
