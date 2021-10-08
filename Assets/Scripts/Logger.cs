@@ -27,7 +27,7 @@ public class Logger : MonoBehaviour
 
     public static string GetUserID()
     {
-        return UserID;
+        return UserID ?? "noID";
     }
 
     public static void AddHeaderRequest(string filename, params string[] columnNames)
