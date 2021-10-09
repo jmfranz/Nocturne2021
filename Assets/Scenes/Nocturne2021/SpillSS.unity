@@ -2388,7 +2388,7 @@ MonoBehaviour:
   - {fileID: 73908949}
   - {fileID: 73908947}
   - {fileID: 73908948}
-  sceneViewId: 10
+  sceneViewId: 26
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &73908952
@@ -10682,8 +10682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303088411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.42, y: -16.500004, z: 7.089985}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 5.829828, y: -11.880255, z: -5.1740413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1605402425}
   - {fileID: 1685311951}
@@ -10692,8 +10692,8 @@ Transform:
   - {fileID: 770187258}
   - {fileID: 1308458973}
   - {fileID: 1602358602}
-  m_Father: {fileID: 799109378}
-  m_RootOrder: 3
+  m_Father: {fileID: 1595460788}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303380810
 GameObject:
@@ -20101,7 +20101,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 566338928}
-  sceneViewId: 11
+  sceneViewId: 27
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &566338930
@@ -22768,7 +22768,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 651287033}
   - {fileID: 651287032}
-  sceneViewId: 4
+  sceneViewId: 20
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &651287035
@@ -23574,7 +23574,7 @@ MonoBehaviour:
   - {fileID: 684651437}
   - {fileID: 684651436}
   - {fileID: 684651435}
-  sceneViewId: 7
+  sceneViewId: 23
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &684651440
@@ -26501,7 +26501,7 @@ MonoBehaviour:
   - {fileID: 786068135}
   - {fileID: 786068134}
   - {fileID: 786068133}
-  sceneViewId: 13
+  sceneViewId: 30
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &786068137
@@ -27063,7 +27063,6 @@ Transform:
   - {fileID: 1874522101}
   - {fileID: 955477955}
   - {fileID: 1577141170}
-  - {fileID: 303088412}
   m_Father: {fileID: 155101434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27312,7 +27311,7 @@ MonoBehaviour:
   - {fileID: 803513454}
   - {fileID: 803513453}
   - {fileID: 803513452}
-  sceneViewId: 14
+  sceneViewId: 31
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &803513456
@@ -31901,7 +31900,7 @@ MonoBehaviour:
   - {fileID: 921844974}
   - {fileID: 921844973}
   - {fileID: 921844972}
-  sceneViewId: 16
+  sceneViewId: 33
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &921844977
@@ -33072,7 +33071,7 @@ MonoBehaviour:
   - {fileID: 936790349}
   - {fileID: 936790348}
   - {fileID: 936790347}
-  sceneViewId: 12
+  sceneViewId: 28
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &936790351
@@ -41402,7 +41401,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1146567761}
-  sceneViewId: 8
+  sceneViewId: 24
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!4 &1146567763
@@ -51372,7 +51371,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1404473371}
   - {fileID: 1404473370}
-  sceneViewId: 2
+  sceneViewId: 18
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!195 &1404473373
@@ -55528,7 +55527,7 @@ MonoBehaviour:
   - {fileID: 1536308817}
   - {fileID: 1536308816}
   - {fileID: 1536308815}
-  sceneViewId: 15
+  sceneViewId: 32
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1536308819
@@ -57223,6 +57222,7 @@ Transform:
   m_Children:
   - {fileID: 111567299}
   - {fileID: 486316494}
+  - {fileID: 303088412}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60241,7 +60241,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1689689732}
   - {fileID: 1689689731}
-  sceneViewId: 3
+  sceneViewId: 19
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1689689734
@@ -72011,6 +72011,67 @@ Transform:
   m_Father: {fileID: 603334491}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1909347780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909347783}
+  - component: {fileID: 1909347782}
+  - component: {fileID: 1909347781}
+  m_Layer: 0
+  m_Name: Loggers (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1909347781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909347780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb4ae0c5c1c94c4f8a8d3a046b2c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WriteWaitTime: 1
+  MaxAudioTime: 3
+--- !u!114 &1909347782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909347780}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e4bb71e450dd44eba5a03116c8e5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filename: camera.csv
+  camera: {fileID: 0}
+  parentAnchor: {fileID: 0}
+--- !u!4 &1909347783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909347780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.210756, y: -130.55498, z: -54.241505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909600296
 GameObject:
   m_ObjectHideFlags: 0
@@ -74488,7 +74549,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1971594812}
-  sceneViewId: 6
+  sceneViewId: 22
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1971594814
@@ -75001,7 +75062,7 @@ MonoBehaviour:
   - {fileID: 1977700785}
   - {fileID: 1977700784}
   - {fileID: 1977700783}
-  sceneViewId: 9
+  sceneViewId: 25
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1977700788
@@ -76796,7 +76857,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2038226829}
   - {fileID: 2038226828}
-  sceneViewId: 5
+  sceneViewId: 21
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2038226831
