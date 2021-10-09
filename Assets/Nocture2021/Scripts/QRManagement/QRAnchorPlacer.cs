@@ -76,7 +76,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
         //Postpone the timer until we are connected to the room
         if (!networkReady)
         {
-            AnchorTagTimeoutInSeconds += Time.deltaTime;
+            AnchorTagTimeoutInSeconds += Time.fixedDeltaTime;
             return;
         }
 

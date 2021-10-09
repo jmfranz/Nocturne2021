@@ -4001,13 +4001,13 @@ MonoBehaviour:
   parentAnchor: {fileID: 1647103155}
   RoomName: Standville_Mine_Testing
   Walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7880803732325909712}
+  - {fileID: 2023180642128797758}
+  - {fileID: 4583396335709075872}
+  - {fileID: 3378920195986072146}
+  - {fileID: 5260488872231873875}
+  - {fileID: 7202658214236561065}
+  - {fileID: 6939263880677636796}
   InGameObjects: {fileID: 1341104413}
   AwareGuideObjects: {fileID: 810821955}
 --- !u!4 &234199318
