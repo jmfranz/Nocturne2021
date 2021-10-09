@@ -31,7 +31,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
     public GameObject ParentAnchor;
 
 
-    public  void OnJoinedRoom()
+    public  async void OnJoinedRoom()
     {
         bool loadedAnchorFromFile = false;
 #if !UNITY_EDITOR
@@ -41,7 +41,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
         {
             throw new System.NotSupportedException("could not find the anchor module script"); 
         }
-        anchorModuleScript.StartAzureSession();
+        await anchorModuleScript.StartAzureSession();
 
         try
         {
