@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CognitiveWorldSwitch : MonoBehaviour
 {
     public GameObject Floor;
+    public GameObject SeducedScroll;
 
     public GameObject CognitiveAvatars;
     public GameObject CognitiveCatherine;
@@ -61,6 +62,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         getCaught = false;
         finishingText = false;
         avatarsVisible = false;
+        SeducedScroll.SetActive(false);
 
         NormalAvatars = new List<GameObject>();
         NormalAvatars.Add(Catherine);
@@ -87,8 +89,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         {
             image.enabled = false;
         }
-
-
     }
 
 
@@ -142,6 +142,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("IntoCognitive", true);
         ToggleWindows();
         nPC_Movements.StopNPCMovements();
+        SeducedScroll.SetActive(true);
         CognitiveCatherine.SetActive(true);
         CognitiveAvatars.SetActive(true);
         CognitiveConvo.gameObject.SetActive(true);
@@ -155,20 +156,21 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void LeaveCognitive()
     {
-            inCognitive = false;
-            ToggleWindows();
-            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
-            foreach (GameObject actor in NormalAvatars)
+        inCognitive = false;
+        ToggleWindows();
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
+        foreach (GameObject actor in NormalAvatars)
             {
                 actor.SetActive(true);
             }
-            CognitiveAvatars.SetActive(false);
-            CognitiveConvo.gameObject.SetActive(false);
-            TellFok.gameObject.SetActive(true);
-            TellNPC.gameObject.SetActive(true);
-            Floor.GetComponent<MeshRenderer>().material.color = Color.white;
+        SeducedScroll.SetActive(false);
+        CognitiveAvatars.SetActive(false);
+        CognitiveConvo.gameObject.SetActive(false);
+        TellFok.gameObject.SetActive(true);
+        TellNPC.gameObject.SetActive(true);
+        Floor.GetComponent<MeshRenderer>().material.color = Color.white;
 
-            StartCoroutine(nPC_Movements.AfterCognitive());
+        StartCoroutine(nPC_Movements.AfterCognitive());
     }
 
     public bool isClose(GameObject player, GameObject otherObject, float distance)
