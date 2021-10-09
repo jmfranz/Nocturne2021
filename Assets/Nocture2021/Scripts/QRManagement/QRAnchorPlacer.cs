@@ -49,7 +49,8 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             anchorModuleScript.FindAzureAnchor();
             loadedAnchorFromFile = true;
             var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
-            anchorStore.StoreNewTag(tag);
+            
+            anchorStore.StoreNewTag(anchorModuleScript.currentAzureAnchorID);
             _hasReceivedAnchorReply = true;
         }
         catch (FileNotFoundException e)
