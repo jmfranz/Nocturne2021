@@ -4,7 +4,10 @@ using UnityEngine;
 using System;
 
 public class NPC_Movements : StoryEventComponent
-{   
+{
+    Coroutine ConversationCoroutine;
+    
+    
     bool loopFinished;
     bool canStartStory;
 
@@ -14,7 +17,6 @@ public class NPC_Movements : StoryEventComponent
     public AvatarController Lapin;
     public AvatarController Catherine;
     public AvatarController Bultilda;
-    public AvatarController NPC1_Avatar;
     public AvatarController NPC2_Avatar;
     public AvatarController NPC3_Avatar;
 
@@ -61,7 +63,7 @@ public class NPC_Movements : StoryEventComponent
     {
         if (storyStart.Complete && loopFinished)
         {
-            StartCoroutine(ConversationLoop());
+            ConversationCoroutine = StartCoroutine(ConversationLoop());
         }
     }
 
@@ -117,9 +119,9 @@ public class NPC_Movements : StoryEventComponent
     {
         AvatarToConversation(Catherine, C_Ferghus);
 
-        StartCoroutine(FixedTimeCoroutineWaitingThing(5));
+        yield return new WaitForSeconds(5);
         AvatarToConversation(Ferghus, C_Ferghus);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(65));
+        yield return new WaitForSeconds(45);
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -208,7 +210,8 @@ public class NPC_Movements : StoryEventComponent
     IEnumerator Fok_Player()
     {
         AvatarToConversation(Fokthipur, Fokthipur_midgame);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(85));
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(35));
+        yield return new WaitForSeconds(35);
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -220,46 +223,42 @@ public class NPC_Movements : StoryEventComponent
 
         Debug.Log("Conversation Loop Started");
         loopFinished = false;
-        //yield return new WaitForSeconds(2);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(2));
-        AvatarToConversation(Fokthipur, NPC1);
-        AvatarToConversation(Bultilda, NPC1);
+        yield return new WaitForSeconds(5);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(2));
+        AvatarToConversation(Fokthipur, NPC2);
+        AvatarToConversation(Bultilda, NPC2);
         AvatarToConversation(Ferghus, NPC2);
         AvatarToConversation(Catherine, NPC3);
         AvatarToConversation(Lapin, NPC3);
-        AvatarToConversation(NPC1_Avatar, NPC1);
         AvatarToConversation(NPC2_Avatar, NPC2);
         AvatarToConversation(NPC3_Avatar, NPC3);
 
         //Everyone is now at initial conversations
-       // yield return new WaitForSeconds(10);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(10));
+        yield return new WaitForSeconds(20);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(10));
 
-        Debug.Log("cat move!");
         //Catherine & Ferghus
         StartCoroutine(CF());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Ferghus.transform.position, 2));
-        Debug.Log("Everybody dance!");
-        AvatarToConversation(Fokthipur, NPC2);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(45));
-       // yield return new WaitForSeconds(45);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(45));
+        yield return new WaitForSeconds(45);
         AvatarToConversation(Catherine, NPC2);
         AvatarToConversation(Ferghus, NPC1);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(15));
-        //yield return new WaitForSeconds(15);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(15));
+        yield return new WaitForSeconds(15);
 
         //Catherine & Bultilda
         StartCoroutine(CB());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Bultilda.transform.position, 2));
-        StartCoroutine(FixedTimeCoroutineWaitingThing(55));
-        //yield return new WaitForSeconds(55);
-        Debug.Log("Everybody dance2!");
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(55));
+        StartCoroutine(Fok_Player());
+        yield return new WaitForSeconds(55);
 
         //Lapin & Ferghus
         StartCoroutine(LF());
         yield return new WaitUntil(() => isClose(Ferghus.transform.position, L_Ferghus.transform.position, 2));
-        StartCoroutine(FixedTimeCoroutineWaitingThing(30));
-        //yield return new WaitForSeconds(30);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(30));
+        yield return new WaitForSeconds(30);
 
         //Catherine & Lapin
         StartCoroutine(CL());
@@ -269,12 +268,13 @@ public class NPC_Movements : StoryEventComponent
         
         //Ferghus & Bultilda
         StartCoroutine(FB());
-        //yield return new WaitForSeconds(45);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(45));
+        StartCoroutine(Fok_Player());
+        yield return new WaitForSeconds(45);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(45));
         AvatarToConversation(Catherine, NPC3);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, NPC3.transform.position, 2));
-        //yield return new WaitForSeconds(25);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(25));
+        yield return new WaitForSeconds(25);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(25));
         //Bultilda & Lapin
         StartCoroutine(BL());
        
@@ -283,31 +283,33 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Ferghus, NPC2);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Fok.transform.position, 2));
         AvatarToConversation(Fokthipur, Fokthipur_midgame);
-        //yield return new WaitForSeconds(40);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(40));
+        yield return new WaitForSeconds(40);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(40));
         AvatarToConversation(Bultilda, NPC2);
         AvatarToConversation(Ferghus, NPC3);
         AvatarToConversation(Catherine, NPC3);
         AvatarToConversation(Lapin, NPC2);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, NPC3.transform.position, 2));
-        //yield return new WaitForSeconds(20);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(20));
+        yield return new WaitForSeconds(20);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(20));
         //Lapin & Catherine
-        StartCoroutine(LC());
+        StartCoroutine(BL());
         
         yield return new WaitUntil(() => isClose(Catherine.transform.position, L_Catherine.transform.position, 2));
-        //yield return new WaitForSeconds(20);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(20));
+        yield return new WaitForSeconds(20);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(20));
         Debug.Log("Loop Complete");
         loopFinished = true;
 
-        YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
-        yield return waitForFixedUpdate;
+        //YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
+        //yield return waitForFixedUpdate;
     }
 
     public IEnumerator AfterCognitive()
     {
-        StartCoroutine(FixedTimeCoroutineWaitingThing(2));
+        loopFinished = false;
+        yield return new WaitForSeconds(2);
+        //StartCoroutine(FixedTimeCoroutineWaitingThing(2));
         AvatarToConversation(Fokthipur, TellFokEnding);
         AvatarToConversation(Catherine, TellCatherineEnding);
         AvatarToConversation(Bultilda, NPC1);
@@ -321,14 +323,6 @@ public class NPC_Movements : StoryEventComponent
 
     public void StopNPCMovements()
     {
-        StopCoroutine(BL());
-        StopCoroutine(CF());
-        StopCoroutine(CB());
-        StopCoroutine(CK());
-        StopCoroutine(LF());
-        StopCoroutine(LC());
-        StopCoroutine(LK());
-        StopCoroutine(FB());
-        StopCoroutine(ConversationLoop());
+        StopCoroutine(ConversationCoroutine);
     }
 }
