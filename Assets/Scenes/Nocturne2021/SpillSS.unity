@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -858,6 +858,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1598194221}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &23927058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23927060}
+  - component: {fileID: 23927059}
+  m_Layer: 0
+  m_Name: Logger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &23927059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23927058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb4ae0c5c1c94c4f8a8d3a046b2c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WriteWaitTime: 1
+--- !u!4 &23927060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23927058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &24589466
 GameObject:
@@ -19870,6 +19914,7 @@ GameObject:
   - component: {fileID: 566338929}
   - component: {fileID: 566338928}
   - component: {fileID: 566338927}
+  - component: {fileID: 566338939}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20165,6 +20210,21 @@ Transform:
   m_Father: {fileID: 1855771919}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 214.827, z: 0}
+--- !u!114 &566338939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566338926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3f9c07a5b1e944ca4ff4d099c0c09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecordFrequency: 1
+  filename: camera.csv
+  parentAnchor: {fileID: 1137499550}
 --- !u!1 &569563496
 GameObject:
   m_ObjectHideFlags: 0
@@ -29723,6 +29783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Floor: {fileID: 279709916}
+  SeducedScroll: {fileID: 0}
   CognitiveAvatars: {fileID: 1685089065}
   CognitiveCatherine: {fileID: 803513449}
   MushroomRing: {fileID: 1103398960}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465776, g: 0.4964124, b: 0.5748177, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641275, b: 0.5748189, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2160,6 +2160,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 174488661}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &174488661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2929,6 +2930,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 204358519}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &204358519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3511,6 +3513,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 233596324}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &233596324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4248,6 +4251,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 273429971}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &273429971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4881,6 +4885,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 294677989}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!82 &294677992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5548,7 +5553,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 358907598}
-  - component: {fileID: 358907597}
   - component: {fileID: 358907596}
   m_Layer: 0
   m_Name: Loggers
@@ -5570,22 +5574,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WriteWaitTime: 1
-  MaxAudioTime: 3
---- !u!114 &358907597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358907595}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9e4bb71e450dd44eba5a03116c8e5f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filename: camera.csv
-  camera: {fileID: 0}
-  parentAnchor: {fileID: 0}
 --- !u!4 &358907598
 Transform:
   m_ObjectHideFlags: 0
@@ -6266,6 +6254,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 372867644}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &372867644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7126,6 +7115,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 401144707}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &401144707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7935,6 +7925,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 456597445}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &456597445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8462,6 +8453,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 480797467}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &480797467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9181,6 +9173,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 497688951}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &497688951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10974,6 +10967,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 580475685}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &580475685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18216,6 +18210,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1031986395}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1031986395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20038,6 +20033,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1109380216}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1109380216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20784,6 +20780,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1149763404}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1149763404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21094,6 +21091,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1150572414}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1150572414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22303,6 +22301,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1222968363}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1222968363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22903,6 +22902,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1256634434}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1256634434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23196,6 +23196,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1259541911}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1259541911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23784,6 +23785,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1272670581}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1272670581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24598,6 +24600,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1322252881}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1322252881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24941,6 +24944,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1332097339}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1332097339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27581,6 +27585,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1516529255}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1516529255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30625,6 +30630,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1756956513}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1756956513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34180,6 +34186,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 1876365079}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &1876365079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36019,6 +36026,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2017952277}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &2017952277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37252,6 +37260,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2093937734}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!82 &2093937737
 AudioSource:
   m_ObjectHideFlags: 0
@@ -38680,6 +38689,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 2129650361}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!82 &2129650364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60044,6 +60054,7 @@ MonoBehaviour:
   GeneralLoop: {fileID: 0}
   DirectIntroduction: {fileID: 6292699960840905225}
   IsPlayerEavesdropping: 0
+  InterruptOnTrueEvent: 1
 --- !u!114 &6292699960840905227
 MonoBehaviour:
   m_ObjectHideFlags: 0
