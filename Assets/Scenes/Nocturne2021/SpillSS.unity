@@ -3851,13 +3851,13 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: f50a3198aeb7a724f86cd055a209265e, type: 3}
-    voiceOrigin: {fileID: 684651432}
+  - voiceLine: {fileID: 8300000, guid: 81a0d13c22a903c4f97ea64e5693bb10, type: 3}
+    voiceOrigin: {fileID: 936790344}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 78bd43af0a925dd4ca2f96b1e8d3b3f3, type: 3}
-    voiceOrigin: {fileID: 73908944}
+  - voiceLine: {fileID: 8300000, guid: ef7dfb953e299c64fa55e3a5101503dd, type: 3}
+    voiceOrigin: {fileID: 684651432}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -30455,7 +30455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopConversation: 1
   LoopBufferTime: 20
-  OutOfRangeLoopClip: {fileID: 0}
+  OutOfRangeLoopClip: {fileID: 8300000, guid: 5f47f0c506d74e041b427f57c14bae4a, type: 3}
   ConversationInfo:
     DefaultRule:
       MinimumThreshold: 0
@@ -30512,8 +30512,23 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: d83e1954356c6494197e72822406081c, type: 3}
-    voiceOrigin: {fileID: 936790344}
+  - voiceLine: {fileID: 8300000, guid: 78ab2ed67247efb4cabf42beb96350c4, type: 3}
+    voiceOrigin: {fileID: 786068142}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
+  - voiceLine: {fileID: 8300000, guid: 6464d89ca9ed0914e95c9e8ea6434d58, type: 3}
+    voiceOrigin: {fileID: 786068142}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
+  - voiceLine: {fileID: 8300000, guid: 2eb7b11ac44c0414aa8700d2cf6c2a91, type: 3}
+    voiceOrigin: {fileID: 786068142}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
+  - voiceLine: {fileID: 8300000, guid: 19b9cafb97b64664699b5e07fc7f9dc5, type: 3}
+    voiceOrigin: {fileID: 786068142}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -37669,7 +37684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoopConversation: 1
   LoopBufferTime: 20
-  OutOfRangeLoopClip: {fileID: 0}
+  OutOfRangeLoopClip: {fileID: 8300000, guid: 5f47f0c506d74e041b427f57c14bae4a, type: 3}
   ConversationInfo:
     DefaultRule:
       MinimumThreshold: 0
@@ -37726,13 +37741,18 @@ MonoBehaviour:
     - distance
     - default
   ConversationLines:
-  - voiceLine: {fileID: 8300000, guid: f50a3198aeb7a724f86cd055a209265e, type: 3}
-    voiceOrigin: {fileID: 73908944}
+  - voiceLine: {fileID: 8300000, guid: 3db229fcd9e868e4d89fa261cb5a3cad, type: 3}
+    voiceOrigin: {fileID: 936790344}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
-  - voiceLine: {fileID: 8300000, guid: 7a127b73d31b6524d8ea25cd8be1a047, type: 3}
-    voiceOrigin: {fileID: 684651432}
+  - voiceLine: {fileID: 8300000, guid: 53bf8f5d2aa643c449dbc6e47da305e7, type: 3}
+    voiceOrigin: {fileID: 936790344}
+    beforeVoiceDelay: 0
+    afterVoiceDelay: 0
+    volume: 0
+  - voiceLine: {fileID: 8300000, guid: 1624bd6cb1eb661499df9652f8a973b2, type: 3}
+    voiceOrigin: {fileID: 936790344}
     beforeVoiceDelay: 0
     afterVoiceDelay: 0
     volume: 0
@@ -58215,7 +58235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 4851131541957942078, guid: 0c91d89f5682db245a95ebe8349eb74f, type: 3}
   parentAnchor: {fileID: 1137499551}
-  RoomName: Nocturne1_Testing
+  RoomName: Shannon
   Walls: []
   InGameObjects: {fileID: 1577141169}
   AwareGuideObjects: {fileID: 1595460787}
