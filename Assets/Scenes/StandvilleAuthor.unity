@@ -38502,6 +38502,11 @@ MonoBehaviour:
   ScaryMusic: {fileID: 2120311944}
   ChaseTime: {fileID: 2120311946}
   ShadowChaseController: {fileID: 6292699960840905230}
+  DMLine: {fileID: 2120311947}
+  Monitors:
+  - {fileID: 1944146663}
+  - {fileID: 192178293}
+  - {fileID: 2003044898}
 --- !u!114 &2120311946
 MonoBehaviour:
   m_ObjectHideFlags: 0

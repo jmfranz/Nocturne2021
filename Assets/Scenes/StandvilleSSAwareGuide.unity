@@ -17654,7 +17654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927000500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.3, y: -13.3099985, z: 50.200005}
+  m_LocalPosition: {x: 28.3, y: -13.3099985, z: 58.7}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1199726598}
@@ -20422,7 +20422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081662352}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -12.5, y: -23.699999, z: 26.169996}
+  m_LocalPosition: {x: -12.5, y: -23.699999, z: 29.9}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 499807199}
@@ -36045,7 +36045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925924663}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -22.842556, y: -23.699999, z: -109.41001}
+  m_LocalPosition: {x: -22.842556, y: -23.699999, z: -105.68001}
   m_LocalScale: {x: 250, y: 249.99998, z: 777.5807}
   m_Children:
   - {fileID: 2061082785}
@@ -39447,6 +39447,11 @@ MonoBehaviour:
   ScaryMusic: {fileID: 2120311944}
   ChaseTime: {fileID: 2120311946}
   ShadowChaseController: {fileID: 6292699960840905230}
+  DMLine: {fileID: 2120311947}
+  Monitors:
+  - {fileID: 1944146663}
+  - {fileID: 192178293}
+  - {fileID: 2003044898}
 --- !u!114 &2120311946
 MonoBehaviour:
   m_ObjectHideFlags: 0
