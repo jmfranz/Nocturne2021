@@ -313,50 +313,41 @@ public class ConversationPlayer : MonoBehaviour
 
     void PlayVoiceLine()
     {
-        //Verify if the children gameobjects is active before play audio
-        if (this.gameObject.transform.childCount == 2)
+        //Apply voice volume
+        switch (_currentVoiceLinePlaying.volume)
         {
-            if (this.gameObject.transform.GetChild(0).gameObject.activeSelf == true ||
-                this.gameObject.transform.GetChild(1).gameObject.activeSelf == true)
-            {
-                //Apply voice volume
-                switch (_currentVoiceLinePlaying.volume)
-                {
-                    case (VoiceVolumes.Whispering):
-                        _currentVoiceLinePlaying.voiceOrigin.volume = 0.4f;
-                        break;
-                    case (VoiceVolumes.Normal):
-                        _currentVoiceLinePlaying.voiceOrigin.volume = 0.5f;
-                        break;
-                    case (VoiceVolumes.Yelling):
-                        _currentVoiceLinePlaying.voiceOrigin.volume = 0.6f;
-                        break;
-                }
-
-                _currentVoiceLinePlaying.voiceOrigin.clip = _currentVoiceLinePlaying.voiceLine;
-                _currentVoiceLinePlaying.voiceOrigin.Play();
-
-                avatarControllers = new AvatarController[0];
-                if (_currentVoiceLinePlaying.voiceOrigin.transform.tag == "Avatar")
-                {
-                    avatarControllers = _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
-                }
-
-                if (avatarControllers.Length > 0)
-                {
-                    foreach (var avatarController in _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
-                    {
-                        avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
-                    }
-
-                    AvatarController avatar = _currentVoiceLinePlaying.voiceOrigin.transform.GetComponent<AvatarController>();
-                    avatar.SetConversationState(AvatarController.ConversationStates.Talking);
-                }
-
-                playVoiceLine = true;
-
-            }
+            case (VoiceVolumes.Whispering):
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.4f;
+                break;
+            case (VoiceVolumes.Normal):
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.5f;
+                break;
+            case (VoiceVolumes.Yelling):
+                _currentVoiceLinePlaying.voiceOrigin.volume = 0.6f;
+                break;
         }
+
+        _currentVoiceLinePlaying.voiceOrigin.clip = _currentVoiceLinePlaying.voiceLine;
+        _currentVoiceLinePlaying.voiceOrigin.Play();
+
+        avatarControllers = new AvatarController[0];
+        if (_currentVoiceLinePlaying.voiceOrigin.transform.tag == "Avatar")
+        {
+            avatarControllers = _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>();
+        }
+
+        if (avatarControllers.Length > 0)
+        {
+            foreach (var avatarController in _currentVoiceLinePlaying.voiceOrigin.transform.parent.GetComponentsInChildren<AvatarController>())
+            {
+                avatarController.SetConversationState(AvatarController.ConversationStates.Listening);
+            }
+
+            AvatarController avatar = _currentVoiceLinePlaying.voiceOrigin.transform.GetComponent<AvatarController>();
+            avatar.SetConversationState(AvatarController.ConversationStates.Talking);
+        }
+
+        playVoiceLine = true;
     }
 
     void AfterVoiceLineDelay()

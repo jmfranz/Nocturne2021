@@ -229,7 +229,6 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Bultilda, NPC2);
         AvatarToConversation(Ferghus, NPC2);
         AvatarToConversation(Catherine, NPC3);
-        AvatarToConversation(Lapin, NPC3);
         AvatarToConversation(NPC2_Avatar, NPC2);
         AvatarToConversation(NPC3_Avatar, NPC3);
 
@@ -241,6 +240,8 @@ public class NPC_Movements : StoryEventComponent
         StartCoroutine(CF());
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Ferghus.transform.position, 2));
         //StartCoroutine(FixedTimeCoroutineWaitingThing(45));
+        AvatarToConversation(NPC3_Avatar, NPC1);
+        AvatarToConversation(Lapin, NPC2);
         yield return new WaitForSeconds(45);
         AvatarToConversation(Catherine, NPC2);
         AvatarToConversation(Ferghus, NPC1);
@@ -262,8 +263,8 @@ public class NPC_Movements : StoryEventComponent
 
         //Catherine & Lapin
         StartCoroutine(CL());
-        AvatarToConversation(Fokthipur, NPC1);
-        AvatarToConversation(Ferghus, NPC1);
+        AvatarToConversation(Fokthipur, NPC3);
+        AvatarToConversation(Ferghus, NPC3);
         yield return new WaitUntil(() => isClose(Catherine.transform.position, C_Lapin.transform.position, 2));
         
         //Ferghus & Bultilda
