@@ -69,7 +69,7 @@ public class AnchorModuleScript : MonoBehaviour
     #endregion
 
     #region Public Methods
-    public async void StartAzureSession()
+    public async Task StartAzureSession()
     {
         Debug.Log("\nAnchorModuleScript.StartAzureSession()");
 
