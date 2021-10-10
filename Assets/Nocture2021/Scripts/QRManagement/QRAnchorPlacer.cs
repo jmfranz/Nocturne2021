@@ -31,7 +31,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
     public GameObject ParentAnchor;
 
 
-    public  void OnJoinedRoom()
+    public  async void OnJoinedRoom()
     {
         bool loadedAnchorFromFile = false;
 #if !UNITY_EDITOR
@@ -41,7 +41,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
         {
             throw new System.NotSupportedException("could not find the anchor module script"); 
         }
-        anchorModuleScript.StartAzureSession();
+        await anchorModuleScript.StartAzureSession();
 
         try
         {
@@ -49,7 +49,8 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
             anchorModuleScript.FindAzureAnchor();
             loadedAnchorFromFile = true;
             var anchorStore = GameObject.Find("AnchorStore").GetComponent<SharedAnchorStore>();
-            anchorStore.StoreNewTag(tag);
+            
+            anchorStore.StoreNewTag(anchorModuleScript.currentAzureAnchorID);
             _hasReceivedAnchorReply = true;
         }
         catch (FileNotFoundException e)
@@ -76,7 +77,7 @@ public class QRAnchorPlacer : MonoBehaviourPun, IOnEventCallback, IMatchmakingCa
         //Postpone the timer until we are connected to the room
         if (!networkReady)
         {
-            AnchorTagTimeoutInSeconds += Time.deltaTime;
+            AnchorTagTimeoutInSeconds += Time.fixedDeltaTime;
             return;
         }
 

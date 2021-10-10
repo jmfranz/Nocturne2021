@@ -8,34 +8,30 @@ using UnityEngine.SceneManagement;
 public class Logger : MonoBehaviour
 {
     public static Dictionary<string, List<string>> Buffer;
-    private static Dictionary<string, string> Headers;
-
-    private static string UserID;
-
     public float WriteWaitTime = 1;
-    private float elapsedTime = 0;
-
-    private bool logFileSetUp = false;
-
     public int MaxAudioTime = 3;
-    private AudioClip audioClip;
+
+    private static Dictionary<string, string> _headers;
+    private static string _userId = "0";
+    private float _elapsedTime = 0;
+    private bool _logFileSetUp = false;
+    private AudioClip _audioClip;
 
     public static void SetUserID(string newID)
     {
-        UserID = newID;
+        _userId = newID;
     }
 
     public static string GetUserID()
     {
-        return UserID;
+        return _userId ?? "noID";
     }
 
     public static void AddHeaderRequest(string filename, params string[] columnNames)
     {
-        if (Headers == null)
-            Headers = new Dictionary<string, string>();
+        _headers ??= new Dictionary<string, string>();
 
-        string line = "UserID,";
+        var line = "UserID,";
 
         for (int i = 0; i < columnNames.Length; i++)
         {
@@ -44,21 +40,20 @@ public class Logger : MonoBehaviour
                 line += ",";
         }
 
-        Headers.Add(filename, line);
-        Debug.Log(Headers[filename]);
+        _headers.Add(filename, line);
+        Debug.Log(_headers[filename]);
     }
 
     public static void WriteRequest(string filename, params object[] content)
     {
-        if (Buffer == null)
-            Buffer = new Dictionary<string, List<string>>();
+        Buffer ??= new Dictionary<string, List<string>>();
 
         if (!Buffer.ContainsKey(filename))
         {
             Buffer.Add(filename, new List<string>());
         }
 
-        string line = UserID + ",";
+        var line = _userId + ",";
 
         for (int i = 0; i < content.Length; i++)
         {
@@ -70,47 +65,29 @@ public class Logger : MonoBehaviour
         Buffer[filename].Add(line);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        /*audioClip = Microphone.Start(Microphone.devices[0], false, MaxAudioTime, 44100);
-
-        if (!logFileSetUp)
-        {
-            AddHeaderRequest("audio-starttime.csv", "Date", "Hour", "Minute", "Second", "Milisecond", "AudioStarted", "Scene");
-            logFileSetUp = true;
-        }
-
-        DateTime now = DateTime.Now;
-        string date = now.ToString("yyyy-MM-dd");
-
-        bool audioClipStarted = (audioClip != null);
-
-        WriteRequest("audio-starttime.csv", date, now.Hour, now.Minute, now.Second, now.Millisecond, audioClipStarted,
-            SceneManager.GetActiveScene().name);*/
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (elapsedTime >= WriteWaitTime)
+        if (_elapsedTime >= WriteWaitTime)
         {
-            elapsedTime = 0;
+            _elapsedTime = 0;
 
             var BufferKeys = Buffer.Keys;
 
             foreach (var k in BufferKeys)
             {
-                string path = Path.Combine(Application.persistentDataPath, k);
+                string idk = _userId.ToString() + "-" + k;
+
+                string path = Path.Combine(Application.persistentDataPath, idk);
 
 
                 if (!File.Exists(path))
                 {
                     StreamWriter swh = File.CreateText(path);
 
-                    if (Headers.ContainsKey(k))
+                    if (_headers.ContainsKey(k))
                     {
-                        swh.WriteLine(Headers[k]);
+                        swh.WriteLine(_headers[k]);
                     }
 
                     swh.Close();
@@ -129,20 +106,8 @@ public class Logger : MonoBehaviour
             }
         }
 
-        elapsedTime += Time.deltaTime;
+        _elapsedTime += Time.deltaTime;
 
-        /*if (!Microphone.IsRecording(Microphone.devices[0]))
-            SaveAudio();*/
     }
 
-    private void OnDestroy()
-    {
-        //Microphone.End(Microphone.devices[0]);
-        //SaveAudio();
-    }
-
-    void SaveAudio()
-    {
-        //SavWav.Save(UserID.ToString() + ".wav", audioClip);
-    }
 }

@@ -63,7 +63,7 @@ public class TapToSetAnchor : MonoBehaviour, IMixedRealityPointerHandler
         //Ignore the X and Z rotations to keep the building level :)
 
 #if !UNITY_EDITOR
-        ParentAnchor.transform.rotation = Quaternion.Euler(0, QRCode.transform.rotation.eulerAngles.y-90, 0);
+        ParentAnchor.transform.rotation = Quaternion.Euler(0, QRCode.transform.rotation.eulerAngles.y-270, 0);
 #endif
 
         //Remove the text on the screen

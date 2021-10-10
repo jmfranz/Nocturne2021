@@ -24,38 +24,61 @@
 //  derived from Gregorio Zanon's script
 //  http://forum.unity3d.com/threads/119295-Writing-AudioListener.GetOutputData-to-wav-problem?p=806734&viewfull=1#post806734
 
+// CODE MODIFIED TO USE MORE PERFORMANT VERSION WITH THE CLIP DATA STRUCT
+// Juliano changed the recording mode to support UWP too ;)
+
 using System;
 using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
+using System.Threading;
+using System.Threading.Tasks;
 
-public static class SavWav {
+#if WINDOWS_UWP
+using Windows.Storage;
+#endif
+
+public class SavWav
+{
 
 	const int HEADER_SIZE = 44;
+	struct ClipData
+	{
 
-	public static bool Save(string filename, AudioClip clip) {
-		if (!filename.ToLower().EndsWith(".wav")) {
+		public int samples;
+		public int channels;
+		public float[] samplesData;
+
+	}
+
+	public bool Save(string filename, AudioClip clip)
+	{
+		if (!filename.ToLower().EndsWith(".wav"))
+		{
 			filename += ".wav";
 		}
 
-		var filepath = Path.Combine(Application.persistentDataPath, filename);
 
-		Debug.Log(filepath);
-
-		// Make sure directory exists if user is saving to sub dir.
-		Directory.CreateDirectory(Path.GetDirectoryName(filepath));
-
-		using (var fileStream = CreateEmpty(filepath)) {
-
-			ConvertAndWrite(fileStream, clip);
-
+		ClipData clipdata = new ClipData();
+		clipdata.samples = clip.samples;
+		clipdata.channels = clip.channels;
+		float[] dataFloat = new float[clip.samples * clip.channels];
+		clip.GetData(dataFloat, 0);
+		clipdata.samplesData = dataFloat;
+		using (var fileStream = CreateEmpty(filename))
+		{
+			MemoryStream memstrm = new MemoryStream();
+			ConvertAndWrite(memstrm, clipdata);
+			memstrm.WriteTo(fileStream);
 			WriteHeader(fileStream, clip);
 		}
 
-		return true; // TODO: return false if there's a failure saving the file
+		return true; // TODO: return false if there's a failure saving the file
 	}
 
-	public static AudioClip TrimSilence(AudioClip clip, float min) {
+	public AudioClip TrimSilence(AudioClip clip, float min)
+	{
 		var samples = new float[clip.samples];
 
 		clip.GetData(samples, 0);
@@ -63,23 +86,29 @@ public static class SavWav {
 		return TrimSilence(new List<float>(samples), min, clip.channels, clip.frequency);
 	}
 
-	public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz) {
+	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz)
+	{
 		return TrimSilence(samples, min, channels, hz, false, false);
 	}
 
-	public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream) {
+	public AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream)
+	{
 		int i;
 
-		for (i=0; i<samples.Count; i++) {
-			if (Mathf.Abs(samples[i]) > min) {
+		for (i = 0; i < samples.Count; i++)
+		{
+			if (Mathf.Abs(samples[i]) > min)
+			{
 				break;
 			}
 		}
 
 		samples.RemoveRange(0, i);
 
-		for (i=samples.Count - 1; i>0; i--) {
-			if (Mathf.Abs(samples[i]) > min) {
+		for (i = samples.Count - 1; i > 0; i--)
+		{
+			if (Mathf.Abs(samples[i]) > min)
+			{
 				break;
 			}
 		}
@@ -91,46 +120,74 @@ public static class SavWav {
 		clip.SetData(samples.ToArray(), 0);
 
 		return clip;
-	}
+	}
+
+
+	/// <summary>
+	/// Modified to support UWP. We are using the defualt app path
+	/// </summary>
+	/// <param name="filename"></param>
+	/// <returns></returns>
+	FileStream CreateEmpty(string filename)
+	{
 
-	static FileStream CreateEmpty(string filepath) {
-		var fileStream = new FileStream(filepath, FileMode.Create);
-	    byte emptyByte = new byte();
-
-	    for(int i = 0; i < HEADER_SIZE; i++) //preparing the header
-	    {
-	        fileStream.WriteByte(emptyByte);
-	    }
+        var path = Application.persistentDataPath;
+#if WINDOWS_UWP
+        StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+        path = storageFolder.Path.Replace('\\', '/') + "/";
+#endif
+        var filePath = Path.Combine(path, filename);
+
+//#if WINDOWS_UWP
+//		StorageFile SF;
+//
+//		//OK, this method is not async so lets cheat with a Task (because I don't want to write a new method from scratch. Maybe I should.
+//        Task openFileTask = new Task()
+//        {
+//			SF = await storageFolder.GetFileAsync(filePath);
+//            var fileStream = System.IO.File.Open(storageFile.Path, FileMode.Create);
+//        };
+//        openFileTask.Start();
+//        openFileTask.Wait();
+//#else
+
+		var fileStream = new FileStream(filePath, FileMode.Create);
+//#endif
+        Debug.Log(filePath);
+
+		byte emptyByte = new byte();
+
+		for (int i = 0; i < HEADER_SIZE; i++) //preparing the header
+		{
+			fileStream.WriteByte(emptyByte);
+		}
 
 		return fileStream;
 	}
 
-	static void ConvertAndWrite(FileStream fileStream, AudioClip clip) {
+	void ConvertAndWrite(MemoryStream memStream, ClipData clipData)
+	{
+		float[] samples = new float[clipData.samples * clipData.channels];
 
-		var samples = new float[clip.samples];
-
-		clip.GetData(samples, 0);
+		samples = clipData.samplesData;
 
 		Int16[] intData = new Int16[samples.Length];
-		//converting in 2 float[] steps to Int16[], //then Int16[] to Byte[]
 
 		Byte[] bytesData = new Byte[samples.Length * 2];
-		//bytesData array is twice the size of
-		//dataSource array because a float converted in Int16 is 2 bytes.
 
-		int rescaleFactor = 32767; //to convert float to Int16
-
-		for (int i = 0; i<samples.Length; i++) {
-			intData[i] = (short) (samples[i] * rescaleFactor);
-			Byte[] byteArr = new Byte[2];
-			byteArr = BitConverter.GetBytes(intData[i]);
-			byteArr.CopyTo(bytesData, i * 2);
+		const float rescaleFactor = 32767; //to convert float to Int16
+
+		for (int i = 0; i < samples.Length; i++)
+		{
+			intData[i] = (short)(samples[i] * rescaleFactor);
+			//Debug.Log (samples [i]);
 		}
-
-		fileStream.Write(bytesData, 0, bytesData.Length);
-	}
-
-	static void WriteHeader(FileStream fileStream, AudioClip clip) {
+		Buffer.BlockCopy(intData, 0, bytesData, 0, bytesData.Length);
+		memStream.Write(bytesData, 0, bytesData.Length);
+	}
+
+	void WriteHeader(FileStream fileStream, AudioClip clip)
+	{
 
 		var hz = clip.frequency;
 		var channels = clip.channels;
@@ -165,10 +222,10 @@ public static class SavWav {
 		Byte[] sampleRate = BitConverter.GetBytes(hz);
 		fileStream.Write(sampleRate, 0, 4);
 
-		Byte[] byteRate = BitConverter.GetBytes(hz * channels * 2); // sampleRate * bytesPerSample*number of channels, here 44100*2*2
+		Byte[] byteRate = BitConverter.GetBytes(hz * channels * 2); // sampleRate * bytesPerSample*number of channels, here 44100*2*2
 		fileStream.Write(byteRate, 0, 4);
 
-		UInt16 blockAlign = (ushort) (channels * 2);
+		UInt16 blockAlign = (ushort)(channels * 2);
 		fileStream.Write(BitConverter.GetBytes(blockAlign), 0, 2);
 
 		UInt16 bps = 16;
@@ -179,8 +236,8 @@ public static class SavWav {
 		fileStream.Write(datastring, 0, 4);
 
 		Byte[] subChunk2 = BitConverter.GetBytes(samples * channels * 2);
-		fileStream.Write(subChunk2, 0, 4);
-
-//		fileStream.Close();
+		fileStream.Write(subChunk2, 0, 4);
+
+		//		fileStream.Close();
 	}
 }
