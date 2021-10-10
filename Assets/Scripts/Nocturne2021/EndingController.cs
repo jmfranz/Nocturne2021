@@ -47,11 +47,12 @@ public class EndingController : MonoBehaviour
     public void SteepedInSecrecy()
     {
         fadeController.Fade(SteepedInSecrecy_Newspaper.GetComponent<CanvasGroup>());
+        StartCoroutine(EndingTime(30));
     }
 
     public void SteepedInScandal()
     {
-
+        StartCoroutine(EndingTime(4));
     }
 
     public void TheCreature_GetKickedOut()
