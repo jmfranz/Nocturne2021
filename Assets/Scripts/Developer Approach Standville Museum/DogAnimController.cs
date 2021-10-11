@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -193,6 +194,11 @@ public class DogAnimController : MonoBehaviour
 
         Vector3 dogPos = transform.position;
 
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return false;
+        }
+
         if (Physics.Raycast(new Vector3(dogPos.x, dogPos.y + 1, dogPos.z), (Camera.main.transform.position - dogPos), out hit) && hit.transform == Camera.main.transform)
         {
             return true;
@@ -201,9 +207,6 @@ public class DogAnimController : MonoBehaviour
         {
             return false;
         }
-
-        return false;
-
     }
 
     void IdleStation()
