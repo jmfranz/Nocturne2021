@@ -157,6 +157,9 @@ public class DontTrustDogHandler : MonoBehaviour
 
                 DoctorJohnConvo.enabled = true;
                 DocWalksToPlayer = false;
+
+                Doctor.LookAt(Camera.main.transform);
+                Doctor.rotation = Quaternion.Euler(0, Doctor.eulerAngles.y, 0);
             }
             else // Doctor moves to Player
             {
