@@ -9,6 +9,7 @@ public class DavidStoryControllerPath2SecurityEvent : MonoBehaviour
     public ShadowChaseController ShadowChaseController;
     public DialogueEventComponent DMLine; // What the hell is that, evade the shadow
     public List<MeshRenderer> Monitors;
+    public AudioSource DogAudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class DavidStoryControllerPath2SecurityEvent : MonoBehaviour
         {
             monitor.enabled = true;
         }
+
+        DogAudioSource.volume = 0.7f;
     }
 
     void DisableMonitors()

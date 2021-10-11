@@ -33,6 +33,15 @@ public class DogAnimController : MonoBehaviour
         AnimatorBasicController();
     }
 
+    private void LateUpdate()
+    {
+        if (anim.GetBool("talk") && PlayerIsVisible())
+        {
+            transform.LookAt(Camera.main.transform);
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        }
+    }
+
     void AnimatorBasicController()
     {
         anim.SetInteger("IDAnim", 0);
@@ -176,6 +185,25 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("idle", false);
         anim.SetBool("sniff", false);
         anim.SetBool("sit", false);
+    }
+
+    bool PlayerIsVisible()
+    {
+        RaycastHit hit;
+
+        Vector3 dogPos = transform.position;
+
+        if (Physics.Raycast(new Vector3(dogPos.x, dogPos.y + 1, dogPos.z), (Camera.main.transform.position - dogPos), out hit) && hit.transform == Camera.main.transform)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        return false;
+
     }
 
     void IdleStation()
