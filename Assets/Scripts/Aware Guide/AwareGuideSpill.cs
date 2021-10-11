@@ -50,7 +50,7 @@ public class AwareGuideSpill : ContextAwareGuide
                 _emptyRoomState = "Spill/ALL_OTHER_SPACES_0";
                 _teaRoomState = "Spill/TEA_ROOM_0";
                 _circlesRoomState = "Spill/TEA_ROOM_0";
-                _fokdoorwayState = "Spill/ALL_OTHER_SPACEAS_0";
+                _fokdoorwayState = "Spill/ALL_OTHER_SPACES_0";
                 _fokthipurRoomState = "Spill/FOKTHIPUR_ROOM_0";
                 _mainRoomState = "Spill/MAIN_ROOM_0";
 
@@ -84,14 +84,17 @@ public class AwareGuideSpill : ContextAwareGuide
 
             /* Handle the three different strikes logic, none of these are room specific according to the script */
             else if(EventName == "Strike1" && EventStatus){ // Player has been given Strike 1
+                _mainRoomState = "Spill/ALL_OTHER_SPACES_0";
                 string _strike1State = "Spill/RECEIVED_STRIKE_1";
                 UpdateAwareGuideContent(_strike1State);
             }
             else if(EventName == "Strike2" && EventStatus){ // Player has been given Strike 2
+                _mainRoomState = "Spill/ALL_OTHER_SPACES_0";
                 string _strike2State = "Spill/RECEIVED_STRIKE_2";
                 UpdateAwareGuideContent(_strike2State);
             }
-            else if(EventName == "Strike3" && !EventStatus){ // Player has been given Strike 3 
+            else if(EventName == "Strike3" && !EventStatus){ // Player has been given Strike 3
+                _mainRoomState = "Spill/ALL_OTHER_SPACES_0";
                 string _strike3State = "Spill/RECEIVED_STRIKE_3";
                 UpdateAwareGuideContent(_strike3State);
             }
