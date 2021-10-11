@@ -34,6 +34,7 @@ public class DontTrustDogHandler : MonoBehaviour
     public Transform Doctor, Player;
     public ConversationPlayer DoctorJohnConvo;
     public ConversationPlayer ShadowDialogue, MaxScreams;
+    public TimerEventComponent TimerEventComponent;
 
     public FadeShadow FadeShadow;
 
@@ -48,11 +49,11 @@ public class DontTrustDogHandler : MonoBehaviour
         DontTrustDogComments.OnEventEnd += ShowTrailDogRoomToPlanetarium;
         JohnReadsMural.OnEventEnd += ShowCraterRoom;
         GoToMainRoom.OnEventEnd += FinishedOtherRoom;
+        TimerEventComponent.OnEventEnd += ShowEndMessage;
     }
 
     bool unshowCraterRoom = false;
     bool maxScreams = false;
-    bool docJohnConvo = false;
     bool planetarium = false;
     bool mainRoom = false;
 
@@ -64,16 +65,10 @@ public class DontTrustDogHandler : MonoBehaviour
             UnShowCraterRoom();
         }
 
-        if (MaxScreams._hasCompletedConversation && !maxScreams)
+        if (ShadowDialogue._remainingLines.Count == 3 && !maxScreams)
         {
             maxScreams = true;
             Max.GetComponent<NPCtoFollowPlayer>().FollowPlayer = true;
-        }
-
-        if (DoctorJohnConvo._hasCompletedConversation && !docJohnConvo)
-        {
-            docJohnConvo = true;
-            EndingMessage.SetActive(true);
         }
 
         if (PlanetariumEnterLocationTrigger.ReachedDestination && !planetarium)
@@ -97,6 +92,11 @@ public class DontTrustDogHandler : MonoBehaviour
         }
     }
 
+    void ShowEndMessage()
+    {
+        EndingMessage.SetActive(true);
+    }
+
     void ShowTrailDogRoomToPlanetarium()
     {
         DogRoomToPlantariumPathFollower.playPath = true;
@@ -115,7 +115,7 @@ public class DontTrustDogHandler : MonoBehaviour
         Shadow.transform.GetChild(0).localRotation = Quaternion.Euler(0, 0, 0);
         Shadow.SetActive(true);
         Shadow.transform.localPosition = new Vector3(Shadow.transform.localPosition.x, 0, Shadow.transform.localPosition.z);
-        Shadow.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        Shadow.transform.localRotation = Quaternion.Euler(0, 240, 0);
     }
 
     void FinishedOtherRoom()
@@ -157,6 +157,9 @@ public class DontTrustDogHandler : MonoBehaviour
 
                 DoctorJohnConvo.enabled = true;
                 DocWalksToPlayer = false;
+
+                Doctor.LookAt(Camera.main.transform);
+                Doctor.rotation = Quaternion.Euler(0, Doctor.eulerAngles.y, 0);
             }
             else // Doctor moves to Player
             {
