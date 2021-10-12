@@ -83,10 +83,10 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
 
             if (!PhotonNetwork.IsMasterClient)
             {
-                foreach(var meshRenderer in Walls)
-                {
-                    meshRenderer.enabled = false;
-                }
+                //foreach(var meshRenderer in Walls)
+                //{
+                //    meshRenderer.enabled = false;
+                //}
 
                 InGameObjects.SetActive(false);
                 AwareGuideObjects.SetActive(true);
