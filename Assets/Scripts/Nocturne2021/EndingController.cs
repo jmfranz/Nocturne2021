@@ -17,6 +17,11 @@ public class EndingController : MonoBehaviour
 
     public FadeController fadeController;
 
+    public AudioSource switchingSoundSource;
+    public AudioClip SteepedInSecrecy_Sound;
+    public AudioClip TheCreature_Sound;
+    public AudioClip SteepedInScandal_Sound;
+
     // Update is called once per frame
     void Update()
     {
@@ -47,11 +52,13 @@ public class EndingController : MonoBehaviour
     public void SteepedInSecrecy()
     {
         fadeController.Fade(SteepedInSecrecy_Newspaper.GetComponent<CanvasGroup>());
+        switchingSoundSource.PlayOneShot(SteepedInSecrecy_Sound);
         StartCoroutine(EndingTime(30));
     }
 
     public void SteepedInScandal()
     {
+        switchingSoundSource.PlayOneShot(SteepedInScandal_Sound);
         StartCoroutine(EndingTime(4));
     }
 
@@ -60,6 +67,7 @@ public class EndingController : MonoBehaviour
         endStrikeBar.enabled = true;
         strikeBar.enabled = false;
         fadeController.Fade(TheCreature_Newspaper.GetComponent<CanvasGroup>());
+        switchingSoundSource.PlayOneShot(TheCreature_Sound);
         StartCoroutine(EndingTime(30));
     }
 }
