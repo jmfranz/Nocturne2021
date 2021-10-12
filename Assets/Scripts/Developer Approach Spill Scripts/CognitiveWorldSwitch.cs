@@ -8,6 +8,9 @@ public class CognitiveWorldSwitch : MonoBehaviour
 {
     public GameObject Floor;
     public GameObject SeducedScroll;
+    public GameObject SeducedScroll2;
+    public GameObject SeducedScroll3;
+
 
     public GameObject CognitiveAvatars;
     public GameObject CognitiveCatherine;
@@ -63,6 +66,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
         finishingText = false;
         avatarsVisible = false;
         SeducedScroll.SetActive(false);
+        SeducedScroll2.SetActive(false);
+        SeducedScroll3.SetActive(false);
 
         NormalAvatars = new List<GameObject>();
         NormalAvatars.Add(Catherine);
@@ -139,18 +144,35 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public void GoToCognitive()
     {
+        //Send Aware Guide data
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("IntoCognitive", true);
+        
+        //Change outside window image
         ToggleWindows();
+
+        //Stop the coroutines of the NPCs
         nPC_Movements.StopNPCMovements();
+        
+        //Set the scrolls as active in Cognitive
         SeducedScroll.SetActive(true);
+        SeducedScroll2.SetActive(true);
+        SeducedScroll3.SetActive(true);
+        
+        //Set Cognitive avatars and converstations as active
         CognitiveCatherine.SetActive(true);
         CognitiveAvatars.SetActive(true);
         CognitiveConvo.gameObject.SetActive(true);
+        
+        //Set real world avatars as inactive
         foreach (GameObject actor in NormalAvatars)
         {
             actor.SetActive(false);
         }
+        
+        //Change floor colour 
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
+        
+        //Play sound to indicate change
         switchingSound.CognitiveRealWorldSound();
         inCognitive = true;
     }
@@ -160,15 +182,24 @@ public class CognitiveWorldSwitch : MonoBehaviour
         inCognitive = false;
         ToggleWindows();
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
+        
         foreach (GameObject actor in NormalAvatars)
             {
                 actor.SetActive(true);
             }
-        SeducedScroll.SetActive(false);
+
+        //Remove scrolls
+        Destroy(SeducedScroll);
+        Destroy(SeducedScroll2);
+        Destroy(SeducedScroll3);
+
         CognitiveAvatars.SetActive(false);
         CognitiveConvo.gameObject.SetActive(false);
+
+        //Set ending conversations as active
         TellFok.gameObject.SetActive(true);
         TellNPC.gameObject.SetActive(true);
+
         Floor.GetComponent<MeshRenderer>().material.color = Color.white;
         switchingSound.PlayRealWorldSound();
         StartCoroutine(nPC_Movements.AfterCognitive());
