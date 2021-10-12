@@ -8,7 +8,6 @@ public class Strikes : MonoBehaviour
     public int maxStrikes = 3;
 
     public TMPro.TMP_Text strikeBar;
-    public TMPro.TMP_Text endStrikeBar;
 
     public ConversationPlayer Catherine_Bultilda;
     public ConversationPlayer Catherine_Lapin;
@@ -82,7 +81,7 @@ public class Strikes : MonoBehaviour
                 break;
             case 3:
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
-                KickOutPlayer();
+                ending.TheCreature_GetKickedOut();
                 break;
         }
     }
@@ -90,13 +89,6 @@ public class Strikes : MonoBehaviour
     public void RemoveStrike()
     {
         currentStrikes -= 1;
-    }
-
-    public void KickOutPlayer()
-    {
-        endStrikeBar.enabled = true;
-        strikeBar.enabled = false;
-        StartCoroutine(ending.EndingTime());
     }
 
     public void SetStrikes()
@@ -115,7 +107,6 @@ public class Strikes : MonoBehaviour
             case 3:
                 strikeBar.text = "X X X";
                 strikeBar.color = new Color(222, 13, 13, 1);
-                KickOutPlayer();
                 break;
         }
     }

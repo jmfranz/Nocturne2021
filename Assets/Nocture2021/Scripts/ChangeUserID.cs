@@ -6,8 +6,7 @@ using UnityEngine;
 public class ChangeUserID : MonoBehaviour
 {
     public TextMeshPro UIText;
-    public int currentUserID;
-
+    
     private TouchScreenKeyboard keyboard;
     private string keyboardText = "";
 
@@ -22,11 +21,8 @@ public class ChangeUserID : MonoBehaviour
         if (keyboard != null)
         {
             keyboardText = keyboard.text;
-            if(int.TryParse(keyboardText, out currentUserID))
-            {
-                UIText.text = $"Current User ID {currentUserID}";
-                Logger.SetUserID(currentUserID.ToString());   // Set the User ID for the Logger.
-            }
+            UIText.text = $"Current User ID {keyboardText}";
+            Logger.SetUserID(keyboardText);   // Set the User ID for the Logger.
         }
     }
 }
