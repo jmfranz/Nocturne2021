@@ -226,19 +226,22 @@ public class ConversationPlayer : MonoBehaviour
 
     private void _rulesToTriggerConversation_OnEventTrue(Rules rule, ProximityEventArgs proximityEvent)
     {
-        string conversationName = this.gameObject.name;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            string conversationName = this.gameObject.name;
 
 
-        if (!this.enabled || (AllAvatarsInConvo != this.transform.childCount))
-        {
-            return;
-        }
-        eventIsTrue = true;
-        if (!_isPlaying && !_hasCompletedConversation && _remainingLines.Count != 0)
-        {
-            _generalOutputSource?.Stop(); //stop general clip
-            _currentVoiceLinePlaying = _remainingLines[0]; //continue conversation where it left off.
-            BeforeVoiceLineDelay();
+            if (!this.enabled || (AllAvatarsInConvo != this.transform.childCount))
+            {
+                return;
+            }
+            eventIsTrue = true;
+            if (!_isPlaying && !_hasCompletedConversation && _remainingLines.Count != 0)
+            {
+                _generalOutputSource?.Stop(); //stop general clip
+                _currentVoiceLinePlaying = _remainingLines[0]; //continue conversation where it left off.
+                BeforeVoiceLineDelay();
+            }
         }
     }
 

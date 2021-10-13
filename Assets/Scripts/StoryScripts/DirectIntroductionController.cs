@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ProxemicUIFramework;
+using PhotonNetwork = Photon.Pun.PhotonNetwork;
 
 //Attach this with a node if there should be a direct introduction
 public class DirectIntroductionController : MonoBehaviour
@@ -16,6 +17,8 @@ public class DirectIntroductionController : MonoBehaviour
     public bool IsPlayerEavesdropping = false;
     bool? isEventTrue = null;
     public bool InterruptOnTrueEvent = true;
+
+    public PhotonConnectionManager photonNetwork;
 
     private void Awake()
     {
@@ -153,26 +156,33 @@ public class DirectIntroductionController : MonoBehaviour
 
     private void _ruleToSwitchToDirectIntro_OnEventTrue(Rules rule, ProximityEventArgs proximityEvent)
     {
-        if (!isEventTrue.HasValue)
+        if (PhotonNetwork.IsMasterClient)
         {
+            if (!isEventTrue.HasValue)
+            {
+                isEventTrue = true;
+            }
+            else if (isEventTrue.Value)
+            {
+                return;
+            }
             isEventTrue = true;
-        }
-        else if (isEventTrue.Value)
+
+            IsPlayerEavesdropping = false;
+            if (GeneralLoop != null)
+            {
+                GeneralLoop.InteruptConversation();
+                GeneralLoop.enabled = false;
+            }
+
+            DirectIntroduction.enabled = true;
+
+            _conversationNode.AllAvatarsLookAt(Camera.main.transform);
+        } else
         {
             return;
         }
-        isEventTrue = true;
-
-        IsPlayerEavesdropping = false;
-        if (GeneralLoop != null)
-        {
-            GeneralLoop.InteruptConversation();
-            GeneralLoop.enabled = false;
-        }
-
-        DirectIntroduction.enabled = true;
-
-        _conversationNode.AllAvatarsLookAt(Camera.main.transform);
+        
     }
 
     private void _ruleToSwitchToDirectIntro_OnEventFalse(Rules rule, ProximityEventArgs proximityEvent)
