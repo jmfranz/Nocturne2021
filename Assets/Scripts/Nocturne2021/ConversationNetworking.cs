@@ -36,7 +36,6 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
                 stream.SendNext(currentConversation.transform.GetChild(i).name);
                 //Debug.Log(currentConversation.transform.GetChild(i).name);
                 Debug.Log("NAME" + currentConversation.transform.GetChild(i).name);
-                counter++;
             }
 
         }
@@ -48,7 +47,9 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
          
             for (int i = 0; i < count; i++)
             {
+                
                 string newName = (string)stream.ReceiveNext();
+                Debug.Log(newName);
                 GameObject thisAvatar = GameObject.Find(newName);
                 currentConversation.AddAvatar(thisAvatar);
             }
