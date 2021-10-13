@@ -39,6 +39,10 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
                 string newName = (string)stream.ReceiveNext();
                 Debug.Log(newName);
                 GameObject thisAvatar = GameObject.Find(newName);
+                if (newName.Equals("Karen Fokthipur"))
+                {
+                    thisAvatar.GetComponent<AvatarController>().GoToConversationNode(currentConversation, AvatarController.MovementTypes.Walk);
+                }
                 thisAvatar.GetComponent<AvatarController>().ActiveNode?.RemoveAvatar(currentConversation.gameObject);
                 currentConversation.AddAvatar(thisAvatar);
                 thisAvatar.GetComponent<AvatarController>().ActiveNode = currentConversation;
