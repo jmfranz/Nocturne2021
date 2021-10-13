@@ -12,6 +12,7 @@ public class Strikes : MonoBehaviour
     public ConversationPlayer Catherine_Bultilda;
     public ConversationPlayer Catherine_Lapin;
     public ConversationPlayer Catherine_Ferghus;
+    public ConversationPlayer Ferghus_Lapin;
     public ConversationPlayer Ferghus_Bultilda;
     public ConversationPlayer Lapin_Ferghus;
 
@@ -20,6 +21,7 @@ public class Strikes : MonoBehaviour
     bool CFStrike;
     bool FBStrike;
     bool LFStrike;
+    bool FLStrike;
 
     public EndingController ending;
 
@@ -31,6 +33,7 @@ public class Strikes : MonoBehaviour
         CFStrike = false;
         FBStrike = false;
         LFStrike = false;
+        FLStrike = false;
 
         currentStrikes = 0;
         SetStrikes();
@@ -64,6 +67,11 @@ public class Strikes : MonoBehaviour
             GetStrike(1);
             LFStrike = true;
         }
+        if (Ferghus_Lapin._remainingLines.Count == 0 && !FLStrike)
+        {
+            GetStrike(1);
+            FLStrike = true;
+        } 
     }
 
     public void GetStrike(int numStrikes)

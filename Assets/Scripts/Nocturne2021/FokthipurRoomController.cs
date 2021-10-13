@@ -21,12 +21,8 @@ public class FokthipurRoomController : MonoBehaviour
     public TMPro.TMP_Text noLockpickText;
     public bool doorLocked;
     public GameObject Player;
-    public Transform DoorAxis;
-
 
     List<GameObject> lockpicks;
-    float lerpDuration = 1;
-    Vector3 valueToLerp;
 
     // Start is called before the first frame update
     void Start()
