@@ -52,6 +52,7 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
                 Debug.Log(newName);
                 GameObject thisAvatar = GameObject.Find(newName);
                 currentConversation.AddAvatar(thisAvatar);
+                thisAvatar.GetComponent<AvatarController>().ActiveNode = currentConversation;
             }
 
         }
