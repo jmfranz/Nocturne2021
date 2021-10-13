@@ -36,6 +36,7 @@ public class AvatarController : MonoBehaviour
     public MovementStates _movementState;
     ConversationStates _conversationState;
     Animator _animator;
+    public bool arrived;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class AvatarController : MonoBehaviour
         _movementState = MovementStates.Stopped;
         _agent.updateRotation = false;
         _conversationState = ConversationStates.None;
+        arrived = false;
     }
 
 
@@ -53,6 +55,7 @@ public class AvatarController : MonoBehaviour
         //Move towards destination
         if (_agent.remainingDistance >= _agent.stoppingDistance)
         {
+            arrived = false;
             _character.Move(_agent.desiredVelocity, false, false);
             _movementState = MovementStates.IsMoving;
         }
@@ -73,6 +76,7 @@ public class AvatarController : MonoBehaviour
         else
         {
             _character.Move(Vector3.zero, false, false);
+            arrived = true;
         }
     }
 

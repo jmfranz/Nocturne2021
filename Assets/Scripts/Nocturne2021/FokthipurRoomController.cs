@@ -58,10 +58,8 @@ public class FokthipurRoomController : MonoBehaviour
 
     public void ApproachDoor()
     {
-        Debug.Log("approach started");
         if (doorLocked)
         {
-            Debug.Log("Door has been approached");
             UnlockDoorButton.gameObject.SetActive(true);
         }
     }
