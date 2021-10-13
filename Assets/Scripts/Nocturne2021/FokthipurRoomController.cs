@@ -85,7 +85,8 @@ public class FokthipurRoomController : MonoBehaviour
                 else
                 {
                     StartCoroutine(NoLockpickInInventory());
-                    UnlockDoorButton.gameObject.SetActive(true);
+                    Source.PlayOneShot(DoorIsLocked);
+                    UnlockDoorButton.gameObject.SetActive(false);
                 }
             }
         }
@@ -100,7 +101,6 @@ public class FokthipurRoomController : MonoBehaviour
     IEnumerator NoLockpickInInventory()
     {
         noLockpickText.SetText("There must be something that can help me open this lock");
-        Source.PlayOneShot(DoorIsLocked);
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
         UnlockDoorButton.gameObject.SetActive(false);
