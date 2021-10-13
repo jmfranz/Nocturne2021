@@ -15,6 +15,9 @@ public class LockpickController : MonoBehaviour
 
     public Inventory inventory;
 
+    public AudioSource Source;
+    public AudioClip AddedLockpick;
+
     List<GameObject> allLockpicks;
 
     // Start is called before the first frame update
@@ -40,6 +43,7 @@ public class LockpickController : MonoBehaviour
     IEnumerator TakeLockpickInfoText()
     {
         noLockpickText.SetText("A lockpick has been added to your inventory");
+        Source.PlayOneShot(AddedLockpick);
         yield return new WaitForSeconds(5);
         noLockpickText.SetText(" ");
 

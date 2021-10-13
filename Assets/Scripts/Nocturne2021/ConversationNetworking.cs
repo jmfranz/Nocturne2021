@@ -39,12 +39,9 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
                 string newName = (string)stream.ReceiveNext();
                 Debug.Log(newName);
                 GameObject thisAvatar = GameObject.Find(newName);
-                if (!thisAvatar.GetComponent<AvatarController>().arrived)
-                {
-                    thisAvatar.GetComponent<AvatarController>().ActiveNode?.RemoveAvatar(currentConversation.gameObject);
-                    currentConversation.AddAvatar(thisAvatar);
-                    thisAvatar.GetComponent<AvatarController>().ActiveNode = currentConversation;
-                }
+                thisAvatar.GetComponent<AvatarController>().ActiveNode?.RemoveAvatar(currentConversation.gameObject);
+                currentConversation.AddAvatar(thisAvatar);
+                thisAvatar.GetComponent<AvatarController>().ActiveNode = currentConversation;
             }
         }
     }

@@ -25,6 +25,11 @@ public class Strikes : MonoBehaviour
 
     public EndingController ending;
 
+    public AudioClip Strike1;
+    public AudioClip Strike2;
+    public AudioClip Strike3;
+    public AudioSource Source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,12 +87,15 @@ public class Strikes : MonoBehaviour
         switch (currentStrikes)
         {
             case 1:
+                Source.PlayOneShot(Strike1);
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike1", true);
                 break;
             case 2:
+                Source.PlayOneShot(Strike2);
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike2", true);
                 break;
             case 3:
+                Source.PlayOneShot(Strike3);
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
                 ending.TheCreature_GetKickedOut();
                 break;

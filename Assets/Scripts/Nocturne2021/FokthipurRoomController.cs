@@ -22,6 +22,9 @@ public class FokthipurRoomController : MonoBehaviour
     public bool doorLocked;
     public GameObject Player;
 
+    public AudioSource Source;
+    public AudioClip DoorIsLocked;
+
     List<GameObject> lockpicks;
 
     // Start is called before the first frame update
@@ -97,6 +100,7 @@ public class FokthipurRoomController : MonoBehaviour
     IEnumerator NoLockpickInInventory()
     {
         noLockpickText.SetText("There must be something that can help me open this lock");
+        Source.PlayOneShot(DoorIsLocked);
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
         UnlockDoorButton.gameObject.SetActive(false);
