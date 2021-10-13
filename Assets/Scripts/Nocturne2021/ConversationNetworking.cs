@@ -30,33 +30,26 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
     {
         if (stream.IsWriting)
         {
-            if (currentConversation.transform.childCount > 0)
+            stream.SendNext(currentConversation.transform.childCount);
+            for (int i = 0; i < currentConversation.transform.childCount; i++)
             {
-                for (int i = 0; i < currentConversation.transform.childCount; i++)
-                {
-                    stream.SendNext(currentConversation.transform.GetChild(i).name);
-                    counter++;
-                }
+                stream.SendNext(currentConversation.transform.GetChild(i).name);
+                //Debug.Log(currentConversation.transform.GetChild(i).name);
+                Debug.Log("NAME" + currentConversation.transform.GetChild(i).name);
+                counter++;
+            }
 
-            }
-            else
-            {
-                stream.SendNext("No Children");
-            }
         }
         else
         {
-            List<string> allNames = new List<string>();
 
-            while (counter >= 0 )
-            {
-                allNames.Add((string)stream.ReceiveNext());
-                counter--;
-            }
+            int count = (int)stream.ReceiveNext();
 
-            foreach (var name in allNames)
+         
+            for (int i = 0; i < count; i++)
             {
-                GameObject thisAvatar = GameObject.Find(name);
+                string newName = (string)stream.ReceiveNext();
+                GameObject thisAvatar = GameObject.Find(newName);
                 currentConversation.AddAvatar(thisAvatar);
             }
 
