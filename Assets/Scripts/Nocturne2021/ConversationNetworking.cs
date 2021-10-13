@@ -27,9 +27,7 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
             stream.SendNext(currentConversation.transform.childCount);
             for (int i = 0; i < currentConversation.transform.childCount; i++)
             {
-                Debug.Log("before sending string");
                 stream.SendNext(currentConversation.transform.GetChild(i).name);
-                Debug.Log("after sending string" + currentConversation.transform.GetChild(i).name);
             }
 
         }
