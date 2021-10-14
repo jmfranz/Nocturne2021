@@ -132,7 +132,7 @@ public class NPC_Movements : StoryEventComponent
         AvatarToConversation(Catherine, C_Bultilda);
         StartCoroutine(FixedTimeCoroutineWaitingThing(5));
         AvatarToConversation(Bultilda, C_Bultilda);
-        StartCoroutine(FixedTimeCoroutineWaitingThing(65));
+        StartCoroutine(FixedTimeCoroutineWaitingThing(45));
 
         YieldInstruction waitForFixedUpdate = new WaitForFixedUpdate();
         yield return waitForFixedUpdate;
@@ -254,11 +254,14 @@ public class NPC_Movements : StoryEventComponent
         //StartCoroutine(FixedTimeCoroutineWaitingThing(55));
         StartCoroutine(Fok_Player());
         yield return new WaitForSeconds(55);
+        AvatarToConversation(Bultilda, NPC2);
 
         //Lapin & Ferghus
         StartCoroutine(LF());
+        AvatarToConversation(Catherine, NPC3);
         yield return new WaitUntil(() => isClose(Ferghus.transform.position, L_Ferghus.transform.position, 2));
         //StartCoroutine(FixedTimeCoroutineWaitingThing(30));
+        AvatarToConversation(Fokthipur, NPC2);
         yield return new WaitForSeconds(30);
 
         //Catherine & Lapin
