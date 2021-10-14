@@ -1,0 +1,7 @@
+#include "il2cpp-config.h"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\BoehmGC.cpp"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\GCHandle.cpp"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\GarbageCollector.cpp"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\NullGC.cpp"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\WriteBarrier.cpp"
+#include "C:\Users\Shannon\Documents\GitHub\Nocturne2021\Shannon\Il2CppOutputProject\IL2CPP\libil2cpp\gc\WriteBarrierValidation.cpp"
