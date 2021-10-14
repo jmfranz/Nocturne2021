@@ -29,7 +29,7 @@ public class Cognitive_Catherine_Reaction : MonoBehaviour
         //Add the Keywords and the corresponding reaction to the dictionary convoSecretKeyword.
         convoSecretKeyword.Add("Seduced", RespondToSeduce);
         convoSecretKeyword.Add("Seduce", RespondToSeduce);
-        // convoSecretKeyword.Add("Seclude", RespondToSeduce);
+        convoSecretKeyword.Add("Seclude", RespondToSeduce);
         convoSecretKeyword.Add("Seduction", RespondToSeduce);
 
         keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Low);

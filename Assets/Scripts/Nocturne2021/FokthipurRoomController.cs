@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows.Speech;
+using System.Linq;
+using System;
 
 
 public class FokthipurRoomController : MonoBehaviour
@@ -21,11 +24,14 @@ public class FokthipurRoomController : MonoBehaviour
     public TMPro.TMP_Text noLockpickText;
     public bool doorLocked;
     public GameObject Player;
+    public Transform DoorAxis;
 
-    public AudioSource Source;
-    public AudioClip DoorIsLocked;
+    private Dictionary<string, Action> convoSecretKeyword = new Dictionary<string, Action>();
+    private KeywordRecognizer keywordRecognizer;
 
     List<GameObject> lockpicks;
+    float lerpDuration = 1;
+    Vector3 valueToLerp;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +45,23 @@ public class FokthipurRoomController : MonoBehaviour
         lockpicks.Add(lockpick5);
 
         doorLocked = true;
+        convoSecretKeyword.Add("Unluck", UnlockDoor);
+        convoSecretKeyword.Add("Open", UnlockDoor);
+
+        keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Low);
+
+        //Add the event RecognizeSpeech to the keywordRecognizer object
+        keywordRecognizer.OnPhraseRecognized += RecocorgnizedSpeech;
+
+        //Start the object recognizer to use the microphone service on the device.
+        keywordRecognizer.Start();
     }
+
+    private void RecocorgnizedSpeech(PhraseRecognizedEventArgs speech)
+    {
+        convoSecretKeyword[speech.text].Invoke();
+    }
+
 
     private void Update()
     {
@@ -61,8 +83,10 @@ public class FokthipurRoomController : MonoBehaviour
 
     public void ApproachDoor()
     {
+        Debug.Log("approach started");
         if (doorLocked)
         {
+            Debug.Log("Door has been approached");
             UnlockDoorButton.gameObject.SetActive(true);
         }
     }
@@ -81,12 +105,16 @@ public class FokthipurRoomController : MonoBehaviour
                     StartCoroutine(LockpickInInventory());
                     UnlockDoorButton.gameObject.SetActive(false);
                     GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
+
+                    //Stop using the keyword Recorgnizer object
+                    keywordRecognizer.Stop();
+
+                    Debug.Log("Door has been unlocked");
                 }
                 else
                 {
                     StartCoroutine(NoLockpickInInventory());
-                    Source.PlayOneShot(DoorIsLocked);
-                    UnlockDoorButton.gameObject.SetActive(false);
+                    UnlockDoorButton.gameObject.SetActive(true);
                 }
             }
         }
@@ -100,6 +128,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator NoLockpickInInventory()
     {
+        // Play Sound Door is locked, there must be something we could find here.
         noLockpickText.SetText("There must be something that can help me open this lock");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
@@ -108,6 +137,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator LockpickInInventory()
     {
+        // Play Sound Door is unlocked! 
         noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
