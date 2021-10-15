@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using UnityEngine.AI;
 
 public class CognitiveWorldSwitch : MonoBehaviour
 {
@@ -103,6 +105,10 @@ public class CognitiveWorldSwitch : MonoBehaviour
         if (storyStart.Complete && !avatarsVisible)
         {
             GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("StoryStart", true);
+
+           
+
+
             Catherine.SetActive(true);
             Fokthipur.SetActive(true);
             Ferghus.SetActive(true);
@@ -111,6 +117,25 @@ public class CognitiveWorldSwitch : MonoBehaviour
             NPC2.SetActive(true);
             NPC3.SetActive(true);
             avatarsVisible = true;
+            if (Catherine.GetComponent<PhotonView>().IsMine)
+            {
+                Catherine.GetComponent<NavMeshAgent>().enabled = true;
+                Fokthipur.GetComponent<NavMeshAgent>().enabled = true;
+                Ferghus.GetComponent<NavMeshAgent>().enabled = true;
+                Lapin.GetComponent<NavMeshAgent>().enabled = true;
+                Bultilda.GetComponent<NavMeshAgent>().enabled = true;
+                NPC2.GetComponent<NavMeshAgent>().enabled = true;
+                NPC3.GetComponent<NavMeshAgent>().enabled = true;
+
+                Catherine.GetComponent<AvatarController>().enabled = true;
+                Fokthipur.GetComponent<AvatarController>().enabled = true;
+                Ferghus.GetComponent<AvatarController>().enabled = true;
+                Lapin.GetComponent<AvatarController>().enabled = true;
+                Bultilda.GetComponent<AvatarController>().enabled = true;
+                NPC2.GetComponent<AvatarController>().enabled = true;
+                NPC3.GetComponent<AvatarController>().enabled = true;
+
+            }
         }
         
         if (CognitiveCatherine.GetComponent<AvatarController>()._agent != null && !inCognitive)
