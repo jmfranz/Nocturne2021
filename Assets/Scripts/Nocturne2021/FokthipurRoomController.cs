@@ -139,7 +139,7 @@ public class FokthipurRoomController : MonoBehaviour
     {
         // Play Sound Door is unlocked! 
         noLockpickText.SetText("Door is unlocked.");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         noLockpickText.SetText(" ");
     }
 }

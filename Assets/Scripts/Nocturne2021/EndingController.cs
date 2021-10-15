@@ -12,10 +12,10 @@ public class EndingController : MonoBehaviour
 
     public GameObject End;
 
+    public GameObject P2;
+
     public TMPro.TMP_Text strikeBar;
     public TMPro.TMP_Text endStrikeBar;
-
-    public FadeController fadeController;
 
     public AudioSource switchingSoundSource;
     public AudioClip SteepedInSecrecy_Sound;
@@ -25,11 +25,21 @@ public class EndingController : MonoBehaviour
     public AudioClip TellCatEndingSound;
     public AudioClip CreatureSound;
 
+    public GameObject CreatureImage;
+    public GameObject SecrecyImage;
+    public GameObject ScandalImage;
+
+    public GameObject Player;
+
+    Vector3 offsetPosition;
+    
     // Update is called once per frame
     void Update()
     {
-        if (TellFok._remainingLines.Count == 0 && fadeController.faded)
+        if (TellFok._remainingLines.Count == 0)
         {
+            
+
             SteepedInSecrecy();
             StartCoroutine(EndingTime(30));
         }
@@ -38,12 +48,6 @@ public class EndingController : MonoBehaviour
             SteepedInScandal();
             StartCoroutine(EndingTime(2));
         }
-
-    }
-
-    public void TheEnd()
-    {
-        End.SetActive(true);
     }
 
     public IEnumerator EndingTime(int time)
@@ -54,9 +58,17 @@ public class EndingController : MonoBehaviour
 
     public void SteepedInSecrecy()
     {
+        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 1);
+
+        //Start audio ending
         switchingSoundSource.PlayOneShot(SteepedInSecrecy_Sound);
         switchingSoundSource.PlayOneShot(TellFokEndingSound);
-        fadeController.Fade(SteepedInSecrecy_Newspaper.GetComponent<CanvasGroup>());
+       
+        //Start visual ending
+        P2.SetActive(false);
+        Instantiate(CreatureImage, Player.transform.position, Quaternion.identity);
+        
+        //Thanks for playing Spill
         StartCoroutine(EndingTime(30));
     }
 
@@ -64,6 +76,7 @@ public class EndingController : MonoBehaviour
     {
         switchingSoundSource.PlayOneShot(SteepedInScandal_Sound);
         switchingSoundSource.PlayOneShot(TellCatEndingSound);
+        P2.SetActive(false);
         StartCoroutine(EndingTime(4));
     }
 
@@ -72,7 +85,7 @@ public class EndingController : MonoBehaviour
         switchingSoundSource.PlayOneShot(CreatureSound);
         endStrikeBar.enabled = true;
         strikeBar.enabled = false;
-        fadeController.Fade(TheCreature_Newspaper.GetComponent<CanvasGroup>());
+        P2.SetActive(false);
         switchingSoundSource.PlayOneShot(TheCreature_Sound);
         StartCoroutine(EndingTime(30));
     }
