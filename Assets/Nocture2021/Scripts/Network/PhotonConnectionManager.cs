@@ -12,7 +12,7 @@ public class PhotonConnectionManager : MonoBehaviourPunCallbacks
     public GameObject PlayerPrefab;
     public Transform parentAnchor;
     public string RoomName = "Nocturne";
-    public List<MeshRenderer> Walls;
+    public List<MeshRenderer> Walls; 
 
     private string gameVersion = "0";
 
