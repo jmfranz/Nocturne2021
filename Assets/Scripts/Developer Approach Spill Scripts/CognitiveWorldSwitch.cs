@@ -168,7 +168,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
         {
             actor.SetActive(false);
         }
-        
+
+        Floor.GetComponent<MeshRenderer>().enabled = true;
         //Change floor colour 
         Floor.GetComponent<MeshRenderer>().material.color = new Color(87f/255f, 65f/255f, 99f/255f);
         
@@ -199,6 +200,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
         //Set ending conversations as active
         TellFok.gameObject.SetActive(true);
         TellNPC.gameObject.SetActive(true);
+
+        Floor.GetComponent<MeshRenderer>().enabled = false;
 
         Floor.GetComponent<MeshRenderer>().material.color = Color.white;
         switchingSound.PlayRealWorldSound();
