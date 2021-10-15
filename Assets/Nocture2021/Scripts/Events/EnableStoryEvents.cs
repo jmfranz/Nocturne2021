@@ -16,7 +16,7 @@ public class EnableStoryEvents : MonoBehaviour
     public void EnableEventsTriggers()
     {
         //Enable the Dog Nav
-        var dog = GameObject.FindGameObjectWithTag("IsAgent");
+        var dog = GameObject.FindGameObjectWithTag("Avatar");
         if (dog.GetComponent<PhotonView>().IsMine)
         {          
             dog.GetComponent<NavMeshAgent>().enabled = true;

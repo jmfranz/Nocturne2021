@@ -26,26 +26,9 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
         tenFrames = false;
     }
 
-    void Update()
-    {
-        if (!tenFrames && nPC_Movements.storyStart.Complete)
-        {
-            counter++;
-        }
-
-        if (counter == 10)
-        {
-            tenFrames = true;
-        } else if (counter < 10)
-        {
-            tenFrames = false;
-        }
-    }
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-       
-        if (tenFrames && stream.IsWriting)
+        if ( stream.IsWriting)
         {
             stream.SendNext(currentConversation.transform.childCount);
             for (int i = 0; i < currentConversation.transform.childCount; i++)
