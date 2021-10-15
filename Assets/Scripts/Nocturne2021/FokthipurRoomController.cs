@@ -31,6 +31,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip doorIsLocked;
+    [SerializeField] AudioClip doorSound;
 
     List<GameObject> lockpicks;
     float lerpDuration = 1;
@@ -133,7 +134,6 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator NoLockpickInInventory()
     {
-        
         audioSource.PlayOneShot(doorIsLocked);
         noLockpickText.SetText("There must be something that can help me open this lock");
         yield return new WaitForSeconds(2);
@@ -143,6 +143,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator LockpickInInventory()
     {
+        audioSource.PlayOneShot(doorSound);
         noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
