@@ -5,7 +5,7 @@ using Unity.Profiling;
 using UnityEngine;
 
 [RequireComponent(typeof(ConversationNode))]
-public class ConversationNetworking : MonoBehaviour, IPunObservable
+public class ConversationNetworking : MonoBehaviour//, IPunObservable
 {
     
     public ConversationNode currentConversation;
