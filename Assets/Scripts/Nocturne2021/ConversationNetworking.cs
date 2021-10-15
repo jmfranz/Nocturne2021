@@ -12,17 +12,40 @@ public class ConversationNetworking : MonoBehaviour, IPunObservable
 
     public int counter;
 
+    bool tenFrames;
+    int frameCounter;
+
+    public NPC_Movements nPC_Movements;
+
 
     // Start is called before the first frame update
     void Start()
     {
         currentConversation = GetComponent<ConversationNode>();
         counter = 0;
+        tenFrames = false;
+    }
+
+    void Update()
+    {
+        if (!tenFrames && nPC_Movements.storyStart.Complete)
+        {
+            counter++;
+        }
+
+        if (counter == 10)
+        {
+            tenFrames = true;
+        } else if (counter < 10)
+        {
+            tenFrames = false;
+        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting)
+       
+        if (tenFrames && stream.IsWriting)
         {
             stream.SendNext(currentConversation.transform.childCount);
             for (int i = 0; i < currentConversation.transform.childCount; i++)
