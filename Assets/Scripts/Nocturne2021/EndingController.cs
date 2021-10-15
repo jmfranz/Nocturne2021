@@ -43,13 +43,11 @@ public class EndingController : MonoBehaviour
         if (!endStarted && TellFok._remainingLines.Count == 0)
         {
             SteepedInSecrecy();
-            StartCoroutine(EndingTime(30));
             endStarted = true;
         }
         if (!endStarted && TellCatherine._remainingLines.Count == 0)
         {
             SteepedInScandal();
-            StartCoroutine(EndingTime(30));
             endStarted = true;
         }
     }
