@@ -14,6 +14,7 @@ public class OpenDoor : MonoBehaviour
 
     public GameObject Door;
     public FokthipurRoomController roomController;
+    private float speed = 1f;
 
     [SerializeField] private SwitchingSound switchingSound;
 
@@ -41,7 +42,7 @@ public class OpenDoor : MonoBehaviour
             valueToLerp = Vector3.Lerp(start, end, t);
 
             Door.transform.localRotation = Quaternion.Euler(valueToLerp.x, valueToLerp.y, valueToLerp.z);
-            timeElapsed += Time.deltaTime;
+            timeElapsed += Time.deltaTime * speed;
 
             switchingSound.PlayDoorSound();
             yield return null;

@@ -196,7 +196,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         
         //Play sound to indicate change
         switchingSound.CognitiveRealWorldSound();
-        cognintiveWorldSoundEffect.Play();
+        //cognintiveWorldSoundEffect.Play();
         inCognitive = true;
     }
 
