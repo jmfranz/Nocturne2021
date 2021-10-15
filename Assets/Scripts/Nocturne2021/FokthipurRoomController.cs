@@ -130,7 +130,7 @@ public class FokthipurRoomController : MonoBehaviour
     {
         // Play Sound Door is locked, there must be something we could find here.
         noLockpickText.SetText("There must be something that can help me open this lock");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         noLockpickText.SetText(" ");
         UnlockDoorButton.gameObject.SetActive(false);
     }
@@ -138,7 +138,7 @@ public class FokthipurRoomController : MonoBehaviour
     IEnumerator LockpickInInventory()
     {
         // Play Sound Door is unlocked! 
-        noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
+        noLockpickText.SetText("Door is unlocked.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
     }

@@ -40,7 +40,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public bool getCaught;
     public bool finishingText;
     bool avatarsVisible;
-    public TMPro.TMP_Text keywordInstruction;
 
     public SpriteRenderer NorthReal;
     public SpriteRenderer NorthCognitive;
@@ -160,11 +159,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         {
             GetCaught();
         }
-
-        if (CognitiveConvo.isActiveAndEnabled)
-        {
-            keywordInstruction.gameObject.SetActive(true);
-        } 
     }
 
     public void GoToCognitive()
