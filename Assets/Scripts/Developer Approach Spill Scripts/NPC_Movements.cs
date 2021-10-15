@@ -220,6 +220,10 @@ public class NPC_Movements : StoryEventComponent
 
     public IEnumerator ConversationLoop()
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
 
         Debug.Log("Conversation Loop Started");
         loopFinished = false;
