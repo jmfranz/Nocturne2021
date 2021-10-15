@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Photon.Pun;
 
 public class NPC_Movements : StoryEventComponent
 {
@@ -222,7 +223,7 @@ public class NPC_Movements : StoryEventComponent
     {
         if (!PhotonNetwork.IsMasterClient)
         {
-            return;
+            yield return null;
         }
 
         Debug.Log("Conversation Loop Started");
