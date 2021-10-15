@@ -113,6 +113,8 @@ public class FokthipurRoomController : MonoBehaviour
                     keywordRecognizer.Stop();
 
                     Debug.Log("Door has been unlocked");
+
+                    return;
                 }
                 else
                 {
