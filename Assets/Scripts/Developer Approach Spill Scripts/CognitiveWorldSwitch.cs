@@ -53,6 +53,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public Strikes Strikes;
 
     [SerializeField] private SwitchingSound switchingSound;
+    private AudioSource cognintiveWorldSoundEffect;
 
     List<GameObject> NormalAvatars;
 
@@ -62,6 +63,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        cognintiveWorldSoundEffect = GetComponent<AudioSource>();
         inCognitive = false;
         getCaught = false;
         finishingText = false;
@@ -194,6 +196,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         
         //Play sound to indicate change
         switchingSound.CognitiveRealWorldSound();
+        //cognintiveWorldSoundEffect.Play();
         inCognitive = true;
     }
 
@@ -223,6 +226,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         Floor.GetComponent<MeshRenderer>().enabled = false;
 
         Floor.GetComponent<MeshRenderer>().material.color = Color.white;
+        cognintiveWorldSoundEffect.Stop();
         switchingSound.PlayRealWorldSound();
         StartCoroutine(nPC_Movements.AfterCognitive());
     }

@@ -7,6 +7,8 @@ public class SwitchingSound : MonoBehaviour
     private AudioSource switchingSoundSource;
     public AudioClip cognitiveWorldSound;
     public AudioClip realWorldSound;
+    public AudioClip doorSound;
+
 
     void Awake()
     {
@@ -39,4 +41,9 @@ public class SwitchingSound : MonoBehaviour
     {
         switchingSoundSource.PlayOneShot(cognitiveWorldSound);
     }
+    public void PlayDoorSound()
+    {
+        switchingSoundSource.PlayOneShot(doorSound);
+    }
+
 }
