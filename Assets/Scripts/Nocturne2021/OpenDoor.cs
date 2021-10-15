@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     float timeElapsed;
-    float lerpDuration = 1;
+    float lerpDuration = 2;
     public Vector3 initialStartRotation;
     public Vector3 initialEndRotation;
     Vector3 valueToLerp;
@@ -14,9 +14,8 @@ public class OpenDoor : MonoBehaviour
 
     public GameObject Door;
     public FokthipurRoomController roomController;
-    private float speed = 1f;
+    private float speed = 0.5f;
 
-    [SerializeField] private SwitchingSound switchingSound;
 
     public enum DoorStatus { Open, Close }
     public DoorStatus Status = DoorStatus.Close; // At RunTime Door is closed 
@@ -44,7 +43,6 @@ public class OpenDoor : MonoBehaviour
             Door.transform.localRotation = Quaternion.Euler(valueToLerp.x, valueToLerp.y, valueToLerp.z);
             timeElapsed += Time.deltaTime * speed;
 
-            switchingSound.PlayDoorSound();
             yield return null;
         }
         UpdateDoorStatus();
