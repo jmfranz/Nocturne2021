@@ -29,6 +29,9 @@ public class FokthipurRoomController : MonoBehaviour
     private Dictionary<string, Action> convoSecretKeyword = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip doorIsLocked;
+
     List<GameObject> lockpicks;
     float lerpDuration = 1;
     Vector3 valueToLerp;
@@ -128,7 +131,8 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator NoLockpickInInventory()
     {
-        // Play Sound Door is locked, there must be something we could find here.
+        
+        audioSource.PlayOneShot(doorIsLocked);
         noLockpickText.SetText("There must be something that can help me open this lock");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
@@ -137,7 +141,6 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator LockpickInInventory()
     {
-        // Play Sound Door is unlocked! 
         noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");

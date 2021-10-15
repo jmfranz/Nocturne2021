@@ -15,6 +15,8 @@ public class OpenDoor : MonoBehaviour
     public GameObject Door;
     public FokthipurRoomController roomController;
 
+    [SerializeField] private SwitchingSound switchingSound;
+
     public enum DoorStatus { Open, Close }
     public DoorStatus Status = DoorStatus.Close; // At RunTime Door is closed 
 
@@ -41,6 +43,7 @@ public class OpenDoor : MonoBehaviour
             Door.transform.localRotation = Quaternion.Euler(valueToLerp.x, valueToLerp.y, valueToLerp.z);
             timeElapsed += Time.deltaTime;
 
+            switchingSound.PlayDoorSound();
             yield return null;
         }
         UpdateDoorStatus();
