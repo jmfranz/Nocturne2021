@@ -33,7 +33,7 @@ public class EnableStoryEvents : MonoBehaviour
             }
             else
             {
-                throw new Exception("I cannot start the events without a reference ti the conditional component");
+                throw new Exception("I cannot start the events without a reference it the conditional component");
             }
         }      
     }
