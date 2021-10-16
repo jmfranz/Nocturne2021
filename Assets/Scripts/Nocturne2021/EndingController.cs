@@ -43,17 +43,17 @@ public class EndingController : MonoBehaviour
     {
         if (!endStarted && TellFok._remainingLines.Count == 0)
         {
-            StartCoroutine(EndingTime(40, SecrecyImage, SteepedInSecrecy_Sound, TellFokEndingSound));
+            StartCoroutine(EndingTime(29, SecrecyImage, SteepedInSecrecy_Sound, TellFokEndingSound));
             endStarted = true;
         }
         if (!endStarted && TellCatherine._remainingLines.Count == 0)
         {
-            StartCoroutine(EndingTime(40, ScandalImage, SteepedInScandal_Sound, TellCatEndingSound));
+            StartCoroutine(EndingTime(29, ScandalImage, SteepedInScandal_Sound, TellCatEndingSound));
             endStarted = true;
         }
         if (!endStarted && strikes.kickOut)
         {
-            StartCoroutine(EndingTime(40, CreatureImage, CreatureSound, TheCreature_Sound));
+            StartCoroutine(EndingTime(29, CreatureImage, CreatureSound, TheCreature_Sound));
             endStarted = true;
         }
     }

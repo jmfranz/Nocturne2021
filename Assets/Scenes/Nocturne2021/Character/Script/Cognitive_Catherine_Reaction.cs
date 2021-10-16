@@ -32,7 +32,7 @@ public class Cognitive_Catherine_Reaction : MonoBehaviour
         convoSecretKeyword.Add("Seclude", RespondToSeduce);
         convoSecretKeyword.Add("Seduction", RespondToSeduce);
 
-        keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Low);
+        keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Medium);
 
         //Add the event RecognizeSpeech to the keywordRecognizer object
         keywordRecognizer.OnPhraseRecognized += RecocorgnizedSpeech;
