@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/StandvilleAuthor.unity
     guid: 21c5b17520323f0479c5de1bc5e2c334
   - enabled: 1
-    path: Assets/Scenes/StandvilleAuthorAwareGuideNew.unity
-    guid: 73a45cdf3c427c34c8d33d9a42a0ce28
+    path: Assets/Scenes/StandvilleAuthorAwareGuide.unity
+    guid: 89d9344254323b544a3cc395e092bc0e
   - enabled: 1
     path: Assets/Scenes/Nocturne2021/SpillSS.unity
     guid: 41521482e570ecf48a96253d2d8bb5ea
-  - enabled: 1
-    path: Assets/Scenes/Nocturne2021/SpillAwareGuide.unity
-    guid: 3eab8f36dc9eb4244a5b45748b988403
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b10e1441decdd7741a43435fe62f47bb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9472c0050c46d7540aac45960e0f6c71, type: 2}
