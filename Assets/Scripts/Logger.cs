@@ -14,7 +14,7 @@ public class Logger : MonoBehaviour
     private static Dictionary<string, string> _headers;
     private static string _userId = "0";
     private float _elapsedTime = 0;
-    private bool _logFileSetUp = false;
+    public bool _logFileSetUp = false;
     private AudioClip _audioClip;
 
     public static void SetUserID(string newID)

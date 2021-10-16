@@ -38,6 +38,8 @@ public class FokthipurRoomController : MonoBehaviour
     float lerpDuration = 1;
     Vector3 valueToLerp;
 
+    public StoryEventComponent storyEventComponent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,8 @@ public class FokthipurRoomController : MonoBehaviour
                     StartCoroutine(LockpickInInventory());
                     GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
 
+                    storyEventComponent.WriteEventStartRequest("DoorUnlocked");
+
                     //Stop using the keyword Recorgnizer object
                     keywordRecognizer.Stop();
                     //Door animation
@@ -116,12 +120,16 @@ public class FokthipurRoomController : MonoBehaviour
     public bool GetIsDoorLocked()
     {
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorLocked", true);
+        storyEventComponent.WriteEventStartRequest("DoorLocked");
         return doorLocked;
     }
 
     IEnumerator NoLockpickInInventory()
     {
-        audioSource.PlayOneShot(doorIsLocked);
+        if (audioSource.isPlaying == false)
+        {
+            audioSource.PlayOneShot(doorIsLocked);
+        }
         noLockpickText.SetText("There must be something that can help me open this lock");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
@@ -130,7 +138,10 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator LockpickInInventory()
     {
-        audioSource.PlayOneShot(doorSound);
+        if (audioSource.isPlaying == false)
+        {
+            audioSource.PlayOneShot(doorSound);
+        }
         noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");

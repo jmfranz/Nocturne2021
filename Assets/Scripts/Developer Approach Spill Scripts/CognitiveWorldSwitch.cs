@@ -59,6 +59,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     // Story Start Script
     public ConditionalEventComponent storyStart;
+    public StoryEventComponent storyEventComponent;
 
     // Start is called before the first frame update
     void Start()
@@ -144,7 +145,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
     {
         //Send Aware Guide data
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("IntoCognitive", true);
-        
+        storyEventComponent.WriteEventStartRequest("IntoCognitive");
+
         //Change outside window image
         ToggleWindows();
 
@@ -186,7 +188,8 @@ public class CognitiveWorldSwitch : MonoBehaviour
         inCognitive = false;
         ToggleWindows();
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("LearnedSecret", true);
-        
+        storyEventComponent.WriteEventStartRequest("LearnedSecret");
+
         foreach (GameObject actor in NormalAvatars)
             {
                 actor.SetActive(true);

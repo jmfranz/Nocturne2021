@@ -218,7 +218,7 @@ public class StoryEventComponent : MonoBehaviour
         }
     }
 
-    private void WriteEventStartRequest()
+    public void WriteEventStartRequest()
     {
         if (!logFileSetUp)
         {
@@ -244,7 +244,33 @@ public class StoryEventComponent : MonoBehaviour
             SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
     }
 
-    private void WriteEventStopRequest()
+    public void WriteEventStartRequest(string storyName)
+    {
+        if (!logFileSetUp)
+        {
+            Logger.AddHeaderRequest(logFilename, "Date", "Hour", "Minute", "Second", "Milisecond", "EventName", "Event", "Scene", "IsMaster");
+            logFileSetUp = true;
+        }
+
+        DateTime now = DateTime.Now;
+        string date = now.ToString("yyyy-MM-dd");
+
+        string IsMaster;
+
+        try
+        {
+            IsMaster = PhotonNetwork.IsMasterClient.ToString();
+        }
+        catch
+        {
+            IsMaster = "ERROR";
+        }
+
+        Logger.WriteRequest(logFilename, date, now.Hour, now.Minute, now.Second, now.Millisecond, storyName, "Start",
+            SceneManager.GetActiveScene().name, PhotonNetwork.IsMasterClient);
+    }
+
+    public void WriteEventStopRequest()
     {
         DateTime now = DateTime.Now;
         string date = now.ToString("yyyy-MM-dd");
