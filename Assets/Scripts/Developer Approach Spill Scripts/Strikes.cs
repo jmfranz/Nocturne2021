@@ -95,9 +95,7 @@ public class Strikes : MonoBehaviour
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike2", true);
                 break;
             case 3:
-                Source.PlayOneShot(Strike3);
-                GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
-                ending.TheCreature_GetKickedOut();
+                StartCoroutine(Strike3_Coroutine());
                 break;
         }
     }
@@ -131,4 +129,13 @@ public class Strikes : MonoBehaviour
     {
         return currentStrikes;
     }
+
+    IEnumerator Strike3_Coroutine()
+    {
+        Source.PlayOneShot(Strike3);
+        yield return new WaitForSeconds(3);
+        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
+        ending.TheCreature_GetKickedOut();
+    }
+
 }

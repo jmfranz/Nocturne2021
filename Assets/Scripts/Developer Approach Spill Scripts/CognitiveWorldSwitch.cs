@@ -35,6 +35,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
 
     public FokthipurRoomController fokthipurRoomController;
     public NPC_Movements nPC_Movements;
+    public AvatarController avatarController;
    
     public bool inCognitive;
     public bool getCaught;
@@ -53,7 +54,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
     public Strikes Strikes;
 
     [SerializeField] private SwitchingSound switchingSound;
-    private AudioSource cognintiveWorldSoundEffect;
 
     List<GameObject> NormalAvatars;
 
@@ -63,7 +63,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        cognintiveWorldSoundEffect = GetComponent<AudioSource>();
         inCognitive = false;
         getCaught = false;
         finishingText = false;
@@ -107,9 +106,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
         {
             GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("StoryStart", true);
 
-           
-
-
             Catherine.SetActive(true);
             Fokthipur.SetActive(true);
             Ferghus.SetActive(true);
@@ -118,25 +114,6 @@ public class CognitiveWorldSwitch : MonoBehaviour
             NPC2.SetActive(true);
             NPC3.SetActive(true);
             avatarsVisible = true;
-            if (Catherine.GetComponent<PhotonView>().IsMine)
-            {
-                Catherine.GetComponent<NavMeshAgent>().enabled = true;
-                Fokthipur.GetComponent<NavMeshAgent>().enabled = true;
-                Ferghus.GetComponent<NavMeshAgent>().enabled = true;
-                Lapin.GetComponent<NavMeshAgent>().enabled = true;
-                Bultilda.GetComponent<NavMeshAgent>().enabled = true;
-                NPC2.GetComponent<NavMeshAgent>().enabled = true;
-                NPC3.GetComponent<NavMeshAgent>().enabled = true;
-
-                Catherine.GetComponent<AvatarController>().enabled = true;
-                Fokthipur.GetComponent<AvatarController>().enabled = true;
-                Ferghus.GetComponent<AvatarController>().enabled = true;
-                Lapin.GetComponent<AvatarController>().enabled = true;
-                Bultilda.GetComponent<AvatarController>().enabled = true;
-                NPC2.GetComponent<AvatarController>().enabled = true;
-                NPC3.GetComponent<AvatarController>().enabled = true;
-
-            }
         }
         
         if (CognitiveCatherine.GetComponent<AvatarController>()._agent != null && !inCognitive)
@@ -196,8 +173,12 @@ public class CognitiveWorldSwitch : MonoBehaviour
         
         //Play sound to indicate change
         switchingSound.CognitiveRealWorldSound();
+        switchingSound.InCognitiveAudio();
+
         //cognintiveWorldSoundEffect.Play();
         inCognitive = true;
+
+        //CognitiveCatherine.GetComponent<AvatarController>().GoToConversationNode(CognitiveConvoNode, AvatarController.MovementTypes.Walk);
     }
 
     public void LeaveCognitive()
@@ -226,7 +207,7 @@ public class CognitiveWorldSwitch : MonoBehaviour
         Floor.GetComponent<MeshRenderer>().enabled = false;
 
         Floor.GetComponent<MeshRenderer>().material.color = Color.white;
-        cognintiveWorldSoundEffect.Stop();
+        switchingSound.StopCognitiveAudio();
         switchingSound.PlayRealWorldSound();
         StartCoroutine(nPC_Movements.AfterCognitive());
     }

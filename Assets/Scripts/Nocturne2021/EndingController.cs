@@ -9,7 +9,7 @@ public class EndingController : MonoBehaviour
 
     public GameObject End;
 
-    public GameObject P2;
+    public GameObject TurnOff;
 
     public TMPro.TMP_Text strikeBar;
     public TMPro.TMP_Text endStrikeBar;
@@ -43,13 +43,11 @@ public class EndingController : MonoBehaviour
         if (!endStarted && TellFok._remainingLines.Count == 0)
         {
             SteepedInSecrecy();
-            StartCoroutine(EndingTime(30));
             endStarted = true;
         }
         if (!endStarted && TellCatherine._remainingLines.Count == 0)
         {
             SteepedInScandal();
-            StartCoroutine(EndingTime(30));
             endStarted = true;
         }
     }
@@ -62,7 +60,12 @@ public class EndingController : MonoBehaviour
 
     public void SteepedInSecrecy()
     {
+
         offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
+
+        //Start visual ending
+        TurnOff.SetActive(false);
+        Instantiate(SecrecyImage, offsetPosition, Quaternion.identity);
 
         //Start audio ending
         switchingSoundSource.PlayOneShot(SteepedInSecrecy_Sound);
@@ -73,15 +76,15 @@ public class EndingController : MonoBehaviour
         Instantiate(SecrecyImage, offsetPosition, Quaternion.identity);
 
         //Thanks for playing Spill
-        StartCoroutine(EndingTime(30));
+        StartCoroutine(EndingTime(40));
     }
 
     public void SteepedInScandal()
     {
-        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 10);
-        
+        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
+
         //Start visual ending
-        P2.SetActive(false);
+        TurnOff.SetActive(false);
         Instantiate(ScandalImage, offsetPosition, Quaternion.identity);
         
         //Start audio ending
@@ -89,15 +92,15 @@ public class EndingController : MonoBehaviour
         switchingSoundSource.PlayOneShot(TellCatEndingSound);
 
         //Thanks for playing Spill
-        StartCoroutine(EndingTime(4));
+        StartCoroutine(EndingTime(40));
     }
 
     public void TheCreature_GetKickedOut()
     {
-        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 10);
-        
+        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
+
         //Start visual ending
-        P2.SetActive(false);
+        TurnOff.SetActive(false);
         Instantiate(CreatureImage, offsetPosition, Quaternion.identity);
 
         //Start audio ending
@@ -105,6 +108,6 @@ public class EndingController : MonoBehaviour
         switchingSoundSource.PlayOneShot(TheCreature_Sound);
 
         //Thanks for playing Spill
-        StartCoroutine(EndingTime(30));
+        StartCoroutine(EndingTime(40));
     }
 }
