@@ -40,6 +40,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     public StoryEventComponent storyEventComponent;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +87,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     public void UnlockDoor()
     {
+        int once = 0;
         if (doorLocked)
         {
             foreach (var lockpick in lockpicks)
@@ -95,8 +97,12 @@ public class FokthipurRoomController : MonoBehaviour
                     doorLocked = false;
                     doorChain.SetActive(false);
                     doorLock.SetActive(false);
-                    StartCoroutine(LockpickInInventory());
-                    GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
+                    if (once < 1)
+                    {
+                        StartCoroutine(LockpickInInventory());
+                        GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
+                        once++;
+                    }
 
                     storyEventComponent.WriteEventStartRequest("DoorUnlocked");
 
@@ -110,7 +116,10 @@ public class FokthipurRoomController : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(NoLockpickInInventory());
+                    if (once < 1)
+                    {
+                        StartCoroutine(NoLockpickInInventory());
+                    }
                     UnlockDoorButton.gameObject.SetActive(true);
                 }
             }
