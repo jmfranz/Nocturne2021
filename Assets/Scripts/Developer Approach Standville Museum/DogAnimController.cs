@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -31,6 +32,15 @@ public class DogAnimController : MonoBehaviour
     void Update()
     {
         AnimatorBasicController();
+    }
+
+    private void LateUpdate()
+    {
+        if (anim.GetBool("talk") && PlayerIsVisible())
+        {
+            transform.LookAt(Camera.main.transform);
+            transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        }
     }
 
     void AnimatorBasicController()
@@ -176,6 +186,27 @@ public class DogAnimController : MonoBehaviour
         anim.SetBool("idle", false);
         anim.SetBool("sniff", false);
         anim.SetBool("sit", false);
+    }
+
+    bool PlayerIsVisible()
+    {
+        RaycastHit hit;
+
+        Vector3 dogPos = transform.position;
+
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return false;
+        }
+
+        if (Physics.Raycast(new Vector3(dogPos.x, dogPos.y + 1, dogPos.z), (Camera.main.transform.position - dogPos), out hit) && hit.transform == Camera.main.transform)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void IdleStation()
