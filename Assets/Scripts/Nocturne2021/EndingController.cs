@@ -62,15 +62,15 @@ public class EndingController : MonoBehaviour
 
     public void SteepedInSecrecy()
     {
-        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 10);
-       
-        //Start visual ending
-        P2.SetActive(false);
-        Instantiate(SecrecyImage, offsetPosition, Quaternion.identity);
+        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
 
         //Start audio ending
         switchingSoundSource.PlayOneShot(SteepedInSecrecy_Sound);
         switchingSoundSource.PlayOneShot(TellFokEndingSound);
+
+        //Start visual ending
+        P2.SetActive(false);
+        Instantiate(SecrecyImage, offsetPosition, Quaternion.identity);
 
         //Thanks for playing Spill
         StartCoroutine(EndingTime(30));

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    float timeElapsed;
+  
     float lerpDuration = 2;
     public Vector3 initialStartRotation;
     public Vector3 initialEndRotation;
-    Vector3 valueToLerp;
     bool isOpen = false;
     bool neverOpened = true;
 
@@ -36,12 +35,12 @@ public class OpenDoor : MonoBehaviour
 
         while (timeElapsed < lerpDuration)
         {
-            float t = timeElapsed / lerpDuration;
-            t = t * t * (3f - 2f * t);
-            valueToLerp = Vector3.Lerp(start, end, t);
+            //float t = timeElapsed / lerpDuration;
+            //t = t * t * (3f - 2f * t);
+            //valueToLerp = Vector3.Lerp(start, end, t);
 
-            Door.transform.localRotation = Quaternion.Euler(valueToLerp.x, valueToLerp.y, valueToLerp.z);
-            timeElapsed += Time.deltaTime * speed;
+            //Door.transform.localRotation = Quaternion.Euler(valueToLerp.x, valueToLerp.y, valueToLerp.z);
+            //timeElapsed += Time.deltaTime * speed;
 
             yield return null;
         }

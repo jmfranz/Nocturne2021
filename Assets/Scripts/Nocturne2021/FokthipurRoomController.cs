@@ -32,6 +32,7 @@ public class FokthipurRoomController : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip doorIsLocked;
     [SerializeField] AudioClip doorSound;
+    public DoorAnimation doorAnimation;
 
     List<GameObject> lockpicks;
     float lerpDuration = 1;
@@ -81,7 +82,9 @@ public class FokthipurRoomController : MonoBehaviour
         } 
         else if (!doorLocked && !cogs.isClose(Player, door, 1) && openDoor.Status == OpenDoor.DoorStatus.Open)
         {
+            
             StartCoroutine(openDoor.MoveDoor(openDoor.initialEndRotation, openDoor.initialStartRotation));
+
         }
     }
 
@@ -112,7 +115,8 @@ public class FokthipurRoomController : MonoBehaviour
 
                     //Stop using the keyword Recorgnizer object
                     keywordRecognizer.Stop();
-
+                    Debug.Log("set to true outside");
+                    doorAnimation.doorOpened = true;
                     Debug.Log("Door has been unlocked");
 
                     return;
