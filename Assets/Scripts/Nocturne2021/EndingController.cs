@@ -71,10 +71,6 @@ public class EndingController : MonoBehaviour
         switchingSoundSource.PlayOneShot(SteepedInSecrecy_Sound);
         switchingSoundSource.PlayOneShot(TellFokEndingSound);
 
-        //Start visual ending
-        P2.SetActive(false);
-        Instantiate(SecrecyImage, offsetPosition, Quaternion.identity);
-
         //Thanks for playing Spill
         StartCoroutine(EndingTime(40));
     }

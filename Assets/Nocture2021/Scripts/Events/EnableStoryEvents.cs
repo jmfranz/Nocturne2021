@@ -13,19 +13,13 @@ public class EnableStoryEvents : MonoBehaviour
 {
     public ConditionalEventComponent startCondition;
 
-    public List<GameObject> avatars;
+    public GameObject avatars;
 
     public void EnableEventsTriggers()
     {
         //Enable the Dog Nav
-        if (avatars[0].GetComponent<PhotonView>().IsMine)
-        {          
-            foreach (GameObject person in avatars)
-            {
-                person.GetComponent<NavMeshAgent>().enabled = true;
-                person.GetComponent<AvatarController>().enabled = true;
-            }
-
+        if (avatars.GetComponent<PhotonView>().IsMine)
+        {    
             if (startCondition != null)
             {
                 startCondition.Complete = true;
