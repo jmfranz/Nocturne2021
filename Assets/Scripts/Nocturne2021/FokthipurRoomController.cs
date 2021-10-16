@@ -55,7 +55,7 @@ public class FokthipurRoomController : MonoBehaviour
         convoSecretKeyword.Add("Unluck", UnlockDoor);
         convoSecretKeyword.Add("Open", UnlockDoor);
 
-        keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Low);
+        keywordRecognizer = new KeywordRecognizer(convoSecretKeyword.Keys.ToArray(), ConfidenceLevel.Medium);
 
         //Add the event RecognizeSpeech to the keywordRecognizer object
         keywordRecognizer.OnPhraseRecognized += RecocorgnizedSpeech;
