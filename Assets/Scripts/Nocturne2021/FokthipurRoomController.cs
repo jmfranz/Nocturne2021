@@ -38,6 +38,8 @@ public class FokthipurRoomController : MonoBehaviour
     float lerpDuration = 1;
     Vector3 valueToLerp;
 
+    public StoryEventComponent storyEventComponent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,8 @@ public class FokthipurRoomController : MonoBehaviour
                     StartCoroutine(LockpickInInventory());
                     GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
 
+                    storyEventComponent.WriteEventStartRequest("DoorUnlocked");
+
                     //Stop using the keyword Recorgnizer object
                     keywordRecognizer.Stop();
                     //Door animation
@@ -116,6 +120,7 @@ public class FokthipurRoomController : MonoBehaviour
     public bool GetIsDoorLocked()
     {
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorLocked", true);
+        storyEventComponent.WriteEventStartRequest("DoorLocked");
         return doorLocked;
     }
 

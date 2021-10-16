@@ -31,6 +31,8 @@ public class Strikes : MonoBehaviour
     public AudioClip Strike3;
     public AudioSource Source;
 
+    public StoryEventComponent storyEventComponent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,10 +93,12 @@ public class Strikes : MonoBehaviour
             case 1:
                 Source.PlayOneShot(Strike1);
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike1", true);
+                storyEventComponent.WriteEventStartRequest("Strike1");
                 break;
             case 2:
                 Source.PlayOneShot(Strike2);
                 GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike2", true);
+                storyEventComponent.WriteEventStartRequest("Strike2");
                 break;
             case 3:
                 StartCoroutine(Strike3_Coroutine());
@@ -137,6 +141,7 @@ public class Strikes : MonoBehaviour
         Source.PlayOneShot(Strike3);
         yield return new WaitForSeconds(3);
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
+        storyEventComponent.WriteEventStartRequest("Strike3");
         kickOut = true;
     }
 

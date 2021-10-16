@@ -32,7 +32,9 @@ public class EndingController : MonoBehaviour
     public Strikes strikes;
 
     bool endStarted;
-    
+
+    public StoryEventComponent storyEventComponent;
+
     void Start()
     {
         endStarted = false;
@@ -44,16 +46,22 @@ public class EndingController : MonoBehaviour
         if (!endStarted && TellFok._remainingLines.Count == 0)
         {
             StartCoroutine(EndingTime(40, SecrecyImage, SteepedInSecrecy_Sound, TellFokEndingSound));
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("TellFok", true);
+            storyEventComponent.WriteEventStartRequest("TellFok");
             endStarted = true;
         }
         if (!endStarted && TellCatherine._remainingLines.Count == 0)
         {
             StartCoroutine(EndingTime(40, ScandalImage, SteepedInScandal_Sound, TellCatEndingSound));
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("TellCatherine", true);
+            storyEventComponent.WriteEventStartRequest("TellCatherine");
             endStarted = true;
         }
         if (!endStarted && strikes.kickOut)
         {
             StartCoroutine(EndingTime(40, CreatureImage, CreatureSound, TheCreature_Sound));
+            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("KickedOut", true);
+            storyEventComponent.WriteEventStartRequest("KickedOut");
             endStarted = true;
         }
     }

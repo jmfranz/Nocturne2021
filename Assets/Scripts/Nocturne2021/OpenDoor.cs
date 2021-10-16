@@ -19,12 +19,16 @@ public class OpenDoor : MonoBehaviour
     public enum DoorStatus { Open, Close }
     public DoorStatus Status = DoorStatus.Close; // At RunTime Door is closed 
 
+    public StoryEventComponent storyEventComponent;
 
     private void Update()
     {
         if (neverOpened && isOpen)
         {
            GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("InFoksRoom", true);
+
+            storyEventComponent.WriteEventStartRequest("InFoksRoom");
+
             neverOpened = false;
         }
     }

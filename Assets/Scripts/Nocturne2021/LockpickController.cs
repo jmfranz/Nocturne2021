@@ -20,6 +20,8 @@ public class LockpickController : MonoBehaviour
 
     List<GameObject> allLockpicks;
 
+    public StoryEventComponent storyEventComponent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class LockpickController : MonoBehaviour
         StartCoroutine(TakeLockpickInfoText());
         inventory.AddItem(thisLockpick);
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("TookLockpick", true);
+        storyEventComponent.WriteEventStartRequest("TookLockpick");
         RemoveLockpick(thisLockpick);
     }
 
