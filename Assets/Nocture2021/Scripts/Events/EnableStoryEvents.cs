@@ -13,12 +13,13 @@ public class EnableStoryEvents : MonoBehaviour
 {
     public ConditionalEventComponent startCondition;
 
-    public GameObject avatars;
-
     public void EnableEventsTriggers()
     {
+
+        var thisObject = GameObject.FindGameObjectWithTag("IsAgent");
+
         //Enable the Dog Nav
-        if (avatars.GetComponent<PhotonView>().IsMine)
+        if (thisObject.GetComponent<PhotonView>().IsMine)
         {    
             if (startCondition != null)
             {

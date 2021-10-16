@@ -70,12 +70,6 @@ public class FokthipurRoomController : MonoBehaviour
 
     private void Update()
     {
-        if (cogs.isClose(Player, doorChain, 2))
-        {
-            ApproachDoor();
-            Debug.Log("Player approached the door");
-        }
-
         if (!doorLocked && cogs.isClose(Player, door, 1) && openDoor.Status == OpenDoor.DoorStatus.Close)
         {
             StartCoroutine(openDoor.MoveDoor(openDoor.initialStartRotation, openDoor.initialEndRotation));
@@ -85,16 +79,6 @@ public class FokthipurRoomController : MonoBehaviour
             
             StartCoroutine(openDoor.MoveDoor(openDoor.initialEndRotation, openDoor.initialStartRotation));
 
-        }
-    }
-
-    public void ApproachDoor()
-    {
-        Debug.Log("approach started");
-        if (doorLocked)
-        {
-            Debug.Log("Door has been approached");
-            UnlockDoorButton.gameObject.SetActive(true);
         }
     }
 
@@ -110,12 +94,11 @@ public class FokthipurRoomController : MonoBehaviour
                     doorChain.SetActive(false);
                     doorLock.SetActive(false);
                     StartCoroutine(LockpickInInventory());
-                    UnlockDoorButton.gameObject.SetActive(false);
                     GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("DoorUnlocked", true);
 
                     //Stop using the keyword Recorgnizer object
                     keywordRecognizer.Stop();
-                    Debug.Log("set to true outside");
+                    //Door animation
                     doorAnimation.doorOpened = true;
                     Debug.Log("Door has been unlocked");
 
