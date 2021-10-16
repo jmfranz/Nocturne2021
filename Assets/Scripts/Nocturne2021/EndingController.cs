@@ -9,7 +9,7 @@ public class EndingController : MonoBehaviour
 
     public GameObject End;
 
-    public GameObject TurnOff;
+    public List<GameObject> TurnOff; 
 
     public TMPro.TMP_Text strikeBar;
     public TMPro.TMP_Text endStrikeBar;
@@ -29,6 +29,7 @@ public class EndingController : MonoBehaviour
     public GameObject Player;
 
     Vector3 offsetPosition;
+    public Strikes strikes;
 
     bool endStarted;
     
@@ -42,23 +43,44 @@ public class EndingController : MonoBehaviour
     {
         if (!endStarted && TellFok._remainingLines.Count == 0)
         {
-            SteepedInSecrecy();
+            StartCoroutine(EndingTime(40, SecrecyImage, SteepedInSecrecy_Sound, TellFokEndingSound));
             endStarted = true;
         }
         if (!endStarted && TellCatherine._remainingLines.Count == 0)
         {
-            SteepedInScandal();
+            StartCoroutine(EndingTime(40, ScandalImage, SteepedInScandal_Sound, TellCatEndingSound));
+            endStarted = true;
+        }
+        if (!endStarted && strikes.kickOut)
+        {
+            StartCoroutine(EndingTime(40, CreatureImage, CreatureSound, TheCreature_Sound));
             endStarted = true;
         }
     }
 
-    public IEnumerator EndingTime(int time)
+    public IEnumerator EndingTime(int time, GameObject image, AudioClip newspaperClip, AudioClip endSound)
     {
+        offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
+
+        //Start visual ending
+        foreach (var obj in TurnOff)
+        {
+            obj.SetActive(false);
+        }
+        Instantiate(image, offsetPosition, Quaternion.identity);
+
+        //Start audio ending
+        switchingSoundSource.PlayOneShot(newspaperClip);
+        switchingSoundSource.PlayOneShot(endSound);
+
+        //Ending words
         yield return new WaitForSeconds(time);
         End.SetActive(true);
     }
 
-    public void SteepedInSecrecy()
+
+
+    /*public void SteepedInSecrecy()
     {
 
         offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
@@ -89,14 +111,17 @@ public class EndingController : MonoBehaviour
 
         //Thanks for playing Spill
         StartCoroutine(EndingTime(40));
-    }
+    
 
     public void TheCreature_GetKickedOut()
     {
         offsetPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + 14);
 
         //Start visual ending
-        TurnOff.SetActive(false);
+        foreach (var obj in TurnOff)
+        {
+            obj.SetActive(false);
+        }
         Instantiate(CreatureImage, offsetPosition, Quaternion.identity);
 
         //Start audio ending
@@ -105,5 +130,5 @@ public class EndingController : MonoBehaviour
 
         //Thanks for playing Spill
         StartCoroutine(EndingTime(40));
-    }
+    }*/
 }

@@ -22,6 +22,7 @@ public class Strikes : MonoBehaviour
     bool FBStrike;
     bool LFStrike;
     bool FLStrike;
+    public bool kickOut;
 
     public EndingController ending;
 
@@ -39,6 +40,7 @@ public class Strikes : MonoBehaviour
         FBStrike = false;
         LFStrike = false;
         FLStrike = false;
+        kickOut = false;
 
         currentStrikes = 0;
         SetStrikes();
@@ -135,7 +137,7 @@ public class Strikes : MonoBehaviour
         Source.PlayOneShot(Strike3);
         yield return new WaitForSeconds(3);
         GameObject.Find("Event Data Synchronization").GetComponent<EventDataSync>().SetEventData("Strike3", true);
-        ending.TheCreature_GetKickedOut();
+        kickOut = true;
     }
 
 }
