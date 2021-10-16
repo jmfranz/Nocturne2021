@@ -138,10 +138,7 @@ public class FokthipurRoomController : MonoBehaviour
 
     IEnumerator LockpickInInventory()
     {
-        if (audioSource.isPlaying == false)
-        {
-            audioSource.PlayOneShot(doorSound);
-        }
+        audioSource.PlayOneShot(doorSound);
         noLockpickText.SetText("Door is unlocked.  Lockpick has been removed from inventory.");
         yield return new WaitForSeconds(2);
         noLockpickText.SetText(" ");
