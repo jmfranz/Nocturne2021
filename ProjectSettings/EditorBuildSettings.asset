@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LoaderScene.unity
     guid: 3c31428b21e7c3c479e769816b4a9207
   - enabled: 1
-    path: Assets/Scenes/StandvilleAuthor.unity
-    guid: 21c5b17520323f0479c5de1bc5e2c334
-  - enabled: 1
-    path: Assets/Scenes/StandvilleAuthorAwareGuide.unity
-    guid: 89d9344254323b544a3cc395e092bc0e
-  - enabled: 1
     path: Assets/Scenes/Nocturne2021/SpillSS.unity
     guid: 41521482e570ecf48a96253d2d8bb5ea
   m_configObjects:
