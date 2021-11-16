@@ -186,72 +186,72 @@ public class Controller : MonoBehaviour {
         ToggleLinePath();
     }
 
-    public void GenerateHeatmap() 
-    {
-        if (enableHeatmapButton.interactable) return;
-        heatmapTexture = new Texture2D(heatmapWidth, heatmapHeight, TextureFormat.RGB24, false);
-        heatmapTexture.filterMode = FilterMode.Point;
-        float[,] data = new float[heatmapHeight, heatmapWidth];
-        for (int i = 1; i < positions.Count; i++) 
-        {
-            Vector2 pos0 = mapCamera.WorldToScreenPoint(positions[i - 1]);
-            Vector2 pos1 = mapCamera.WorldToScreenPoint(positions[i]);
-            int x0 = Mathf.RoundToInt(pos0.x * heatmapWidth / mapCamera.pixelWidth);
-            int y0 = Mathf.RoundToInt(pos0.y * heatmapHeight / mapCamera.pixelHeight);
-            int x1 = Mathf.RoundToInt(pos1.x * heatmapWidth / mapCamera.pixelWidth);
-            int y1 = Mathf.RoundToInt(pos1.y * heatmapHeight / mapCamera.pixelHeight);
-            List<int[]> lines = new List<int[]>();
-            int deltaX = Mathf.Abs(x1 - x0);
-            int signX = x0 < x1 ? 1 : -1;
-            int deltaY = -Mathf.Abs(y1 - y0);
-            int signY = y0 < y1 ? 1 : -1;
-            int error = deltaX + deltaY;
-            while (true) 
-            {
-                if (x0 == x1 && y0 == y1) break;
-                lines.Add(new int[] { x0, y0 });
-                int error2 = 2 * error;
-                if (error2 >= deltaY) 
-                {
-                    error += deltaY;
-                    x0 += signX;
-                }
-                if (error2 <= deltaX) 
-                {
-                    error += deltaX;
-                    y0 += signY;
-                }
-            }
-            if (lines.Count <= 0)
-                lines.Add(new int[] { x0, y0 });
-            float value = (Read(i) - Read(i - 1)) / lines.Count;
-            for (int j = 0; j < lines.Count; j++)
-                data[lines[j][1], lines[j][0]] += value;
-        }
-        float[,] smoothed = new float[heatmapHeight, heatmapWidth];
-        for (int i = 0; i < heatmapHeight; i++)
-            for (int j = 0; j < heatmapWidth; j++)
-                for (int k = 0, y = i - 2; k < 5; k++, y++)
-                    for (int l = 0, x = j - 2; l < 5; l++, x++)
-                        if (x >= 0 && y >= 0 && x < heatmapWidth && y < heatmapHeight)
-                            smoothed[i, j] += data[y, x] * kernel[k, l] / 273f;
-        float max = 0;
-        for (int i = 0; i < heatmapHeight; i++)
-            for (int j = 0; j < heatmapWidth; j++)
-                max = Mathf.Max(max, smoothed[i, j]);
-        for (int i = 0; i < heatmapHeight; i++) {
-            for (int j = 0; j < heatmapWidth; j++) {
-                float h = Mathf.Exp(-50 * smoothed[i, j] / max) * 2f / 3f;
-                float s = smoothed[i, j] == 0 ? 0 : 1;
-                heatmapTexture.SetPixel(j, i, Color.HSVToRGB(h, s, 1));
-            }
-        }
-        heatmapTexture.Apply();
-        heatmap.GetComponent<Renderer>().sharedMaterial.mainTexture = heatmapTexture;
-        heatmap.transform.localScale = new Vector3(mapCamera.orthographicSize * 2, mapCamera.orthographicSize * 2);
-        enableHeatmapButton.interactable = true;
-        ToggleHeatmap();
-    }
+    //public void GenerateHeatmap() 
+    //{
+    //    if (enableHeatmapButton.interactable) return;
+    //    heatmapTexture = new Texture2D(heatmapWidth, heatmapHeight, TextureFormat.RGB24, false);
+    //    heatmapTexture.filterMode = FilterMode.Point;
+    //    float[,] data = new float[heatmapHeight, heatmapWidth];
+    //    for (int i = 1; i < positions.Count; i++) 
+    //    {
+    //        Vector2 pos0 = mapCamera.WorldToScreenPoint(positions[i - 1]);
+    //        Vector2 pos1 = mapCamera.WorldToScreenPoint(positions[i]);
+    //        int x0 = Mathf.RoundToInt(pos0.x * heatmapWidth / mapCamera.pixelWidth);
+    //        int y0 = Mathf.RoundToInt(pos0.y * heatmapHeight / mapCamera.pixelHeight);
+    //        int x1 = Mathf.RoundToInt(pos1.x * heatmapWidth / mapCamera.pixelWidth);
+    //        int y1 = Mathf.RoundToInt(pos1.y * heatmapHeight / mapCamera.pixelHeight);
+    //        List<int[]> lines = new List<int[]>();
+    //        int deltaX = Mathf.Abs(x1 - x0);
+    //        int signX = x0 < x1 ? 1 : -1;
+    //        int deltaY = -Mathf.Abs(y1 - y0);
+    //        int signY = y0 < y1 ? 1 : -1;
+    //        int error = deltaX + deltaY;
+    //        while (true) 
+    //        {
+    //            if (x0 == x1 && y0 == y1) break;
+    //            lines.Add(new int[] { x0, y0 });
+    //            int error2 = 2 * error;
+    //            if (error2 >= deltaY) 
+    //            {
+    //                error += deltaY;
+    //                x0 += signX;
+    //            }
+    //            if (error2 <= deltaX) 
+    //            {
+    //                error += deltaX;
+    //                y0 += signY;
+    //            }
+    //        }
+    //        if (lines.Count <= 0)
+    //            lines.Add(new int[] { x0, y0 });
+    //        float value = (Read(i) - Read(i - 1)) / lines.Count;
+    //        for (int j = 0; j < lines.Count; j++)
+    //            data[lines[j][1], lines[j][0]] += value;
+    //    }
+    //    float[,] smoothed = new float[heatmapHeight, heatmapWidth];
+    //    for (int i = 0; i < heatmapHeight; i++)
+    //        for (int j = 0; j < heatmapWidth; j++)
+    //            for (int k = 0, y = i - 2; k < 5; k++, y++)
+    //                for (int l = 0, x = j - 2; l < 5; l++, x++)
+    //                    if (x >= 0 && y >= 0 && x < heatmapWidth && y < heatmapHeight)
+    //                        smoothed[i, j] += data[y, x] * kernel[k, l] / 273f;
+    //    float max = 0;
+    //    for (int i = 0; i < heatmapHeight; i++)
+    //        for (int j = 0; j < heatmapWidth; j++)
+    //            max = Mathf.Max(max, smoothed[i, j]);
+    //    for (int i = 0; i < heatmapHeight; i++) {
+    //        for (int j = 0; j < heatmapWidth; j++) {
+    //            float h = Mathf.Exp(-50 * smoothed[i, j] / max) * 2f / 3f;
+    //            float s = smoothed[i, j] == 0 ? 0 : 1;
+    //            heatmapTexture.SetPixel(j, i, Color.HSVToRGB(h, s, 1));
+    //        }
+    //    }
+    //    heatmapTexture.Apply();
+    //    heatmap.GetComponent<Renderer>().sharedMaterial.mainTexture = heatmapTexture;
+    //    heatmap.transform.localScale = new Vector3(mapCamera.orthographicSize * 2, mapCamera.orthographicSize * 2);
+    //    enableHeatmapButton.interactable = true;
+    //    ToggleHeatmap();
+    //}
 
     public void OpenFile() 
     {
@@ -263,21 +263,21 @@ public class Controller : MonoBehaviour {
         }
     }
 
-    public void GeneratePng() 
-    {
-        RenderTexture temp = RenderTexture.active;
-        mapCamera.targetTexture = new RenderTexture(1024, 1024, 24);
-        mapCamera.Render();
-        RenderTexture.active = mapCamera.targetTexture;
-        Texture2D result = new Texture2D(1024, 1024, TextureFormat.RGB24, false);
-        result.ReadPixels(new Rect(0, 0, 1024, 1024), 0, 0);
-        RenderTexture.active = temp;
-        mapCamera.targetTexture = map;
-        string heatmapStatus = heatmap.enabled ? "1" : "0";
-        string linePathStatus = linePath.enabled ? "1" : "0";
-        string name = dateText.text.Split(' ')[1] + "_" + timeText.text.Split(' ')[1].Replace(':', '-') + "_" + heatmapStatus + "_" + linePathStatus;
-        File.WriteAllBytes(saveField.text + "\\" + name + ".png", result.EncodeToPNG());
-    }
+    //public void GeneratePng() 
+    //{
+    //    RenderTexture temp = RenderTexture.active;
+    //    mapCamera.targetTexture = new RenderTexture(1024, 1024, 24);
+    //    mapCamera.Render();
+    //    RenderTexture.active = mapCamera.targetTexture;
+    //    Texture2D result = new Texture2D(1024, 1024, TextureFormat.RGB24, false);
+    //    result.ReadPixels(new Rect(0, 0, 1024, 1024), 0, 0);
+    //    RenderTexture.active = temp;
+    //    mapCamera.targetTexture = map;
+    //    string heatmapStatus = heatmap.enabled ? "1" : "0";
+    //    string linePathStatus = linePath.enabled ? "1" : "0";
+    //    string name = dateText.text.Split(' ')[1] + "_" + timeText.text.Split(' ')[1].Replace(':', '-') + "_" + heatmapStatus + "_" + linePathStatus;
+    //    File.WriteAllBytes(saveField.text + "\\" + name + ".png", result.EncodeToPNG());
+    //}
 
 
     public void MapCameraZoomIn()
