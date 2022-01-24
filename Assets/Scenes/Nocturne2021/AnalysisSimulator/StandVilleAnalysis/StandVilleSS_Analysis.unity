@@ -2067,6 +2067,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4b9053b292b2e449ee305ccf1c592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  DogRoomTrigger: {fileID: 0}
+  Shadow: {fileID: 0}
+  Max: {fileID: 0}
+  ShadowChild: {fileID: 0}
+  MaxInOrb: {fileID: 0}
+  LastRoomObjects: {fileID: 0}
+  DialogueBeforeShowingTrailToDogRoom: {fileID: 0}
+  NoEventCondition: {fileID: 0}
+  YesEventCondition: {fileID: 0}
+  EnteredMainRoomForYesEnding: {fileID: 0}
+  DogRoomConvo1: {fileID: 0}
+  SpeechInputHandler: {fileID: 0}
+  DogRoomConvo1_DialogueComponent: {fileID: 0}
+  DogMovementController: {fileID: 0}
+  DogDialogueRoom1: {fileID: 0}
+  DialogueLastRoom: {fileID: 0}
+  TimeToWaitBeforeShowingMaxInOrb: {fileID: 0}
+  ShadowLastRoomLocation: {fileID: 0}
+  MapToDogRoomPathFollower: {fileID: 0}
+  LastToMainRoomPathFollower: {fileID: 0}
+  DogEnterLocationTrigger: {fileID: 0}
+  MainRoomTrigger: {fileID: 0}
+  DogAudioSource: {fileID: 0}
+  ScaryMusic: {fileID: 0}
+  FadeShadow: {fileID: 0}
+  EndingMessage: {fileID: 0}
+  MainRoomConvoEnd: {fileID: 0}
 --- !u!114 &132284124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2756,7 +2784,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 174488661}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &174488661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3527,7 +3554,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 204358519}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &204358519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,7 +4137,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 233596324}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &233596324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4386,6 +4411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c22986f75485f1469ba44705f613d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 0}
+  parentAnchor: {fileID: 0}
+  RoomName: Nocturne
+  Walls: []
+  InGameObjects: {fileID: 0}
+  AwareGuideObjects: {fileID: 0}
 --- !u!4 &234199318
 Transform:
   m_ObjectHideFlags: 0
@@ -4837,7 +4868,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 273429971}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &273429971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5598,7 +5628,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 294677989}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!82 &294677992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6177,6 +6206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca916f4429a60243ad163171c700591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConditionalEventComponent: {fileID: 0}
+  ReachedDestination: 0
 --- !u!54 &347161563
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6287,7 +6318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WriteWaitTime: 1
   MaxAudioTime: 3
-  _logFileSetUp: 0
 --- !u!114 &358907597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6720,6 +6750,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b5f3d13ccc2cb4f8cf649acccf87cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DogState: 0
+  ConditionalMadeItToMidPoint1: {fileID: 0}
+  ConditionalMadeItToMidPoint2: {fileID: 0}
+  MadeItToMainRoom: {fileID: 0}
+  MidPointConversation: {fileID: 0}
+  MidPointConvoToMainRoom: {fileID: 0}
+  ConditionalMadeItToLastRoom: {fileID: 0}
+  _midPointLoc: {fileID: 0}
+  _lastRoomLoc: {fileID: 0}
+  _mainRoomLoc: {fileID: 0}
 --- !u!114 &369992240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6974,7 +7014,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 372867644}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &372867644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7836,7 +7875,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 401144707}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &401144707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8773,7 +8811,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 456597445}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &456597445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9302,7 +9339,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 480797467}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &480797467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10023,7 +10059,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 497688951}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &497688951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11473,6 +11508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca916f4429a60243ad163171c700591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConditionalEventComponent: {fileID: 0}
+  ReachedDestination: 0
 --- !u!54 &569202631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11982,7 +12019,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 580475685}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &580475685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12347,6 +12383,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fcaeeee9fb9ad41b59b30596e1fda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DontTrustDogComments: {fileID: 0}
+  DogRoomToPlantariumPathFollower: {fileID: 0}
+  PlanetariumEnterLocationTrigger: {fileID: 0}
+  EnteredPlanetarium: {fileID: 0}
+  CraterRoomObjects: {fileID: 0}
+  Max: {fileID: 0}
+  Dog: {fileID: 0}
+  Shadow: {fileID: 0}
+  ShadowPositionInCraterRoom: {fileID: 0}
+  JohnReadsMural: {fileID: 0}
+  GoToMainRoom: {fileID: 0}
+  CraterRoomToMainRoomPathFollower: {fileID: 0}
+  MainRoomEnterLocationTrigger: {fileID: 0}
+  EnteredMainRoom: {fileID: 0}
+  MainRoomTrigger: {fileID: 0}
+  MainRoomObjects: {fileID: 0}
+  ScaryMusic: {fileID: 0}
+  PoliceConvo1: {fileID: 0}
+  PoliceConvo2: {fileID: 0}
+  Doctor: {fileID: 0}
+  Player: {fileID: 0}
+  DoctorJohnConvo: {fileID: 0}
+  ShadowDialogue: {fileID: 0}
+  MaxScreams: {fileID: 0}
+  TimerEventComponent: {fileID: 0}
+  FadeShadow: {fileID: 0}
+  EndingMessage: {fileID: 0}
 --- !u!114 &594376973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14094,9 +14157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!95 &717845259
 Animator:
   serializedVersion: 3
@@ -14128,6 +14190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151907b0613c6334b9a1191b78c9f6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  FollowPlayer: 0
 --- !u!114 &717845261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15005,7 +15069,6 @@ MonoBehaviour:
   Room: 
   EventName: Game Start
   EventStatus: 1
-  isSpill: 1
 --- !u!114 &769694152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15535,6 +15598,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aceddbaac5b43a044b0e1a149bc8a46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeToWaitBeforeHighlightingSecurityCamera: {fileID: 0}
+  SecurityCameraHighlight: {fileID: 0}
+  BathroomJohnFoundCam1: {fileID: 0}
+  BathroomBloodConvo: {fileID: 0}
+  StartGame: {fileID: 0}
+  BloodTextFade: {fileID: 0}
+  MapToSecurityRoomPathFollower: {fileID: 0}
+  SecurityEnterLocationTrigger: {fileID: 0}
 --- !u!114 &792375171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17839,6 +17910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca916f4429a60243ad163171c700591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConditionalEventComponent: {fileID: 0}
+  ReachedDestination: 0
 --- !u!54 &929296662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19200,7 +19273,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1031986395}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1031986395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20484,9 +20556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!95 &1081662360
 Animator:
   serializedVersion: 3
@@ -20534,6 +20605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151907b0613c6334b9a1191b78c9f6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  FollowPlayer: 0
 --- !u!114 &1081662363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20796,6 +20869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca916f4429a60243ad163171c700591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ConditionalEventComponent: {fileID: 0}
+  ReachedDestination: 0
 --- !u!54 &1086863937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21104,7 +21179,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1109380216}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1109380216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21339,6 +21413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a67e631d1538c46bc550fc57dc9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DavidStoryControllerPath2BathroomEvent: {fileID: 0}
+  MainCamera: {fileID: 0}
 --- !u!114 &1109380222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21850,7 +21926,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1149763404}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1149763404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22162,7 +22237,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1150572414}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1150572414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23373,7 +23447,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1222968363}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1222968363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23975,7 +24048,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1256634434}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1256634434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24270,7 +24342,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1259541911}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1259541911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24860,7 +24931,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1272670581}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1272670581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25676,7 +25746,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1322252881}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1322252881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26021,7 +26090,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1332097339}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1332097339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28703,7 +28771,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1516529255}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1516529255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32083,7 +32150,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1756956513}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1756956513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35512,7 +35578,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 1876365079}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &1876365079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37705,7 +37770,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 2017952277}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &2017952277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38936,7 +39000,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 2093937734}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!82 &2093937737
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39850,6 +39913,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc3aab17fcf12648803e6d8718f4d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScaryMusic: {fileID: 0}
+  ChaseTime: {fileID: 0}
+  ShadowChaseController: {fileID: 0}
+  DMLine: {fileID: 0}
+  Monitors: []
+  DogAudioSource: {fileID: 0}
 --- !u!114 &2120311946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40363,7 +40432,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 2129650361}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!82 &2129650364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40561,6 +40629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf061c33e31f1a43b7c7b10a9b7c203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DogAnimState: 2
+  multiplier: 1
 --- !u!114 &1148342101987112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40765,9 +40835,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41219,9 +41289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!1 &78962182685863294
 GameObject:
   m_ObjectHideFlags: 0
@@ -41698,9 +41767,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43546,9 +43615,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44047,9 +44116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!1 &1132177868522617414
 GameObject:
   m_ObjectHideFlags: 0
@@ -45648,9 +45716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1272670584}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!95 &1813727828046355584
 Animator:
   serializedVersion: 3
@@ -47197,9 +47264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!95 &2280577523471511560
 Animator:
   serializedVersion: 3
@@ -48615,9 +48681,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54265,9 +54331,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56024,9 +56090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1322252879}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!95 &6278726722469362413
 Animator:
   serializedVersion: 3
@@ -62173,7 +62238,6 @@ MonoBehaviour:
   DirectIntroduction: {fileID: 6292699960840905225}
   IsPlayerEavesdropping: 0
   InterruptOnTrueEvent: 1
-  photonNetwork: {fileID: 0}
 --- !u!114 &6292699960840905227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63003,9 +63067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!114 &6292699960914694971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65264,9 +65327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 1516529253}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!1 &6582406641341553803
 GameObject:
   m_ObjectHideFlags: 0
@@ -66025,9 +66087,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -67295,9 +67357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveNode: {fileID: 0}
-  _agent: {fileID: 0}
+  InConversationNode: 1
   _movementState: 0
-  arrived: 0
 --- !u!4 &7354814778771975260
 Transform:
   m_ObjectHideFlags: 0
@@ -70943,9 +71004,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
-  - {fileID: 2100000, guid: aa091788c97b10242960dd91d0894e44, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
+  - {fileID: 2100000, guid: 458850a611deb754199af130739732e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
