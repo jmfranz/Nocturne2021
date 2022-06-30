@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,14 +61,19 @@ public class InvertMap : MonoBehaviour
     //public GameObject linePath;
     public Text userIDText;
     public string fileName;
+    private Controller controller;
 
+    private bool isGeneratingFiles = false;
     void Start()
     {
         fix.qrs = new List<CorrectQRCodePosition>();
+        controller = GameObject.Find("Controller").GetComponent<Controller>();
+        ReadJson();
+
+
     }
 
-  
- 
+   
     [EasyButtons.Button]
     void SaveInfoToList()
     {
@@ -151,6 +157,37 @@ public class InvertMap : MonoBehaviour
         parentAnchor.transform.eulerAngles = new Vector3(0, 0, 0);
 
         mapCamera.GetComponent<Camera>().orthographicSize = 10;
+
+    }
+
+    [EasyButtons.Button]
+    public void GenratePngBatch()
+    {
+        Debug.Log("Please Wait Generating Files..");
+        string path = UnityEditor.EditorUtility.OpenFolderPanel(".CSV files Folder", "", "");
+        string[] files = System.IO.Directory.GetFiles(path);
+        string destination = UnityEditor.EditorUtility.OpenFolderPanel("Destination Folder", "", "");
+
+
+        try
+        {
+            foreach (string file in files)
+            {
+                string fileName = Path.GetFileName(file);
+                controller.OpenFile(file);
+                controller.GenerateHeatmap();
+                controller.GeneratePng(destination, fileName.Replace(".csv", ""));
+            }
+        }
+        catch (Exception)
+        {
+
+        }
+        finally
+        {
+            Debug.Log("Finished! All files generated at: " + destination);
+        }
+      
 
     }
 

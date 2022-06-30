@@ -254,8 +254,18 @@ public class Controller : MonoBehaviour {
             FixMapTool.GetComponent<InvertMap>().ReadJson();
 
         }
+    }
 
-        //ReadCSV(openField.text);
+    public void OpenFile(string path)
+    {
+        //string path = UnityEditor.EditorUtility.OpenFilePanel("open .csv log file", "", "csv");
+        if (path.Length != 0)
+        {
+            FixMapTool.GetComponent<InvertMap>().ResetAll();
+            ReadCSV(path);
+            FixMapTool.GetComponent<InvertMap>().ReadJson();
+
+        }
     }
 
     public void OpenFolder() {
@@ -281,6 +291,22 @@ public class Controller : MonoBehaviour {
         string linePathStatus = linePath.enabled ? "1" : "0";
         string name = dateText.text.Split(' ')[1] + "_" + timeText.text.Split(' ')[1].Replace(':', '-') + "_" + heatmapStatus + "_" + linePathStatus;
         File.WriteAllBytes(saveField.text + "\\" + name + ".png", result.EncodeToPNG());
+    }
+
+    public void GeneratePng(string path, string fileName)
+    {
+        RenderTexture temp = RenderTexture.active;
+        mapCamera.targetTexture = new RenderTexture(1024, 1024, 24);
+        mapCamera.Render();
+        RenderTexture.active = mapCamera.targetTexture;
+        Texture2D result = new Texture2D(1024, 1024, TextureFormat.RGB24, false);
+        result.ReadPixels(new Rect(0, 0, 1024, 1024), 0, 0);
+        RenderTexture.active = temp;
+        mapCamera.targetTexture = map;
+        string heatmapStatus = heatmap.enabled ? "1" : "0";
+        string linePathStatus = linePath.enabled ? "1" : "0";
+        string name = fileName + "_" + dateText.text.Split(' ')[1] + "_" + timeText.text.Split(' ')[1].Replace(':', '-') + "_" + heatmapStatus + "_" + linePathStatus;
+        File.WriteAllBytes(path + "\\" + name + ".png", result.EncodeToPNG());
     }
 
     float Read(int i) => times[i][0] * 3600f + times[i][1] * 60f + times[i][2] + times[i][3] / 1000f;
