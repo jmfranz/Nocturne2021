@@ -58,6 +58,8 @@ public class Controller : MonoBehaviour {
     List<string> masters = new List<string>();
     List<float> distances = new List<float>();
 
+    GameObject FixMapTool;
+
     void Update() {
         if (playing) {
             float value = timeSlider.value + Time.deltaTime;
@@ -67,6 +69,10 @@ public class Controller : MonoBehaviour {
         }
     }
 
+    public void Start()
+    {
+        FixMapTool = GameObject.Find("InvertMa");
+    }
     public void Play() => playing = true;
 
     public void Pause() => playing = false;
@@ -169,6 +175,7 @@ public class Controller : MonoBehaviour {
         linePathGradient.mode = GradientMode.Fixed;
         enableLinePathButton.interactable = true;
         ToggleLinePath();
+        FixMapTool.GetComponent<InvertMap>().AlignHeatmap();
     }
 
     public void GenerateHeatmap() {
@@ -231,14 +238,21 @@ public class Controller : MonoBehaviour {
         heatmap.transform.localScale = new Vector3(mapCamera.orthographicSize * 2, mapCamera.orthographicSize * 2);
         enableHeatmapButton.interactable = true;
         ToggleHeatmap();
+        FixMapTool.GetComponent<InvertMap>().AlignHeatmap();
     }
 
     public void OpenFile() {
+
+
         string path = UnityEditor.EditorUtility.OpenFilePanel("open .csv log file", "", "csv");
         if (path.Length != 0)
         {
             openField.text = path;
+
+            FixMapTool.GetComponent<InvertMap>().ResetAll();
             ReadCSV(openField.text);
+            FixMapTool.GetComponent<InvertMap>().ReadJson();
+
         }
 
         //ReadCSV(openField.text);
