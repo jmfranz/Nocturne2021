@@ -11,9 +11,16 @@ public class Controller : MonoBehaviour {
     public Camera mapCamera;
     public RenderTexture map;
 
+    public Transform viewCamera2;
+    public Camera mapCamera2;
+    public RenderTexture map2;
+
     [Header("Playback Controller")]
     public Slider timeSlider;
     bool playing;
+
+    public Slider timeSlider2;
+    bool playing2;
 
     [Header("Line Path")]
     public LineRenderer linePath;
@@ -45,9 +52,27 @@ public class Controller : MonoBehaviour {
     public Text sceneText;
     public Text isMasterText;
 
+    public Text userIDText2;
+    public Text dateText2;
+    public Text timeText2;
+    public Text posXText2;
+    public Text posYText2;
+    public Text posZText2;
+    public Text rotXText2;
+    public Text rotYText2;
+    public Text rotZText2;
+    public Text rotWText2;
+    public Text sceneText2;
+    public Text isMasterText2;
+
     [Header("Menu")]
     public InputField openField;
     public InputField saveField;
+
+
+    [Header("Menu")]
+    public InputField openField2;
+    public InputField saveField2;
 
     //GOD... this should have been an animation timeline..
     string id;
@@ -59,6 +84,15 @@ public class Controller : MonoBehaviour {
     List<string> masters = new List<string>();
     List<float> distances = new List<float>();
 
+    string id2;
+    string date2;
+    string scene2;
+    List<int[]> times2 = new List<int[]>();
+    List<Vector3> positions2 = new List<Vector3>();
+    List<Quaternion> rotations2 = new List<Quaternion>();
+    List<string> masters2 = new List<string>();
+    List<float> distances2 = new List<float>();
+
     GameObject FixMapTool;
 
     void Update() {
@@ -68,19 +102,38 @@ public class Controller : MonoBehaviour {
                 value = 0;
             timeSlider.value = value;
         }
+
+        if (playing2)
+        {
+            float value2 = timeSlider2.value + Time.deltaTime;
+            if (value2 > timeSlider2.maxValue)
+                value2 = 0;
+            timeSlider2.value = value2;
+        }
+        
     }
 
     public void Start()
     {
         FixMapTool = GameObject.Find("InvertMa");
     }
-    public void Play() => playing = true;
+    public void Play()
+    {
+        playing = true;
+        playing2 = true;
+    }
 
-    public void Pause() => playing = false;
+    public void Pause()
+    {
+        playing = false;
+        playing2 = false;
+    }
 
     public void Stop() {
         playing = false;
+        playing2 = false;
         timeSlider.value = 0;
+        timeSlider2.value = 0;
     }
 
     public void ToggleLinePath() {
@@ -128,6 +181,47 @@ public class Controller : MonoBehaviour {
             new GradientAlphaKey[] { new GradientAlphaKey(1, time), new GradientAlphaKey(0, 1) }
             );
         linePath.colorGradient = linePathGradient;
+
+        FixMapTool.GetComponent<InvertMap>().AlignHeatmap();
+    }
+
+    public void Seek2()
+    {
+        if (times2.Count == 0) return;
+        int i;
+        float startTime = Read2(0);
+        for (i = 1; i < times2.Count; i++)
+            if (Read2(i) - startTime >= timeSlider2.value)
+                break;
+        float lerp = (timeSlider2.value - Read2(i - 1)) / (Read2(i) - Read2(i - 1));
+        viewCamera2.position = Vector3.Lerp(positions2[i - 1], positions2[i], lerp);
+        viewCamera2.rotation = Quaternion.Lerp(rotations2[i - 1], rotations2[i], lerp);
+        userIDText2.text = "User ID\t: " + id2;
+        posXText2.text = "Pos X\t\t: " + viewCamera2.position.x.ToString("0.00");
+        posYText2.text = "Pos Y\t\t: " + viewCamera2.position.y.ToString("0.00");
+        posZText2.text = "Pos Z\t\t: " + viewCamera2.position.z.ToString("0.00");
+        rotXText2.text = "Rot X\t\t: " + viewCamera2.rotation.x.ToString("0.00");
+        rotYText2.text = "Rot Y\t\t: " + viewCamera2.rotation.y.ToString("0.00");
+        rotZText2.text = "Rot Z\t\t: " + viewCamera2.rotation.z.ToString("0.00");
+        rotWText2.text = "Rot W\t\t: " + viewCamera2.rotation.w.ToString("0.00");
+        sceneText2.text = "Scene\t\t: " + scene2;
+        isMasterText2.text = "Is Master\t: " + masters2[i - 1];
+        dateText2.text = "Date\t\t: " + date2;
+        timeText2.text = "Time\t: " +
+            times2[i - 1][0].ToString("00") + ":" +
+            times2[i - 1][1].ToString("00") + ":" +
+            times2[i - 1][2].ToString("00") + ":" +
+            times2[i - 1][3].ToString("000");
+        if (!linePath.enabled)
+            return;
+        float time = Mathf.Lerp(distances2[i - 1], distances2[i], lerp) / distances2[distances2.Count - 1];
+        linePathGradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.black, 0), new GradientColorKey(Color.black, 1) },
+            new GradientAlphaKey[] { new GradientAlphaKey(1, time), new GradientAlphaKey(0, 1) }
+            );
+        linePath.colorGradient = linePathGradient;
+
+        FixMapTool.GetComponent<InvertMap>().AlignHeatmap();
     }
 
     void ReadCSV(string path) {
@@ -162,6 +256,43 @@ public class Controller : MonoBehaviour {
         generateHeatmapButton.interactable = true;
         generateLinePathButton.interactable = true;
         Seek();
+    }
+
+    void ReadCSV2(string path)
+    {
+        heatmap.enabled = false;
+        enableLinePathButton.interactable = false;
+        linePath.enabled = false;
+        enableHeatmapButton.interactable = false;
+        bool header = true;
+        times2.Clear();
+        positions2.Clear();
+        rotations2.Clear();
+        masters2.Clear();
+        float maxX = 0, maxZ = 0;
+        foreach (string line in File.ReadAllLines(path))
+        {
+            if (header)
+            {
+                header = false;
+                continue;
+            }
+            string[] parts = line.Split(',');
+            id2 = parts[0];
+            date2 = parts[1];
+            times2.Add(new int[] { int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]) });
+            positions2.Add(new Vector3(float.Parse(parts[6]), float.Parse(parts[7]), float.Parse(parts[8])));
+            rotations2.Add(new Quaternion(float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]), float.Parse(parts[12])));
+            scene2 = parts[13];
+            masters2.Add(parts[14]);
+            maxX = Mathf.Max(maxX, Mathf.Abs(positions2[positions2.Count - 1].x - mapCamera2.transform.position.x));
+            maxZ = Mathf.Max(maxZ, Mathf.Abs(positions2[positions2.Count - 1].z - mapCamera2.transform.position.z));
+        }
+        mapCamera2.orthographicSize = Mathf.Max(maxX, maxZ) + 1;
+        timeSlider2.maxValue = Read2(times2.Count - 1) - Read2(0);
+        generateHeatmapButton.interactable = true;
+        generateLinePathButton.interactable = true;
+        Seek2();
     }
 
     public void GenerateLinePath() {
@@ -242,17 +373,29 @@ public class Controller : MonoBehaviour {
         FixMapTool.GetComponent<InvertMap>().AlignHeatmap();
     }
 
-    public void OpenFile() {
+    public void OpenFile(GameObject button) {
 
 
         string path = UnityEditor.EditorUtility.OpenFilePanel("open .csv log file", "", "csv");
         if (path.Length != 0)
         {
-            openField.text = path;
+            if (!button.name.Contains("2"))
+            {
+                openField.text = path;
 
-            FixMapTool.GetComponent<InvertMap>().ResetAll();
-            ReadCSV(openField.text);
-            FixMapTool.GetComponent<InvertMap>().ReadJson();
+                FixMapTool.GetComponent<InvertMap>().ResetAll();
+                ReadCSV(path);
+                FixMapTool.GetComponent<InvertMap>().ReadJson();
+            }
+            else
+            {
+                openField2.text = path;
+
+                FixMapTool.GetComponent<InvertMap>().ResetAll();
+                ReadCSV2(path);
+                FixMapTool.GetComponent<InvertMap>().ReadJson();
+            }
+
 
         }
     }
@@ -311,6 +454,8 @@ public class Controller : MonoBehaviour {
     }
 
     float Read(int i) => times[i][0] * 3600f + times[i][1] * 60f + times[i][2] + times[i][3] / 1000f;
+
+    float Read2(int i) => times2[i][0] * 3600f + times2[i][1] * 60f + times2[i][2] + times2[i][3] / 1000f;
 
     readonly float[,] kernel = {
         { 1, 4, 7, 4, 1 },
