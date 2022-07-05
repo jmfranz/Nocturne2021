@@ -49,6 +49,7 @@ public class Controller : MonoBehaviour {
     public InputField openField;
     public InputField saveField;
 
+    //GOD... this should have been an animation timeline..
     string id;
     string date;
     string scene;

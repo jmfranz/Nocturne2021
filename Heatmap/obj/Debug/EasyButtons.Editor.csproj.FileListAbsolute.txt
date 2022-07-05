@@ -1,2 +1,0 @@
-C:\0 - DALHOUSIE\1 - Nocturne\Nocturne2021\Heatmap\obj\Debug\EasyButtons.Editor.csproj.AssemblyReference.cache
-C:\0 - DALHOUSIE\1 - Nocturne\Nocturne2021\Heatmap\obj\Debug\EasyButtons.Editor.csproj.CoreCompileInputs.cache

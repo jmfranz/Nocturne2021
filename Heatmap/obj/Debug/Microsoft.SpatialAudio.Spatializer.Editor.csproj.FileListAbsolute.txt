@@ -1,2 +1,0 @@
-C:\0 - DALHOUSIE\1 - Nocturne\Nocturne2021\Heatmap\obj\Debug\Microsoft.SpatialAudio.Spatializer.Editor.csproj.AssemblyReference.cache
-C:\0 - DALHOUSIE\1 - Nocturne\Nocturne2021\Heatmap\obj\Debug\Microsoft.SpatialAudio.Spatializer.Editor.csproj.CoreCompileInputs.cache
