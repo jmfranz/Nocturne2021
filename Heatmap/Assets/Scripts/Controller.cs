@@ -95,12 +95,20 @@ public class Controller : MonoBehaviour {
 
     GameObject FixMapTool;
 
+    private float time;
+
+
     void Update() {
         if (playing) {
             float value = timeSlider.value + Time.deltaTime;
             if (value > timeSlider.maxValue)
                 value = 0;
-            timeSlider.value = value;
+
+            if (time >= Time.time +1f)
+            {
+                timeSlider.value = value;
+                time = Time.time;
+            }
         }
 
         if (playing2)
@@ -115,6 +123,7 @@ public class Controller : MonoBehaviour {
 
     public void Start()
     {
+        time = Time.time;
         FixMapTool = GameObject.Find("InvertMa");
     }
     public void Play()
