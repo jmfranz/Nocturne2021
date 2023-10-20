@@ -5,6 +5,10 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Using code from: https://github.com/needle-mirror/com.unity.recorder/blob/master/Samples~/MovieRecorder/MovieRecorderExample.cs
+using UnityEditor.Recorder;
+using System.Windows;
+
 public class Controller : MonoBehaviour {
 
     [Header("Cameras")]
@@ -15,6 +19,7 @@ public class Controller : MonoBehaviour {
     [Header("Playback Controller")]
     public Slider timeSlider;
     bool playing;
+    bool recording;
 
     [Header("Line Path")]
     public LineRenderer linePath;
@@ -50,6 +55,25 @@ public class Controller : MonoBehaviour {
     public InputField openField;
     public InputField saveField;
 
+    [Header("File Reader Parameters")]
+    public int HourIndex = 3;
+    public int MinIndex = 4;
+    public int SecIndex = 5;
+    public int MSIndex = 6;
+    public int Xindex = 20;
+    public int Yindex = 8;
+    public int Zindex = 21;
+    public int QtXindex = 10;
+    public int QtYindex = 11;
+    public int QtZindex = 12;
+    public int QtWindex = 13;
+
+    [Header("Anchor and Offset")]
+    public GameObject ParentAnchor;
+    public float XOffset = -0.65f;
+    public float YOffset = 0.0f;
+    public float ZOffset = -3.0f;
+
     string id;
     string date;
     string scene;
@@ -59,13 +83,30 @@ public class Controller : MonoBehaviour {
     List<string> masters = new List<string>();
     List<float> distances = new List<float>();
 
+    // Video recording
+    string vidOutputPath = "";
+    RecorderController m_RecorderController;
+    MovieRecorderSettings m_Settings = null;
+
     void Update() 
     {
         if (playing) 
         {
             float value = timeSlider.value + Time.deltaTime;
-            if (value > timeSlider.maxValue)
+            if (value >= timeSlider.maxValue) {
                 value = 0;
+                playing = false;
+
+                if (recording == true) {
+                    // STOP VIDEO RECORDING
+
+                    recording = false;
+                    m_RecorderController.StopRecording();
+                    EditorUtility.DisplayDialog("Done", "The video reconstruction should be saved soon!", "OK");
+
+                }
+
+            }
             timeSlider.value = value;
         }
     }
@@ -73,6 +114,41 @@ public class Controller : MonoBehaviour {
     public void Play() => playing = true;
 
     public void Pause() => playing = false;
+
+    public void PlaySave() {
+
+        if (vidOutputPath.Length > 0)
+        {
+            playing = true;
+
+            // START VIDEO RECORDING
+            recording = true;
+
+            var controllerSettings = ScriptableObject.CreateInstance<RecorderControllerSettings>();
+            m_RecorderController = new RecorderController(controllerSettings);
+
+            m_Settings = ScriptableObject.CreateInstance<MovieRecorderSettings>();
+            m_Settings.name = "My Video Recorder";
+            m_Settings.Enabled = true;
+
+            m_Settings.CaptureAlpha = true;
+            m_Settings.OutputFile = vidOutputPath;
+
+            controllerSettings.AddRecorderSettings(m_Settings);
+            controllerSettings.SetRecordModeToManual();
+            controllerSettings.FrameRate = 30.0f;
+
+            RecorderOptions.VerboseMode = false;
+            m_RecorderController.PrepareRecording();
+            m_RecorderController.StartRecording();
+
+        } 
+        else
+        {
+            EditorUtility.DisplayDialog("Alert", "A compatible CSV file must first be loaded.", "OK");
+        }
+        
+    }
 
     public void Stop() {
         playing = false;
@@ -153,10 +229,15 @@ public class Controller : MonoBehaviour {
             string[] parts = line.Split(',');
             id = parts[0];
             date = parts[1];
-            times.Add(new int[] { int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]) });
-            positions.Add(new Vector3(float.Parse(parts[6]), float.Parse(parts[7]), float.Parse(parts[8])));
-            rotations.Add(new Quaternion(float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]), float.Parse(parts[12])));
-            scene = parts[13];
+            //times.Add(new int[] { int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]) });
+            //positions.Add(new Vector3(float.Parse(parts[6]), float.Parse(parts[7]), float.Parse(parts[8])));
+            //rotations.Add(new Quaternion(float.Parse(parts[9]), float.Parse(parts[10]), float.Parse(parts[11]), float.Parse(parts[12])));
+            times.Add(new int[] { int.Parse(parts[HourIndex]), int.Parse(parts[MinIndex]), int.Parse(parts[SecIndex]), int.Parse(parts[MSIndex]) });
+            positions.Add(new Vector3(ParentAnchor.transform.position.x + XOffset + float.Parse(parts[Xindex]), 
+                ParentAnchor.transform.position.y + YOffset + float.Parse(parts[Yindex]), 
+                ParentAnchor.transform.position.z + ZOffset + float.Parse(parts[Zindex])));
+            rotations.Add(new Quaternion(float.Parse(parts[QtXindex]), float.Parse(parts[QtYindex]), float.Parse(parts[QtZindex]), float.Parse(parts[QtWindex])));
+            scene = "Standville";
             masters.Add(parts[14]);
             //to know the last max position to calculate the size of map (because some times user go out from map)
             maxX = Mathf.Max(maxX, Mathf.Abs(positions[positions.Count - 1].x - mapCamera.transform.position.x));
@@ -260,6 +341,7 @@ public class Controller : MonoBehaviour {
         {
             openField.text = path;
             ReadCSV(openField.text);
+            vidOutputPath = path + ".mp4";
         }
     }
 
